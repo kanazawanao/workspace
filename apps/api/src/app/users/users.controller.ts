@@ -6,8 +6,13 @@ import { Controller, Get, Param } from '@nestjs/common';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @Get()
+  async getUsers(): Promise<User[]> {
+    return this.usersService.findAll();
+  }
+
   @Get(':id')
-  async getData(@Param('id') id: string): Promise<User> {
+  async getUser(@Param('id') id: string): Promise<User> {
     return this.usersService.findOne(id);
   }
 }
