@@ -1,8 +1,10 @@
 import { Skill } from './skill.entity';
 import { SkillsService } from './skills.service';
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 
-@Controller('skills')
+@ApiTags('skills')
+@Controller('/api/skills')
 export class SkillsController {
   constructor(private readonly skillsService: SkillsService) {}
   @Get()
@@ -13,5 +15,12 @@ export class SkillsController {
   @Get(':id')
   async getUser(@Param('id') id: string): Promise<Skill> {
     return this.skillsService.findOne(id);
+  }
+
+  @Post()
+  @ApiOperation({ summary: 'post skill' })
+  @ApiBody({ type: Skill, description: 'skill' })
+  postUser(@Body() body: Skill) {
+    return body;
   }
 }

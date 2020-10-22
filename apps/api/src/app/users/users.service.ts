@@ -1,6 +1,7 @@
 import { User } from './user.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { throws } from 'assert';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -20,5 +21,9 @@ export class UsersService {
 
   async remove(id: string): Promise<void> {
     await this.usersRepository.delete(id);
+  }
+
+  post(user: User): User {
+    return this.usersRepository.create(user);
   }
 }

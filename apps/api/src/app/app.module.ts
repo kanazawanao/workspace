@@ -1,3 +1,5 @@
+import { Skill } from './skills/skill.entity';
+import { SkillsModule } from './skills/skills.module';
 import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
 import { Module } from '@nestjs/common';
@@ -12,10 +14,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'test',
-      entities: [User],
+      entities: [User, Skill],
       synchronize: true,
     }),
     UsersModule,
+    SkillsModule,
   ],
 })
 export class AppModule {}

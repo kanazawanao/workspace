@@ -21,4 +21,8 @@ export class SkillsService {
   async remove(id: string): Promise<void> {
     await this.skillsRepository.delete(id);
   }
+
+  post(skill: Skill): Skill {
+    return this.skillsRepository.create(skill);
+  }
 }

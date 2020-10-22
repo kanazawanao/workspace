@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IUser } from '@workspace/api-interfaces';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -7,11 +8,14 @@ export class User implements IUser {
   id: number;
 
   @Column()
+  @ApiProperty()
   firstName: string;
 
   @Column()
+  @ApiProperty()
   lastName: string;
 
   @Column({ length: 128 })
+  @ApiProperty()
   password: string;
 }
