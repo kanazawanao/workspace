@@ -34,9 +34,7 @@
     },
     "client-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "client"
-      ]
+      "implicitDependencies": ["client"]
     },
     "api": {
       "tags": []
@@ -49,9 +47,10 @@
     },
     "ui-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ui"
-      ]
+      "implicitDependencies": ["ui"]
+    },
+    "shared-service": {
+      "tags": []
     }
   }
 }

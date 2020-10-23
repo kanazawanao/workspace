@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@workspace/api-interfaces';
+import { IUser } from '@workspace/api-interfaces';
+import { HttpRequestService } from '@workspace/shared-service';
 
 @Component({
   selector: 'workspace-root',
@@ -8,6 +8,9 @@ import { Message } from '@workspace/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  constructor(private httpRequestService: HttpRequestService) {}
+
+  hello$ = this.httpRequestService.get<IUser>({
+    url: 'api/users/1',
+  });
 }
