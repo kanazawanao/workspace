@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/api-interfaces',
     '<rootDir>/libs/ui',
     '<rootDir>/libs/shared-service',
+    '<rootDir>/apps/client-manager',
   ],
 };

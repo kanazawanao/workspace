@@ -51,6 +51,13 @@
     },
     "shared-service": {
       "tags": []
+    },
+    "client-manager": {
+      "tags": []
+    },
+    "client-manager-e2e": {
+      "tags": [],
+      "implicitDependencies": ["client-manager"]
     }
   }
 }
