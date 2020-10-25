@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'workspace-about-container',
+  selector: 'client-about-container',
   templateUrl: './about-container.component.html',
   styleUrls: ['./about-container.component.scss'],
 })

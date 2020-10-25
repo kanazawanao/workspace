@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'workspace-skill-info-presenter',
+  selector: 'client-skill-info-presenter',
   templateUrl: './skill-info-presenter.component.html',
   styleUrls: ['./skill-info-presenter.component.scss'],
 })

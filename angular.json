@@ -10,7 +10,7 @@
       },
       "root": "apps/client",
       "sourceRoot": "apps/client/src",
-      "prefix": "workspace",
+      "prefix": "client",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -336,7 +336,7 @@
       },
       "root": "apps/client-manager",
       "sourceRoot": "apps/client-manager/src",
-      "prefix": "workspace",
+      "prefix": "client-manager",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
