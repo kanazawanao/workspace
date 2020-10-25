@@ -15,7 +15,9 @@ export class ListContainerComponent implements OnInit {
   presenterInputData: ListPresenterInputData;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setPresenterInputData();
+  }
 
   setPresenterInputData(): void {
     this.presenterInputData = {

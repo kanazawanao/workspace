@@ -3,15 +3,11 @@ import { ListPresenterComponent } from './presenter/list-presenter.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {
-  ListDataSource,
-  ListItem,
-} from './presenter/list-presenter-input-data';
 
 @NgModule({
   declarations: [ListPresenterComponent, ListContainerComponent],
-  imports: [CommonModule, ReactiveFormsModule, MatListModule],
-  exports: [ListDataSource, ListItem],
+  imports: [CommonModule, ReactiveFormsModule, MatListModule, MatIconModule],
 })
 export class UiListModule {}
