@@ -1,6 +1,7 @@
+import { AboutPresenterComponent } from './about-presenter.component';
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutPresenterComponent } from './about-presenter.component';
 
 describe('AboutPresenterComponent', () => {
   let component: AboutPresenterComponent;
@@ -8,9 +9,12 @@ describe('AboutPresenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AboutPresenterComponent ]
-    })
-    .compileComponents();
+      declarations: [AboutPresenterComponent],
+      providers: [
+        { provide: 'apiUrl', useValue: 'https://localhost:3333/api' },
+      ],
+      imports: [CommonModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,15 +1,24 @@
-import { SkillsEntity } from './skills.models';
-import { State, skillsAdapter, initialState } from './skills.reducer';
+import { initialState, skillsAdapter, State } from './skills.reducer';
 import * as SkillsSelectors from './skills.selectors';
+import { ISkill } from '@workspace/api-interfaces';
 
 describe('Skills Selectors', () => {
   const ERROR_MSG = 'No Error Available';
   const getSkillsId = (it) => it['id'];
-  const createSkillsEntity = (id: string, name = '') =>
+  const createSkills = (
+    id: number,
+    skillType: string,
+    skillName: string,
+    experienceYears: number,
+    skillLevel: number
+  ) =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as SkillsEntity);
+      skillType,
+      skillName,
+      experienceYears,
+      skillLevel,
+    } as ISkill);
 
   let state;
 
@@ -17,9 +26,9 @@ describe('Skills Selectors', () => {
     state = {
       skills: skillsAdapter.setAll(
         [
-          createSkillsEntity('PRODUCT-AAA'),
-          createSkillsEntity('PRODUCT-BBB'),
-          createSkillsEntity('PRODUCT-CCC'),
+          createSkills(1, 'PRODUCT-AAA', '', 2, 3),
+          createSkills(2, 'PRODUCT-BBB', '', 3, 3),
+          createSkills(3, 'PRODUCT-CCC', '', 2, 2),
         ],
         {
           ...initialState,

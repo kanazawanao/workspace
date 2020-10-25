@@ -1,24 +1,15 @@
-import { NgModule } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
-import { NxModule } from '@nrwl/angular';
-
-import { SkillsEntity } from './skills.models';
+import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { SkillsFacade } from './skills.facade';
-
+import { reducer, SKILLS_FEATURE_KEY, State } from './skills.reducer';
 import * as SkillsSelectors from './skills.selectors';
-import * as SkillsActions from './skills.actions';
-import {
-  SKILLS_FEATURE_KEY,
-  State,
-  initialState,
-  reducer,
-} from './skills.reducer';
+import { NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
+import { NxModule } from '@nrwl/angular';
+import { readFirst } from '@nrwl/angular/testing';
+import { ISkill } from '@workspace/api-interfaces';
 
 interface TestSchema {
   skills: State;
@@ -27,11 +18,20 @@ interface TestSchema {
 describe('SkillsFacade', () => {
   let facade: SkillsFacade;
   let store: Store<TestSchema>;
-  const createSkillsEntity = (id: string, name = '') =>
+  const createSkills = (
+    id: number,
+    skillType: string,
+    skillName: string,
+    experienceYears: number,
+    skillLevel: number
+  ) =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as SkillsEntity);
+      skillType,
+      skillName,
+      experienceYears,
+      skillLevel,
+    } as ISkill);
 
   beforeEach(() => {});
 
@@ -99,7 +99,10 @@ describe('SkillsFacade', () => {
 
         facade.dispatch(
           SkillsActions.loadSkillsSuccess({
-            skills: [createSkillsEntity('AAA'), createSkillsEntity('BBB')],
+            skills: [
+              createSkills(1, 'AAA', '', 2, 3),
+              createSkills(2, 'BBB', '', 3, 3),
+            ],
           })
         );
 
