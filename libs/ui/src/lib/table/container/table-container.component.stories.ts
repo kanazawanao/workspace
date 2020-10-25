@@ -1,17 +1,9 @@
-import { TablePresenterInputData } from './table-presenter-input-data';
-import { TablePresenterComponent } from './table-presenter.component';
+import { TableContainerComponent } from './table-container.component';
+import { UiTableModule } from '../ui-table.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-import { of } from 'rxjs';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
   { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
@@ -23,20 +15,18 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
-const presenterInputData: TablePresenterInputData = {
-  dataSource: ELEMENT_DATA,
-  displayedColumns: ['name', 'weight', 'symbol', 'position'],
-};
+
 export default {
-  title: 'TablePresenterComponent',
+  title: 'TableContainerComponent',
 };
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: [CommonModule, ReactiveFormsModule, MatTableModule],
+    imports: [CommonModule, ReactiveFormsModule, MatTableModule, UiTableModule],
   },
-  component: TablePresenterComponent,
+  component: TableContainerComponent,
   props: {
-    inputData: presenterInputData,
+    dataSource: ELEMENT_DATA,
+    columns: ['name', 'weight', 'symbol', 'position'],
   },
 });

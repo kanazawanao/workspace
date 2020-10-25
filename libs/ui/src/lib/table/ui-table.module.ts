@@ -8,5 +8,6 @@ import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [TablePresenterComponent, TableContainerComponent],
   imports: [CommonModule, ReactiveFormsModule, MatTableModule],
+  exports: [TableContainerComponent],
 })
 export class UiTableModule {}

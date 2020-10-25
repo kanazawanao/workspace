@@ -25,8 +25,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 const presenterInputData: TablePresenterInputData = {
-  datasource$: of(ELEMENT_DATA),
-  displayedColumns$: of(['name', 'weight', 'symbol', 'position']),
+  dataSource: ELEMENT_DATA,
+  displayedColumns: ['name', 'weight', 'symbol', 'position'],
 };
 
 describe('TablePresenterComponent', () => {

@@ -9,28 +9,24 @@ import { Subject } from 'rxjs';
 })
 export class TableContainerComponent implements OnInit {
   /** データソース */
-  @Input() set datasource(value: any) {
-    this._datasource.next(value);
-  }
-  private _datasource: Subject<any>;
+  @Input() dataSource: any;
   /** カラム定義 */
-  @Input() set columns(value: string[]) {
-    this._displayedColumns.next(value);
-  }
-  private _displayedColumns: Subject<string[]>;
+  @Input() columns: string[];
   /** プレゼンタコンポーネントの入力データ */
   presenterInputData: TablePresenterInputData;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setPresenterInputData();
+  }
   /**
    * プレゼンタコンポーネントの入力データをセットする
    */
   setPresenterInputData(): void {
     this.presenterInputData = {
-      datasource$: this._datasource.asObservable(),
-      displayedColumns$: this._displayedColumns.asObservable(),
+      dataSource: this.dataSource,
+      displayedColumns: this.columns,
     };
   }
 }
