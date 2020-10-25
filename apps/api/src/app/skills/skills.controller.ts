@@ -20,7 +20,8 @@ export class SkillsController {
   @Post()
   @ApiOperation({ summary: 'post skill' })
   @ApiBody({ type: Skill, description: 'skill' })
-  postUser(@Body() body: Skill) {
-    return body;
+  async postUser(@Body() body: Skill) {
+    console.log(body);
+    return this.skillsService.post(body);
   }
 }

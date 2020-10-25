@@ -1,7 +1,7 @@
 import { Skill } from './skill.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { InsertResult, Repository } from 'typeorm';
 
 @Injectable()
 export class SkillsService {
@@ -22,7 +22,7 @@ export class SkillsService {
     await this.skillsRepository.delete(id);
   }
 
-  post(skill: Skill): Skill {
-    return this.skillsRepository.create(skill);
+  async post(skill: Skill): Promise<InsertResult> {
+    return await this.skillsRepository.insert(skill);
   }
 }
