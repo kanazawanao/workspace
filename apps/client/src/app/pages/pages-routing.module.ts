@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./skill-info/skill-info.module').then((m) => m.SkillInfoModule),
   },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutModule),
+  },
 ];
 
 @NgModule({
