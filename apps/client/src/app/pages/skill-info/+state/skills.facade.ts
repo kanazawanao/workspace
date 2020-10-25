@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
-
-import { select, Store, Action } from '@ngrx/store';
-
 import * as fromSkills from './skills.reducer';
 import * as SkillsSelectors from './skills.selectors';
+import { Injectable } from '@angular/core';
+import { Action, select, Store } from '@ngrx/store';
 
 @Injectable()
 export class SkillsFacade {

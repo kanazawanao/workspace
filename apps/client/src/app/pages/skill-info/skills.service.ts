@@ -3,7 +3,7 @@ import { ISkill } from '@workspace/api-interfaces';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
 import { SkillsFacade } from './+state/skills.facade';
-
+import * as SkillsActions from './+state/skills.actions';
 @Injectable()
 export class SkillsService {
   constructor(
@@ -12,8 +12,12 @@ export class SkillsService {
     @Inject('apiUrl') private apiUrl: string
   ) {}
 
-  fetchSkillsInfo(): Observable<ISkill> {
-    const res = this.httpRequestService.get<ISkill>({
+  fetchInitData(): void {
+    this.SkillsFacade.dispatch(SkillsActions.loadSkills);
+  }
+
+  fetchSkillsInfo(): Observable<ISkill[]> {
+    const res = this.httpRequestService.get<ISkill[]>({
       url: `${this.apiUrl}/skills`,
     });
     return res;

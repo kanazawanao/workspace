@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skill-info-container.component.scss'],
 })
 export class SkillInfoContainerComponent implements OnInit {
-  constructor() {}
+  constructor(private skillsService: SkillsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.skillsService.fetchInitData();
+  }
 }

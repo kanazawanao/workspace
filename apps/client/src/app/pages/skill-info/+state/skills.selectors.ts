@@ -42,3 +42,8 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
 );
+
+export const getSkills = createSelector(
+  getSkillsState,
+  (state: State) => state.skills
+);
