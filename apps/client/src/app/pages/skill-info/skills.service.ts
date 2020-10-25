@@ -13,7 +13,7 @@ export class SkillsService {
   ) {}
 
   fetchInitData(): void {
-    this.SkillsFacade.dispatch(SkillsActions.loadSkills);
+    this.SkillsFacade.dispatch(SkillsActions.loadSkills());
   }
 
   fetchSkillsInfo(): Observable<ISkill[]> {

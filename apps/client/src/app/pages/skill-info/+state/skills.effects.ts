@@ -14,11 +14,12 @@ export class SkillsEffects {
       fetch({
         run: (action) => {
           return this.skillsService.fetchSkillsInfo().pipe(
-            map((res) =>
-              SkillsActions.loadSkillsSuccess({
+            map((res) => {
+              console.log(res);
+              return SkillsActions.loadSkillsSuccess({
                 skills: res,
-              })
-            )
+              });
+            })
           );
         },
 

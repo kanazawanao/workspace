@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpReqOptions } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -16,22 +17,30 @@ export class HttpRequestService {
 
   get<T>(config: HttpReqOptions): Observable<T> {
     this.setOptions(config);
-    return this.http.get<T>(config.url, this.httpOptions);
+    return this.http
+      .get<T>(config.url, this.httpOptions)
+      .pipe(map((res: any) => res.body));
   }
 
   post<T>(config: HttpReqOptions): Observable<T> {
     this.setOptions(config);
-    return this.http.post<T>(config.url, this.httpOptions);
+    return this.http
+      .post<T>(config.url, this.httpOptions)
+      .pipe(map((res: any) => res.body));
   }
 
   put<T>(config: HttpReqOptions): Observable<T> {
     this.setOptions(config);
-    return this.http.put<T>(config.url, this.httpOptions);
+    return this.http
+      .put<T>(config.url, this.httpOptions)
+      .pipe(map((res: any) => res.body));
   }
 
   delete<T>(config: HttpReqOptions): Observable<T> {
     this.setOptions(config);
-    return this.http.delete<T>(config.url, this.httpOptions);
+    return this.http
+      .delete<T>(config.url, this.httpOptions)
+      .pipe(map((res: any) => res.body));
   }
 
   private setOptions(config: HttpReqOptions) {
