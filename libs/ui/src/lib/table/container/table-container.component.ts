@@ -20,9 +20,7 @@ export class TableContainerComponent implements OnInit {
   ngOnInit(): void {
     this.setPresenterInputData();
   }
-  /**
-   * プレゼンタコンポーネントの入力データをセットする
-   */
+
   setPresenterInputData(): void {
     this.presenterInputData = {
       dataSource: this.dataSource,
