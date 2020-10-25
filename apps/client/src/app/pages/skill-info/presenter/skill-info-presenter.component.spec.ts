@@ -1,6 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SkillInfoPresenterComponent } from './skill-info-presenter.component';
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { UiTableModule } from '@workspace/ui';
 
 describe('SkillInfoPresenterComponent', () => {
   let component: SkillInfoPresenterComponent;
@@ -8,9 +9,12 @@ describe('SkillInfoPresenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillInfoPresenterComponent ]
-    })
-    .compileComponents();
+      declarations: [SkillInfoPresenterComponent],
+      providers: [
+        { provide: 'apiUrl', useValue: 'https://localhost:3333/api' },
+      ],
+      imports: [CommonModule, UiTableModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

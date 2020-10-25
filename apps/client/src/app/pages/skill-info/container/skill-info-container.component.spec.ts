@@ -1,6 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SkillInfoContainerComponent } from './skill-info-container.component';
+import { SkillsService } from '../skills.service';
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SkillsFacade } from '../+state/skills.facade';
+
+@Component({
+  selector: 'workspace-skill-info-presenter',
+  template: '',
+  styleUrls: [],
+})
+class MockSkillInfoPresenterComponent {}
+
+class MockSkillsService {}
 
 describe('SkillInfoContainerComponent', () => {
   let component: SkillInfoContainerComponent;
@@ -8,9 +19,11 @@ describe('SkillInfoContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillInfoContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        SkillInfoContainerComponent,
+        MockSkillInfoPresenterComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

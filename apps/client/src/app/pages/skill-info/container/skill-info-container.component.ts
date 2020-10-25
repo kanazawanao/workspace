@@ -5,10 +5,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'workspace-skill-info-container',
   templateUrl: './skill-info-container.component.html',
   styleUrls: ['./skill-info-container.component.scss'],
-  providers: [SkillsService],
 })
 export class SkillInfoContainerComponent implements OnInit {
-  constructor(private SkillService: SkillsService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }
