@@ -1,0 +1,14 @@
+<mat-form-field class="example-form-field">
+  <mat-label>{{ inputData.label }}</mat-label>
+  <input matInput type="text" [(ngModel)]="inputData.value" />
+  <button
+    mat-button
+    *ngIf="inputData.value"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="inputData.value = ''"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
