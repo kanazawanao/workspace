@@ -27,6 +27,6 @@ export const primary = () => ({
   component: TableContainerComponent,
   props: {
     dataSource: ELEMENT_DATA,
-    columns: ['name', 'weight', 'symbol', 'position'],
+    displayedColumns: ['name', 'weight', 'symbol', 'position'],
   },
 });

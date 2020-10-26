@@ -11,7 +11,7 @@ export class TableContainerComponent implements OnInit {
   /** データソース */
   @Input() dataSource: any;
   /** カラム定義 */
-  @Input() columns: string[];
+  @Input() displayedColumns: string[];
   /** プレゼンタコンポーネントの入力データ */
   presenterInputData: TablePresenterInputData;
 
@@ -24,7 +24,7 @@ export class TableContainerComponent implements OnInit {
   setPresenterInputData(): void {
     this.presenterInputData = {
       dataSource: this.dataSource,
-      displayedColumns: this.columns,
+      displayedColumns: this.displayedColumns,
     };
   }
 }
