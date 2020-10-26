@@ -7,6 +7,13 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./skills/skills.module').then((m) => m.SkillsModule),
   },
+  {
+    path: 'skills/:id',
+    loadChildren: () =>
+      import('./skills-entry/skills-entry.module').then(
+        (m) => m.SkillsEntryModule
+      ),
+  },
 ];
 
 @NgModule({
