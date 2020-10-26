@@ -1,6 +1,17 @@
+import { InputContainerComponent } from './input-container.component';
+import { InputPresenterInputData } from '../presenter/input-presenter-input-data';
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputContainerComponent } from './input-container.component';
+/** プレゼンタコンポーネントのモック */
+@Component({
+  selector: 'ui-input-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockInputPresenterComponent {
+  @Input() inputData: InputPresenterInputData;
+}
 
 describe('InputContainerComponent', () => {
   let component: InputContainerComponent;
@@ -8,9 +19,8 @@ describe('InputContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [InputContainerComponent, MockInputPresenterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

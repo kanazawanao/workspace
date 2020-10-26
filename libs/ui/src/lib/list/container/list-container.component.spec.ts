@@ -1,6 +1,17 @@
+import { ListContainerComponent } from './list-container.component';
+import { ListPresenterInputData } from '../presenter/list-presenter-input-data';
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListContainerComponent } from './list-container.component';
+/** プレゼンタコンポーネントのモック */
+@Component({
+  selector: 'ui-list-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockListPresenterComponent {
+  @Input() inputData: ListPresenterInputData;
+}
 
 describe('ListContainerComponent', () => {
   let component: ListContainerComponent;
@@ -8,9 +19,8 @@ describe('ListContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [ListContainerComponent, MockListPresenterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

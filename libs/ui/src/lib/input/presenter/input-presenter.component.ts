@@ -1,3 +1,4 @@
+import { InputPresenterInputData } from './input-presenter-input-data';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./input-presenter.component.scss'],
 })
 export class InputPresenterComponent implements OnInit {
-  @Input() inputData: InputPresenterComponent;
+  @Input() inputData: InputPresenterInputData;
   constructor() {}
 
   ngOnInit(): void {}
