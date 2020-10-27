@@ -25,14 +25,14 @@ export class HttpRequestService {
   post<T>(config: HttpReqOptions): Observable<T> {
     this.setOptions(config);
     return this.http
-      .post<T>(config.url, this.httpOptions)
+      .post<T>(config.url, config.body, this.httpOptions)
       .pipe(map((res: any) => res.body));
   }
 
   put<T>(config: HttpReqOptions): Observable<T> {
     this.setOptions(config);
     return this.http
-      .put<T>(config.url, this.httpOptions)
+      .put<T>(config.url, config.body, this.httpOptions)
       .pipe(map((res: any) => res.body));
   }
 

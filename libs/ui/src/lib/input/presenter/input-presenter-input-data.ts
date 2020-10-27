@@ -1,4 +1,6 @@
+import { FormControl } from '@angular/forms';
+
 export class InputPresenterInputData {
-  value: string;
+  formControl: FormControl;
   label: string;
 }

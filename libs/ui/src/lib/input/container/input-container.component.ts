@@ -1,5 +1,6 @@
 import { InputPresenterInputData } from '../presenter/input-presenter-input-data';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ui-input-container',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InputContainerComponent implements OnInit {
   @Input() label: string;
-  @Input() value: string;
+  @Input() formControl: FormControl;
 
   presenterInputData: InputPresenterInputData;
   constructor() {}
@@ -20,7 +21,7 @@ export class InputContainerComponent implements OnInit {
   setPresenterInputData(): void {
     this.presenterInputData = {
       label: this.label,
-      value: this.value,
+      formControl: this.formControl,
     };
   }
 }
