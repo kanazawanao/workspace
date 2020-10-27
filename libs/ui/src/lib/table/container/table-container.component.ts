@@ -1,6 +1,5 @@
 import { TablePresenterInputData } from '../presenter/table-presenter-input-data';
 import { Component, Input, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'ui-table-container',

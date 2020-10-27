@@ -1,7 +1,5 @@
 import { TablePresenterInputData } from './table-presenter-input-data';
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ui-table-presenter',
