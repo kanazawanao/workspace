@@ -1,6 +1,29 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SelectPresenterInputData } from './select-presenter-input-data';
 import { SelectPresenterComponent } from './select-presenter.component';
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+const inputData: SelectPresenterInputData = {
+  label: 'test',
+  isDisabled: false,
+  options: [
+    {
+      value: 'select1',
+      viewValue: 'select1',
+    },
+    {
+      value: 'select2',
+      viewValue: 'select2',
+    },
+    {
+      value: 'select3',
+      viewValue: 'select3',
+    },
+  ],
+};
 
 describe('SelectPresenterComponent', () => {
   let component: SelectPresenterComponent;
@@ -8,14 +31,20 @@ describe('SelectPresenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectPresenterComponent ]
-    })
-    .compileComponents();
+      declarations: [SelectPresenterComponent],
+      imports: [
+        CommonModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SelectPresenterComponent);
     component = fixture.componentInstance;
+    component.inputData = inputData;
     fixture.detectChanges();
   });
 
