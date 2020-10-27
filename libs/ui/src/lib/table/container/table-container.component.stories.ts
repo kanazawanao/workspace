@@ -3,6 +3,7 @@ import { UiTableModule } from '../ui-table.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const ELEMENT_DATA = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -22,7 +23,13 @@ export default {
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: [CommonModule, ReactiveFormsModule, MatTableModule, UiTableModule],
+    imports: [
+      CommonModule,
+      ReactiveFormsModule,
+      MatTableModule,
+      UiTableModule,
+      BrowserAnimationsModule,
+    ],
   },
   component: TableContainerComponent,
   props: {
