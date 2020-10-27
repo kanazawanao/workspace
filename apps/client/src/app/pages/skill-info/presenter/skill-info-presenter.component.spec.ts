@@ -1,7 +1,18 @@
 import { SkillInfoPresenterComponent } from './skill-info-presenter.component';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UiTableModule } from '@workspace/ui';
+import { SelectPresenterInputData, UiTableModule } from '@workspace/ui';
+
+@Component({
+  selector: 'ui-table-container',
+  template: '',
+  styleUrls: [],
+})
+export class MockTableContainerComponent {
+  @Input() dataSource: any;
+  @Input() displayedColumns: string[];
+}
 
 describe('SkillInfoPresenterComponent', () => {
   let component: SkillInfoPresenterComponent;
@@ -9,7 +20,7 @@ describe('SkillInfoPresenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SkillInfoPresenterComponent],
+      declarations: [SkillInfoPresenterComponent, MockTableContainerComponent],
       providers: [
         { provide: 'apiUrl', useValue: 'https://localhost:3333/api' },
       ],
