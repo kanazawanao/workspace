@@ -351,7 +351,9 @@
               "apps/client-manager/src/favicon.ico",
               "apps/client-manager/src/assets"
             ],
-            "styles": ["apps/client-manager/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/client-manager/src/styles.scss"],
             "scripts": []
           },
           "configurations": {

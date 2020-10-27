@@ -4,10 +4,11 @@ import { SkillsRoutingModule } from './skills-routing.module';
 import { SkillsService } from './skills.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { UiTableModule } from '@workspace/ui';
 
 @NgModule({
   declarations: [SkillsContainerComponent, SkillsPresenterComponent],
-  imports: [CommonModule, SkillsRoutingModule],
+  imports: [CommonModule, SkillsRoutingModule, UiTableModule],
   providers: [SkillsService],
 })
 export class SkillsModule {}

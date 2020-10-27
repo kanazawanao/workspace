@@ -11,8 +11,6 @@ export class SkillsContainerComponent implements OnInit {
   constructor(private skillsService: SkillsService) {}
   skills$: Observable<ISkill[]>;
   ngOnInit(): void {
-    this.skillsService
-      .fetchSkillsInfo()
-      .subscribe((value) => console.log(value));
+    this.skills$ = this.skillsService.fetchSkillsInfo();
   }
 }
