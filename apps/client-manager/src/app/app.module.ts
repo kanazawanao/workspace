@@ -4,10 +4,16 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   providers: [{ provide: 'apiUrl', useValue: environment.apiUrl }],
   bootstrap: [AppComponent],
 })
