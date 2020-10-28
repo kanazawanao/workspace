@@ -18,4 +18,12 @@ export class User implements IUser {
   @Column({ length: 128 })
   @ApiProperty()
   password: string;
+
+  @Column()
+  @ApiProperty()
+  email: string;
+
+  @Column()
+  @ApiProperty()
+  birthDay: Date;
 }
