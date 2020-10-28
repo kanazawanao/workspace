@@ -1,5 +1,7 @@
+import { AboutService } from '../about.service';
 import { Component, OnInit } from '@angular/core';
-import { ListDataSource } from '@workspace/ui';
+import { IUser } from '@workspace/api-interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'client-about-container',
@@ -7,7 +9,11 @@ import { ListDataSource } from '@workspace/ui';
   styleUrls: ['./about-container.component.scss'],
 })
 export class AboutContainerComponent implements OnInit {
-  constructor() {}
+  constructor(private aboutService: AboutService) {}
 
   ngOnInit(): void {}
+
+  fetchUserData(): Observable<IUser> {
+    return this.aboutService.fetchUserInfo();
+  }
 }
