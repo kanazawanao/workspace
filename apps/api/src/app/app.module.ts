@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { Skill } from './skills/skill.entity';
 import { SkillsModule } from './skills/skills.module';
 import { User } from './users/user.entity';
@@ -17,6 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [User, Skill],
       synchronize: true,
     }),
+    AuthModule,
     UsersModule,
     SkillsModule,
   ],

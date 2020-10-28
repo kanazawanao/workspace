@@ -15,7 +15,7 @@ import {
 @ApiTags('users')
 @Controller('/api/users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private usersService: UsersService) {}
 
   @Get()
   async getUsers(): Promise<User[]> {

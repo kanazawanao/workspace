@@ -6,7 +6,7 @@ import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 @ApiTags('skills')
 @Controller('/api/skills')
 export class SkillsController {
-  constructor(private readonly skillsService: SkillsService) {}
+  constructor(private skillsService: SkillsService) {}
   @Get()
   async getSkills(): Promise<Skill[]> {
     return this.skillsService.findAll();

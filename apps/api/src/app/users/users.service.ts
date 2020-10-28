@@ -18,6 +18,10 @@ export class UsersService {
     return this.usersRepository.findOne(id);
   }
 
+  findOneByIdPw(email: string, password: string): Promise<User> {
+    return this.usersRepository.findOne({ email: email, password: password });
+  }
+
   put(id: number, user: User) {
     this.usersRepository.update(
       { id },
