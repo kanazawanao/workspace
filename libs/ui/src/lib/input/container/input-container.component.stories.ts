@@ -1,5 +1,6 @@
 import { InputContainerComponent } from './input-container.component';
 import { UiInputModule } from '../ui-input.module';
+import { FormControl } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export default {
@@ -13,6 +14,6 @@ export const primary = () => ({
   component: InputContainerComponent,
   props: {
     label: 'label',
-    value: 'value',
+    formControl: new FormControl(),
   },
 });

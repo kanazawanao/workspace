@@ -9,5 +9,6 @@ import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [ListPresenterComponent, ListContainerComponent],
   imports: [CommonModule, ReactiveFormsModule, MatListModule, MatIconModule],
+  exports: [ListContainerComponent],
 })
 export class UiListModule {}

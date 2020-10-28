@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListDataSource } from '@workspace/ui';
 
 @Component({
   selector: 'client-about-container',

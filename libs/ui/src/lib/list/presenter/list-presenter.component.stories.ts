@@ -18,6 +18,16 @@ const ELEMENT_DATA: ListDataSource[] = [
       },
     ],
   },
+  {
+    header: 'header',
+    icon: 'search',
+    items: [
+      {
+        name: '名前',
+        sentence: 'ここに文章が入ります',
+      },
+    ],
+  },
 ];
 const presenterInputData: ListPresenterInputData = {
   dataSource: ELEMENT_DATA,
