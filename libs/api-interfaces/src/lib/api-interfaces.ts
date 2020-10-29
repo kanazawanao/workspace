@@ -14,3 +14,8 @@ export interface ISkill {
   experienceYears: number;
   skillLevel: number;
 }
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
