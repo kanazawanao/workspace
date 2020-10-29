@@ -15,7 +15,6 @@ export class SkillsEffects {
         run: (action) => {
           return this.skillsService.fetchSkillsInfo().pipe(
             map((res) => {
-              console.log(res);
               return SkillsActions.loadSkillsSuccess({
                 skills: res,
               });

@@ -10,7 +10,6 @@ export interface State extends EntityState<ISkill> {
   selectedId?: string | number; // which Skills record has been selected
   loaded: boolean; // has the Skills list been loaded
   error?: string | null; // last known error (if any)
-  skills?: ISkill[];
 }
 
 export interface SkillsPartialState {

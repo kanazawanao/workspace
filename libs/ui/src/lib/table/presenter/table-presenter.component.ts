@@ -1,8 +1,11 @@
 import { TablePresenterInputData } from './table-presenter-input-data';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   Input,
   OnInit,
@@ -21,13 +24,20 @@ export class TablePresenterComponent implements OnInit, AfterViewInit {
   get displayedColumns(): string[] {
     return this.inputData.displayedColumns;
   }
-  constructor() {}
+  constructor(private cd: ChangeDetectorRef) {}
 
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.inputData.dataSource);
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+    if (this.inputData.dataSource instanceof Observable) {
+      this.inputData.dataSource.subscribe((x: any[]) => {
+        this.dataSource = new MatTableDataSource(x);
+        this.dataSource.sort = this.sort;
+      });
+    } else {
+      this.dataSource = new MatTableDataSource(this.inputData.dataSource);
+      this.dataSource.sort = this.sort;
+    }
+    this.cd.detectChanges();
   }
 }
