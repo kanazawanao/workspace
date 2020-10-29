@@ -4,7 +4,7 @@ import { ISkill } from '@workspace/api-interfaces';
 
 describe('Skills Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getSkillsId = (it) => it['id'];
+  const getSkillsId = (it: ISkill) => it['id'];
   const createSkills = (
     id: number,
     skillType: string,
@@ -32,7 +32,7 @@ describe('Skills Selectors', () => {
         ],
         {
           ...initialState,
-          selectedId: 'PRODUCT-BBB',
+          selectedId: 2,
           error: ERROR_MSG,
           loaded: true,
         }
@@ -46,14 +46,14 @@ describe('Skills Selectors', () => {
       const selId = getSkillsId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = SkillsSelectors.getSelected(state);
       const selId = getSkillsId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it("getSkillsLoaded() should return the current 'loaded' status", () => {

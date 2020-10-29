@@ -1,8 +1,10 @@
+import { MockSkillsFacade } from './mock-skills-facade';
+import { MockSkillsService } from './mock-skills-service';
 import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { SkillsFacade } from './skills.facade';
 import { reducer, SKILLS_FEATURE_KEY, State } from './skills.reducer';
-import * as SkillsSelectors from './skills.selectors';
+import { SkillsService } from '../skills.service';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
@@ -42,7 +44,10 @@ describe('SkillsFacade', () => {
           StoreModule.forFeature(SKILLS_FEATURE_KEY, reducer),
           EffectsModule.forFeature([SkillsEffects]),
         ],
-        providers: [SkillsFacade],
+        providers: [
+          SkillsFacade,
+          { provide: SkillsService, useClass: MockSkillsService },
+        ],
       })
       class CustomFeatureModule {}
 
