@@ -2,7 +2,7 @@ import { SkillInfoPresenterComponent } from './skill-info-presenter.component';
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SelectPresenterInputData, UiTableModule } from '@workspace/ui';
+import { UiTableModule } from '@workspace/ui';
 
 @Component({
   selector: 'ui-table-container',

@@ -1,17 +1,19 @@
 import { SkillInfoContainerComponent } from './skill-info-container.component';
 import { SkillsService } from '../skills.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockSkillsService } from '../+state/mock-skills-service';
 import { SkillsFacade } from '../+state/skills.facade';
+import { MockSkillsFacade } from '../+state/mock-skills-facade';
 
 @Component({
-  selector: 'workspace-skill-info-presenter',
+  selector: 'client-skill-info-presenter',
   template: '',
   styleUrls: [],
 })
-class MockSkillInfoPresenterComponent {}
-
-class MockSkillsService {}
+class MockSkillInfoPresenterComponent {
+  @Input() inputData: any;
+}
 
 describe('SkillInfoContainerComponent', () => {
   let component: SkillInfoContainerComponent;
@@ -22,6 +24,13 @@ describe('SkillInfoContainerComponent', () => {
       declarations: [
         SkillInfoContainerComponent,
         MockSkillInfoPresenterComponent,
+      ],
+      providers: [
+        { provide: SkillsFacade, useClass: MockSkillsFacade },
+        {
+          provide: SkillsService,
+          useClass: MockSkillsService,
+        },
       ],
     }).compileComponents();
   });
