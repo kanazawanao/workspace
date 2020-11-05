@@ -1,5 +1,6 @@
 import { InputPresenterInputData } from './input-presenter-input-data';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ui-input-presenter',
@@ -8,6 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InputPresenterComponent implements OnInit {
   @Input() inputData: InputPresenterInputData;
+  get formControl(): FormControl {
+    return this.inputData.formControl;
+  }
+  get label(): string {
+    return this.inputData.label;
+  }
   constructor() {}
 
   ngOnInit(): void {}
