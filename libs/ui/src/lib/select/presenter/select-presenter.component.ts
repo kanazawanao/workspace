@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {
   SelectOption,
   SelectPresenterInputData,
@@ -19,6 +20,9 @@ export class SelectPresenterComponent implements OnInit {
   }
   get isDisabled(): boolean {
     return this.inputData.isDisabled;
+  }
+  get formControl(): FormControl {
+    return this.inputData.formControl;
   }
   constructor() {}
 

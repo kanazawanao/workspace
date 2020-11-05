@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {
   SelectOption,
   SelectPresenterInputData,
@@ -11,6 +12,7 @@ import {
 })
 export class SelectContainerComponent implements OnInit {
   @Input() options: SelectOption[];
+  @Input() selectFormControl: FormControl;
   @Input() label: string;
   @Input() isDisabled: boolean;
   presenterInputData: SelectPresenterInputData;
@@ -24,6 +26,7 @@ export class SelectContainerComponent implements OnInit {
       isDisabled: this.isDisabled,
       label: this.label,
       options: this.options,
+      formControl: this.selectFormControl,
     };
   }
 }
