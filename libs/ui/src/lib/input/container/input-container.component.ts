@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class InputContainerComponent implements OnInit {
   @Input() label: string;
+  @Input() type: string = 'text';
   @Input() formControl: FormControl;
 
   presenterInputData: InputPresenterInputData;
@@ -21,6 +22,7 @@ export class InputContainerComponent implements OnInit {
   setPresenterInputData(): void {
     this.presenterInputData = {
       label: this.label,
+      type: this.type,
       formControl: this.formControl,
     };
   }

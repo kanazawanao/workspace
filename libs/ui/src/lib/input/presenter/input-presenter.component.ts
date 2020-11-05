@@ -15,7 +15,12 @@ export class InputPresenterComponent implements OnInit {
   get label(): string {
     return this.inputData.label;
   }
+  get type(): string {
+    return this.inputData.type;
+  }
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.formControl.validator);
+  }
 }

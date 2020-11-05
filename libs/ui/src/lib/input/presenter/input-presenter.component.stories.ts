@@ -8,11 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const presenterInputData: InputPresenterInputData = {
-  formControl: new FormControl(),
-  label: 'label',
-};
-
 export default {
   title: 'InputPresenterComponent',
 };
@@ -32,6 +27,32 @@ export const primary = () => ({
   },
   component: InputPresenterComponent,
   props: {
-    inputData: presenterInputData,
+    inputData: {
+      formControl: new FormControl(),
+      label: 'label',
+      type: 'text',
+    },
+  },
+});
+export const password = () => ({
+  moduleMetadata: {
+    imports: [
+      CommonModule,
+      MatButtonModule,
+      MatInputModule,
+      MatIconModule,
+      MatFormFieldModule,
+      ReactiveFormsModule,
+      FormsModule,
+      BrowserAnimationsModule,
+    ],
+  },
+  component: InputPresenterComponent,
+  props: {
+    inputData: {
+      formControl: new FormControl(),
+      label: 'label',
+      type: 'password',
+    },
   },
 });

@@ -14,6 +14,7 @@ export const primary = () => ({
   component: InputContainerComponent,
   props: {
     label: 'label',
+    type: 'password',
     formControl: new FormControl(),
   },
 });

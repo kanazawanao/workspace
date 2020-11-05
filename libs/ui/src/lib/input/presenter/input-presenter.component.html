@@ -1,6 +1,6 @@
 <mat-form-field class="example-form-field">
   <mat-label>{{ label }}</mat-label>
-  <input matInput type="text" [formControl]="formControl" />
+  <input matInput [type]="type" [formControl]="formControl" />
   <button
     mat-button
     *ngIf="formControl.value"

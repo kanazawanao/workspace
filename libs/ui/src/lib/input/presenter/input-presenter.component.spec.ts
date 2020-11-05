@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const presenterInputData: InputPresenterInputData = {
   formControl: new FormControl(''),
   label: 'label',
+  type: 'text',
 };
 
 describe('InputPresenterComponent', () => {
