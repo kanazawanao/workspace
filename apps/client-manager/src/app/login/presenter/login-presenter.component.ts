@@ -14,4 +14,8 @@ export class LoginPresenterComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.loginServive.generateFormGroup();
   }
+  login() {
+    console.log(this.formGroup.get('email').value);
+    console.log(this.formGroup.get('password').value);
+  }
 }

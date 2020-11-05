@@ -5,7 +5,9 @@
   ></ui-input-container>
   <br />
   <ui-input-container
-    [formControl]="formGroup.get('passworf')"
+    [formControl]="formGroup.get('password')"
     [label]="'password'"
   ></ui-input-container>
+  <br />
+  <button mat-raised-button (click)="login()">Login</button>
 </div>
