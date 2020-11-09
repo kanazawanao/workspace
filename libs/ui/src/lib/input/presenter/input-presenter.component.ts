@@ -20,7 +20,5 @@ export class InputPresenterComponent implements OnInit {
   }
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.formControl.validator);
-  }
+  ngOnInit(): void {}
 }
