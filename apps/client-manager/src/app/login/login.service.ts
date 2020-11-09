@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { ILogin } from '@workspace/api-interfaces';
+import { HttpRequestService } from '@workspace/shared-service';
 import {
   FormBuilder,
   FormControl,
@@ -8,7 +10,11 @@ import {
 
 @Injectable()
 export class LoginService {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private httpRequestService: HttpRequestService,
+    @Inject('apiUrl') private apiUrl: string
+  ) {}
 
   generateFormGroup(): FormGroup {
     const formGroup = this.formBuilder.group({
@@ -19,5 +25,9 @@ export class LoginService {
       ]),
     });
     return formGroup;
+  }
+
+  login(login: ILogin) {
+    console.log(login);
   }
 }

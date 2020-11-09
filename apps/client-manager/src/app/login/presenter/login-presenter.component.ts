@@ -1,5 +1,4 @@
-import { LoginService } from '../login.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,14 +7,12 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./login-presenter.component.scss'],
 })
 export class LoginPresenterComponent implements OnInit {
-  formGroup: FormGroup;
-  constructor(private loginServive: LoginService) {}
+  @Output() loginEvent = new EventEmitter();
+  @Input() formGroup: FormGroup;
+  constructor() {}
 
-  ngOnInit(): void {
-    this.formGroup = this.loginServive.generateFormGroup();
-  }
+  ngOnInit(): void {}
   login() {
-    console.log(this.formGroup.get('email').value);
-    console.log(this.formGroup.get('password').value);
+    this.loginEvent.emit();
   }
 }
