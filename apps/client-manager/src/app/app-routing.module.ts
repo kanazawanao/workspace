@@ -19,6 +19,18 @@ export const routes: Routes = [
         (m) => m.SkillsEntryModule
       ),
   },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'users/entry',
+    loadChildren: () =>
+      import('./users-entry/users-entry.module').then(
+        (m) => m.UsersEntryModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -28,6 +28,11 @@ export class LoginService {
   }
 
   login(login: ILogin) {
-    console.log(login);
+    const res = this.httpRequestService.post({
+      url: `${this.apiUrl}/auth/login`,
+      body: login,
+    });
+    console.log(res);
+    return res;
   }
 }
