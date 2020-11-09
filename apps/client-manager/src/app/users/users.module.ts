@@ -1,16 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { UsersRoutingModule } from './users-routing.module';
-import { UsersPresenterComponent } from './presenter/users-presenter.component';
 import { UsersContainerComponent } from './container/users-container.component';
-
+import { UsersPresenterComponent } from './presenter/users-presenter.component';
+import { UsersRoutingModule } from './users-routing.module';
+import { UsersService } from './users.service';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [UsersPresenterComponent, UsersContainerComponent],
-  imports: [
-    CommonModule,
-    UsersRoutingModule
-  ]
+  imports: [CommonModule, UsersRoutingModule],
+  providers: [UsersService],
 })
-export class UsersModule { }
+export class UsersModule {}

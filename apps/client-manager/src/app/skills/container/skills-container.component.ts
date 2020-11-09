@@ -10,6 +10,13 @@ import { Observable } from 'rxjs';
 export class SkillsContainerComponent implements OnInit {
   constructor(private skillsService: SkillsService) {}
   skills$: Observable<ISkill[]>;
+  displayedColumns: string[] = [
+    'id',
+    'skillType',
+    'skillName',
+    'experienceYears',
+    'skillLevel',
+  ];
   ngOnInit(): void {
     this.skills$ = this.skillsService.fetchSkillsInfo();
   }

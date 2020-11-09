@@ -1,7 +1,4 @@
-<ng-container *ngIf="skills$ | async as skills">
-  <!-- 同期的に記述できる -->
-  <ui-table-container
-    [dataSource]="skills"
-    [displayedColumns]="displayedColumns"
-  ></ui-table-container>
-</ng-container>
+<ui-table-container
+  [dataSource]="skills$"
+  [displayedColumns]="displayedColumns"
+></ui-table-container>

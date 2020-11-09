@@ -9,13 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SkillsPresenterComponent implements OnInit {
   @Input() skills$: Observable<ISkill[]>;
-  displayedColumns: string[] = [
-    'id',
-    'skillType',
-    'skillName',
-    'experienceYears',
-    'skillLevel',
-  ];
+  @Input() displayedColumns: string[];
   constructor() {}
 
   ngOnInit(): void {}

@@ -13,6 +13,13 @@ export const routes: Routes = [
       import('./skills/skills.module').then((m) => m.SkillsModule),
   },
   {
+    path: 'skills/:id',
+    loadChildren: () =>
+      import('./skills-entry/skills-entry.module').then(
+        (m) => m.SkillsEntryModule
+      ),
+  },
+  {
     path: 'skills/entry',
     loadChildren: () =>
       import('./skills-entry/skills-entry.module').then(
@@ -23,6 +30,13 @@ export const routes: Routes = [
     path: 'users',
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'users/:id',
+    loadChildren: () =>
+      import('./users-entry/users-entry.module').then(
+        (m) => m.UsersEntryModule
+      ),
   },
   {
     path: 'users/entry',

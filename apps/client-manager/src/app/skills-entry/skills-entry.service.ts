@@ -16,12 +16,10 @@ export class SkillsEntryService {
   }
 
   postSkill(skill: SkillsEntryModel) {
-    console.log(skill);
-    this.httpRequestService
-      .post({
-        url: `${this.apiUrl}/skills`,
-        body: skill,
-      })
-      .subscribe();
+    var res = this.httpRequestService.post({
+      url: `${this.apiUrl}/skills`,
+      body: skill,
+    });
+    return res;
   }
 }
