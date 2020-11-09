@@ -1,6 +1,7 @@
 import { SkillsEntryContainerComponent } from './container/skills-entry-container.component';
 import { SkillsEntryPresenterComponent } from './presenter/skills-entry-presenter.component';
 import { SkillsEntryRoutingModule } from './skills-entry-routing.module';
+import { SkillsEntryGuard } from './skills-entry.guard';
 import { SkillsEntryService } from './skills-entry.service';
 import { environment } from '../../environments/environment';
 import { CommonModule } from '@angular/common';
@@ -14,7 +15,6 @@ import { UiInputModule } from '@workspace/ui';
 import * as fromSkillsEntry from './+state/skills-entry.reducer';
 import { SkillsEntryEffects } from './+state/skills-entry.effects';
 import { SkillsEntryFacade } from './+state/skills-entry.facade';
-
 @NgModule({
   declarations: [SkillsEntryPresenterComponent, SkillsEntryContainerComponent],
   imports: [
@@ -40,6 +40,6 @@ import { SkillsEntryFacade } from './+state/skills-entry.facade';
     EffectsModule.forRoot([SkillsEntryEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [SkillsEntryService, SkillsEntryFacade],
+  providers: [SkillsEntryService, SkillsEntryFacade, SkillsEntryGuard],
 })
 export class SkillsEntryModule {}
