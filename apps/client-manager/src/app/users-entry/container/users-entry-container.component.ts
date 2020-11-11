@@ -1,5 +1,6 @@
 import { UsersEntryService } from '../users-entry.service';
 import { Component, OnInit } from '@angular/core';
+import { UsersEntryFacade } from '../+state/users-entry.facade';
 
 @Component({
   selector: 'client-manager-users-entry-container',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users-entry-container.component.scss'],
 })
 export class UsersEntryContainerComponent implements OnInit {
-  constructor(private usersEntryService: UsersEntryService) {}
-
+  constructor(
+    private usersEntryService: UsersEntryService,
+    private usersEntryFacade: UsersEntryFacade
+  ) {}
+  workUserEntry = this.usersEntryFacade.wokkUserEntry$;
   ngOnInit(): void {}
 }
