@@ -4,7 +4,6 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { IUser } from '@workspace/api-interfaces';
 
-
 export const USERSENTRY_FEATURE_KEY = 'usersEntry';
 
 export interface State extends EntityState<UsersEntryEntity> {
@@ -38,6 +37,23 @@ const usersEntryReducer = createReducer(
     usersEntryAdapter.setAll(usersEntry, { ...state, loaded: true })
   ),
   on(UsersEntryActions.loadUsersEntryFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
+  on(UsersEntryActions.loadUpdateInitUserEntry, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+  on(
+    UsersEntryActions.loadUpdateInitUserEntrySuccess,
+    (state, { initUserEntry }) => ({
+      ...state,
+      loaded: true,
+      workUserEntry: initUserEntry,
+    })
+  ),
+  on(UsersEntryActions.loadUpdateInitUserEntryFailure, (state, { error }) => ({
     ...state,
     error,
   }))

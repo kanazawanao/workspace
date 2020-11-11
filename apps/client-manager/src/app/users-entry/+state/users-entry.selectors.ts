@@ -28,7 +28,6 @@ export const getAllUsersEntry = createSelector(
   getUsersEntryState,
   (state: State) => selectAll(state)
 );
-
 export const getUsersEntryEntities = createSelector(
   getUsersEntryState,
   (state: State) => selectEntities(state)
