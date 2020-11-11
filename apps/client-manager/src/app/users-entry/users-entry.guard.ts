@@ -5,17 +5,22 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
+import { UsersEntryFacade } from './+state/users-entry.facade';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SkillsEntryGuard implements CanActivate {
+export class UsersEntryGuard implements CanActivate {
+  constructor(private usersEntryFacade: UsersEntryFacade) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
     const id = route.params.id;
-    console.log(id);
+    if (id === 'entry') {
+      return of(true);
+    }
+    this.usersEntryFacade.loadUpdateInitSalesEntry(id);
     return of(true);
   }
 }

@@ -20,26 +20,12 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'skills/entry',
-    loadChildren: () =>
-      import('./skills-entry/skills-entry.module').then(
-        (m) => m.SkillsEntryModule
-      ),
-  },
-  {
     path: 'users',
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
   },
   {
     path: 'users/:id',
-    loadChildren: () =>
-      import('./users-entry/users-entry.module').then(
-        (m) => m.UsersEntryModule
-      ),
-  },
-  {
-    path: 'users/entry',
     loadChildren: () =>
       import('./users-entry/users-entry.module').then(
         (m) => m.UsersEntryModule
