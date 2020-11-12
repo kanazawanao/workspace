@@ -1,6 +1,7 @@
 import * as UsersEntryActions from './users-entry.actions';
 import * as fromUsersEntry from './users-entry.reducer';
 import * as UsersEntrySelectors from './users-entry.selectors';
+import { EditType } from '../edit-type';
 import { Injectable } from '@angular/core';
 import { Action, select, Store } from '@ngrx/store';
 
@@ -23,6 +24,11 @@ export class UsersEntryFacade {
   }
 
   loadUpdateInitSalesEntry(userId: string) {
+    this.setEditerMode(EditType.create);
     this.dispatch(UsersEntryActions.loadUpdateInitUserEntry({ userId }));
+  }
+
+  setEditerMode(editerMode: EditType) {
+    this.store.dispatch(UsersEntryActions.setEditerMode({ editerMode }));
   }
 }

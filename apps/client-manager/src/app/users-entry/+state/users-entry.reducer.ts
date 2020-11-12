@@ -1,5 +1,7 @@
 import * as UsersEntryActions from './users-entry.actions';
 import { UsersEntryEntity } from './users-entry.models';
+import { EditType } from '../edit-type';
+import { Icu } from '@angular/compiler/src/i18n/i18n_ast';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { IUser } from '@workspace/api-interfaces';
@@ -10,6 +12,7 @@ export interface State extends EntityState<UsersEntryEntity> {
   selectedId?: string | number; // which UsersEntry record has been selected
   loaded: boolean; // has the UsersEntry list been loaded
   error?: string | null; // last known error (if any)
+  editerMode: EditType;
   workUserEntry?: IUser;
 }
 
@@ -24,6 +27,7 @@ export const usersEntryAdapter: EntityAdapter<UsersEntryEntity> = createEntityAd
 export const initialState: State = usersEntryAdapter.getInitialState({
   // set initial required properties
   loaded: false,
+  editerMode: EditType.create,
 });
 
 const usersEntryReducer = createReducer(
@@ -56,6 +60,10 @@ const usersEntryReducer = createReducer(
   on(UsersEntryActions.loadUpdateInitUserEntryFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(UsersEntryActions.setEditerMode, (state, { editerMode }) => ({
+    ...state,
+    editerMode: editerMode,
   }))
 );
 

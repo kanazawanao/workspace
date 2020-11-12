@@ -22,8 +22,6 @@ import { UsersEntryFacade } from './+state/users-entry.facade';
     CommonModule,
     UsersEntryRoutingModule,
     UiInputModule,
-    MatButtonModule,
-    ,
     StoreModule.forFeature(
       fromUsersEntry.USERSENTRY_FEATURE_KEY,
       fromUsersEntry.reducer

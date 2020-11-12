@@ -1,4 +1,5 @@
 import { UsersEntryEntity } from './users-entry.models';
+import { EditType } from '../edit-type';
 import { createAction, props } from '@ngrx/store';
 import { IUser } from '@workspace/api-interfaces';
 
@@ -27,4 +28,9 @@ export const loadUpdateInitUserEntrySuccess = createAction(
 export const loadUpdateInitUserEntryFailure = createAction(
   '[UsersEntry] Load UpdateInitUsersEntry Failure',
   props<{ error: any }>()
+);
+
+export const setEditerMode = createAction(
+  '[UsersEntry] Set Edit Mode',
+  props<{ editerMode: EditType }>()
 );
