@@ -1,4 +1,6 @@
+import { UsersEntryModel } from './presenter/users-entry-model';
 import { Inject, Injectable } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { IUser } from '@workspace/api-interfaces';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
@@ -8,9 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class UsersEntryService {
   constructor(
+    private formBuilder: FormBuilder,
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
+  generateFormGroup(formData: UsersEntryModel): FormGroup {
+    const formGroup = this.formBuilder.group(formData);
+    return formGroup;
+  }
 
   postUser(user: IUser) {
     var res = this.httpRequestService.post({

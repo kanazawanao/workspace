@@ -1,5 +1,6 @@
+import { UsersEntryControlName } from '../users-entry-control-name';
 import { Component, Input, OnInit } from '@angular/core';
-import { IUser } from '@workspace/api-interfaces';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'client-manager-users-entry-presenter',
@@ -7,7 +8,8 @@ import { IUser } from '@workspace/api-interfaces';
   styleUrls: ['./users-entry-presenter.component.scss'],
 })
 export class UsersEntryPresenterComponent implements OnInit {
-  @Input() userEntryInfo: IUser;
+  @Input() formGroup: FormGroup;
+  controlName = UsersEntryControlName;
   constructor() {}
 
   ngOnInit(): void {}

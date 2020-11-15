@@ -1,5 +1,20 @@
 <div>
   <div>
-    <ui-input-container></ui-input-container>
+    <ui-input-container
+      [formControl]="formGroup.get(controlName.firstName)"
+      [label]="'firstName'"
+    ></ui-input-container>
+    <ui-input-container
+      [formControl]="formGroup.get(controlName.lastName)"
+      [label]="'lastName'"
+    ></ui-input-container>
+    <ui-input-container
+      [formControl]="formGroup.get(controlName.password)"
+      [label]="'password'"
+    ></ui-input-container>
+    <ui-input-container
+      [formControl]="formGroup.get(controlName.email)"
+      [label]="'email'"
+    ></ui-input-container>
   </div>
 </div>
