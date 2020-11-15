@@ -1,4 +1,5 @@
 import { UsersEntryModel } from '../presenter/users-entry-model';
+import { UsersEntryControlName } from '../users-entry-control-name';
 import { UsersEntryService } from '../users-entry.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -11,6 +12,7 @@ import { UsersEntryFacade } from '../+state/users-entry.facade';
 })
 export class UsersEntryContainerComponent implements OnInit {
   formGroup: FormGroup;
+  controlName = UsersEntryControlName;
   constructor(
     private usersEntryService: UsersEntryService,
     private usersEntryFacade: UsersEntryFacade
@@ -19,5 +21,19 @@ export class UsersEntryContainerComponent implements OnInit {
   ngOnInit(): void {
     var entryModel: UsersEntryModel = new UsersEntryModel();
     this.formGroup = this.usersEntryService.generateFormGroup(entryModel);
+  }
+
+  regist() {
+    var registData = new UsersEntryModel();
+    registData.lastName = this.formGroup.get(this.controlName.lastName).value;
+    registData.firstName = this.formGroup.get(this.controlName.firstName).value;
+    registData.email = this.formGroup.get(this.controlName.email).value;
+    registData.password = this.formGroup.get(this.controlName.password).value;
+    console.log(registData);
+    this.registSkill(registData);
+  }
+
+  registSkill(user: UsersEntryModel) {
+    this.usersEntryService.postUser(user);
   }
 }

@@ -14,12 +14,13 @@ export class UsersEntryService {
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
+
   generateFormGroup(formData: UsersEntryModel): FormGroup {
     const formGroup = this.formBuilder.group(formData);
     return formGroup;
   }
 
-  postUser(user: IUser) {
+  postUser(user: UsersEntryModel) {
     var res = this.httpRequestService.post({
       url: `${this.apiUrl}/users`,
       body: user,

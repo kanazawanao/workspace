@@ -1,5 +1,5 @@
 import { UsersEntryControlName } from '../users-entry-control-name';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,8 +9,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class UsersEntryPresenterComponent implements OnInit {
   @Input() formGroup: FormGroup;
+  @Output() registEvent = new EventEmitter();
   controlName = UsersEntryControlName;
   constructor() {}
 
   ngOnInit(): void {}
+
+  regist() {
+    this.registEvent.emit();
+  }
 }
