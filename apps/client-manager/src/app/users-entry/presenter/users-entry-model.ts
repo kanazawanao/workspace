@@ -3,4 +3,5 @@ export class UsersEntryModel {
   lastName: string = '';
   password: string = '';
   email: string = '';
+  birthDay: Date = new Date();
 }

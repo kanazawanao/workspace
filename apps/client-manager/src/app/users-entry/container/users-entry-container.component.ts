@@ -29,11 +29,12 @@ export class UsersEntryContainerComponent implements OnInit {
     registData.firstName = this.formGroup.get(this.controlName.firstName).value;
     registData.email = this.formGroup.get(this.controlName.email).value;
     registData.password = this.formGroup.get(this.controlName.password).value;
+    registData.birthDay = this.formGroup.get(this.controlName.birthDay).value;
     console.log(registData);
     this.registSkill(registData);
   }
 
   registSkill(user: UsersEntryModel) {
-    this.usersEntryService.postUser(user);
+    this.usersEntryService.postUser(user).subscribe((x) => console.log(x));
   }
 }
