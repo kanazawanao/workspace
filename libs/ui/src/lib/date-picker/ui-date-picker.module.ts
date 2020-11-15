@@ -17,5 +17,6 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatMomentDateModule,
   ],
+  exports: [DatePickerContainerComponent],
 })
 export class UiDatePickerModule {}

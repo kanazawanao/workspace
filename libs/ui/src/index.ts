@@ -1,4 +1,5 @@
 export * from './lib/ui.module';
+export * from './lib/date-picker/ui-date-picker.module';
 export * from './lib/table/ui-table.module';
 export * from './lib/input/ui-input.module';
 export * from './lib/list/ui-list.module';

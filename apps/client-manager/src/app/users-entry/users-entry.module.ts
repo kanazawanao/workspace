@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NxModule } from '@nrwl/angular';
-import { UiInputModule } from '@workspace/ui';
+import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 import * as fromUsersEntry from './+state/users-entry.reducer';
 import { UsersEntryEffects } from './+state/users-entry.effects';
 import { UsersEntryFacade } from './+state/users-entry.facade';
@@ -22,6 +22,7 @@ import { UsersEntryFacade } from './+state/users-entry.facade';
     CommonModule,
     UsersEntryRoutingModule,
     UiInputModule,
+    UiDatePickerModule,
     MatButtonModule,
     StoreModule.forFeature(
       fromUsersEntry.USERSENTRY_FEATURE_KEY,

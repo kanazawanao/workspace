@@ -16,6 +16,10 @@
       [formControl]="formGroup.get(controlName.email)"
       [label]="'email'"
     ></ui-input-container>
+    <ui-date-picker-container
+      [formControl]="formGroup.get(controlName.birthDay)"
+    >
+    </ui-date-picker-container>
   </div>
   <button mat-button (click)="regist()">regist</button>
 </div>
