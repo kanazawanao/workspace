@@ -1,5 +1,3 @@
-import { from } from 'rxjs';
-
 export * from './lib/ui.module';
 export * from './lib/table/ui-table.module';
 export * from './lib/input/ui-input.module';
