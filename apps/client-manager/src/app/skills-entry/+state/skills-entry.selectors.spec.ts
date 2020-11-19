@@ -1,19 +1,19 @@
-import { SkillsEntryEntity } from './skills-entry.models';
+import * as SkillsEntrySelectors from './skills-entry.selectors';
+import { ISkill } from '@workspace/api-interfaces';
 import {
   State,
   skillsEntryAdapter,
   initialState,
 } from './skills-entry.reducer';
-import * as SkillsEntrySelectors from './skills-entry.selectors';
 
 describe('SkillsEntry Selectors', () => {
   const ERROR_MSG = 'No Error Available';
   const getSkillsEntryId = (it) => it['id'];
-  const createSkillsEntryEntity = (id: string, name = '') =>
+  const createSkillsEntryEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as SkillsEntryEntity);
+      skillName: name || `name-${id}`,
+    } as ISkill);
 
   let state;
 
@@ -21,13 +21,13 @@ describe('SkillsEntry Selectors', () => {
     state = {
       skillsEntry: skillsEntryAdapter.setAll(
         [
-          createSkillsEntryEntity('PRODUCT-AAA'),
-          createSkillsEntryEntity('PRODUCT-BBB'),
-          createSkillsEntryEntity('PRODUCT-CCC'),
+          createSkillsEntryEntity(1),
+          createSkillsEntryEntity(2),
+          createSkillsEntryEntity(3),
         ],
         {
           ...initialState,
-          selectedId: 'PRODUCT-BBB',
+          selectedId: 2,
           error: ERROR_MSG,
           loaded: true,
         }
@@ -41,14 +41,14 @@ describe('SkillsEntry Selectors', () => {
       const selId = getSkillsEntryId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = SkillsEntrySelectors.getSelected(state);
       const selId = getSkillsEntryId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it("getSkillsEntryLoaded() should return the current 'loaded' status", () => {

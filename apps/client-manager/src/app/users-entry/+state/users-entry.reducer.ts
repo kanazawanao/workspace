@@ -1,5 +1,4 @@
 import * as UsersEntryActions from './users-entry.actions';
-import { UsersEntryEntity } from './users-entry.models';
 import { EditType } from '../edit-type';
 import { Icu } from '@angular/compiler/src/i18n/i18n_ast';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
@@ -8,7 +7,7 @@ import { IUser } from '@workspace/api-interfaces';
 
 export const USERSENTRY_FEATURE_KEY = 'usersEntry';
 
-export interface State extends EntityState<UsersEntryEntity> {
+export interface State extends EntityState<IUser> {
   selectedId?: string | number; // which UsersEntry record has been selected
   loaded: boolean; // has the UsersEntry list been loaded
   error?: string | null; // last known error (if any)
@@ -20,8 +19,8 @@ export interface UsersEntryPartialState {
   readonly [USERSENTRY_FEATURE_KEY]: State;
 }
 
-export const usersEntryAdapter: EntityAdapter<UsersEntryEntity> = createEntityAdapter<
-  UsersEntryEntity
+export const usersEntryAdapter: EntityAdapter<IUser> = createEntityAdapter<
+  IUser
 >();
 
 export const initialState: State = usersEntryAdapter.getInitialState({

@@ -1,4 +1,3 @@
-import { UsersEntryEntity } from './users-entry.models';
 import { EditType } from '../edit-type';
 import { createAction, props } from '@ngrx/store';
 import { IUser } from '@workspace/api-interfaces';
@@ -7,7 +6,7 @@ export const loadUsersEntry = createAction('[UsersEntry] Load UsersEntry');
 
 export const loadUsersEntrySuccess = createAction(
   '[UsersEntry] Load UsersEntry Success',
-  props<{ usersEntry: UsersEntryEntity[] }>()
+  props<{ usersEntry: IUser[] }>()
 );
 
 export const loadUsersEntryFailure = createAction(

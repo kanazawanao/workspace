@@ -1,18 +1,15 @@
-import { NgModule } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
-import { NxModule } from '@nrwl/angular';
-
-import { UsersEntryEntity } from './users-entry.models';
+import * as UsersEntryActions from './users-entry.actions';
 import { UsersEntryEffects } from './users-entry.effects';
 import { UsersEntryFacade } from './users-entry.facade';
-
 import * as UsersEntrySelectors from './users-entry.selectors';
-import * as UsersEntryActions from './users-entry.actions';
+import { NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
+import { NxModule } from '@nrwl/angular';
+import { readFirst } from '@nrwl/angular/testing';
+import { IUser } from '@workspace/api-interfaces';
+
 import {
   USERSENTRY_FEATURE_KEY,
   State,
@@ -27,11 +24,11 @@ interface TestSchema {
 describe('UsersEntryFacade', () => {
   let facade: UsersEntryFacade;
   let store: Store<TestSchema>;
-  const createUsersEntryEntity = (id: string, name = '') =>
+  const createUsersEntryEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as UsersEntryEntity);
+      firstName: name || `name-${id}`,
+    } as IUser);
 
   beforeEach(() => {});
 
@@ -99,10 +96,7 @@ describe('UsersEntryFacade', () => {
 
         facade.dispatch(
           UsersEntryActions.loadUsersEntrySuccess({
-            usersEntry: [
-              createUsersEntryEntity('AAA'),
-              createUsersEntryEntity('BBB'),
-            ],
+            usersEntry: [createUsersEntryEntity(1), createUsersEntryEntity(2)],
           })
         );
 

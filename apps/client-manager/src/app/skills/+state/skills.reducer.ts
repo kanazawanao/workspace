@@ -1,12 +1,11 @@
-import { createReducer, on, Action } from '@ngrx/store';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-
 import * as SkillsActions from './skills.actions';
-import { SkillsEntity } from './skills.models';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
+import { ISkill } from '@workspace/api-interfaces';
 
 export const SKILLS_FEATURE_KEY = 'skills';
 
-export interface State extends EntityState<SkillsEntity> {
+export interface State extends EntityState<ISkill> {
   selectedId?: string | number; // which Skills record has been selected
   loaded: boolean; // has the Skills list been loaded
   error?: string | null; // last known error (if any)
@@ -16,8 +15,8 @@ export interface SkillsPartialState {
   readonly [SKILLS_FEATURE_KEY]: State;
 }
 
-export const skillsAdapter: EntityAdapter<SkillsEntity> = createEntityAdapter<
-  SkillsEntity
+export const skillsAdapter: EntityAdapter<ISkill> = createEntityAdapter<
+  ISkill
 >();
 
 export const initialState: State = skillsAdapter.getInitialState({

@@ -1,22 +1,19 @@
-import { UsersEntryEntity } from './users-entry.models';
 import * as UsersEntryActions from './users-entry.actions';
-import { State, initialState, reducer } from './users-entry.reducer';
+import { initialState, reducer, State } from './users-entry.reducer';
+import { IUser } from '@workspace/api-interfaces';
 
 describe('UsersEntry Reducer', () => {
-  const createUsersEntryEntity = (id: string, name = '') =>
+  const createUsersEntryEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as UsersEntryEntity);
+      firstName: name || `name-${id}`,
+    } as IUser);
 
   beforeEach(() => {});
 
   describe('valid UsersEntry actions', () => {
     it('loadUsersEntrySuccess should return set the list of known UsersEntry', () => {
-      const usersEntry = [
-        createUsersEntryEntity('PRODUCT-AAA'),
-        createUsersEntryEntity('PRODUCT-zzz'),
-      ];
+      const usersEntry = [createUsersEntryEntity(1), createUsersEntryEntity(2)];
       const action = UsersEntryActions.loadUsersEntrySuccess({ usersEntry });
 
       const result: State = reducer(initialState, action);

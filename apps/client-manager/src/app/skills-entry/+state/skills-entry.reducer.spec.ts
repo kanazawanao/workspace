@@ -1,21 +1,21 @@
-import { SkillsEntryEntity } from './skills-entry.models';
 import * as SkillsEntryActions from './skills-entry.actions';
-import { State, initialState, reducer } from './skills-entry.reducer';
+import { initialState, reducer, State } from './skills-entry.reducer';
+import { ISkill } from '@workspace/api-interfaces';
 
 describe('SkillsEntry Reducer', () => {
-  const createSkillsEntryEntity = (id: string, name = '') =>
+  const createSkillsEntryEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as SkillsEntryEntity);
+      skillName: name || `name-${id}`,
+    } as ISkill);
 
   beforeEach(() => {});
 
   describe('valid SkillsEntry actions', () => {
     it('loadSkillsEntrySuccess should return set the list of known SkillsEntry', () => {
       const skillsEntry = [
-        createSkillsEntryEntity('PRODUCT-AAA'),
-        createSkillsEntryEntity('PRODUCT-zzz'),
+        createSkillsEntryEntity(1),
+        createSkillsEntryEntity(2),
       ];
       const action = SkillsEntryActions.loadSkillsEntrySuccess({ skillsEntry });
 

@@ -1,15 +1,15 @@
-import { UsersEntryEntity } from './users-entry.models';
-import { State, usersEntryAdapter, initialState } from './users-entry.reducer';
+import { initialState, usersEntryAdapter } from './users-entry.reducer';
 import * as UsersEntrySelectors from './users-entry.selectors';
+import { IUser } from '@workspace/api-interfaces';
 
 describe('UsersEntry Selectors', () => {
   const ERROR_MSG = 'No Error Available';
   const getUsersEntryId = (it) => it['id'];
-  const createUsersEntryEntity = (id: string, name = '') =>
+  const createUsersEntryEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as UsersEntryEntity);
+      firstName: name || `name-${id}`,
+    } as IUser);
 
   let state;
 
@@ -17,13 +17,13 @@ describe('UsersEntry Selectors', () => {
     state = {
       usersEntry: usersEntryAdapter.setAll(
         [
-          createUsersEntryEntity('PRODUCT-AAA'),
-          createUsersEntryEntity('PRODUCT-BBB'),
-          createUsersEntryEntity('PRODUCT-CCC'),
+          createUsersEntryEntity(1),
+          createUsersEntryEntity(2),
+          createUsersEntryEntity(3),
         ],
         {
           ...initialState,
-          selectedId: 'PRODUCT-BBB',
+          selectedId: 2,
           error: ERROR_MSG,
           loaded: true,
         }
@@ -37,14 +37,14 @@ describe('UsersEntry Selectors', () => {
       const selId = getUsersEntryId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = UsersEntrySelectors.getSelected(state);
       const selId = getUsersEntryId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it("getUsersEntryLoaded() should return the current 'loaded' status", () => {

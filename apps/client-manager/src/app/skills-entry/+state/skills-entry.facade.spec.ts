@@ -1,18 +1,15 @@
-import { NgModule } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
-import { NxModule } from '@nrwl/angular';
-
-import { SkillsEntryEntity } from './skills-entry.models';
+import * as SkillsEntryActions from './skills-entry.actions';
 import { SkillsEntryEffects } from './skills-entry.effects';
 import { SkillsEntryFacade } from './skills-entry.facade';
-
 import * as SkillsEntrySelectors from './skills-entry.selectors';
-import * as SkillsEntryActions from './skills-entry.actions';
+import { NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
+import { NxModule } from '@nrwl/angular';
+import { readFirst } from '@nrwl/angular/testing';
+import { ISkill } from '@workspace/api-interfaces';
+
 import {
   SKILLSENTRY_FEATURE_KEY,
   State,
@@ -27,11 +24,11 @@ interface TestSchema {
 describe('SkillsEntryFacade', () => {
   let facade: SkillsEntryFacade;
   let store: Store<TestSchema>;
-  const createSkillsEntryEntity = (id: string, name = '') =>
+  const createSkillsEntryEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as SkillsEntryEntity);
+      skillName: name || `name-${id}`,
+    } as ISkill);
 
   beforeEach(() => {});
 
@@ -100,8 +97,8 @@ describe('SkillsEntryFacade', () => {
         facade.dispatch(
           SkillsEntryActions.loadSkillsEntrySuccess({
             skillsEntry: [
-              createSkillsEntryEntity('AAA'),
-              createSkillsEntryEntity('BBB'),
+              createSkillsEntryEntity(1),
+              createSkillsEntryEntity(2),
             ],
           })
         );
