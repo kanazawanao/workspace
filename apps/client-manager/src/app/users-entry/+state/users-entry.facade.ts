@@ -26,7 +26,7 @@ export class UsersEntryFacade {
   }
 
   loadUpdateInitUsersEntry(userId: string) {
-    this.setEditerMode(EditType.create);
+    this.setEditerMode(EditType.update);
     this.dispatch(UsersEntryActions.loadUpdateInitUserEntry({ userId }));
   }
 

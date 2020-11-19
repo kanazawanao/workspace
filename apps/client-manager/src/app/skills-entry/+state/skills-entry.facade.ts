@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-
-import { select, Store, Action } from '@ngrx/store';
-
+import * as SkillsEntryActions from './skills-entry.actions';
 import * as fromSkillsEntry from './skills-entry.reducer';
 import * as SkillsEntrySelectors from './skills-entry.selectors';
+import { EditType } from '../edit-type';
+import { Injectable } from '@angular/core';
+import { Action, select, Store } from '@ngrx/store';
 
 @Injectable()
 export class SkillsEntryFacade {
@@ -19,5 +19,13 @@ export class SkillsEntryFacade {
 
   dispatch(action: Action) {
     this.store.dispatch(action);
+  }
+
+  loadUpdateInitSkillsEntry(skillId: string) {
+    this.dispatch(SkillsEntryActions.loadUpdateInitSkillEntry({ skillId }));
+  }
+
+  setEditerMode(editerMode: EditType) {
+    this.store.dispatch(SkillsEntryActions.setEditerMode({ editerMode }));
   }
 }

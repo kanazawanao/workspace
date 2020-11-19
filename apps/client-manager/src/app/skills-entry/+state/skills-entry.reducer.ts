@@ -1,15 +1,18 @@
-import { createReducer, on, Action } from '@ngrx/store';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-
 import * as SkillsEntryActions from './skills-entry.actions';
 import { SkillsEntryEntity } from './skills-entry.models';
+import { EditType } from '../edit-type';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
+import { ISkill } from '@workspace/api-interfaces';
 
 export const SKILLSENTRY_FEATURE_KEY = 'skillsEntry';
 
 export interface State extends EntityState<SkillsEntryEntity> {
-  selectedId?: string | number; // which SkillsEntry record has been selected
-  loaded: boolean; // has the SkillsEntry list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: string | number;
+  loaded: boolean;
+  error?: string | null;
+  editerMode: EditType;
+  workSkillEntry?: ISkill;
 }
 
 export interface SkillsEntryPartialState {
@@ -23,6 +26,7 @@ export const skillsEntryAdapter: EntityAdapter<SkillsEntryEntity> = createEntity
 export const initialState: State = skillsEntryAdapter.getInitialState({
   // set initial required properties
   loaded: false,
+  editerMode: EditType.create,
 });
 
 const skillsEntryReducer = createReducer(
@@ -38,6 +42,30 @@ const skillsEntryReducer = createReducer(
   on(SkillsEntryActions.loadSkillsEntryFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(SkillsEntryActions.loadUpdateInitSkillEntry, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+  on(
+    SkillsEntryActions.loadUpdateInitSkillEntrySuccess,
+    (state, { initSkillEntry }) => ({
+      ...state,
+      loaded: true,
+      workSkillEntry: initSkillEntry,
+    })
+  ),
+  on(
+    SkillsEntryActions.loadUpdateInitSkillEntryFailure,
+    (state, { error }) => ({
+      ...state,
+      error,
+    })
+  ),
+  on(SkillsEntryActions.setEditerMode, (state, { editerMode }) => ({
+    ...state,
+    editerMode: editerMode,
   }))
 );
 
