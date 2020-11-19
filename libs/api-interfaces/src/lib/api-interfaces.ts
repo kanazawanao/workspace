@@ -19,3 +19,9 @@ export interface ILogin {
   email: string;
   password: string;
 }
+
+export interface ITimeline {
+  id: number;
+  date: Date;
+  event: string;
+}
