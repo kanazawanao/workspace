@@ -1,12 +1,11 @@
-import { createReducer, on, Action } from '@ngrx/store';
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-
 import * as UsersActions from './users.actions';
-import { UsersEntity } from './users.models';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
+import { IUser } from '@workspace/api-interfaces';
 
 export const USERS_FEATURE_KEY = 'users';
 
-export interface State extends EntityState<UsersEntity> {
+export interface State extends EntityState<IUser> {
   selectedId?: string | number; // which Users record has been selected
   loaded: boolean; // has the Users list been loaded
   error?: string | null; // last known error (if any)
@@ -16,9 +15,7 @@ export interface UsersPartialState {
   readonly [USERS_FEATURE_KEY]: State;
 }
 
-export const usersAdapter: EntityAdapter<UsersEntity> = createEntityAdapter<
-  UsersEntity
->();
+export const usersAdapter: EntityAdapter<IUser> = createEntityAdapter<IUser>();
 
 export const initialState: State = usersAdapter.getInitialState({
   // set initial required properties

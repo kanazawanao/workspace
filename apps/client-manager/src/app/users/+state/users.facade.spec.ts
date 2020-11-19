@@ -1,18 +1,15 @@
-import { NgModule } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
-import { NxModule } from '@nrwl/angular';
-
-import { UsersEntity } from './users.models';
+import * as UsersActions from './users.actions';
 import { UsersEffects } from './users.effects';
 import { UsersFacade } from './users.facade';
-
 import * as UsersSelectors from './users.selectors';
-import * as UsersActions from './users.actions';
+import { NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
+import { NxModule } from '@nrwl/angular';
+import { readFirst } from '@nrwl/angular/testing';
+import { IUser } from '@workspace/api-interfaces';
+
 import {
   USERS_FEATURE_KEY,
   State,
@@ -27,11 +24,11 @@ interface TestSchema {
 describe('UsersFacade', () => {
   let facade: UsersFacade;
   let store: Store<TestSchema>;
-  const createUsersEntity = (id: string, name = '') =>
+  const createUsersEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as UsersEntity);
+      firstName: name || `name-${id}`,
+    } as IUser);
 
   beforeEach(() => {});
 
@@ -99,7 +96,7 @@ describe('UsersFacade', () => {
 
         facade.dispatch(
           UsersActions.loadUsersSuccess({
-            users: [createUsersEntity('AAA'), createUsersEntity('BBB')],
+            users: [createUsersEntity(1), createUsersEntity(2)],
           })
         );
 

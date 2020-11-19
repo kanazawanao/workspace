@@ -1,11 +1,11 @@
 import { createAction, props } from '@ngrx/store';
-import { UsersEntity } from './users.models';
+import { IUser } from '@workspace/api-interfaces';
 
 export const loadUsers = createAction('[Users] Load Users');
 
 export const loadUsersSuccess = createAction(
   '[Users] Load Users Success',
-  props<{ users: UsersEntity[] }>()
+  props<{ users: IUser[] }>()
 );
 
 export const loadUsersFailure = createAction(

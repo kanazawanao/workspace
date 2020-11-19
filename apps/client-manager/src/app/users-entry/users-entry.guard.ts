@@ -21,7 +21,7 @@ export class UsersEntryGuard implements CanActivate {
     if (id === 'entry') {
       return of(true);
     }
-    this.usersEntryFacade.loadUpdateInitSalesEntry(id);
+    this.usersEntryFacade.loadUpdateInitUsersEntry(id);
     this.usersEntryFacade.setEditerMode(EditType.update);
     return of(true);
   }

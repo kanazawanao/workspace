@@ -25,7 +25,7 @@ export class UsersEntryFacade {
     this.store.dispatch(action);
   }
 
-  loadUpdateInitSalesEntry(userId: string) {
+  loadUpdateInitUsersEntry(userId: string) {
     this.setEditerMode(EditType.create);
     this.dispatch(UsersEntryActions.loadUpdateInitUserEntry({ userId }));
   }

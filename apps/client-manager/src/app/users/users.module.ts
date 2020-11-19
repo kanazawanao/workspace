@@ -1,6 +1,7 @@
 import { UsersContainerComponent } from './container/users-container.component';
 import { UsersPresenterComponent } from './presenter/users-presenter.component';
 import { UsersRoutingModule } from './users-routing.module';
+import { UsersGuard } from './users.guard';
 import { UsersService } from './users.service';
 import { environment } from '../../environments/environment';
 import { CommonModule } from '@angular/common';
@@ -33,6 +34,6 @@ import { UsersFacade } from './+state/users.facade';
     EffectsModule.forRoot([UsersEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [UsersService, UsersFacade],
+  providers: [UsersService, UsersFacade, UsersGuard],
 })
 export class UsersModule {}

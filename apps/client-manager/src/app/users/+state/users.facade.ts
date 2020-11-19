@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-
-import { select, Store, Action } from '@ngrx/store';
-
+import * as UsersActions from './users.actions';
 import * as fromUsers from './users.reducer';
 import * as UsersSelectors from './users.selectors';
+import { Injectable } from '@angular/core';
+import { Action, select, Store } from '@ngrx/store';
+
 
 @Injectable()
 export class UsersFacade {
@@ -15,5 +15,9 @@ export class UsersFacade {
 
   dispatch(action: Action) {
     this.store.dispatch(action);
+  }
+
+  loadUsers() {
+    this.dispatch(UsersActions.loadUsers());
   }
 }
