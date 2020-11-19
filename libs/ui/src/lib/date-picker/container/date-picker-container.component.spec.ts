@@ -1,6 +1,17 @@
+import { DatePickerContainerComponent } from './date-picker-container.component';
+import { DatePickerPresenterInputData } from '../presenter/date-picker-presenter-input-data';
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatePickerContainerComponent } from './date-picker-container.component';
+/** プレゼンタコンポーネントのモック */
+@Component({
+  selector: 'ui-date-picker-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockDatePickerPresenterComponent {
+  @Input() inputData: DatePickerPresenterInputData;
+}
 
 describe('DatePickerContainerComponent', () => {
   let component: DatePickerContainerComponent;
@@ -8,9 +19,11 @@ describe('DatePickerContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DatePickerContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        DatePickerContainerComponent,
+        MockDatePickerPresenterComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
