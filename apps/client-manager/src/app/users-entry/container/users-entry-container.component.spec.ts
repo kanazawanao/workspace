@@ -1,6 +1,14 @@
+import { UsersEntryContainerComponent } from './users-entry-container.component';
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersEntryContainerComponent } from './users-entry-container.component';
+/** プレゼンタコンポーネントのモック */
+@Component({
+  selector: 'client-manager-users-entry-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockUsersEntryPresenterComponent {}
 
 describe('UsersEntryContainerComponent', () => {
   let component: UsersEntryContainerComponent;
@@ -8,9 +16,11 @@ describe('UsersEntryContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersEntryContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        UsersEntryContainerComponent,
+        MockUsersEntryPresenterComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

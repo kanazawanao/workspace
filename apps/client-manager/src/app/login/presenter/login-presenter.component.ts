@@ -15,7 +15,4 @@ export class LoginPresenterComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  login() {
-    this.loginEvent.emit();
-  }
 }

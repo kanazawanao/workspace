@@ -1,6 +1,14 @@
+import { UsersContainerComponent } from './users-container.component';
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersContainerComponent } from './users-container.component';
+/** プレゼンタコンポーネントのモック */
+@Component({
+  selector: 'client-manager-users-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockUsersPresenterComponent {}
 
 describe('UsersContainerComponent', () => {
   let component: UsersContainerComponent;
@@ -8,9 +16,8 @@ describe('UsersContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [UsersContainerComponent, MockUsersPresenterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
