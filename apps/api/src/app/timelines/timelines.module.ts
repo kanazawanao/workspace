@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Timeline])],
+  exports: [TimelinesModule],
   controllers: [TimelinesController],
   providers: [TimelinesService],
 })
