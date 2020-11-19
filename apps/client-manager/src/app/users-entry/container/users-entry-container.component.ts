@@ -21,6 +21,15 @@ export class UsersEntryContainerComponent implements OnInit {
   ngOnInit(): void {
     var entryModel: UsersEntryModel = new UsersEntryModel();
     this.formGroup = this.usersEntryService.generateFormGroup(entryModel);
+    this.usersEntryFacade.wokkUserEntry$.subscribe((x) => {
+      if (x) {
+        this.formGroup.get(this.controlName.lastName).setValue(x.lastName);
+        this.formGroup.get(this.controlName.firstName).setValue(x.firstName);
+        this.formGroup.get(this.controlName.email).setValue(x.email);
+        this.formGroup.get(this.controlName.password).setValue(x.password);
+        this.formGroup.get(this.controlName.birthDay).setValue(x.birthDay);
+      }
+    });
   }
 
   regist() {
