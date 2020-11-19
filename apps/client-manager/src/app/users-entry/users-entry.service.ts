@@ -34,4 +34,12 @@ export class UsersEntryService {
     });
     return res;
   }
+
+  updateUser(id: number, user: UsersEntryModel) {
+    var res = this.httpRequestService.put({
+      url: `${this.apiUrl}/users${id}`,
+      body: user,
+    });
+    return res;
+  }
 }
