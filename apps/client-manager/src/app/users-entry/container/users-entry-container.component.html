@@ -1,4 +1,5 @@
 <client-manager-users-entry-presenter
   [formGroup]="formGroup"
+  [editMode]="editMode$ | async"
   (registEvent)="regist()"
 ></client-manager-users-entry-presenter>

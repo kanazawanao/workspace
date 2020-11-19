@@ -48,3 +48,8 @@ export const getWorkUserEntry = createSelector(
   getUsersEntryState,
   (state: State) => state.workUserEntry
 );
+
+export const getEditerMode = createSelector(
+  getUsersEntryState,
+  (state: State) => state.editerMode
+);

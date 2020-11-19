@@ -2,8 +2,9 @@ import { BaseComponent } from '../../base/base-component';
 import { UsersEntryModel } from '../presenter/users-entry-model';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { UsersEntryService } from '../users-entry.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
 import { UsersEntryFacade } from '../+state/users-entry.facade';
 
 @Component({
@@ -12,28 +13,35 @@ import { UsersEntryFacade } from '../+state/users-entry.facade';
   styleUrls: ['./users-entry-container.component.scss'],
 })
 export class UsersEntryContainerComponent extends BaseComponent
-  implements OnInit {
+  implements OnInit, OnDestroy {
   formGroup: FormGroup;
   controlName = UsersEntryControlName;
+  editMode$ = this.usersEntryFacade.editMode$;
   constructor(
     private usersEntryService: UsersEntryService,
     private usersEntryFacade: UsersEntryFacade
   ) {
     super();
   }
-  workUserEntry = this.usersEntryFacade.wokkUserEntry$;
+
   ngOnInit(): void {
     var entryModel: UsersEntryModel = new UsersEntryModel();
     this.formGroup = this.usersEntryService.generateFormGroup(entryModel);
-    this.usersEntryFacade.wokkUserEntry$.subscribe((x) => {
-      if (x) {
-        this.formGroup.get(this.controlName.lastName).setValue(x.lastName);
-        this.formGroup.get(this.controlName.firstName).setValue(x.firstName);
-        this.formGroup.get(this.controlName.email).setValue(x.email);
-        this.formGroup.get(this.controlName.password).setValue(x.password);
-        this.formGroup.get(this.controlName.birthDay).setValue(x.birthDay);
-      }
-    });
+    this.usersEntryFacade.wokkUserEntry$
+      .pipe(takeUntil(this.unsubscribeObservable$))
+      .subscribe((x) => {
+        if (x) {
+          this.formGroup.get(this.controlName.lastName).setValue(x.lastName);
+          this.formGroup.get(this.controlName.firstName).setValue(x.firstName);
+          this.formGroup.get(this.controlName.email).setValue(x.email);
+          this.formGroup.get(this.controlName.password).setValue(x.password);
+          this.formGroup.get(this.controlName.birthDay).setValue(x.birthDay);
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
   }
 
   regist() {

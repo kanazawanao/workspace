@@ -17,6 +17,8 @@ export class UsersEntryFacade {
   wokkUserEntry$ = this.store.pipe(
     select(UsersEntrySelectors.getWorkUserEntry)
   );
+  editMode$ = this.store.pipe(select(UsersEntrySelectors.getEditerMode));
+
   constructor(private store: Store<fromUsersEntry.UsersEntryPartialState>) {}
 
   dispatch(action: Action) {

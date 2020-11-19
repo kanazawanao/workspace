@@ -1,3 +1,4 @@
+import { EditType } from './edit-type';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {
@@ -21,6 +22,7 @@ export class UsersEntryGuard implements CanActivate {
       return of(true);
     }
     this.usersEntryFacade.loadUpdateInitSalesEntry(id);
+    this.usersEntryFacade.setEditerMode(EditType.update);
     return of(true);
   }
 }

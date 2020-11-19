@@ -21,5 +21,19 @@
     >
     </ui-date-picker-container>
   </div>
-  <button mat-button (click)="regist()">regist</button>
+  <button
+    mat-button
+    (click)="registEvent.emit()"
+    *ngIf="editMode === editType.create"
+  >
+    regist
+  </button>
+  <button mat-button (click)="deleteEvent.emit()">delete</button>
+  <button
+    mat-button
+    (click)="updateEvent.emit()"
+    *ngIf="editMode === editType.update"
+  >
+    update
+  </button>
 </div>
