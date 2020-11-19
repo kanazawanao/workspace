@@ -1,6 +1,6 @@
 import { BaseComponent } from '../../base/base-component';
-import { UsersService } from '../users.service';
 import { Component, OnInit } from '@angular/core';
+import { UsersFacade } from '../+state/users.facade';
 
 @Component({
   selector: 'client-manager-users-container',
@@ -8,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users-container.component.scss'],
 })
 export class UsersContainerComponent extends BaseComponent implements OnInit {
-  constructor(private userService: UsersService) {
+  users$ = this.usersFacade.allUsers$;
+  displayedColumns: string[] = [
+    'id',
+    'firstName',
+    'lastName',
+    'email',
+    'birthDay',
+  ];
+  constructor(private usersFacade: UsersFacade) {
     super();
   }
 

@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NxModule } from '@nrwl/angular';
+import { UiTableModule } from '@workspace/ui';
 import * as fromUsers from './+state/users.reducer';
 import { UsersEffects } from './+state/users.effects';
 import { UsersFacade } from './+state/users.facade';
@@ -19,6 +20,7 @@ import { UsersFacade } from './+state/users.facade';
   imports: [
     CommonModule,
     UsersRoutingModule,
+    UiTableModule,
     StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.reducer),
     NxModule.forRoot(),
     StoreModule.forRoot(
