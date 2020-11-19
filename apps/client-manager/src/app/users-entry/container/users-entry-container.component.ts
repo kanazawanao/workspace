@@ -1,3 +1,4 @@
+import { BaseComponent } from '../../base/base-component';
 import { UsersEntryModel } from '../presenter/users-entry-model';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { UsersEntryService } from '../users-entry.service';
@@ -10,13 +11,16 @@ import { UsersEntryFacade } from '../+state/users-entry.facade';
   templateUrl: './users-entry-container.component.html',
   styleUrls: ['./users-entry-container.component.scss'],
 })
-export class UsersEntryContainerComponent implements OnInit {
+export class UsersEntryContainerComponent extends BaseComponent
+  implements OnInit {
   formGroup: FormGroup;
   controlName = UsersEntryControlName;
   constructor(
     private usersEntryService: UsersEntryService,
     private usersEntryFacade: UsersEntryFacade
-  ) {}
+  ) {
+    super();
+  }
   workUserEntry = this.usersEntryFacade.wokkUserEntry$;
   ngOnInit(): void {
     var entryModel: UsersEntryModel = new UsersEntryModel();

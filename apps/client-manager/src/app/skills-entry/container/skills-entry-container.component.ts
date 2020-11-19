@@ -1,3 +1,4 @@
+import { BaseComponent } from '../../base/base-component';
 import { SkillsEntryModel } from '../presenter/skills-entry-model';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { SkillsEntryService } from '../skills-entry.service';
@@ -9,10 +10,13 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './skills-entry-container.component.html',
   styleUrls: ['./skills-entry-container.component.scss'],
 })
-export class SkillsEntryContainerComponent implements OnInit {
+export class SkillsEntryContainerComponent extends BaseComponent
+  implements OnInit {
   formGroup: FormGroup;
   controlName = SkillsEntryControlName;
-  constructor(private skillsEntryService: SkillsEntryService) {}
+  constructor(private skillsEntryService: SkillsEntryService) {
+    super();
+  }
 
   ngOnInit(): void {
     var entryModle: SkillsEntryModel = {

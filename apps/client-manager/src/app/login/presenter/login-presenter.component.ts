@@ -1,3 +1,4 @@
+import { BaseComponent } from '../../base/base-component';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -6,10 +7,12 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './login-presenter.component.html',
   styleUrls: ['./login-presenter.component.scss'],
 })
-export class LoginPresenterComponent implements OnInit {
+export class LoginPresenterComponent extends BaseComponent implements OnInit {
   @Output() loginEvent = new EventEmitter();
   @Input() formGroup: FormGroup;
-  constructor() {}
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {}
   login() {

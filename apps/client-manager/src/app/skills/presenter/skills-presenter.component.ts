@@ -1,3 +1,4 @@
+import { BaseComponent } from '../../base/base-component';
 import { Component, Input, OnInit } from '@angular/core';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
@@ -7,10 +8,12 @@ import { Observable } from 'rxjs';
   templateUrl: './skills-presenter.component.html',
   styleUrls: ['./skills-presenter.component.scss'],
 })
-export class SkillsPresenterComponent implements OnInit {
+export class SkillsPresenterComponent extends BaseComponent implements OnInit {
   @Input() skills$: Observable<ISkill[]>;
   @Input() displayedColumns: string[];
-  constructor() {}
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {}
 }
