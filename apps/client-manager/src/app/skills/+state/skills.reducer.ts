@@ -1,4 +1,5 @@
 import * as SkillsActions from './skills.actions';
+import { EditType } from '../edit-type';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { ISkill } from '@workspace/api-interfaces';
@@ -9,6 +10,8 @@ export interface State extends EntityState<ISkill> {
   selectedId?: string | number; // which Skills record has been selected
   loaded: boolean; // has the Skills list been loaded
   error?: string | null; // last known error (if any)
+  editerMode: EditType;
+  workSkillEntry?: ISkill;
 }
 
 export interface SkillsPartialState {
@@ -22,6 +25,7 @@ export const skillsAdapter: EntityAdapter<ISkill> = createEntityAdapter<
 export const initialState: State = skillsAdapter.getInitialState({
   // set initial required properties
   loaded: false,
+  editerMode: EditType.create,
 });
 
 const skillsReducer = createReducer(
@@ -37,6 +41,27 @@ const skillsReducer = createReducer(
   on(SkillsActions.loadSkillsFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(SkillsActions.loadUpdateInitSkillEntry, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+  on(
+    SkillsActions.loadUpdateInitSkillEntrySuccess,
+    (state, { initSkillEntry }) => ({
+      ...state,
+      loaded: true,
+      workSkillEntry: initSkillEntry,
+    })
+  ),
+  on(SkillsActions.loadUpdateInitSkillEntryFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
+  on(SkillsActions.setEditerMode, (state, { editerMode }) => ({
+    ...state,
+    editerMode: editerMode,
   }))
 );
 

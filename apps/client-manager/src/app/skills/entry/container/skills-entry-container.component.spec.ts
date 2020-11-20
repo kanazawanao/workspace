@@ -1,14 +1,6 @@
-import { SkillsEntryContainerComponent } from './skills-entry-container.component';
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-/** プレゼンタコンポーネントのモック */
-@Component({
-  selector: 'client-manager-skills-entry-presenter',
-  template: '',
-  styleUrls: [],
-})
-export class MockSkillsEntryPresenterComponent {}
+import { SkillsEntryContainerComponent } from './skills-entry-container.component';
 
 describe('SkillsEntryContainerComponent', () => {
   let component: SkillsEntryContainerComponent;
@@ -16,11 +8,9 @@ describe('SkillsEntryContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        SkillsEntryContainerComponent,
-        MockSkillsEntryPresenterComponent,
-      ],
-    }).compileComponents();
+      declarations: [ SkillsEntryContainerComponent ]
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {

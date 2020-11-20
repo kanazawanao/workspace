@@ -1,4 +1,3 @@
-import { BaseComponent } from '../../base/base-component';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -8,18 +7,11 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './skills-entry-presenter.component.html',
   styleUrls: ['./skills-entry-presenter.component.scss'],
 })
-export class SkillsEntryPresenterComponent extends BaseComponent
-  implements OnInit {
+export class SkillsEntryPresenterComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Output() registEvent = new EventEmitter();
   controlName = SkillsEntryControlName;
-  constructor() {
-    super();
-  }
+  constructor() {}
 
   ngOnInit(): void {}
-
-  regist() {
-    this.registEvent.emit();
-  }
 }

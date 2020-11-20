@@ -1,11 +1,17 @@
-import { SkillsContainerComponent } from './container/skills-container.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: SkillsContainerComponent,
+    loadChildren: () =>
+      import('./list/skills-list.module').then((m) => m.SkillsListModule),
+  },
+
+  {
+    path: ':id',
+    loadChildren: () =>
+      import('./entry/skills-entry.module').then((m) => m.SkillsEntryModule),
   },
 ];
 

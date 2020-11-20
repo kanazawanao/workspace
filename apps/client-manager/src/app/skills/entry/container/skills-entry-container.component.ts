@@ -1,7 +1,6 @@
-import { BaseComponent } from '../../base/base-component';
-import { SkillsEntryModel } from '../presenter/skills-entry-model';
+import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
-import { SkillsEntryService } from '../skills-entry.service';
+import { SkillsEntryModel } from '../skills-entry-model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -10,13 +9,10 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './skills-entry-container.component.html',
   styleUrls: ['./skills-entry-container.component.scss'],
 })
-export class SkillsEntryContainerComponent extends BaseComponent
-  implements OnInit {
+export class SkillsEntryContainerComponent implements OnInit {
   formGroup: FormGroup;
   controlName = SkillsEntryControlName;
-  constructor(private skillsEntryService: SkillsEntryService) {
-    super();
-  }
+  constructor(private skillsService: SkillsService) {}
 
   ngOnInit(): void {
     var entryModle: SkillsEntryModel = {
@@ -25,7 +21,7 @@ export class SkillsEntryContainerComponent extends BaseComponent
       skillName: '',
       skillType: '',
     };
-    this.formGroup = this.skillsEntryService.generateFormGroup(entryModle);
+    this.formGroup = this.skillsService.generateFormGroup(entryModle);
   }
 
   regist() {
@@ -43,6 +39,6 @@ export class SkillsEntryContainerComponent extends BaseComponent
   }
 
   registSkill(skill: SkillsEntryModel) {
-    this.skillsEntryService.postSkill(skill);
+    this.skillsService.postSkill(skill);
   }
 }

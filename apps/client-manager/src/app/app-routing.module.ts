@@ -13,13 +13,6 @@ export const routes: Routes = [
       import('./skills/skills.module').then((m) => m.SkillsModule),
   },
   {
-    path: 'skills/:id',
-    loadChildren: () =>
-      import('./skills-entry/skills-entry.module').then(
-        (m) => m.SkillsEntryModule
-      ),
-  },
-  {
     path: 'users',
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),

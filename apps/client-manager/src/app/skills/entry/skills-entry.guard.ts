@@ -5,13 +5,13 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
-import { SkillsEntryFacade } from './+state/skills-entry.facade';
+import { SkillsFacade } from '../+state/skills.facade';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SkillsEntryGuard implements CanActivate {
-  constructor(private skillsEntryFacade: SkillsEntryFacade) {}
+  constructor(private skillsEntryFacade: SkillsFacade) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
