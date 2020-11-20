@@ -1,13 +1,12 @@
+import { UsersListGuard } from './users-list.guard';
 import { TestBed } from '@angular/core/testing';
 
-import { UsersGuard } from './users.guard';
-
-describe('UsersGuard', () => {
-  let guard: UsersGuard;
+describe('UsersListGuard', () => {
+  let guard: UsersListGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(UsersGuard);
+    guard = TestBed.inject(UsersListGuard);
   });
 
   it('should be created', () => {

@@ -18,13 +18,6 @@ export const routes: Routes = [
       import('./users/users.module').then((m) => m.UsersModule),
   },
   {
-    path: 'users/:id',
-    loadChildren: () =>
-      import('./users-entry/users-entry.module').then(
-        (m) => m.UsersEntryModule
-      ),
-  },
-  {
     path: 'timelines',
     loadChildren: () =>
       import('./timelines/timelines.module').then((m) => m.TimelinesModule),

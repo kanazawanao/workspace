@@ -5,12 +5,10 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
-import { UsersFacade } from './+state/users.facade';
+import { UsersFacade } from '../+state/users.facade';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class UsersGuard implements CanActivate {
+@Injectable()
+export class UsersListGuard implements CanActivate {
   constructor(private usersFacade: UsersFacade) {}
   canActivate(
     route: ActivatedRouteSnapshot,

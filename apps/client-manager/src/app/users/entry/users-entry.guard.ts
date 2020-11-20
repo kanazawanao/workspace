@@ -1,4 +1,3 @@
-import { EditType } from './edit-type';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {
@@ -6,13 +5,13 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
-import { UsersEntryFacade } from './+state/users-entry.facade';
+import { UsersFacade } from '../+state/users.facade';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersEntryGuard implements CanActivate {
-  constructor(private usersEntryFacade: UsersEntryFacade) {}
+  constructor(private usersEntryFacade: UsersFacade) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
