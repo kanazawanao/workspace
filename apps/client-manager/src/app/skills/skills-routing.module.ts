@@ -7,7 +7,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./list/skills-list.module').then((m) => m.SkillsListModule),
   },
-
   {
     path: ':id',
     loadChildren: () =>

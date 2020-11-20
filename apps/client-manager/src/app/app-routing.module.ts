@@ -29,13 +29,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./timelines/timelines.module').then((m) => m.TimelinesModule),
   },
-  {
-    path: 'timelines/:id',
-    loadChildren: () =>
-      import('./timelines-entry/timelines-entry.module').then(
-        (m) => m.TimelinesEntryModule
-      ),
-  },
 ];
 
 @NgModule({

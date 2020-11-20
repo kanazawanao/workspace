@@ -1,11 +1,18 @@
-import { TimelinesContainerComponent } from './container/timelines-container.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: TimelinesContainerComponent,
+    loadChildren: () =>
+      import('./list/timelines-list.module').then((m) => m.TimelinesListModule),
+  },
+  {
+    path: ':id',
+    loadChildren: () =>
+      import('./entry/timelines-entry.module').then(
+        (m) => m.TimelinesEntryModule
+      ),
   },
 ];
 
