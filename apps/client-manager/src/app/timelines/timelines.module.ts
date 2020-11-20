@@ -1,17 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { TimelinesRoutingModule } from './timelines-routing.module';
-import { TimelinesPresenterComponent } from './presenter/timelines-presenter.component';
-import { TimelinesContainerComponent } from './container/timelines-container.component';
-import { StoreModule } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
 import * as fromTimelines from './+state/timelines.reducer';
 import { TimelinesEffects } from './+state/timelines.effects';
 import { TimelinesFacade } from './+state/timelines.facade';
 
 @NgModule({
-  declarations: [TimelinesPresenterComponent, TimelinesContainerComponent],
+  declarations: [],
   imports: [
     CommonModule,
     TimelinesRoutingModule,
