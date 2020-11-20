@@ -1,11 +1,11 @@
-import { BaseComponent } from '../../base/base-component';
-import { UsersEntryModel } from '../presenter/users-entry-model';
+import { BaseComponent } from '../../../base/base-component';
+import { UsersService } from '../../users.service';
 import { UsersEntryControlName } from '../users-entry-control-name';
-import { UsersEntryService } from '../users-entry.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { UsersEntryModel } from '../users-entry-model';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
-import { UsersEntryFacade } from '../+state/users-entry.facade';
+import { UsersFacade } from '../../+state/users.facade';
 
 @Component({
   selector: 'client-manager-users-entry-container',
@@ -13,13 +13,13 @@ import { UsersEntryFacade } from '../+state/users-entry.facade';
   styleUrls: ['./users-entry-container.component.scss'],
 })
 export class UsersEntryContainerComponent extends BaseComponent
-  implements OnInit, OnDestroy {
+  implements OnInit {
   formGroup: FormGroup;
   controlName = UsersEntryControlName;
   editMode$ = this.usersEntryFacade.editMode$;
   constructor(
-    private usersEntryService: UsersEntryService,
-    private usersEntryFacade: UsersEntryFacade
+    private usersEntryService: UsersService,
+    private usersEntryFacade: UsersFacade
   ) {
     super();
   }

@@ -1,11 +1,9 @@
 import * as UsersActions from './users.actions';
-import * as fromUsers from './users.reducer';
 import { UsersService } from '../users.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
-
 
 @Injectable()
 export class UsersEffects {
@@ -28,5 +26,26 @@ export class UsersEffects {
     )
   );
 
+  loadUpdateInitUserEntry$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UsersActions.loadUpdateInitUserEntry),
+      fetch({
+        run: (action) => {
+          return this.usersService.fetchUser(action.userId).pipe(
+            map((res) =>
+              UsersActions.loadUpdateInitUserEntrySuccess({
+                initUserEntry: res,
+              })
+            )
+          );
+        },
+
+        onError: (action, error) => {
+          console.error('Error', error);
+          return UsersActions.loadUpdateInitUserEntryFailure({ error });
+        },
+      })
+    )
+  );
   constructor(private actions$: Actions, private usersService: UsersService) {}
 }

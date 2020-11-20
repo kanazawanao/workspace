@@ -41,3 +41,13 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
 );
+
+export const getWorkUserEntry = createSelector(
+  getUsersState,
+  (state: State) => state.workUserEntry
+);
+
+export const getEditerMode = createSelector(
+  getUsersState,
+  (state: State) => state.editerMode
+);

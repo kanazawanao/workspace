@@ -1,0 +1,25 @@
+import { UsersEntryContainerComponent } from './container/users-entry-container.component';
+import { UsersEntryPresenterComponent } from './presenter/users-entry-presenter.component';
+import { UsersEntryRoutingModule } from './users-entry-routing.module';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
+import * as fromUsers from '../+state/users.reducer';
+import { UsersEffects } from '../+state/users.effects';
+
+@NgModule({
+  declarations: [UsersEntryContainerComponent, UsersEntryPresenterComponent],
+  imports: [
+    CommonModule,
+    UsersEntryRoutingModule,
+    UiInputModule,
+    UiDatePickerModule,
+    MatButtonModule,
+    StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.reducer),
+    EffectsModule.forFeature([UsersEffects]),
+  ],
+})
+export class UsersEntryModule {}
