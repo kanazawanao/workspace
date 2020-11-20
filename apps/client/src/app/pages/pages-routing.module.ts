@@ -12,6 +12,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./about/about.module').then((m) => m.AboutModule),
   },
+  ,
+  {
+    path: 'timeline',
+    loadChildren: () =>
+      import('./timeline/timeline.module').then((m) => m.TimelineModule),
+  },
 ];
 
 @NgModule({
