@@ -10,11 +10,13 @@ export class TimelinesController {
   constructor(private timelinesService: TimelinesService) {}
 
   @Get()
+  @ApiOperation({ summary: 'get timelines' })
   async getSkills(): Promise<Timeline[]> {
     return this.timelinesService.findAll();
   }
 
   @Get(':id')
+  @ApiOperation({ summary: 'get timeline' })
   async getSkill(@Param('id') id: string): Promise<Timeline> {
     return this.timelinesService.findOne(id);
   }
