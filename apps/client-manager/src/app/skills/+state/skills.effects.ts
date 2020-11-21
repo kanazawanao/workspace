@@ -43,6 +43,48 @@ export class SkillsEffects {
       })
     )
   );
+
+  createSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillsActions.createSkill),
+      fetch({
+        run: (action) => {
+          return this.skillsService
+            .postSkill(action.skillEntry)
+            .pipe(
+              map((res) =>
+                SkillsActions.createSkillSuccess({ skillEntry: res })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillsActions.createSkillFailure({ error });
+        },
+      })
+    )
+  );
+
+  updateSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillsActions.updateSkill),
+      fetch({
+        run: (action) => {
+          return this.skillsService
+            .updateSkill(action.id, action.skillEntry)
+            .pipe(
+              map((res) =>
+                SkillsActions.updateSkillSuccess({ skillEntry: res })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillsActions.updateSkillFailure({ error });
+        },
+      })
+    )
+  );
   constructor(
     private actions$: Actions,
     private skillsService: SkillsService

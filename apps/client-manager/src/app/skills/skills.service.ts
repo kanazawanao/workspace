@@ -18,15 +18,7 @@ export class SkillsService {
     return formGroup;
   }
 
-  postSkill(skill: SkillsEntryModel) {
-    var res = this.httpRequestService.post({
-      url: `${this.apiUrl}/skills`,
-      body: skill,
-    });
-    return res;
-  }
-
-  fetchSkillsInfo(): Observable<ISkill[]> {
+  fetchSkills(): Observable<ISkill[]> {
     const res = this.httpRequestService.get<ISkill[]>({
       url: `${this.apiUrl}/skills`,
     });
@@ -36,6 +28,22 @@ export class SkillsService {
   fetchSkill(id: string): Observable<ISkill> {
     var res = this.httpRequestService.get<ISkill>({
       url: `${this.apiUrl}/skills/${id}`,
+    });
+    return res;
+  }
+
+  postSkill(skill: SkillsEntryModel): Observable<ISkill> {
+    var res = this.httpRequestService.post<ISkill>({
+      url: `${this.apiUrl}/skills`,
+      body: skill,
+    });
+    return res;
+  }
+
+  updateSkill(id: number, skill: SkillsEntryModel): Observable<ISkill> {
+    var res = this.httpRequestService.put<ISkill>({
+      url: `${this.apiUrl}/skills${id}`,
+      body: skill,
     });
     return res;
   }

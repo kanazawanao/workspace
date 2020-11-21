@@ -1,3 +1,4 @@
+import { SkillsEntryModel } from '../entry/skills-entry-model';
 import { createAction, props } from '@ngrx/store';
 import { ISkill } from '@workspace/api-interfaces';
 import { EditType } from '@workspace/constants';
@@ -25,6 +26,36 @@ export const loadUpdateInitSkillEntrySuccess = createAction(
 
 export const loadUpdateInitSkillEntryFailure = createAction(
   '[UsersEntry] Load UpdateInitSkillsEntry Failure',
+  props<{ error: any }>()
+);
+
+export const createSkill = createAction(
+  '[UsersEntry] Create Skill',
+  props<{ skillEntry: SkillsEntryModel }>()
+);
+
+export const createSkillSuccess = createAction(
+  '[UsersEntry] Create Skill Success',
+  props<{ skillEntry: ISkill }>()
+);
+
+export const createSkillFailure = createAction(
+  '[UsersEntry] Create Skill Failure',
+  props<{ error: any }>()
+);
+
+export const updateSkill = createAction(
+  '[UsersEntry] Update Skill',
+  props<{ id: number; skillEntry: SkillsEntryModel }>()
+);
+
+export const updateSkillSuccess = createAction(
+  '[UsersEntry] Update Skill Success',
+  props<{ skillEntry: ISkill }>()
+);
+
+export const updateSkillFailure = createAction(
+  '[UsersEntry] Update Skill Failure',
   props<{ error: any }>()
 );
 

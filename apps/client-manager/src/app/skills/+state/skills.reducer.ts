@@ -7,9 +7,9 @@ import { EditType } from '@workspace/constants';
 export const SKILLS_FEATURE_KEY = 'skills';
 
 export interface State extends EntityState<ISkill> {
-  selectedId?: string | number; // which Skills record has been selected
-  loaded: boolean; // has the Skills list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: number;
+  loaded: boolean;
+  error?: string | null;
   editerMode: EditType;
   workSkillEntry?: ISkill;
 }
@@ -52,6 +52,7 @@ const skillsReducer = createReducer(
     (state, { initSkillEntry }) => ({
       ...state,
       loaded: true,
+      selectedId: initSkillEntry.id,
       workSkillEntry: initSkillEntry,
     })
   ),

@@ -15,28 +15,14 @@ export class UsersService {
     @Inject('apiUrl') private apiUrl: string
   ) {}
 
-  fetchUsersInfo(): Observable<IUser[]> {
-    const res = this.httpRequestService.get<IUser[]>({
-      url: `${this.apiUrl}/users`,
-    });
-    return res;
-  }
-
-  fetchUserInfo(id: string): Observable<IUser> {
-    var res = this.httpRequestService.get<IUser>({
-      url: `${this.apiUrl}/users/${id}`,
-    });
-    return res;
-  }
   generateFormGroup(formData: UsersEntryModel): FormGroup {
     const formGroup = this.formBuilder.group(formData);
     return formGroup;
   }
 
-  postUser(user: UsersEntryModel) {
-    var res = this.httpRequestService.post({
+  fetchUsers(): Observable<IUser[]> {
+    const res = this.httpRequestService.get<IUser[]>({
       url: `${this.apiUrl}/users`,
-      body: user,
     });
     return res;
   }
@@ -44,6 +30,14 @@ export class UsersService {
   fetchUser(id: string): Observable<IUser> {
     var res = this.httpRequestService.get<IUser>({
       url: `${this.apiUrl}/users/${id}`,
+    });
+    return res;
+  }
+
+  postUser(user: UsersEntryModel) {
+    var res = this.httpRequestService.post({
+      url: `${this.apiUrl}/users`,
+      body: user,
     });
     return res;
   }

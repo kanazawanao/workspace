@@ -24,6 +24,6 @@ export class SkillsListContainerComponent extends BaseComponent
   }
 
   ngOnInit(): void {
-    this.skills$ = this.skillsService.fetchSkillsInfo();
+    this.skills$ = this.skillsService.fetchSkills();
   }
 }
