@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
-
-import { select, Store, Action } from '@ngrx/store';
-
 import * as fromTimelines from './timelines.reducer';
 import * as TimelinesSelectors from './timelines.selectors';
+import { Injectable } from '@angular/core';
+import { Action, select, Store } from '@ngrx/store';
 
 @Injectable()
 export class TimelinesFacade {

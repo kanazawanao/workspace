@@ -1,6 +1,6 @@
-import { EditType } from '../edit-type';
 import { createAction, props } from '@ngrx/store';
 import { ISkill } from '@workspace/api-interfaces';
+import { EditType } from '@workspace/constants';
 export const loadSkills = createAction('[Skills] Load Skills');
 
 export const loadSkillsSuccess = createAction(

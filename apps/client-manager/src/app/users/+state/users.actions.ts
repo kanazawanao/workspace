@@ -1,6 +1,6 @@
-import { EditType } from '../../skills/edit-type';
 import { createAction, props } from '@ngrx/store';
 import { IUser } from '@workspace/api-interfaces';
+import { EditType } from '@workspace/constants';
 
 export const loadUsers = createAction('[Users] Load Users');
 

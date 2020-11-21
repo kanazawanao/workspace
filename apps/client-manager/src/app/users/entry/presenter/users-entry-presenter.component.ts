@@ -1,7 +1,7 @@
-import { EditType } from '../../../skills/edit-type';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { EditType } from '@workspace/constants';
 
 @Component({
   selector: 'client-manager-users-entry-presenter',

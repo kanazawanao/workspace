@@ -1,11 +1,11 @@
 import { createAction, props } from '@ngrx/store';
-import { TimelinesEntity } from './timelines.models';
+import { ITimeline } from '@workspace/api-interfaces';
 
 export const loadTimelines = createAction('[Timelines] Load Timelines');
 
 export const loadTimelinesSuccess = createAction(
   '[Timelines] Load Timelines Success',
-  props<{ timelines: TimelinesEntity[] }>()
+  props<{ timelines: ITimeline[] }>()
 );
 
 export const loadTimelinesFailure = createAction(

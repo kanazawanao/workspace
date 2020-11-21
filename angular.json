@@ -353,7 +353,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/client-manager/src/styles.scss"],
+              "apps/client-manager/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -443,6 +444,32 @@
           "options": {
             "lintFilePatterns": ["apps/client-manager-e2e/**/*.{js,ts}"]
           }
+        }
+      }
+    },
+    "constants": {
+      "projectType": "library",
+      "root": "libs/constants",
+      "sourceRoot": "libs/constants/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/constants/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/constants/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }

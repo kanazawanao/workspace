@@ -1,8 +1,8 @@
 import * as UsersActions from './users.actions';
-import { EditType } from '../../skills/edit-type';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { IUser } from '@workspace/api-interfaces';
+import { EditType } from '@workspace/constants';
 
 export const USERS_FEATURE_KEY = 'users';
 

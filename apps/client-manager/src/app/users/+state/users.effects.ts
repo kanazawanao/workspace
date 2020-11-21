@@ -17,7 +17,6 @@ export class UsersEffects {
             .fetchUsersInfo()
             .pipe(map((res) => UsersActions.loadUsersSuccess({ users: res })));
         },
-
         onError: (action, error) => {
           console.error('Error', error);
           return UsersActions.loadUsersFailure({ error });
@@ -39,7 +38,6 @@ export class UsersEffects {
             )
           );
         },
-
         onError: (action, error) => {
           console.error('Error', error);
           return UsersActions.loadUpdateInitUserEntryFailure({ error });

@@ -58,6 +58,9 @@
     "client-manager-e2e": {
       "tags": [],
       "implicitDependencies": ["client-manager"]
+    },
+    "constants": {
+      "tags": []
     }
   }
 }

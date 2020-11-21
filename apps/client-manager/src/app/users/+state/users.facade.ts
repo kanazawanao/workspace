@@ -1,9 +1,9 @@
 import * as UsersActions from './users.actions';
 import * as fromUsers from './users.reducer';
 import * as UsersSelectors from './users.selectors';
-import { EditType } from '../../skills/edit-type';
 import { Injectable } from '@angular/core';
 import { Action, select, Store } from '@ngrx/store';
+import { EditType } from '@workspace/constants';
 
 @Injectable()
 export class UsersFacade {

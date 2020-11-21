@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/ui',
     '<rootDir>/libs/shared-service',
     '<rootDir>/apps/client-manager',
+    '<rootDir>/libs/constants',
   ],
 };

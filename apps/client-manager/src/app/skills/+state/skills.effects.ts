@@ -1,5 +1,4 @@
 import * as SkillsActions from './skills.actions';
-import * as fromSkills from './skills.reducer';
 import { SkillsService } from '../skills.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -16,7 +15,6 @@ export class SkillsEffects {
           // Your custom service 'load' logic goes here. For now just return a success action...
           return SkillsActions.loadSkillsSuccess({ skills: [] });
         },
-
         onError: (action, error) => {
           console.error('Error', error);
           return SkillsActions.loadSkillsFailure({ error });
@@ -38,7 +36,6 @@ export class SkillsEffects {
             )
           );
         },
-
         onError: (action, error) => {
           console.error('Error', error);
           return SkillsActions.loadUpdateInitSkillEntryFailure({ error });

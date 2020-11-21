@@ -1,8 +1,8 @@
 import * as SkillsActions from './skills.actions';
-import { EditType } from '../edit-type';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { ISkill } from '@workspace/api-interfaces';
+import { EditType } from '@workspace/constants';
 
 export const SKILLS_FEATURE_KEY = 'skills';
 
