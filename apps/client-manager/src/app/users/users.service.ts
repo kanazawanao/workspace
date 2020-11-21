@@ -5,9 +5,7 @@ import { IUser } from '@workspace/api-interfaces';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UsersService {
   constructor(
     private formBuilder: FormBuilder,
