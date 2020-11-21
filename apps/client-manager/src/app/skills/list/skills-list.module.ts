@@ -5,6 +5,7 @@ import { SkillsListGuard } from './skills-list.guard';
 import { SkillsService } from '../skills.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { UiTableModule } from '@workspace/ui';
@@ -17,6 +18,7 @@ import { SkillsFacade } from '../+state/skills.facade';
   imports: [
     CommonModule,
     SkillsListRoutingModule,
+    ReactiveFormsModule,
     UiTableModule,
     StoreModule.forFeature(fromSkills.SKILLS_FEATURE_KEY, fromSkills.reducer),
     EffectsModule.forFeature([SkillsEffects]),

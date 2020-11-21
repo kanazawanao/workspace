@@ -13,6 +13,7 @@ export class TimelinesService {
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
+
   generateFormGroup(formData: TimelinesEntryModel): FormGroup {
     const formGroup = this.formBuilder.group(formData);
     return formGroup;

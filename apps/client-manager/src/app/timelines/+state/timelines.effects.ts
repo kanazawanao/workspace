@@ -28,6 +28,26 @@ export class TimelinesEffects {
     )
   );
 
+  loadUpdateInitTimelineEntry$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TimelinesActions.loadUpdateInitTimelineEntry),
+      fetch({
+        run: (action) => {
+          return this.timelinesService.fetchTimeline(action.timelineId).pipe(
+            map((res) =>
+              TimelinesActions.loadUpdateInitTimelineEntrySuccess({
+                initTimelineEntry: res,
+              })
+            )
+          );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return TimelinesActions.loadUpdateInitTimelineEntryFailure({ error });
+        },
+      })
+    )
+  );
   constructor(
     private actions$: Actions,
     private timelinesService: TimelinesService

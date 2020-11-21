@@ -5,6 +5,7 @@ import { UsersListGuard } from './users-list.guard';
 import { UsersService } from '../users.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { UiTableModule } from '@workspace/ui';
@@ -17,6 +18,7 @@ import { UsersFacade } from '../+state/users.facade';
   imports: [
     CommonModule,
     UsersListRoutingModule,
+    ReactiveFormsModule,
     UiTableModule,
     StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.reducer),
     EffectsModule.forFeature([UsersEffects]),

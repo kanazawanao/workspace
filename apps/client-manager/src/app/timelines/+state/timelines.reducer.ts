@@ -7,11 +7,11 @@ import { EditType } from '@workspace/constants';
 export const TIMELINES_FEATURE_KEY = 'timelines';
 
 export interface State extends EntityState<ITimeline> {
-  selectedId?: string | number; // which Timelines record has been selected
-  loaded: boolean; // has the Timelines list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: number;
+  loaded: boolean;
+  error?: string | null;
   editerMode: EditType;
-  workUserEntry?: ITimeline;
+  workTimelineEntry?: ITimeline;
 }
 
 export interface TimelinesPartialState {
@@ -41,6 +41,30 @@ const timelinesReducer = createReducer(
   on(TimelinesActions.loadTimelinesFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(TimelinesActions.loadUpdateInitTimelineEntry, (state) => ({
+    ...state,
+    loaded: false,
+    error: null,
+  })),
+  on(
+    TimelinesActions.loadUpdateInitTimelineEntrySuccess,
+    (state, { initTimelineEntry }) => ({
+      ...state,
+      loaded: true,
+      workTimelineEntry: initTimelineEntry,
+    })
+  ),
+  on(
+    TimelinesActions.loadUpdateInitTimelineEntryFailure,
+    (state, { error }) => ({
+      ...state,
+      error,
+    })
+  ),
+  on(TimelinesActions.setEditerMode, (state, { editerMode }) => ({
+    ...state,
+    editerMode: editerMode,
   }))
 );
 

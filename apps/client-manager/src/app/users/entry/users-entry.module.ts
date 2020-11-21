@@ -5,6 +5,7 @@ import { UsersEntryGuard } from './users-entry.guard';
 import { UsersService } from '../users.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -18,6 +19,7 @@ import { UsersFacade } from '../+state/users.facade';
   imports: [
     CommonModule,
     UsersEntryRoutingModule,
+    ReactiveFormsModule,
     UiInputModule,
     UiDatePickerModule,
     MatButtonModule,

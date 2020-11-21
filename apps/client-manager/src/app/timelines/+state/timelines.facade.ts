@@ -3,6 +3,7 @@ import * as fromTimelines from './timelines.reducer';
 import * as TimelinesSelectors from './timelines.selectors';
 import { Injectable } from '@angular/core';
 import { Action, select, Store } from '@ngrx/store';
+import { EditType } from '@workspace/constants';
 
 @Injectable()
 export class TimelinesFacade {
@@ -18,5 +19,14 @@ export class TimelinesFacade {
 
   loadTimelines() {
     this.dispatch(TimelinesActions.loadTimelines());
+  }
+
+  loadUpdateInitTimelineEntry(timelineId: string) {
+    this.setEditerMode(EditType.update);
+    this.dispatch(TimelinesActions.loadUpdateInitTimelineEntry({ timelineId }));
+  }
+
+  setEditerMode(editerMode: EditType) {
+    this.store.dispatch(TimelinesActions.setEditerMode({ editerMode }));
   }
 }
