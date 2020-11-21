@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
-
-import * as fromTimelines from './timelines.reducer';
 import * as TimelinesActions from './timelines.actions';
+import { TimelinesService } from '../timelines.service';
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { fetch } from '@nrwl/angular';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class TimelinesEffects {
@@ -12,10 +12,14 @@ export class TimelinesEffects {
       ofType(TimelinesActions.loadTimelines),
       fetch({
         run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return TimelinesActions.loadTimelinesSuccess({ timelines: [] });
+          return this.timelinesService
+            .fetchTimelines()
+            .pipe(
+              map((res) =>
+                TimelinesActions.loadTimelinesSuccess({ timelines: res })
+              )
+            );
         },
-
         onError: (action, error) => {
           console.error('Error', error);
           return TimelinesActions.loadTimelinesFailure({ error });
@@ -24,5 +28,8 @@ export class TimelinesEffects {
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private timelinesService: TimelinesService
+  ) {}
 }

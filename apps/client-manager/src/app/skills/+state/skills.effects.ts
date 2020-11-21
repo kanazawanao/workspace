@@ -12,8 +12,11 @@ export class SkillsEffects {
       ofType(SkillsActions.loadSkills),
       fetch({
         run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return SkillsActions.loadSkillsSuccess({ skills: [] });
+          return this.skillsService
+            .fetchSkills()
+            .pipe(
+              map((res) => SkillsActions.loadSkillsSuccess({ skills: res }))
+            );
         },
         onError: (action, error) => {
           console.error('Error', error);

@@ -12,7 +12,6 @@ export class UsersEffects {
       ofType(UsersActions.loadUsers),
       fetch({
         run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
           return this.usersService
             .fetchUsers()
             .pipe(map((res) => UsersActions.loadUsersSuccess({ users: res })));
