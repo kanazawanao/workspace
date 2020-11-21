@@ -1,3 +1,4 @@
+import * as TimelinesActions from './timelines.actions';
 import * as fromTimelines from './timelines.reducer';
 import * as TimelinesSelectors from './timelines.selectors';
 import { Injectable } from '@angular/core';
@@ -13,5 +14,9 @@ export class TimelinesFacade {
 
   dispatch(action: Action) {
     this.store.dispatch(action);
+  }
+
+  loadTimelines() {
+    this.dispatch(TimelinesActions.loadTimelines());
   }
 }

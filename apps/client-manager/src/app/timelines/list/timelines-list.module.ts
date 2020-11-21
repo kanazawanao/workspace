@@ -1,6 +1,7 @@
-import { TinelinesListContainerComponent } from './container/tinelines-list-container.component';
-import { TinelinesListPresenterComponent } from './presenter/tinelines-list-presenter.component';
+import { TimelinesListContainerComponent } from './container/timelines-list-container.component';
+import { TimelinesListPresenterComponent } from './presenter/timelines-list-presenter.component';
 import { TimelinesListRoutingModule } from './timelines-list-routing.module';
+import { TimelinesListGuard } from './timelines-list.guard';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
@@ -11,8 +12,8 @@ import { TimelinesFacade } from '../+state/timelines.facade';
 
 @NgModule({
   declarations: [
-    TinelinesListPresenterComponent,
-    TinelinesListContainerComponent,
+    TimelinesListPresenterComponent,
+    TimelinesListContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +24,6 @@ import { TimelinesFacade } from '../+state/timelines.facade';
     ),
     EffectsModule.forFeature([TimelinesEffects]),
   ],
-  providers: [TimelinesFacade],
+  providers: [TimelinesFacade, TimelinesListGuard],
 })
 export class TimelinesListModule {}
