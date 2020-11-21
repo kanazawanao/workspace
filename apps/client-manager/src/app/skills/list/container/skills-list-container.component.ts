@@ -3,6 +3,7 @@ import { SkillsService } from '../../skills.service';
 import { Component, OnInit } from '@angular/core';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
+import { SkillsFacade } from '../../+state/skills.facade';
 
 @Component({
   selector: 'client-manager-skills-list-container',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class SkillsListContainerComponent extends BaseComponent
   implements OnInit {
-  skills$: Observable<ISkill[]>;
+  skills$: Observable<ISkill[]> = this.skillsFacade.allSkills$;
   displayedColumns: string[] = [
     'id',
     'skillType',
@@ -19,11 +20,9 @@ export class SkillsListContainerComponent extends BaseComponent
     'experienceYears',
     'skillLevel',
   ];
-  constructor(private skillsService: SkillsService) {
+  constructor(private skillsFacade: SkillsFacade) {
     super();
   }
 
-  ngOnInit(): void {
-    this.skills$ = this.skillsService.fetchSkills();
-  }
+  ngOnInit(): void {}
 }

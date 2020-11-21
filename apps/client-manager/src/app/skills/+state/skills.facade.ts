@@ -18,6 +18,10 @@ export class SkillsFacade {
     this.store.dispatch(action);
   }
 
+  loadSkills() {
+    this.dispatch(SkillsActions.loadSkills());
+  }
+
   loadUpdateInitSkillsEntry(skillId: string) {
     this.dispatch(SkillsActions.loadUpdateInitSkillEntry({ skillId }));
   }
