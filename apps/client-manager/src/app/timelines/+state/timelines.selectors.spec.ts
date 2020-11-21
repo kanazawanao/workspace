@@ -1,15 +1,15 @@
-import { TimelinesEntity } from './timelines.models';
-import { State, timelinesAdapter, initialState } from './timelines.reducer';
+import { initialState, State, timelinesAdapter } from './timelines.reducer';
 import * as TimelinesSelectors from './timelines.selectors';
+import { ITimeline } from '@workspace/api-interfaces';
 
 describe('Timelines Selectors', () => {
   const ERROR_MSG = 'No Error Available';
   const getTimelinesId = (it) => it['id'];
-  const createTimelinesEntity = (id: string, name = '') =>
+  const createTimelinesEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as TimelinesEntity);
+      event: name || `name-${id}`,
+    } as ITimeline);
 
   let state;
 
@@ -17,13 +17,13 @@ describe('Timelines Selectors', () => {
     state = {
       timelines: timelinesAdapter.setAll(
         [
-          createTimelinesEntity('PRODUCT-AAA'),
-          createTimelinesEntity('PRODUCT-BBB'),
-          createTimelinesEntity('PRODUCT-CCC'),
+          createTimelinesEntity(1),
+          createTimelinesEntity(2),
+          createTimelinesEntity(3),
         ],
         {
           ...initialState,
-          selectedId: 'PRODUCT-BBB',
+          selectedId: 2,
           error: ERROR_MSG,
           loaded: true,
         }
@@ -37,14 +37,14 @@ describe('Timelines Selectors', () => {
       const selId = getTimelinesId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it('getSelected() should return the selected Entity', () => {
       const result = TimelinesSelectors.getSelected(state);
       const selId = getTimelinesId(result);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(selId).toBe(2);
     });
 
     it("getTimelinesLoaded() should return the current 'loaded' status", () => {

@@ -32,16 +32,16 @@ export class UsersService {
     return res;
   }
 
-  postUser(user: UsersEntryModel) {
-    var res = this.httpRequestService.post({
+  postUser(user: UsersEntryModel): Observable<IUser> {
+    var res = this.httpRequestService.post<IUser>({
       url: `${this.apiUrl}/users`,
       body: user,
     });
     return res;
   }
 
-  updateUser(id: number, user: UsersEntryModel) {
-    var res = this.httpRequestService.put({
+  updateUser(id: number, user: UsersEntryModel): Observable<IUser> {
+    var res = this.httpRequestService.put<IUser>({
       url: `${this.apiUrl}/users${id}`,
       body: user,
     });

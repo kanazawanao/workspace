@@ -1,11 +1,19 @@
 import { UsersListGuard } from './users-list.guard';
 import { TestBed } from '@angular/core/testing';
-
+import { UsersFacade } from '../+state/users.facade';
+import { MockUsersFacade } from '../+state/mock-users.facade';
 describe('UsersListGuard', () => {
   let guard: UsersListGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: UsersFacade,
+          useValue: MockUsersFacade,
+        },
+      ],
+    });
     guard = TestBed.inject(UsersListGuard);
   });
 

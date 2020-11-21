@@ -1,24 +1,16 @@
-import { NgModule } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
-import { NxModule } from '@nrwl/angular';
-
-import { TimelinesEntity } from './timelines.models';
+import * as TimelinesActions from './timelines.actions';
 import { TimelinesEffects } from './timelines.effects';
 import { TimelinesFacade } from './timelines.facade';
-
-import * as TimelinesSelectors from './timelines.selectors';
-import * as TimelinesActions from './timelines.actions';
-import {
-  TIMELINES_FEATURE_KEY,
-  State,
-  initialState,
-  reducer,
-} from './timelines.reducer';
+import { MockTimelinesService } from '../mock-timelines.service';
+import { TimelinesService } from '../timelines.service';
+import { NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
+import { NxModule } from '@nrwl/angular';
+import { readFirst } from '@nrwl/angular/testing';
+import { ITimeline } from '@workspace/api-interfaces';
+import { TIMELINES_FEATURE_KEY, State, reducer } from './timelines.reducer';
 
 interface TestSchema {
   timelines: State;
@@ -27,11 +19,11 @@ interface TestSchema {
 describe('TimelinesFacade', () => {
   let facade: TimelinesFacade;
   let store: Store<TestSchema>;
-  const createTimelinesEntity = (id: string, name = '') =>
+  const createTimelinesEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as TimelinesEntity);
+      event: name || `name-${id}`,
+    } as ITimeline);
 
   beforeEach(() => {});
 
@@ -42,7 +34,10 @@ describe('TimelinesFacade', () => {
           StoreModule.forFeature(TIMELINES_FEATURE_KEY, reducer),
           EffectsModule.forFeature([TimelinesEffects]),
         ],
-        providers: [TimelinesFacade],
+        providers: [
+          TimelinesFacade,
+          { provide: TimelinesService, useValue: MockTimelinesService },
+        ],
       })
       class CustomFeatureModule {}
 
@@ -99,10 +94,7 @@ describe('TimelinesFacade', () => {
 
         facade.dispatch(
           TimelinesActions.loadTimelinesSuccess({
-            timelines: [
-              createTimelinesEntity('AAA'),
-              createTimelinesEntity('BBB'),
-            ],
+            timelines: [createTimelinesEntity(1), createTimelinesEntity(2)],
           })
         );
 

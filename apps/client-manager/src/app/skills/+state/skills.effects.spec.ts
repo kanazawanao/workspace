@@ -22,7 +22,7 @@ describe('SkillsEffects', () => {
       ],
     });
 
-    effects = TestBed.get(SkillsEffects);
+    effects = TestBed.inject(SkillsEffects);
   });
 
   describe('loadSkills$', () => {

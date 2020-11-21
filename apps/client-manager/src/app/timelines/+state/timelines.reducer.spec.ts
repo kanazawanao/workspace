@@ -1,22 +1,19 @@
-import { TimelinesEntity } from './timelines.models';
 import * as TimelinesActions from './timelines.actions';
-import { State, initialState, reducer } from './timelines.reducer';
+import { initialState, reducer, State } from './timelines.reducer';
+import { ITimeline } from '@workspace/api-interfaces';
 
 describe('Timelines Reducer', () => {
-  const createTimelinesEntity = (id: string, name = '') =>
+  const createTimelinesEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as TimelinesEntity);
+      event: name || `name-${id}`,
+    } as ITimeline);
 
   beforeEach(() => {});
 
   describe('valid Timelines actions', () => {
     it('loadTimelinesSuccess should return set the list of known Timelines', () => {
-      const timelines = [
-        createTimelinesEntity('PRODUCT-AAA'),
-        createTimelinesEntity('PRODUCT-zzz'),
-      ];
+      const timelines = [createTimelinesEntity(1), createTimelinesEntity(2)];
       const action = TimelinesActions.loadTimelinesSuccess({ timelines });
 
       const result: State = reducer(initialState, action);

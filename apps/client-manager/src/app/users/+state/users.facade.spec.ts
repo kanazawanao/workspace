@@ -1,7 +1,8 @@
 import * as UsersActions from './users.actions';
 import { UsersEffects } from './users.effects';
 import { UsersFacade } from './users.facade';
-import * as UsersSelectors from './users.selectors';
+import { MockUsersService } from '../mock-users.service';
+import { UsersService } from '../users.service';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
@@ -9,13 +10,7 @@ import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { IUser } from '@workspace/api-interfaces';
-
-import {
-  USERS_FEATURE_KEY,
-  State,
-  initialState,
-  reducer,
-} from './users.reducer';
+import { USERS_FEATURE_KEY, State, reducer } from './users.reducer';
 
 interface TestSchema {
   users: State;
@@ -39,7 +34,10 @@ describe('UsersFacade', () => {
           StoreModule.forFeature(USERS_FEATURE_KEY, reducer),
           EffectsModule.forFeature([UsersEffects]),
         ],
-        providers: [UsersFacade],
+        providers: [
+          UsersFacade,
+          { provide: UsersService, useValue: MockUsersService },
+        ],
       })
       class CustomFeatureModule {}
 

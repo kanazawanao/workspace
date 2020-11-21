@@ -1,24 +1,17 @@
-import { NgModule } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
-
-import { NxModule } from '@nrwl/angular';
-
-import { SkillsEntity } from './skills.models';
+import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { SkillsFacade } from './skills.facade';
+import { MockSkillsService } from '../mock-skills.service';
+import { SkillsService } from '../skills.service';
+import { NgModule } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { Store, StoreModule } from '@ngrx/store';
+import { NxModule } from '@nrwl/angular';
+import { readFirst } from '@nrwl/angular/testing';
+import { ISkill } from '@workspace/api-interfaces';
 
-import * as SkillsSelectors from './skills.selectors';
-import * as SkillsActions from './skills.actions';
-import {
-  SKILLS_FEATURE_KEY,
-  State,
-  initialState,
-  reducer,
-} from './skills.reducer';
+import { SKILLS_FEATURE_KEY, State, reducer } from './skills.reducer';
 
 interface TestSchema {
   skills: State;
@@ -27,11 +20,11 @@ interface TestSchema {
 describe('SkillsFacade', () => {
   let facade: SkillsFacade;
   let store: Store<TestSchema>;
-  const createSkillsEntity = (id: string, name = '') =>
+  const createSkillsEntity = (id: number, name = '') =>
     ({
       id,
-      name: name || `name-${id}`,
-    } as SkillsEntity);
+      skillName: name || `name-${id}`,
+    } as ISkill);
 
   beforeEach(() => {});
 
@@ -42,7 +35,10 @@ describe('SkillsFacade', () => {
           StoreModule.forFeature(SKILLS_FEATURE_KEY, reducer),
           EffectsModule.forFeature([SkillsEffects]),
         ],
-        providers: [SkillsFacade],
+        providers: [
+          SkillsFacade,
+          { provide: SkillsService, useValue: MockSkillsService },
+        ],
       })
       class CustomFeatureModule {}
 
@@ -99,7 +95,7 @@ describe('SkillsFacade', () => {
 
         facade.dispatch(
           SkillsActions.loadSkillsSuccess({
-            skills: [createSkillsEntity('AAA'), createSkillsEntity('BBB')],
+            skills: [createSkillsEntity(1), createSkillsEntity(2)],
           })
         );
 

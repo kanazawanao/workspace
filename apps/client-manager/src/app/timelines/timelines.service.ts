@@ -32,16 +32,19 @@ export class TimelinesService {
     return res;
   }
 
-  postTimeline(timeline: TimelinesEntryModel) {
-    var res = this.httpRequestService.post({
+  postTimeline(timeline: TimelinesEntryModel): Observable<ITimeline> {
+    var res = this.httpRequestService.post<ITimeline>({
       url: `${this.apiUrl}${this.API_TIMELINES}`,
       body: timeline,
     });
     return res;
   }
 
-  updateTimeline(id: number, timeline: TimelinesEntryModel) {
-    var res = this.httpRequestService.put({
+  updateTimeline(
+    id: number,
+    timeline: TimelinesEntryModel
+  ): Observable<ITimeline> {
+    var res = this.httpRequestService.put<ITimeline>({
       url: `${this.apiUrl}${this.API_TIMELINES}/${id}`,
       body: timeline,
     });
