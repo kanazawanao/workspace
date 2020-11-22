@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ISkill } from '@workspace/api-interfaces';
+import { ISkillType } from '@workspace/api-interfaces';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Skill implements ISkill {
+export class SkillType implements ISkillType {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -13,13 +13,5 @@ export class Skill implements ISkill {
 
   @Column()
   @ApiProperty()
-  skillName: string;
-
-  @Column()
-  @ApiProperty()
-  experienceYears: number;
-
-  @Column()
-  @ApiProperty()
-  skillLevel: number;
+  skillTypeName: string;
 }
