@@ -44,3 +44,13 @@ export const getSelected = createSelector(
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
 );
+
+export const getWorkTimelineEntry = createSelector(
+  getTimelinesState,
+  (state: State) => state.workTimelineEntry
+);
+
+export const getEditerMode = createSelector(
+  getTimelinesState,
+  (state: State) => state.editerMode
+);
