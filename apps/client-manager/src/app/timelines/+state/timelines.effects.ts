@@ -48,6 +48,48 @@ export class TimelinesEffects {
       })
     )
   );
+  createSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TimelinesActions.createTimeline),
+      fetch({
+        run: (action) => {
+          return this.timelinesService
+            .postTimeline(action.timelineEntry)
+            .pipe(
+              map((res) =>
+                TimelinesActions.createTimelineSuccess({ timelineEntry: res })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return TimelinesActions.createTimelineFailure({ error });
+        },
+      })
+    )
+  );
+
+  updateSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TimelinesActions.updateTimeline),
+      fetch({
+        run: (action) => {
+          return this.timelinesService
+            .updateTimeline(action.id, action.timelineEntry)
+            .pipe(
+              map((res) =>
+                TimelinesActions.updateTimelineSuccess({ timelineEntry: res })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return TimelinesActions.updateTimelineFailure({ error });
+        },
+      })
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private timelinesService: TimelinesService

@@ -1,3 +1,4 @@
+import { TimelinesEntryModel } from '../entry/timelines-entry-model';
 import { createAction, props } from '@ngrx/store';
 import { ITimeline } from '@workspace/api-interfaces';
 import { EditType } from '@workspace/constants';
@@ -26,6 +27,36 @@ export const loadUpdateInitTimelineEntrySuccess = createAction(
 
 export const loadUpdateInitTimelineEntryFailure = createAction(
   '[UsersEntry] Load UpdateInitTimelineEntry Failure',
+  props<{ error: any }>()
+);
+
+export const createTimeline = createAction(
+  '[UsersEntry] Create Timeline',
+  props<{ timelineEntry: TimelinesEntryModel }>()
+);
+
+export const createTimelineSuccess = createAction(
+  '[UsersEntry] Create Timeline Success',
+  props<{ timelineEntry: ITimeline }>()
+);
+
+export const createTimelineFailure = createAction(
+  '[UsersEntry] Create Timeline Failure',
+  props<{ error: any }>()
+);
+
+export const updateTimeline = createAction(
+  '[UsersEntry] Update Timeline',
+  props<{ id: number; timelineEntry: TimelinesEntryModel }>()
+);
+
+export const updateTimelineSuccess = createAction(
+  '[UsersEntry] Update Timeline Success',
+  props<{ timelineEntry: ITimeline }>()
+);
+
+export const updateTimelineFailure = createAction(
+  '[UsersEntry] Update Timeline Failure',
   props<{ error: any }>()
 );
 
