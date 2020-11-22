@@ -2,7 +2,7 @@ import { BaseComponent } from '../../../base/base-component';
 import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { SkillsEntryModel } from '../skills-entry-model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { SkillsFacade } from '../../+state/skills.facade';
@@ -13,7 +13,7 @@ import { SkillsFacade } from '../../+state/skills.facade';
   styleUrls: ['./skills-entry-container.component.scss'],
 })
 export class SkillsEntryContainerComponent extends BaseComponent
-  implements OnInit {
+  implements OnInit, OnDestroy {
   formGroup: FormGroup;
   controlName = SkillsEntryControlName;
 
@@ -25,12 +25,7 @@ export class SkillsEntryContainerComponent extends BaseComponent
   }
 
   ngOnInit(): void {
-    var entryModle: SkillsEntryModel = {
-      experienceYears: 0,
-      skillLevel: 0,
-      skillName: '',
-      skillType: '',
-    };
+    var entryModle: SkillsEntryModel = new SkillsEntryModel();
     this.formGroup = this.skillsService.generateFormGroup(entryModle);
     this.skillsFacade.workSkill$
       .pipe(takeUntil(this.unsubscribeObservable$))

@@ -2,7 +2,7 @@ import { BaseComponent } from '../../../base/base-component';
 import { UsersService } from '../../users.service';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { UsersEntryModel } from '../users-entry-model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { UsersFacade } from '../../+state/users.facade';
@@ -13,22 +13,22 @@ import { UsersFacade } from '../../+state/users.facade';
   styleUrls: ['./users-entry-container.component.scss'],
 })
 export class UsersEntryContainerComponent extends BaseComponent
-  implements OnInit {
+  implements OnInit, OnDestroy {
   formGroup: FormGroup;
   controlName = UsersEntryControlName;
-  editMode$ = this.usersEntryFacade.editMode$;
+  editMode$ = this.usersFacade.editMode$;
 
   constructor(
-    private usersEntryService: UsersService,
-    private usersEntryFacade: UsersFacade
+    private usersService: UsersService,
+    private usersFacade: UsersFacade
   ) {
     super();
   }
 
   ngOnInit(): void {
     var entryModel: UsersEntryModel = new UsersEntryModel();
-    this.formGroup = this.usersEntryService.generateFormGroup(entryModel);
-    this.usersEntryFacade.wokkUserEntry$
+    this.formGroup = this.usersService.generateFormGroup(entryModel);
+    this.usersFacade.wokkUserEntry$
       .pipe(takeUntil(this.unsubscribeObservable$))
       .subscribe((x) => {
         if (x) {
@@ -57,6 +57,6 @@ export class UsersEntryContainerComponent extends BaseComponent
   }
 
   registSkill(user: UsersEntryModel) {
-    this.usersEntryService.postUser(user).subscribe((x) => console.log(x));
+    this.usersService.postUser(user).subscribe((x) => console.log(x));
   }
 }

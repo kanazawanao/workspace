@@ -2,7 +2,6 @@ import { UsersEntryContainerComponent } from './users-entry-container.component'
 import { MockUsersService } from '../../mock-users.service';
 import { UsersService } from '../../users.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
