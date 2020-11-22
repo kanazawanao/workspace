@@ -1,5 +1,9 @@
-import { text, number, boolean } from '@storybook/addon-knobs';
 import { LoginPresenterComponent } from './login-presenter.component';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UiInputModule } from '@workspace/ui';
 
 export default {
   title: 'LoginPresenterComponent'
@@ -7,10 +11,19 @@ export default {
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: []
+    imports: [
+      CommonModule,
+      ReactiveFormsModule,
+      UiInputModule,
+      MatButtonModule, 
+      BrowserAnimationsModule,
+    ]
   },
   component: LoginPresenterComponent,
   props: {
-    formGroup: text('formGroup', ),
+    formGroup: new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl('')
+    }),
   }
 })

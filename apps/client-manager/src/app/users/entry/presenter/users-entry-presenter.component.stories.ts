@@ -1,5 +1,10 @@
-import { text, number, boolean } from '@storybook/addon-knobs';
 import { UsersEntryPresenterComponent } from './users-entry-presenter.component';
+import { CommonModule } from '@angular/common';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { boolean, number, text } from '@storybook/addon-knobs';
+import { EditType } from '@workspace/constants';
+import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 
 export default {
   title: 'UsersEntryPresenterComponent'
@@ -7,11 +12,17 @@ export default {
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: []
+    imports: [
+      CommonModule,
+      ReactiveFormsModule,
+      UiInputModule,
+      UiDatePickerModule,
+      MatButtonModule,
+    ]
   },
   component: UsersEntryPresenterComponent,
   props: {
-    formGroup: text('formGroup', ),
-    editMode: text('editMode', ),
+    formGroup: new FormGroup({}),
+    editMode: EditType.create,
   }
 })
