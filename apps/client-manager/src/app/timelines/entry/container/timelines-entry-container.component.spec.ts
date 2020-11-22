@@ -1,15 +1,23 @@
-import { TimelinesEntryContainerComponent } from './tinelines-entry-container.component';
-import { Component } from '@angular/core';
+import { TimelinesEntryContainerComponent } from './timelines-entry-container.component';
+import { MockTimelinesService } from '../../mock-timelines.service';
+import { TimelinesService } from '../../timelines.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormGroup } from '@angular/forms';
+import { MockTimelinesFacade } from '../../+state/mock-timelines.facade';
+import { TimelinesFacade } from '../../+state/timelines.facade';
 
 @Component({
-  selector: 'client-manager-tinelines-entry-presenter',
+  selector: 'client-manager-timelines-entry-presenter',
   template: '',
   styleUrls: [],
 })
-export class MockTinelinesEntryPresenterComponent {}
+export class MockTinelinesEntryPresenterComponent {
+  @Input() formGroup: FormGroup;
+  @Output() registEvent = new EventEmitter();
+}
 
-describe('TinelinesEntryContainerComponent', () => {
+describe('TimelinesEntryContainerComponent', () => {
   let component: TimelinesEntryContainerComponent;
   let fixture: ComponentFixture<TimelinesEntryContainerComponent>;
 
@@ -18,6 +26,16 @@ describe('TinelinesEntryContainerComponent', () => {
       declarations: [
         TimelinesEntryContainerComponent,
         MockTinelinesEntryPresenterComponent,
+      ],
+      providers: [
+        {
+          provide: TimelinesService,
+          useClass: MockTimelinesService,
+        },
+        {
+          provide: TimelinesFacade,
+          useClass: MockTimelinesFacade,
+        },
       ],
     }).compileComponents();
   });

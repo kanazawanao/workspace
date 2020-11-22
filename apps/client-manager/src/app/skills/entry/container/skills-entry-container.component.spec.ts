@@ -33,11 +33,11 @@ describe('SkillsEntryContainerComponent', () => {
       providers: [
         {
           provide: SkillsService,
-          useValue: MockSkillsService,
+          useClass: MockSkillsService,
         },
         {
           provide: SkillsFacade,
-          useValue: MockSkillsFacade,
+          useClass: MockSkillsFacade,
         },
       ],
       imports: [CommonModule, ReactiveFormsModule],

@@ -35,11 +35,11 @@ describe('UsersEntryContainerComponent', () => {
       providers: [
         {
           provide: UsersFacade,
-          useValue: MockUsersFacade,
+          useClass: MockUsersFacade,
         },
         {
           provide: UsersService,
-          useValue: MockUsersService,
+          useClass: MockUsersService,
         },
       ],
       imports: [CommonModule, ReactiveFormsModule],

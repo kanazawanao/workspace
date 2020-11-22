@@ -1,13 +1,20 @@
 import { TimelinesListContainerComponent } from './timelines-list-container.component';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ITimeline } from '@workspace/api-interfaces';
+import { Observable } from 'rxjs';
+import { TimelinesFacade } from '../../+state/timelines.facade';
+import { MockTimelinesFacade } from '../../+state/mock-timelines.facade';
 
 @Component({
   selector: 'client-manager-timelines-list-presenter',
   template: '',
   styleUrls: [],
 })
-export class MockTimelinesListPresenterComponent {}
+export class MockTimelinesListPresenterComponent {
+  @Input() timelines$: Observable<ITimeline[]>;
+  @Input() displayedColumns: string[];
+}
 
 describe('TimelinesListContainerComponent', () => {
   let component: TimelinesListContainerComponent;
@@ -18,6 +25,12 @@ describe('TimelinesListContainerComponent', () => {
       declarations: [
         TimelinesListContainerComponent,
         MockTimelinesListPresenterComponent,
+      ],
+      providers: [
+        {
+          provide: TimelinesFacade,
+          useClass: MockTimelinesFacade,
+        },
       ],
     }).compileComponents();
   });
