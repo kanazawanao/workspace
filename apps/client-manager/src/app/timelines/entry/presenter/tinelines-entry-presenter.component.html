@@ -1,1 +1,12 @@
-<p>tinelines-entry-presenter works!</p>
+<div>
+  <div>
+    <ui-input-container
+      [formControl]="formGroup.get(controlName.event)"
+      [label]="'event'"
+    ></ui-input-container>
+    <ui-date-picker-container
+      [formControl]="formGroup.get(controlName.date)"
+    ></ui-date-picker-container>
+  </div>
+  <button mat-button (click)="registEvent.emit()">regist</button>
+</div>

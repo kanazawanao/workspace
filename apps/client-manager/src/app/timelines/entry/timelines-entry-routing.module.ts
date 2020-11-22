@@ -1,10 +1,16 @@
+import { TinelinesEntryContainerComponent } from './container/tinelines-entry-container.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: TinelinesEntryContainerComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TimelinesEntryRoutingModule { }
+export class TimelinesEntryRoutingModule {}

@@ -1,15 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-
+import { BaseComponent } from '../../../base/base-component';
+import { TimelinesService } from '../../timelines.service';
+import { TimelinesEntryControlName } from '../skills-entry-control-name';
+import { TimelinesEntryModel } from '../timelines-entry-model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { TimelinesFacade } from '../../+state/timelines.facade';
 @Component({
   selector: 'client-manager-tinelines-entry-container',
   templateUrl: './tinelines-entry-container.component.html',
-  styleUrls: ['./tinelines-entry-container.component.scss']
+  styleUrls: ['./tinelines-entry-container.component.scss'],
 })
-export class TinelinesEntryContainerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class TinelinesEntryContainerComponent
+  extends BaseComponent
+  implements OnInit, OnDestroy {
+  formGroup: FormGroup;
+  controlName = TimelinesEntryControlName;
+  constructor(
+    private timelinesService: TimelinesService,
+    private timelinesFacade: TimelinesFacade
+  ) {
+    super();
   }
 
+  ngOnInit(): void {
+    var entryModle: TimelinesEntryModel = new TimelinesEntryModel();
+    this.formGroup = this.timelinesService.generateFormGroup(entryModle);
+    this.timelinesFacade.workTimeline$
+      .pipe(takeUntil(this.unsubscribeObservable$))
+      .subscribe((x) => {
+        if (x) {
+          this.formGroup.get(this.controlName.event).setValue(x.event);
+          this.formGroup.get(this.controlName.date).setValue(x.date);
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
+
+  regist() {
+    var registData = new TimelinesEntryModel();
+    registData.event = this.formGroup.get(this.controlName.event).value;
+    registData.date = this.formGroup.get(this.controlName.date).value;
+    console.log(registData);
+    this.registSkill(registData);
+  }
+
+  registSkill(timeline: TimelinesEntryModel) {
+    this.timelinesService.postTimeline(timeline);
+  }
 }

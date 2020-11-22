@@ -10,7 +10,9 @@ export class TimelinesFacade {
   loaded$ = this.store.pipe(select(TimelinesSelectors.getTimelinesLoaded));
   allTimelines$ = this.store.pipe(select(TimelinesSelectors.getAllTimelines));
   selectedTimelines$ = this.store.pipe(select(TimelinesSelectors.getSelected));
-  workSkill$ = this.store.pipe(select(TimelinesSelectors.getWorkTimelineEntry));
+  workTimeline$ = this.store.pipe(
+    select(TimelinesSelectors.getWorkTimelineEntry)
+  );
   editMode$ = this.store.pipe(select(TimelinesSelectors.getEditerMode));
 
   constructor(private store: Store<fromTimelines.TimelinesPartialState>) {}

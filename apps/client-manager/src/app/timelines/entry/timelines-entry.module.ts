@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 import * as fromTimelines from '../+state/timelines.reducer';
 import { TimelinesEffects } from '../+state/timelines.effects';
 import { TimelinesFacade } from '../+state/timelines.facade';
@@ -21,6 +22,8 @@ import { TimelinesFacade } from '../+state/timelines.facade';
     CommonModule,
     TimelinesEntryRoutingModule,
     ReactiveFormsModule,
+    UiInputModule,
+    UiDatePickerModule,
     StoreModule.forFeature(
       fromTimelines.TIMELINES_FEATURE_KEY,
       fromTimelines.reducer
