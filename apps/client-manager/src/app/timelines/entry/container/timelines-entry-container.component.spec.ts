@@ -1,4 +1,4 @@
-import { TinelinesEntryContainerComponent } from './tinelines-entry-container.component';
+import { TimelinesEntryContainerComponent } from './tinelines-entry-container.component';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -10,20 +10,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 export class MockTinelinesEntryPresenterComponent {}
 
 describe('TinelinesEntryContainerComponent', () => {
-  let component: TinelinesEntryContainerComponent;
-  let fixture: ComponentFixture<TinelinesEntryContainerComponent>;
+  let component: TimelinesEntryContainerComponent;
+  let fixture: ComponentFixture<TimelinesEntryContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        TinelinesEntryContainerComponent,
+        TimelinesEntryContainerComponent,
         MockTinelinesEntryPresenterComponent,
       ],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TinelinesEntryContainerComponent);
+    fixture = TestBed.createComponent(TimelinesEntryContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

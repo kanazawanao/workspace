@@ -7,11 +7,11 @@ import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { TimelinesFacade } from '../../+state/timelines.facade';
 @Component({
-  selector: 'client-manager-tinelines-entry-container',
-  templateUrl: './tinelines-entry-container.component.html',
-  styleUrls: ['./tinelines-entry-container.component.scss'],
+  selector: 'client-manager-timelines-entry-container',
+  templateUrl: './timelines-entry-container.component.html',
+  styleUrls: ['./timelines-entry-container.component.scss'],
 })
-export class TinelinesEntryContainerComponent
+export class TimelinesEntryContainerComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
   formGroup: FormGroup;

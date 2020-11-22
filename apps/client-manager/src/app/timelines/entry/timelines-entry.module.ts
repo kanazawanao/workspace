@@ -1,5 +1,5 @@
-import { TinelinesEntryContainerComponent } from './container/tinelines-entry-container.component';
-import { TinelinesEntryPresenterComponent } from './presenter/tinelines-entry-presenter.component';
+import { TimelinesEntryContainerComponent } from './container/timelines-entry-container.component';
+import { TimelinesEntryPresenterComponent } from './presenter/timelines-entry-presenter.component';
 import { TimelinesEntryRoutingModule } from './timelines-entry-routing.module';
 import { TimelinesEntryGuard } from './timelines-entry.guard';
 import { TimelinesService } from '../timelines.service';
@@ -15,8 +15,8 @@ import { TimelinesFacade } from '../+state/timelines.facade';
 
 @NgModule({
   declarations: [
-    TinelinesEntryPresenterComponent,
-    TinelinesEntryContainerComponent,
+    TimelinesEntryPresenterComponent,
+    TimelinesEntryContainerComponent,
   ],
   imports: [
     CommonModule,
