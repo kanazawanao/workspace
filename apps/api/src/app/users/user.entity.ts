@@ -26,4 +26,20 @@ export class User implements IUser {
   @Column()
   @ApiProperty()
   birthDay: Date;
+
+  @Column()
+  @ApiProperty()
+  sex: string;
+
+  @Column()
+  @ApiProperty()
+  address: string;
+
+  @Column()
+  @ApiProperty()
+  qualificatio: string;
+
+  @Column()
+  @ApiProperty()
+  graduationDate: Date;
 }
