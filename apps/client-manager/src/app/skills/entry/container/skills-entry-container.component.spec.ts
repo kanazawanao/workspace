@@ -1,8 +1,11 @@
 import { SkillsEntryContainerComponent } from './skills-entry-container.component';
 import { MockSkillsService } from '../../mock-skills.service';
 import { SkillsService } from '../../skills.service';
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 /** プレゼンタコンポーネントのモック */
 @Component({
@@ -10,7 +13,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
   template: '',
   styleUrls: [],
 })
-class MockSkillsEntryPresenterComponent {}
+class MockSkillsEntryPresenterComponent {
+  @Input() formGroup: FormGroup;
+  @Output() registEvent = new EventEmitter();
+}
 
 describe('SkillsEntryContainerComponent', () => {
   let component: SkillsEntryContainerComponent;
@@ -28,6 +34,7 @@ describe('SkillsEntryContainerComponent', () => {
           useValue: MockSkillsService,
         },
       ],
+      imports: [CommonModule, ReactiveFormsModule],
     }).compileComponents();
   });
 

@@ -8,7 +8,7 @@ describe('Skills Selectors', () => {
   const createSkillsEntity = (id: number, name = '') =>
     ({
       id,
-      skillType: name || `name-${id}`,
+      skillName: name || `name-${id}`,
     } as ISkill);
 
   let state;
@@ -33,7 +33,7 @@ describe('Skills Selectors', () => {
       const selId = getSkillsId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe(3);
+      expect(selId).toBe(2);
     });
 
     it('getSelected() should return the selected Entity', () => {

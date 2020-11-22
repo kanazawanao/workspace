@@ -1,6 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SkillsListContainerComponent } from './skills-list-container.component';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ISkill } from '@workspace/api-interfaces';
+import { Observable } from 'rxjs';
+import { MockSkillsFacade } from '../../+state/mock-skills.facade';
+import { SkillsFacade } from '../../+state/skills.facade';
+
+@Component({
+  selector: 'client-manager-skills-list-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockSkillsListPresenterComponent {
+  @Input() skills$: Observable<ISkill[]>;
+  @Input() displayedColumns: string[];
+}
 
 describe('SkillsListContainerComponent', () => {
   let component: SkillsListContainerComponent;
@@ -8,9 +23,18 @@ describe('SkillsListContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillsListContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        SkillsListContainerComponent,
+        MockSkillsListPresenterComponent,
+      ],
+      providers: [
+        {
+          provide: SkillsFacade,
+          useValue: MockSkillsFacade,
+        },
+      ],
+      imports: [CommonModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

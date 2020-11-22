@@ -1,5 +1,13 @@
 import { TimelinesListContainerComponent } from './timelines-list-container.component';
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+@Component({
+  selector: 'client-manager-timelines-list-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockTimelinesListPresenterComponent {}
 
 describe('TimelinesListContainerComponent', () => {
   let component: TimelinesListContainerComponent;
@@ -7,7 +15,10 @@ describe('TimelinesListContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TimelinesListContainerComponent],
+      declarations: [
+        TimelinesListContainerComponent,
+        MockTimelinesListPresenterComponent,
+      ],
     }).compileComponents();
   });
 

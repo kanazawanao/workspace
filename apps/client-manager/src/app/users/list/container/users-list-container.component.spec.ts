@@ -1,6 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UsersListContainerComponent } from './users-list-container.component';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { IUser } from '@workspace/api-interfaces';
+import { Observable } from 'rxjs';
+import { MockUsersFacade } from '../../+state/mock-users.facade';
+import { UsersFacade } from '../../+state/users.facade';
+
+@Component({
+  selector: 'client-manager-users-list-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockUsersListPresenterComponent {
+  @Input() users$: Observable<IUser[]>;
+  @Input() displayedColumns: string[];
+}
 
 describe('UsersListContainerComponent', () => {
   let component: UsersListContainerComponent;
@@ -8,9 +23,18 @@ describe('UsersListContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersListContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        UsersListContainerComponent,
+        MockUsersListPresenterComponent,
+      ],
+      providers: [
+        {
+          provide: UsersFacade,
+          useValue: MockUsersFacade,
+        },
+      ],
+      imports: [CommonModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

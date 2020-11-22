@@ -4,8 +4,8 @@ import { ISkill } from '@workspace/api-interfaces';
 import { Observable, of } from 'rxjs';
 
 export class MockSkillsService {
-  generateFormGroup(formData: SkillsEntryModel): FormGroup {
-    return null;
+  generateFormGroup(formData: SkillsEntryModel) {
+    return new FormGroup({});
   }
 
   fetchSkills(): Observable<ISkill[]> {

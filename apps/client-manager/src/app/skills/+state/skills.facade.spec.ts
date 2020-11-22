@@ -1,6 +1,7 @@
 import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { SkillsFacade } from './skills.facade';
+import { reducer, SKILLS_FEATURE_KEY, State } from './skills.reducer';
 import { MockSkillsService } from '../mock-skills.service';
 import { SkillsService } from '../skills.service';
 import { NgModule } from '@angular/core';
@@ -10,8 +11,6 @@ import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { ISkill } from '@workspace/api-interfaces';
-
-import { SKILLS_FEATURE_KEY, State, reducer } from './skills.reducer';
 
 interface TestSchema {
   skills: State;
@@ -53,8 +52,8 @@ describe('SkillsFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.get(Store);
-      facade = TestBed.get(SkillsFacade);
+      store = TestBed.inject(Store);
+      facade = TestBed.inject(SkillsFacade);
     });
 
     /**
@@ -74,7 +73,7 @@ describe('SkillsFacade', () => {
         isLoaded = await readFirst(facade.loaded$);
 
         expect(list.length).toBe(0);
-        expect(isLoaded).toBe(true);
+        expect(isLoaded).toBe(false);
 
         done();
       } catch (err) {

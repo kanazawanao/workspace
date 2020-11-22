@@ -1,6 +1,13 @@
+import { TinelinesEntryContainerComponent } from './tinelines-entry-container.component';
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TinelinesEntryContainerComponent } from './tinelines-entry-container.component';
+@Component({
+  selector: 'client-manager-tinelines-entry-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockTinelinesEntryPresenterComponent {}
 
 describe('TinelinesEntryContainerComponent', () => {
   let component: TinelinesEntryContainerComponent;
@@ -8,9 +15,11 @@ describe('TinelinesEntryContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TinelinesEntryContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        TinelinesEntryContainerComponent,
+        MockTinelinesEntryPresenterComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -7,7 +7,7 @@ export class MockUsersService {
   constructor() {}
 
   generateFormGroup(formData: UsersEntryModel): FormGroup {
-    return null;
+    return new FormGroup({});
   }
 
   fetchUsers(): Observable<IUser[]> {
