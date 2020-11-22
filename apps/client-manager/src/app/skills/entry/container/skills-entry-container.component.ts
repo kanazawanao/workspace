@@ -1,18 +1,28 @@
+import { BaseComponent } from '../../../base/base-component';
 import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { SkillsEntryModel } from '../skills-entry-model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { SkillsFacade } from '../../+state/skills.facade';
 
 @Component({
   selector: 'client-manager-skills-entry-container',
   templateUrl: './skills-entry-container.component.html',
   styleUrls: ['./skills-entry-container.component.scss'],
 })
-export class SkillsEntryContainerComponent implements OnInit {
+export class SkillsEntryContainerComponent extends BaseComponent
+  implements OnInit {
   formGroup: FormGroup;
   controlName = SkillsEntryControlName;
-  constructor(private skillsService: SkillsService) {}
+
+  constructor(
+    private skillsService: SkillsService,
+    private skillsFacade: SkillsFacade
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     var entryModle: SkillsEntryModel = {
@@ -22,6 +32,24 @@ export class SkillsEntryContainerComponent implements OnInit {
       skillType: '',
     };
     this.formGroup = this.skillsService.generateFormGroup(entryModle);
+    this.skillsFacade.workSkill$
+      .pipe(takeUntil(this.unsubscribeObservable$))
+      .subscribe((x) => {
+        if (x) {
+          this.formGroup.get(this.controlName.skillName).setValue(x.skillName);
+          this.formGroup.get(this.controlName.skillType).setValue(x.skillType);
+          this.formGroup
+            .get(this.controlName.skillLevel)
+            .setValue(x.skillLevel);
+          this.formGroup
+            .get(this.controlName.experienceYears)
+            .setValue(x.experienceYears);
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
   }
 
   regist() {
