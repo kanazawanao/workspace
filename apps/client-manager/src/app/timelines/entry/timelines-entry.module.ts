@@ -6,6 +6,7 @@ import { TimelinesService } from '../timelines.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
@@ -24,6 +25,7 @@ import { TimelinesFacade } from '../+state/timelines.facade';
     ReactiveFormsModule,
     UiInputModule,
     UiDatePickerModule,
+    MatButtonModule,
     StoreModule.forFeature(
       fromTimelines.TIMELINES_FEATURE_KEY,
       fromTimelines.reducer
