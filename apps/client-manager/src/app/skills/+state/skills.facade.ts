@@ -39,4 +39,8 @@ export class SkillsFacade {
   setEditerMode(editerMode: EditType) {
     this.store.dispatch(SkillsActions.setEditerMode({ editerMode }));
   }
+
+  loadSkillTypes() {
+    this.dispatch(SkillsActions.loadSkillTypes());
+  }
 }

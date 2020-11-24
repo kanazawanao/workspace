@@ -8,6 +8,10 @@ export const usersData: IUser[] = [
     lastName: '太郎',
     password: '',
     birthDay: new Date(),
+    address: '',
+    graduationDate: new Date(),
+    qualification: '',
+    sex: '',
   },
   {
     id: 2,
@@ -16,6 +20,10 @@ export const usersData: IUser[] = [
     lastName: '一郎',
     password: '',
     birthDay: new Date(),
+    address: '',
+    graduationDate: new Date(),
+    qualification: '',
+    sex: '',
   },
   {
     id: 3,
@@ -24,6 +32,10 @@ export const usersData: IUser[] = [
     lastName: '和義',
     password: '',
     birthDay: new Date(),
+    address: '',
+    graduationDate: new Date(),
+    qualification: '',
+    sex: '',
   },
   {
     id: 4,
@@ -32,6 +44,10 @@ export const usersData: IUser[] = [
     lastName: '二郎',
     password: '',
     birthDay: new Date(),
+    address: '',
+    graduationDate: new Date(),
+    qualification: '',
+    sex: '',
   },
   {
     id: 5,
@@ -40,5 +56,9 @@ export const usersData: IUser[] = [
     lastName: 'かずき',
     password: '',
     birthDay: new Date(),
+    address: '',
+    graduationDate: new Date(),
+    qualification: '',
+    sex: '',
   },
 ];

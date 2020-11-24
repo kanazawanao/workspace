@@ -88,6 +88,27 @@ export class SkillsEffects {
       })
     )
   );
+
+  loadSkillTypes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillsActions.loadSkillTypes),
+      fetch({
+        run: (action) => {
+          return this.skillsService
+            .fetchSkillTypes()
+            .pipe(
+              map((res) =>
+                SkillsActions.loadSkillTypesSuccess({ skillTypes: res })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillsActions.loadSkillTypesFailure({ error });
+        },
+      })
+    )
+  );
   constructor(
     private actions$: Actions,
     private skillsService: SkillsService

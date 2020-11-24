@@ -12,9 +12,10 @@ import { SkillsFacade } from '../../+state/skills.facade';
   templateUrl: './skills-entry-container.component.html',
   styleUrls: ['./skills-entry-container.component.scss'],
 })
-export class SkillsEntryContainerComponent extends BaseComponent
+export class SkillsEntryContainerComponent
+  extends BaseComponent
   implements OnInit, OnDestroy {
-  formGroup: FormGroup;
+  formGroup: FormGroup = this.skillsService.generateFormGroup();
   controlName = SkillsEntryControlName;
 
   constructor(
@@ -25,12 +26,10 @@ export class SkillsEntryContainerComponent extends BaseComponent
   }
 
   ngOnInit(): void {
-    var entryModle: SkillsEntryModel = new SkillsEntryModel();
-    this.formGroup = this.skillsService.generateFormGroup(entryModle);
     this.skillsFacade.workSkill$
       .pipe(takeUntil(this.unsubscribeObservable$))
       .subscribe((x) => {
-        if (x) {
+        if (x !== undefined) {
           this.formGroup.get(this.controlName.skillName).setValue(x.skillName);
           this.formGroup.get(this.controlName.skillType).setValue(x.skillType);
           this.formGroup

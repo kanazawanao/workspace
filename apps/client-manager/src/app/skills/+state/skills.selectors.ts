@@ -52,3 +52,8 @@ export const getEditerMode = createSelector(
   getSkillsState,
   (state: State) => state.editerMode
 );
+
+export const getSkillTypes = createSelector(
+  getSkillsState,
+  (state: State) => state.skillTypes
+);

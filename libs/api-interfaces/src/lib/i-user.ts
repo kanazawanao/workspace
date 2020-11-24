@@ -7,6 +7,6 @@ export interface IUser {
   birthDay: Date;
   sex: string;
   address: string;
-  qualificatio: string;
+  qualification: string;
   graduationDate: Date;
 }

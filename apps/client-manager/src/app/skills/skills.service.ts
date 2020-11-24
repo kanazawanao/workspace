@@ -1,21 +1,24 @@
 import { SkillsEntryModel } from './entry/skills-entry-model';
 import { Inject, Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ISkill } from '@workspace/api-interfaces';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ISkill, ISkillType } from '@workspace/api-interfaces';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class SkillsService {
   constructor(
-    private formBuilder: FormBuilder,
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
 
-  generateFormGroup(formData: SkillsEntryModel): FormGroup {
-    const formGroup = this.formBuilder.group(formData);
-    return formGroup;
+  generateFormGroup(): FormGroup {
+    return new FormGroup({
+      skillType: new FormControl(''),
+      skillName: new FormControl(''),
+      experienceYears: new FormControl(''),
+      skillLevel: new FormControl(''),
+    });
   }
 
   fetchSkills(): Observable<ISkill[]> {
@@ -44,6 +47,13 @@ export class SkillsService {
     var res = this.httpRequestService.put<ISkill>({
       url: `${this.apiUrl}/skills${id}`,
       body: skill,
+    });
+    return res;
+  }
+
+  fetchSkillTypes(): Observable<ISkillType[]> {
+    const res = this.httpRequestService.get<ISkillType[]>({
+      url: `${this.apiUrl}/skill-types`,
     });
     return res;
   }

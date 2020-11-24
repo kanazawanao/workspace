@@ -1,8 +1,9 @@
 import * as SkillsActions from './skills.actions';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
-import { ISkill } from '@workspace/api-interfaces';
+import { ISkill, ISkillType } from '@workspace/api-interfaces';
 import { EditType } from '@workspace/constants';
+import { SelectOption } from '@workspace/ui';
 
 export const SKILLS_FEATURE_KEY = 'skills';
 
@@ -12,6 +13,7 @@ export interface State extends EntityState<ISkill> {
   error?: string | null;
   editerMode: EditType;
   workSkillEntry?: ISkill;
+  skillTypes?: ISkillType[];
 }
 
 export interface SkillsPartialState {
@@ -63,6 +65,11 @@ const skillsReducer = createReducer(
   on(SkillsActions.setEditerMode, (state, { editerMode }) => ({
     ...state,
     editerMode: editerMode,
+  })),
+  on(SkillsActions.loadSkillTypesSuccess, (state, { skillTypes }) => ({
+    ...state,
+    loaded: true,
+    skillTypes: skillTypes,
   }))
 );
 

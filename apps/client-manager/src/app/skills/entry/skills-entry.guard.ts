@@ -16,6 +16,7 @@ export class SkillsEntryGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
+    this.skillsEntryFacade.loadSkillTypes();
     const id = route.params.id;
     if (id === 'entry') {
       return of(true);
