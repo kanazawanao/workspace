@@ -1,6 +1,6 @@
 import { DatePickerPresenterComponent } from './date-picker-presenter.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
@@ -23,5 +23,9 @@ export const primary = () => ({
     ],
   },
   component: DatePickerPresenterComponent,
-  props: {},
+  props: {
+    inputData: {
+      formControl: new FormControl(),
+    },
+  },
 });
