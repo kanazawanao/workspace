@@ -1,7 +1,7 @@
 import { User } from './user.entity';
 import { UsersService } from './users.service';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { InsertResult } from 'typeorm';
+import { DeleteResult, InsertResult } from 'typeorm';
 import {
   Body,
   Controller,
@@ -30,21 +30,21 @@ export class UsersController {
   }
 
   @Put(':id')
-  @ApiOperation({ summary: 'post user' })
-  putUser(@Param('id') id: number, @Body() user: User) {
+  @ApiOperation({ summary: 'put user' })
+  async putUser(@Param('id') id: number, @Body() user: User) {
     return this.usersService.put(id, user);
   }
 
   @Post()
   @ApiOperation({ summary: 'post user' })
   @ApiBody({ type: User, description: 'user' })
-  postUser(@Body() user: User): Promise<InsertResult> {
+  async postUser(@Body() user: User): Promise<InsertResult> {
     return this.usersService.post(user);
   }
 
   @Delete()
   @ApiOperation({ summary: 'delete user' })
-  deleteUser(@Param(':id') id: string): Promise<void> {
+  async deleteUser(@Param(':id') id: number): Promise<DeleteResult> {
     return this.usersService.remove(id);
   }
 }

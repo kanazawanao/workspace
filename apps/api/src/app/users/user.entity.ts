@@ -1,6 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IUser } from '@workspace/api-interfaces';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User implements IUser {
@@ -42,4 +48,10 @@ export class User implements IUser {
   @Column()
   @ApiProperty()
   graduationDate: Date;
+
+  @CreateDateColumn()
+  created!: Date;
+
+  @UpdateDateColumn()
+  updated!: Date;
 }

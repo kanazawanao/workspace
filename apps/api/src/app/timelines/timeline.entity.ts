@@ -1,6 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ITimeline } from '@workspace/api-interfaces';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Timeline implements ITimeline {
@@ -14,4 +20,10 @@ export class Timeline implements ITimeline {
   @Column()
   @ApiProperty()
   event: string;
+
+  @CreateDateColumn()
+  created!: Date;
+
+  @UpdateDateColumn()
+  updated!: Date;
 }

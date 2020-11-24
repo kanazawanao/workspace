@@ -1,7 +1,17 @@
 import { SkillType } from './skill-type.entity';
 import { SkillTypesService } from './skill-types.service';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { User } from '../users/user.entity';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { DeleteResult, UpdateResult } from 'typeorm';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 
 @ApiTags('skill-types')
 @Controller('/api/skill-types')
@@ -26,5 +36,20 @@ export class SkillTypesController {
   async postUser(@Body() body: SkillType) {
     console.log(body);
     return this.skillTypesService.post(body);
+  }
+
+  @Put(':id')
+  @ApiOperation({ summary: 'put skillType' })
+  async putUser(
+    @Param('id') id: number,
+    @Body() skillType: SkillType
+  ): Promise<UpdateResult> {
+    return this.skillTypesService.put(id, skillType);
+  }
+
+  @Delete()
+  @ApiOperation({ summary: 'delete skillType' })
+  async deleteUser(@Param(':id') id: number): Promise<DeleteResult> {
+    return this.skillTypesService.remove(id);
   }
 }

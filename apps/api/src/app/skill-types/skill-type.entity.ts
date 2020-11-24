@@ -1,6 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ISkillType } from '@workspace/api-interfaces';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class SkillType implements ISkillType {
@@ -14,4 +20,10 @@ export class SkillType implements ISkillType {
   @Column()
   @ApiProperty()
   skillTypeName: string;
+
+  @CreateDateColumn()
+  created!: Date;
+
+  @UpdateDateColumn()
+  updated!: Date;
 }

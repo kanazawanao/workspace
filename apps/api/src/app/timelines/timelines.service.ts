@@ -1,7 +1,7 @@
 import { Timeline } from './timeline.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { InsertResult, Repository } from 'typeorm';
+import { DeleteResult, InsertResult, Repository } from 'typeorm';
 
 @Injectable()
 export class TimelinesService {
@@ -14,12 +14,12 @@ export class TimelinesService {
     return this.timelinesRepository.find();
   }
 
-  findOne(id: string): Promise<Timeline> {
+  findOne(id: number): Promise<Timeline> {
     return this.timelinesRepository.findOne(id);
   }
 
-  async remove(id: string): Promise<void> {
-    await this.timelinesRepository.delete(id);
+  remove(id: number): Promise<DeleteResult> {
+    return this.timelinesRepository.delete({ id });
   }
 
   async post(skill: Timeline): Promise<InsertResult> {

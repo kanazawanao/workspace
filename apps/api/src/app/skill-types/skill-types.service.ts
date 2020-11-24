@@ -1,7 +1,7 @@
 import { SkillType } from './skill-type.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { InsertResult, Repository } from 'typeorm';
+import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 
 @Injectable()
 export class SkillTypesService {
@@ -10,16 +10,26 @@ export class SkillTypesService {
     private skillTypesRepository: Repository<SkillType>
   ) {}
 
-  findAll(): Promise<SkillType[]> {
-    return this.skillTypesRepository.find();
+  async findAll(): Promise<SkillType[]> {
+    return await this.skillTypesRepository.find();
   }
 
-  findOne(id: string): Promise<SkillType> {
-    return this.skillTypesRepository.findOne(id);
+  async findOne(id: string): Promise<SkillType> {
+    return await this.skillTypesRepository.findOne(id);
   }
 
-  async remove(id: string): Promise<void> {
-    await this.skillTypesRepository.delete(id);
+  async put(id: number, skillType: SkillType): Promise<UpdateResult> {
+    return await this.skillTypesRepository.update(
+      { id },
+      {
+        skillType: skillType.skillType,
+        skillTypeName: skillType.skillTypeName,
+      }
+    );
+  }
+
+  async remove(id: number): Promise<DeleteResult> {
+    return await this.skillTypesRepository.delete({ id });
   }
 
   async post(skill: SkillType): Promise<InsertResult> {

@@ -17,7 +17,7 @@ export class TimelinesController {
 
   @Get(':id')
   @ApiOperation({ summary: 'get timeline' })
-  async getSkill(@Param('id') id: string): Promise<Timeline> {
+  async getSkill(@Param('id') id: number): Promise<Timeline> {
     return this.timelinesService.findOne(id);
   }
 
