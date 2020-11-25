@@ -43,7 +43,7 @@ export class User implements IUser {
 
   @Column()
   @ApiProperty()
-  qualificatio: string;
+  qualification: string;
 
   @Column()
   @ApiProperty()
