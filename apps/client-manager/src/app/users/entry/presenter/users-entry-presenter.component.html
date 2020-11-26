@@ -1,23 +1,23 @@
 <div>
   <div>
     <ui-input-container
-      [formControl]="formGroup.get(controlName.firstName)"
+      [inpFormControl]="formGroup.get(controlName.firstName)"
       [label]="'firstName'"
     ></ui-input-container>
     <ui-input-container
-      [formControl]="formGroup.get(controlName.lastName)"
+      [inpFormControl]="formGroup.get(controlName.lastName)"
       [label]="'lastName'"
     ></ui-input-container>
     <ui-input-container
-      [formControl]="formGroup.get(controlName.password)"
+      [inpFormControl]="formGroup.get(controlName.password)"
       [label]="'password'"
     ></ui-input-container>
     <ui-input-container
-      [formControl]="formGroup.get(controlName.email)"
+      [inpFormControl]="formGroup.get(controlName.email)"
       [label]="'email'"
     ></ui-input-container>
     <ui-date-picker-container
-      [formControl]="formGroup.get(controlName.birthDay)"
+      [dateFormControl]="formGroup.get(controlName.birthDay)"
     >
     </ui-date-picker-container>
   </div>

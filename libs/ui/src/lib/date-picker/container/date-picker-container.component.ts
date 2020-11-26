@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./date-picker-container.component.scss'],
 })
 export class DatePickerContainerComponent implements OnInit {
-  @Input() formControl: FormControl;
+  @Input() dateFormControl: FormControl;
   presenterInputData: DatePickerPresenterInputData;
   constructor() {}
 
@@ -18,7 +18,7 @@ export class DatePickerContainerComponent implements OnInit {
 
   setPresenterInputData(): void {
     this.presenterInputData = {
-      formControl: this.formControl,
+      formControl: this.dateFormControl,
     };
   }
 }

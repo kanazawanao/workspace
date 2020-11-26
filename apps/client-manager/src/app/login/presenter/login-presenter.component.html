@@ -1,14 +1,17 @@
 <div>
-  <ui-input-container
-    [formControl]="formGroup.get('email')"
-    [label]="'email'"
-  ></ui-input-container>
-  <br />
-  <ui-input-container
-    [formControl]="formGroup.get('password')"
-    [label]="'password'"
-    [type]="'password'"
-  ></ui-input-container>
-  <br />
-  <button mat-raised-button (click)="loginEvent.emit()">Login</button>
+  <form [formGroup]="formGroup">
+    <ui-input-container
+      [inpFormControl]="formGroup.get('email')"
+      [label]="'email'"
+      [type]="'email'"
+    ></ui-input-container>
+    <br />
+    <ui-input-container
+      [inpFormControl]="formGroup.get('password')"
+      [label]="'password'"
+      [type]="'password'"
+    ></ui-input-container>
+    <br />
+    <button mat-raised-button (click)="loginEvent.emit()">Login</button>
+  </form>
 </div>

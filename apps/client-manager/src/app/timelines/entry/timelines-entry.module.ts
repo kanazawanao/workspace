@@ -5,7 +5,7 @@ import { TimelinesEntryGuard } from './timelines-entry.guard';
 import { TimelinesService } from '../timelines.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -22,6 +22,7 @@ import { TimelinesFacade } from '../+state/timelines.facade';
   imports: [
     CommonModule,
     TimelinesEntryRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     UiInputModule,
     UiDatePickerModule,

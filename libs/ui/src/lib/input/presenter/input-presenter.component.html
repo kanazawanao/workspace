@@ -1,23 +1,18 @@
 <mat-form-field appearance="fill">
-  <mat-label>{{ label }}</mat-label>
-  <input matInput [type]="type" [formControl]="formControl" />
-  <button
-    mat-button
-    *ngIf="formControl.value"
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="formControl.setValue('')"
-  >
-    <mat-icon>close</mat-icon>
-  </button>
-  <mat-error *ngIf="formControl.hasError('required')">
+  <mat-label>{{ inputData.label }}</mat-label>
+  <input
+    matInput
+    aria-label="input"
+    [type]="inputData.type"
+    [formControl]="inputData.formControl"
+  />
+  <mat-error *ngIf="inputData.formControl.hasError('required')">
     必須項目です
   </mat-error>
-  <mat-error *ngIf="formControl.hasError('email')">
+  <mat-error *ngIf="inputData.formControl.hasError('email')">
     emailで入力してください
   </mat-error>
-  <mat-error *ngIf="formControl.hasError('minlength')">
+  <mat-error *ngIf="inputData.formControl.hasError('minlength')">
     入力内容が短すぎます
   </mat-error>
 </mat-form-field>

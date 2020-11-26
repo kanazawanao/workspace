@@ -1,21 +1,23 @@
 <div>
-  <div>
-    <ui-input-container
-      [formControl]="formGroup.get(controlName.skillType)"
-      [label]="'skillType'"
-    ></ui-input-container>
-    <ui-input-container
-      [formControl]="formGroup.get(controlName.skillName)"
-      [label]="'skillName'"
-    ></ui-input-container>
-    <ui-input-container
-      [formControl]="formGroup.get(controlName.experienceYears)"
-      [label]="'experienceYears'"
-    ></ui-input-container>
-    <ui-input-container
-      [formControl]="formGroup.get(controlName.skillLevel)"
-      [label]="'skillLevel'"
-    ></ui-input-container>
-  </div>
-  <button mat-button (click)="registEvent.emit()">regist</button>
+  <form [formGroup]="formGroup">
+    <div>
+      <ui-input-container
+        [inpFormControl]="formGroup.get(controlName.skillType)"
+        [label]="'skillType'"
+      ></ui-input-container>
+      <ui-input-container
+        [inpFormControl]="formGroup.get(controlName.skillName)"
+        [label]="'skillName'"
+      ></ui-input-container>
+      <ui-input-container
+        [inpFormControl]="formGroup.get(controlName.experienceYears)"
+        [label]="'experienceYears'"
+      ></ui-input-container>
+      <ui-input-container
+        [inpFormControl]="formGroup.get(controlName.skillLevel)"
+        [label]="'skillLevel'"
+      ></ui-input-container>
+    </div>
+    <button mat-button (click)="registEvent.emit()">regist</button>
+  </form>
 </div>

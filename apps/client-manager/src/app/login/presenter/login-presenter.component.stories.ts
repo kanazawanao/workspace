@@ -1,13 +1,19 @@
 import { LoginPresenterComponent } from './login-presenter.component';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiInputModule } from '@workspace/ui';
+import {
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
+const formBuilder = new FormBuilder();
 export default {
-  title: 'LoginPresenterComponent'
-}
+  title: 'LoginPresenterComponent',
+};
 
 export const primary = () => ({
   moduleMetadata: {
@@ -15,15 +21,18 @@ export const primary = () => ({
       CommonModule,
       ReactiveFormsModule,
       UiInputModule,
-      MatButtonModule, 
+      MatButtonModule,
       BrowserAnimationsModule,
-    ]
+    ],
   },
   component: LoginPresenterComponent,
   props: {
-    formGroup: new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl('')
+    formGroup: formBuilder.group({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     }),
-  }
-})
+  },
+});

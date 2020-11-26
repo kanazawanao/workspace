@@ -18,5 +18,7 @@ export class TimelinesEntryPresenterComponent
     super();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.formGroup);
+  }
 }

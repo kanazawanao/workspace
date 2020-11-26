@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiInputModule } from '@workspace/ui';
 
 export default {
-  title: 'SkillsEntryPresenterComponent'
-}
+  title: 'SkillsEntryPresenterComponent',
+};
 
 export const primary = () => ({
   moduleMetadata: {
@@ -17,15 +17,15 @@ export const primary = () => ({
       UiInputModule,
       MatButtonModule,
       BrowserAnimationsModule,
-    ]
+    ],
   },
   component: SkillsEntryPresenterComponent,
   props: {
     formGroup: new FormGroup({
       skillType: new FormControl(''),
       skillName: new FormControl(''),
-      experienceYears: new FormControl(''),
-      skillLevel: new FormControl(''),
+      experienceYears: new FormControl(0),
+      skillLevel: new FormControl(0),
     }),
-  }
-})
+  },
+});

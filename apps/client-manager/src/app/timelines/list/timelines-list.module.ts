@@ -29,6 +29,7 @@ import { TimelinesFacade } from '../+state/timelines.facade';
     ),
     EffectsModule.forFeature([TimelinesEffects]),
   ],
+  exports: [TimelinesListContainerComponent],
   providers: [TimelinesFacade, TimelinesListGuard, TimelinesService],
 })
 export class TimelinesListModule {}
