@@ -1,6 +1,7 @@
 import * as UsersActions from './users.actions';
 import { UsersEffects } from './users.effects';
 import { UsersFacade } from './users.facade';
+import { reducer, State, USERS_FEATURE_KEY } from './users.reducer';
 import { MockUsersService } from '../mock-users.service';
 import { UsersService } from '../users.service';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,6 @@ import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { IUser } from '@workspace/api-interfaces';
-import { USERS_FEATURE_KEY, State, reducer } from './users.reducer';
 
 interface TestSchema {
   users: State;
@@ -73,7 +73,7 @@ describe('UsersFacade', () => {
         isLoaded = await readFirst(facade.loaded$);
 
         expect(list.length).toBe(0);
-        expect(isLoaded).toBe(true);
+        expect(isLoaded).toBe(false);
 
         done();
       } catch (err) {

@@ -11,6 +11,7 @@ describe('SkillsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        SkillsService,
         {
           provide: HttpRequestService,
           useValue: MockHttpRequestService,

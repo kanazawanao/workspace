@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UsersListPresenterComponent } from './users-list-presenter.component';
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UiTableModule } from '@workspace/ui';
+
 
 describe('UsersListPresenterComponent', () => {
   let component: UsersListPresenterComponent;
@@ -8,9 +11,9 @@ describe('UsersListPresenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersListPresenterComponent ]
-    })
-    .compileComponents();
+      declarations: [UsersListPresenterComponent],
+      imports: [CommonModule, ReactiveFormsModule, UiTableModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

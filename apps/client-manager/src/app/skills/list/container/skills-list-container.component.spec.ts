@@ -30,7 +30,7 @@ describe('SkillsListContainerComponent', () => {
       providers: [
         {
           provide: SkillsFacade,
-          useValue: MockSkillsFacade,
+          useClass: MockSkillsFacade,
         },
       ],
       imports: [CommonModule],

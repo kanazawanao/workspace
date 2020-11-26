@@ -1,5 +1,7 @@
 import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
+import { MockSkillsService } from '../mock-skills.service';
+import { SkillsService } from '../skills.service';
 import { async, TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
@@ -17,6 +19,10 @@ describe('SkillsEffects', () => {
       providers: [
         SkillsEffects,
         DataPersistence,
+        {
+          provide: SkillsService,
+          useClass: MockSkillsService,
+        },
         provideMockActions(() => actions),
         provideMockStore(),
       ],

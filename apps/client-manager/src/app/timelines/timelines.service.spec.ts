@@ -11,6 +11,7 @@ describe('TimelinesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        TimelinesService,
         {
           provide: HttpRequestService,
           useValue: MockHttpRequestService,

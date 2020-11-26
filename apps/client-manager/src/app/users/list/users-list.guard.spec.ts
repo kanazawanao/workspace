@@ -8,6 +8,7 @@ describe('UsersListGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        UsersListGuard,
         {
           provide: UsersFacade,
           useValue: MockUsersFacade,

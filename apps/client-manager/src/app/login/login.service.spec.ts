@@ -1,5 +1,6 @@
 import { LoginService } from './login.service';
 import { TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 import {
   HttpRequestService,
   MockHttpRequestService,
@@ -11,6 +12,8 @@ describe('LoginService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        LoginService,
+        { provide: FormBuilder, useValue: new FormBuilder() },
         {
           provide: HttpRequestService,
           useValue: MockHttpRequestService,
