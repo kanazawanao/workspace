@@ -1,6 +1,7 @@
 import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { MockSkillsService } from '../mock-skills.service';
+import { skillsData } from '../skills.data';
 import { SkillsService } from '../skills.service';
 import { async, TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
@@ -36,7 +37,7 @@ describe('SkillsEffects', () => {
       actions = hot('-a-|', { a: SkillsActions.loadSkills() });
 
       const expected = hot('-a-|', {
-        a: SkillsActions.loadSkillsSuccess({ skills: [] }),
+        a: SkillsActions.loadSkillsSuccess({ skills: skillsData }),
       });
 
       expect(effects.loadSkills$).toBeObservable(expected);

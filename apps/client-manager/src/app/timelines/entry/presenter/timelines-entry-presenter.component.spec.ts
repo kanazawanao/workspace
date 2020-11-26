@@ -31,7 +31,6 @@ describe('TimelinesEntryPresenterComponent', () => {
     fixture = TestBed.createComponent(TimelinesEntryPresenterComponent);
     component = fixture.componentInstance;
     component.formGroup = formGroup;
-    component.registEvent = new EventEmitter();
     fixture.detectChanges();
   });
 

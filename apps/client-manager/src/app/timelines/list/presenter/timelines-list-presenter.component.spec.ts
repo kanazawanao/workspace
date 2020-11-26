@@ -1,5 +1,8 @@
 import { TimelinesListPresenterComponent } from './timelines-list-presenter.component';
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UiTableModule } from '@workspace/ui';
 
 describe('TimelinesListPresenterComponent', () => {
   let component: TimelinesListPresenterComponent;
@@ -8,6 +11,7 @@ describe('TimelinesListPresenterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TimelinesListPresenterComponent],
+      imports: [CommonModule, ReactiveFormsModule, UiTableModule],
     }).compileComponents();
   });
 

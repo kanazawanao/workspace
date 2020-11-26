@@ -1,6 +1,6 @@
 export class SkillsEntryModel {
-  experienceYears: 0;
-  skillLevel: 0;
-  skillName: '';
-  skillType: '';
+  experienceYears: number = 0;
+  skillLevel: number = 0;
+  skillName: string = '';
+  skillType: string = '';
 }

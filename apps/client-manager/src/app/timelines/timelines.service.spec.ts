@@ -1,5 +1,6 @@
 import { TimelinesService } from './timelines.service';
 import { TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 import {
   HttpRequestService,
   MockHttpRequestService,
@@ -12,6 +13,7 @@ describe('TimelinesService', () => {
     TestBed.configureTestingModule({
       providers: [
         TimelinesService,
+        { provide: FormBuilder, useValue: new FormBuilder() },
         {
           provide: HttpRequestService,
           useValue: MockHttpRequestService,

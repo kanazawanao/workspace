@@ -1,15 +1,17 @@
-import { TestBed, async } from '@angular/core/testing';
-
-import { Observable } from 'rxjs';
-
+import * as UsersActions from './users.actions';
+import { UsersEffects } from './users.effects';
+import { MockUsersService } from '../mock-users.service';
+import { UsersService } from '../users.service';
+import { async, TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
-
-import { NxModule, DataPersistence } from '@nrwl/angular';
+import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
+import { Observable } from 'rxjs';
 
-import { UsersEffects } from './users.effects';
-import * as UsersActions from './users.actions';
+
+
+
 
 describe('UsersEffects', () => {
   let actions: Observable<any>;
@@ -21,6 +23,10 @@ describe('UsersEffects', () => {
       providers: [
         UsersEffects,
         DataPersistence,
+        {
+          provide: UsersService,
+          useClass: MockUsersService,
+        },
         provideMockActions(() => actions),
         provideMockStore(),
       ],
