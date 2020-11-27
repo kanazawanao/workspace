@@ -21,6 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'test',
       entities: [User, Skill, Timeline, SkillType],
       synchronize: true,
+      charset: 'utf8mb4',
     }),
     AuthModule,
     UsersModule,
