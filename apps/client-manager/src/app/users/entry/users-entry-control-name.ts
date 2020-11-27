@@ -4,4 +4,8 @@ export enum UsersEntryControlName {
   password = 'password',
   email = 'email',
   birthDay = 'birthDay',
+  sex = 'sex',
+  address = '',
+  qualification = 'qualification',
+  graduationDate = 'graduationDate',
 }

@@ -1,5 +1,5 @@
 export interface ISkill {
-  id: number;
+  id?: number;
   skillType: number;
   skillName: string;
   experienceYears: number;

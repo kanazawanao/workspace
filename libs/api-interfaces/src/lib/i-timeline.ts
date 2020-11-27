@@ -1,5 +1,5 @@
 export interface ITimeline {
-  id: number;
+  id?: number;
   date: Date;
   event: string;
 }
