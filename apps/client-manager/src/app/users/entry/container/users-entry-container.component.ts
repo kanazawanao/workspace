@@ -12,7 +12,8 @@ import { UsersFacade } from '../../+state/users.facade';
   templateUrl: './users-entry-container.component.html',
   styleUrls: ['./users-entry-container.component.scss'],
 })
-export class UsersEntryContainerComponent extends BaseComponent
+export class UsersEntryContainerComponent
+  extends BaseComponent
   implements OnInit, OnDestroy {
   formGroup: FormGroup;
   controlName = UsersEntryControlName;
@@ -37,6 +38,13 @@ export class UsersEntryContainerComponent extends BaseComponent
           this.formGroup.get(this.controlName.email).setValue(x.email);
           this.formGroup.get(this.controlName.password).setValue(x.password);
           this.formGroup.get(this.controlName.birthDay).setValue(x.birthDay);
+          this.formGroup
+            .get(this.controlName.graduationDate)
+            .setValue(x.graduationDate);
+          this.formGroup.get(this.controlName.sex).setValue(x.sex);
+          this.formGroup
+            .get(this.controlName.qualification)
+            .setValue(x.qualification);
         }
       });
   }
@@ -52,6 +60,13 @@ export class UsersEntryContainerComponent extends BaseComponent
     registData.email = this.formGroup.get(this.controlName.email).value;
     registData.password = this.formGroup.get(this.controlName.password).value;
     registData.birthDay = this.formGroup.get(this.controlName.birthDay).value;
+    registData.graduationDate = this.formGroup.get(
+      this.controlName.graduationDate
+    ).value;
+    registData.sex = this.formGroup.get(this.controlName.sex).value;
+    registData.qualification = this.formGroup.get(
+      this.controlName.qualification
+    ).value;
     console.log(registData);
     this.registSkill(registData);
   }

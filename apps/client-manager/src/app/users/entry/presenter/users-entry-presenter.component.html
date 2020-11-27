@@ -18,8 +18,18 @@
     ></ui-input-container>
     <ui-date-picker-container
       [dateFormControl]="formGroup.get(controlName.birthDay)"
-    >
-    </ui-date-picker-container>
+    ></ui-date-picker-container>
+    <ui-input-container
+      [inpFormControl]="formGroup.get(controlName.sex)"
+      [label]="'sex'"
+    ></ui-input-container>
+    <ui-input-container
+      [inpFormControl]="formGroup.get(controlName.qualification)"
+      [label]="'qualification'"
+    ></ui-input-container>
+    <ui-date-picker-container
+      [dateFormControl]="formGroup.get(controlName.graduationDate)"
+    ></ui-date-picker-container>
   </div>
   <button
     mat-button
