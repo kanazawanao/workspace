@@ -22,6 +22,13 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./timelines/timelines.module').then((m) => m.TimelinesModule),
   },
+  {
+    path: 'skill-types',
+    loadChildren: () =>
+      import('./skill-types/skill-types.module').then(
+        (m) => m.SkillTypesModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -1,6 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SkillTypesEntryPresenterComponent } from './skill-types-entry-presenter.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('SkillTypesEntryPresenterComponent', () => {
   let component: SkillTypesEntryPresenterComponent;
@@ -8,9 +7,8 @@ describe('SkillTypesEntryPresenterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillTypesEntryPresenterComponent ]
-    })
-    .compileComponents();
+      declarations: [SkillTypesEntryPresenterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
