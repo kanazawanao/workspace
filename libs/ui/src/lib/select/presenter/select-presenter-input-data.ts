@@ -1,3 +1,4 @@
+import { SelectOption } from '../select-option';
 import { FormControl } from '@angular/forms';
 
 export class SelectPresenterInputData {
@@ -5,9 +6,4 @@ export class SelectPresenterInputData {
   isDisabled: boolean;
   options: SelectOption[];
   formControl: FormControl;
-}
-
-export class SelectOption {
-  value: string;
-  viewValue: string;
 }

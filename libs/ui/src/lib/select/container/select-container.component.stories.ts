@@ -1,9 +1,8 @@
 import { SelectContainerComponent } from './select-container.component';
-import { SelectOption } from '../presenter/select-presenter-input-data';
+import { SelectOption } from '../select-option';
 import { UiSelectModule } from '../ui-select.module';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { fromEvent } from 'rxjs';
 const options: SelectOption[] = [
   {
     value: 'select1',

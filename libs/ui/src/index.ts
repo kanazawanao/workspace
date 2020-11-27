@@ -8,4 +8,5 @@ export * from './lib/sidenav/ui-sidenav.module';
 export * from './lib/input/presenter/input-presenter-input-data';
 export * from './lib/list/presenter/list-presenter-input-data';
 export * from './lib/select/presenter/select-presenter-input-data';
+export * from './lib/select/select-option';
 export * from './lib/table/presenter/table-presenter-input-data';

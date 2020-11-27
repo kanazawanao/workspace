@@ -1,9 +1,7 @@
+import { SelectPresenterInputData } from './select-presenter-input-data';
+import { SelectOption } from '../select-option';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {
-  SelectOption,
-  SelectPresenterInputData,
-} from './select-presenter-input-data';
 
 @Component({
   selector: 'ui-select-presenter',
