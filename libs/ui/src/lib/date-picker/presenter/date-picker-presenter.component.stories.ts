@@ -26,6 +26,7 @@ export const primary = () => ({
   props: {
     inputData: {
       formControl: new FormControl(),
+      label: 'date',
     },
   },
 });

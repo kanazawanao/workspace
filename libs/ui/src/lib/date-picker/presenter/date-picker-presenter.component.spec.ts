@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const presenterInputData: DatePickerPresenterInputData = {
   formControl: new FormControl(''),
+  label: 'test',
 };
 describe('DatePickerPresenterComponent', () => {
   let component: DatePickerPresenterComponent;

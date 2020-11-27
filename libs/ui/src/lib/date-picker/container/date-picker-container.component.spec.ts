@@ -11,6 +11,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 })
 export class MockDatePickerPresenterComponent {
   @Input() inputData: DatePickerPresenterInputData;
+  @Input() label: string;
 }
 
 describe('DatePickerContainerComponent', () => {

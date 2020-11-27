@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class DatePickerContainerComponent implements OnInit {
   @Input() dateFormControl: FormControl;
+  @Input() label: string;
   presenterInputData: DatePickerPresenterInputData;
   constructor() {}
 
@@ -19,6 +20,7 @@ export class DatePickerContainerComponent implements OnInit {
   setPresenterInputData(): void {
     this.presenterInputData = {
       formControl: this.dateFormControl,
+      label: this.label,
     };
   }
 }
