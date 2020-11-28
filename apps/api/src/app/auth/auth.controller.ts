@@ -3,7 +3,9 @@ import { LocalAuthGuard } from './local-auth.guard';
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ILogin } from '@workspace/api-interfaces';
+import { ApiConstant } from '@workspace/constants';
 
+const constants = ApiConstant;
 @ApiTags('auth')
 @Controller('/api/auth')
 export class AuthController {

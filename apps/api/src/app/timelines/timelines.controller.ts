@@ -3,6 +3,7 @@ import { TimelinesService } from './timelines.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Skill } from '../skills/skill.entity';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiConstant } from '@workspace/constants';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import {
   Body,
@@ -15,8 +16,9 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-@ApiTags('timelines')
-@Controller('/api/timelines')
+const constants = ApiConstant;
+@ApiTags(constants.timelines)
+@Controller(`/api${constants.timelines}`)
 export class TimelinesController {
   constructor(private timelinesService: TimelinesService) {}
 

@@ -2,6 +2,7 @@ import { User } from './user.entity';
 import { UsersService } from './users.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiConstant } from '@workspace/constants';
 import { DeleteResult, InsertResult } from 'typeorm';
 import {
   Body,
@@ -14,8 +15,9 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-@ApiTags('users')
-@Controller('/api/users')
+const constants = ApiConstant;
+@ApiTags(constants.users)
+@Controller(`/api${constants.users}`)
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
