@@ -15,6 +15,10 @@ async function bootstrap() {
     .setDescription('The workspace API description')
     .setVersion('1.0')
     .addTag('workspace')
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
+      'accessToken'
+    )
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);

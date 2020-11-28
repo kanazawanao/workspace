@@ -16,7 +16,6 @@ export class AuthController {
   @ApiOperation({ summary: 'login' })
   @ApiBody({ type: Login, description: 'login' })
   async login(@Body() login: Login) {
-    console.log(login);
     return this.authService.login(login);
   }
 }
