@@ -24,14 +24,14 @@ export class SkillTypesController {
   @UseGuards(JwtAuthGuard)
   @Get()
   @ApiOperation({ summary: 'get skillTypes' })
-  async getSkills(): Promise<SkillType[]> {
+  async getSkillTypes(): Promise<SkillType[]> {
     return this.skillTypesService.findAll();
   }
 
   @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get skillType' })
-  async getSkill(@Param('id') id: string): Promise<SkillType> {
+  async getSkillType(@Param('id') id: string): Promise<SkillType> {
     return this.skillTypesService.findOne(id);
   }
 
@@ -39,7 +39,7 @@ export class SkillTypesController {
   @Post()
   @ApiOperation({ summary: 'post skillType' })
   @ApiBody({ type: SkillType, description: 'skillType' })
-  async postUser(@Body() body: SkillType) {
+  async postSkillType(@Body() body: SkillType) {
     console.log(body);
     return this.skillTypesService.post(body);
   }
@@ -47,7 +47,7 @@ export class SkillTypesController {
   @UseGuards(JwtAuthGuard)
   @Put(':id')
   @ApiOperation({ summary: 'put skillType' })
-  async putUser(
+  async putSkillType(
     @Param('id') id: number,
     @Body() skillType: SkillType
   ): Promise<UpdateResult> {
@@ -57,7 +57,7 @@ export class SkillTypesController {
   @UseGuards(JwtAuthGuard)
   @Delete()
   @ApiOperation({ summary: 'delete skillType' })
-  async deleteUser(@Param(':id') id: number): Promise<DeleteResult> {
+  async deleteSkillType(@Param(':id') id: number): Promise<DeleteResult> {
     return this.skillTypesService.remove(id);
   }
 }

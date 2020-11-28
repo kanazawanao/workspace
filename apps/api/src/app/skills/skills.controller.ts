@@ -39,14 +39,14 @@ export class SkillsController {
   @Post()
   @ApiOperation({ summary: 'post skill' })
   @ApiBody({ type: Skill, description: 'skill' })
-  async postUser(@Body() body: Skill): Promise<InsertResult> {
+  async postSkill(@Body() body: Skill): Promise<InsertResult> {
     return this.skillsService.post(body);
   }
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
   @ApiOperation({ summary: 'put skill' })
-  async putUser(
+  async putSkill(
     @Param('id') id: number,
     @Body() skill: Skill
   ): Promise<UpdateResult> {
@@ -56,7 +56,7 @@ export class SkillsController {
   @UseGuards(JwtAuthGuard)
   @Delete()
   @ApiOperation({ summary: 'delete skillType' })
-  async deleteUser(@Param(':id') id: number): Promise<DeleteResult> {
+  async deleteSkill(@Param(':id') id: number): Promise<DeleteResult> {
     return this.skillsService.remove(id);
   }
 }
