@@ -1,5 +1,7 @@
 import { BaseComponent } from '../../../base/base-component';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ISkillType } from '@workspace/api-interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'client-manager-skill-types-list-presenter',
@@ -9,6 +11,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class SkillTypesListPresenterComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
+  @Input() skillTypes$: Observable<ISkillType[]>;
+  @Input() displayedColumns: string[];
   constructor() {
     super();
   }

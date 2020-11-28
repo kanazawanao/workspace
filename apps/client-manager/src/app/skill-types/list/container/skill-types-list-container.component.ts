@@ -1,5 +1,8 @@
 import { BaseComponent } from '../../../base/base-component';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ISkillType } from '@workspace/api-interfaces';
+import { Observable } from 'rxjs';
+import { SkillTypesFacade } from '../../+state/skill-types.facade';
 
 @Component({
   selector: 'client-manager-skill-types-list-container',
@@ -9,7 +12,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class SkillTypesListContainerComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
-  constructor() {
+  skillTypes$: Observable<ISkillType[]> = this.skillTypesFacade.allSkillTypes$;
+  displayedColumns: string[] = ['id', 'skillType', 'skillTypeName'];
+  constructor(private skillTypesFacade: SkillTypesFacade) {
     super();
   }
 

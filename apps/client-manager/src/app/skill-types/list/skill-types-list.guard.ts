@@ -11,12 +11,12 @@ import { SkillTypesFacade } from '../+state/skill-types.facade';
   providedIn: 'root',
 })
 export class SkillTypesListGuard implements CanActivate {
-  constructor(private skillTypssFacade: SkillTypesFacade) {}
+  constructor(private skillTypesFacade: SkillTypesFacade) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
-    this.skillTypssFacade.loadSkills();
+    this.skillTypesFacade.loadSkillTypes();
     return of(true);
   }
 }

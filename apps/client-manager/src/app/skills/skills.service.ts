@@ -45,7 +45,7 @@ export class SkillsService {
 
   updateSkill(id: number, skill: SkillsEntryModel): Observable<ISkill> {
     var res = this.httpRequestService.put<ISkill>({
-      url: `${this.apiUrl}/skills${id}`,
+      url: `${this.apiUrl}/skills/${id}`,
       body: skill,
     });
     return res;

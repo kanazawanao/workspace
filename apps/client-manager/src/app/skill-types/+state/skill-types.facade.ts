@@ -19,7 +19,7 @@ export class SkillTypesFacade {
     this.store.dispatch(action);
   }
 
-  loadSkills() {
+  loadSkillTypes() {
     this.dispatch(SkillTypesActions.loadSkillTypes());
   }
 }

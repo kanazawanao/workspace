@@ -1,7 +1,9 @@
 import * as SkillTypesActions from './skill-types.actions';
+import { SkillTypesService } from '../skill-types.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SkillTypesEffects {
@@ -10,8 +12,13 @@ export class SkillTypesEffects {
       ofType(SkillTypesActions.loadSkillTypes),
       fetch({
         run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return SkillTypesActions.loadSkillTypesSuccess({ skillTypes: [] });
+          return this.skillTypesService
+            .fetchSkills()
+            .pipe(
+              map((res) =>
+                SkillTypesActions.loadSkillTypesSuccess({ skillTypes: res })
+              )
+            );
         },
 
         onError: (action, error) => {
@@ -22,5 +29,8 @@ export class SkillTypesEffects {
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private skillTypesService: SkillTypesService
+  ) {}
 }

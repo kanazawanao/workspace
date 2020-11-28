@@ -1,10 +1,25 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./list/skill-types-list.module').then(
+        (m) => m.SkillTypesListModule
+      ),
+  },
+  {
+    path: ':id',
+    loadChildren: () =>
+      import('./entry/skill-types-entry.module').then(
+        (m) => m.SkillTypesEntryModule
+      ),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SkillTypesRoutingModule { }
+export class SkillTypesRoutingModule {}
