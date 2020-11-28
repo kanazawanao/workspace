@@ -1,8 +1,8 @@
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './local-auth.guard';
+import { Login } from './login.entity';
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { ILogin } from '@workspace/api-interfaces';
+import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ApiConstant } from '@workspace/constants';
 
 const constants = ApiConstant;
@@ -14,7 +14,8 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   @ApiOperation({ summary: 'login' })
-  async login(@Body() login: ILogin) {
+  @ApiBody({ type: Login, description: 'login' })
+  async login(@Body() login: Login) {
     console.log(login);
     return this.authService.login(login);
   }
