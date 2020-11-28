@@ -13,7 +13,7 @@ export class HttpRequestService {
     observe?: any;
     params?: any;
   };
-  token = '';
+  token: string = null;
   constructor(private http: HttpClient) {}
 
   get<T>(config: HttpReqOptions): Observable<T> {
@@ -52,8 +52,11 @@ export class HttpRequestService {
 
     const headers = Object.assign({
       'Content-Type': 'application/json; charset=utf-8',
+      Authorization: 'Bearer ' + this.token,
     });
-
+    if (this.token) {
+      config.param = Object.assign({});
+    }
     this.httpOptions = {
       headers,
       params: config.param,

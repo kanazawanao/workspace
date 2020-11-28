@@ -1,5 +1,6 @@
 import { User } from './user.entity';
 import { UsersService } from './users.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { DeleteResult, InsertResult } from 'typeorm';
 import {
@@ -10,6 +11,7 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 
 @ApiTags('users')
@@ -17,24 +19,28 @@ import {
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   @ApiOperation({ summary: 'get users' })
   async getUsers(): Promise<User[]> {
     return this.usersService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get user' })
   async getUser(@Param('id') id: number): Promise<User> {
     return this.usersService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   @ApiOperation({ summary: 'put user' })
   async putUser(@Param('id') id: number, @Body() user: User) {
     return this.usersService.put(id, user);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'post user' })
   @ApiBody({ type: User, description: 'user' })
@@ -42,6 +48,7 @@ export class UsersController {
     return this.usersService.post(user);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete()
   @ApiOperation({ summary: 'delete user' })
   async deleteUser(@Param(':id') id: number): Promise<DeleteResult> {

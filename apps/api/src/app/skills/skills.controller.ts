@@ -1,6 +1,6 @@
 import { Skill } from './skill.entity';
 import { SkillsService } from './skills.service';
-import { SkillType } from '../skill-types/skill-type.entity';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { DeleteResult, InsertResult, UpdateResult } from 'typeorm';
 import {
@@ -11,6 +11,7 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 
 @ApiTags('skills')
@@ -18,18 +19,21 @@ import {
 export class SkillsController {
   constructor(private skillsService: SkillsService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   @ApiOperation({ summary: 'get skills' })
   async getSkills(): Promise<Skill[]> {
     return this.skillsService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get skill' })
   async getSkill(@Param('id') id: number): Promise<Skill> {
     return this.skillsService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'post skill' })
   @ApiBody({ type: Skill, description: 'skill' })
@@ -37,6 +41,7 @@ export class SkillsController {
     return this.skillsService.post(body);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   @ApiOperation({ summary: 'put skill' })
   async putUser(
@@ -46,6 +51,7 @@ export class SkillsController {
     return this.skillsService.put(id, skill);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete()
   @ApiOperation({ summary: 'delete skillType' })
   async deleteUser(@Param(':id') id: number): Promise<DeleteResult> {

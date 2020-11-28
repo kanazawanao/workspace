@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { ILogin } from '@workspace/api-interfaces';
+import { ILogin, IToken } from '@workspace/api-interfaces';
 import { HttpRequestService } from '@workspace/shared-service';
 import { map } from 'rxjs/operators';
 import {
@@ -30,11 +30,16 @@ export class LoginService {
 
   login(login: ILogin) {
     const res = this.httpRequestService
-      .post<string>({
+      .post<IToken>({
         url: `${this.apiUrl}/auth/login`,
         body: login,
       })
-      .pipe(map((x) => (this.httpRequestService.token = x)));
+      .pipe(
+        map((x) => {
+          console.log(x);
+          this.httpRequestService.token = x.accessToken;
+        })
+      );
     return res;
   }
 }
