@@ -1,11 +1,13 @@
 import { AppComponent } from './app.component';
 import { TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { UiSidenavModule } from '@workspace/ui';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, UiSidenavModule, BrowserAnimationsModule],
       declarations: [AppComponent],
     }).compileComponents();
   });
