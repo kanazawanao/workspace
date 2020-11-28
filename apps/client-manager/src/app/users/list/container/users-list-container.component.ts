@@ -1,5 +1,5 @@
 import { BaseComponent } from '../../../base/base-component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UsersFacade } from '../../+state/users.facade';
 
 @Component({
@@ -7,8 +7,9 @@ import { UsersFacade } from '../../+state/users.facade';
   templateUrl: './users-list-container.component.html',
   styleUrls: ['./users-list-container.component.scss'],
 })
-export class UsersListContainerComponent extends BaseComponent
-  implements OnInit {
+export class UsersListContainerComponent
+  extends BaseComponent
+  implements OnInit, OnDestroy {
   users$ = this.usersFacade.allUsers$;
   displayedColumns: string[] = [
     'id',
@@ -22,4 +23,8 @@ export class UsersListContainerComponent extends BaseComponent
   }
 
   ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
 }

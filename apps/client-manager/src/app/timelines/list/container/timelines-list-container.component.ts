@@ -1,5 +1,5 @@
 import { BaseComponent } from '../../../base/base-component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ITimeline } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 import { TimelinesFacade } from '../../+state/timelines.facade';
@@ -11,7 +11,7 @@ import { TimelinesFacade } from '../../+state/timelines.facade';
 })
 export class TimelinesListContainerComponent
   extends BaseComponent
-  implements OnInit {
+  implements OnInit, OnDestroy {
   timelines$: Observable<ITimeline[]> = this.timelinesFacade.allTimelines$;
   displayedColumns: string[] = ['event', 'date'];
 
@@ -20,4 +20,7 @@ export class TimelinesListContainerComponent
   }
 
   ngOnInit(): void {}
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
 }

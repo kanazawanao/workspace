@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { ILogin } from '@workspace/api-interfaces';
 import { HttpRequestService } from '@workspace/shared-service';
+import { map } from 'rxjs/operators';
 import {
   FormBuilder,
   FormControl,
@@ -28,11 +29,12 @@ export class LoginService {
   }
 
   login(login: ILogin) {
-    const res = this.httpRequestService.post({
-      url: `${this.apiUrl}/auth/login`,
-      body: login,
-    });
-    console.log(res);
+    const res = this.httpRequestService
+      .post<string>({
+        url: `${this.apiUrl}/auth/login`,
+        body: login,
+      })
+      .pipe(map((x) => (this.httpRequestService.token = x)));
     return res;
   }
 }

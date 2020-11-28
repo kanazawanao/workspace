@@ -1,5 +1,5 @@
 import { BaseComponent } from '../../../base/base-component';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
   templateUrl: './skills-list-presenter.component.html',
   styleUrls: ['./skills-list-presenter.component.scss'],
 })
-export class SkillsListPresenterComponent extends BaseComponent
-  implements OnInit {
+export class SkillsListPresenterComponent
+  extends BaseComponent
+  implements OnInit, OnDestroy {
   @Input() skills$: Observable<ISkill[]>;
   @Input() displayedColumns: string[];
   constructor() {
@@ -17,4 +18,7 @@ export class SkillsListPresenterComponent extends BaseComponent
   }
 
   ngOnInit(): void {}
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
 }

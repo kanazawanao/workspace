@@ -1,7 +1,14 @@
 import { BaseComponent } from '../../../base/base-component';
 import { TimelinesEntryControlName } from '../skills-entry-control-name';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'client-manager-timelines-entry-presenter',
@@ -10,7 +17,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class TimelinesEntryPresenterComponent
   extends BaseComponent
-  implements OnInit {
+  implements OnInit, OnDestroy {
   @Input() formGroup: FormGroup;
   @Output() registEvent = new EventEmitter();
   controlName = TimelinesEntryControlName;
@@ -19,4 +26,7 @@ export class TimelinesEntryPresenterComponent
   }
 
   ngOnInit(): void {}
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
 }

@@ -13,6 +13,7 @@ export class HttpRequestService {
     observe?: any;
     params?: any;
   };
+  token = '';
   constructor(private http: HttpClient) {}
 
   get<T>(config: HttpReqOptions): Observable<T> {

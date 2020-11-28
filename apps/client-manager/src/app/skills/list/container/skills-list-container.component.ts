@@ -1,6 +1,6 @@
 import { BaseComponent } from '../../../base/base-component';
 import { SkillsService } from '../../skills.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 import { SkillsFacade } from '../../+state/skills.facade';
@@ -10,8 +10,9 @@ import { SkillsFacade } from '../../+state/skills.facade';
   templateUrl: './skills-list-container.component.html',
   styleUrls: ['./skills-list-container.component.scss'],
 })
-export class SkillsListContainerComponent extends BaseComponent
-  implements OnInit {
+export class SkillsListContainerComponent
+  extends BaseComponent
+  implements OnInit, OnDestroy {
   skills$: Observable<ISkill[]> = this.skillsFacade.allSkills$;
   displayedColumns: string[] = [
     'id',
@@ -25,4 +26,7 @@ export class SkillsListContainerComponent extends BaseComponent
   }
 
   ngOnInit(): void {}
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+  }
 }
