@@ -1,4 +1,4 @@
-import { SkillsEntryModel } from './entry/skills-entry-model';
+import { SkillsEntryModel } from './entry/skills-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ISkill, ISkillType } from '@workspace/api-interfaces';

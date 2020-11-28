@@ -1,4 +1,4 @@
-import { UsersEntryModel } from './entry/users-entry-model';
+import { UsersEntryModel } from './entry/users-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IUser } from '@workspace/api-interfaces';

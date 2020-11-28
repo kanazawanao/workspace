@@ -1,5 +1,5 @@
 import { SkillsEntryPresenterComponent } from './skills-entry-presenter.component';
-import { SkillsEntryModel } from '../skills-entry-model';
+import { SkillsEntryModel } from '../skills-entry.model';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';

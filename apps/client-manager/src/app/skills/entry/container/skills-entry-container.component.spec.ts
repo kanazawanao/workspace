@@ -2,7 +2,6 @@ import { SkillsEntryContainerComponent } from './skills-entry-container.componen
 import { MockSkillsService } from '../../mock-skills.service';
 import { SkillsService } from '../../skills.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';

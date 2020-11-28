@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../../base/base-component';
 import { TimelinesService } from '../../timelines.service';
 import { TimelinesEntryControlName } from '../skills-entry-control-name';
-import { TimelinesEntryModel } from '../timelines-entry-model';
+import { TimelinesEntryModel } from '../timelines-entry.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';

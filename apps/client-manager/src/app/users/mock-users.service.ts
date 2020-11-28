@@ -1,4 +1,4 @@
-import { UsersEntryModel } from './entry/users-entry-model';
+import { UsersEntryModel } from './entry/users-entry.model';
 import { usersData } from './users.data';
 import { FormGroup } from '@angular/forms';
 import { IUser } from '@workspace/api-interfaces';

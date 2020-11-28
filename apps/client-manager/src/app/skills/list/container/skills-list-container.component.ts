@@ -1,5 +1,4 @@
 import { BaseComponent } from '../../../base/base-component';
-import { SkillsService } from '../../skills.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';

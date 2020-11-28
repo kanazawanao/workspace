@@ -1,4 +1,4 @@
-import { TimelinesEntryModel } from './entry/timelines-entry-model';
+import { TimelinesEntryModel } from './entry/timelines-entry.model';
 import { FormGroup } from '@angular/forms';
 import { ITimeline } from '@workspace/api-interfaces';
 import { Observable, of } from 'rxjs';

@@ -2,13 +2,12 @@ import { UsersEntryPresenterComponent } from './users-entry-presenter.component'
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { boolean, number, text } from '@storybook/addon-knobs';
 import { EditType } from '@workspace/constants';
 import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 
 export default {
-  title: 'UsersEntryPresenterComponent'
-}
+  title: 'UsersEntryPresenterComponent',
+};
 
 export const primary = () => ({
   moduleMetadata: {
@@ -18,11 +17,11 @@ export const primary = () => ({
       UiInputModule,
       UiDatePickerModule,
       MatButtonModule,
-    ]
+    ],
   },
   component: UsersEntryPresenterComponent,
   props: {
     formGroup: new FormGroup({}),
     editMode: EditType.create,
-  }
-})
+  },
+});

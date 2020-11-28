@@ -1,4 +1,4 @@
-import { TimelinesEntryModel } from '../entry/timelines-entry-model';
+import { TimelinesEntryModel } from '../entry/timelines-entry.model';
 import { createAction, props } from '@ngrx/store';
 import { ITimeline } from '@workspace/api-interfaces';
 import { EditType } from '@workspace/constants';

@@ -1,7 +1,6 @@
 import { TimelinesEntryPresenterComponent } from './timelines-entry-presenter.component';
-import { TimelinesEntryModel } from '../timelines-entry-model';
+import { TimelinesEntryModel } from '../timelines-entry.model';
 import { CommonModule } from '@angular/common';
-import { EventEmitter } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';

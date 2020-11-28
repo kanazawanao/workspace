@@ -1,4 +1,4 @@
-import { TimelinesEntryModel } from './entry/timelines-entry-model';
+import { TimelinesEntryModel } from './entry/timelines-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ITimeline } from '@workspace/api-interfaces';

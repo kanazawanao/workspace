@@ -1,39 +1,39 @@
-import * as TimelinesActions from './timelines.actions';
-import { TimelinesEffects } from './timelines.effects';
-import { TestBed } from '@angular/core/testing';
+import * as SkillTypesActions from './skill-types.actions';
+import { SkillTypesEffects } from './skill-types.effects';
+import { async, TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
 import { Observable } from 'rxjs';
 
-describe('TimelinesEffects', () => {
+describe('SkillTypesEffects', () => {
   let actions: Observable<any>;
-  let effects: TimelinesEffects;
+  let effects: SkillTypesEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [NxModule.forRoot()],
       providers: [
-        TimelinesEffects,
+        SkillTypesEffects,
         DataPersistence,
         provideMockActions(() => actions),
         provideMockStore(),
       ],
     });
 
-    effects = TestBed.inject(TimelinesEffects);
+    effects = TestBed.get(SkillTypesEffects);
   });
 
-  describe('loadTimelines$', () => {
+  describe('loadSkillTypes$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: TimelinesActions.loadTimelines() });
+      actions = hot('-a-|', { a: SkillTypesActions.loadSkillTypes() });
 
       const expected = hot('-a-|', {
-        a: TimelinesActions.loadTimelinesSuccess({ timelines: [] }),
+        a: SkillTypesActions.loadSkillTypesSuccess({ skillTypes: [] }),
       });
 
-      expect(effects.loadTimelines$).toBeObservable(expected);
+      expect(effects.loadSkillTypes$).toBeObservable(expected);
     });
   });
 });

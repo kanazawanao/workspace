@@ -1,6 +1,5 @@
 import { TimelinesListPresenterComponent } from './timelines-list-presenter.component';
 import { timelinesData } from '../../timelines.data';
-import { TimelinesListRoutingModule } from '../timelines-list-routing.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

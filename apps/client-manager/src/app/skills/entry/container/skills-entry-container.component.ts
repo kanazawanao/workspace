@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../../base/base-component';
 import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
-import { SkillsEntryModel } from '../skills-entry-model';
+import { SkillsEntryModel } from '../skills-entry.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';

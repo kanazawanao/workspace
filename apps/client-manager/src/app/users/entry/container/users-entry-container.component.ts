@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../../base/base-component';
 import { UsersService } from '../../users.service';
 import { UsersEntryControlName } from '../users-entry-control-name';
-import { UsersEntryModel } from '../users-entry-model';
+import { UsersEntryModel } from '../users-entry.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
