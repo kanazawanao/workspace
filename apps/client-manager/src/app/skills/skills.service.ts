@@ -1,43 +1,41 @@
 import { SkillsEntryModel } from './entry/skills-entry.model';
 import { Inject, Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ISkill, ISkillType } from '@workspace/api-interfaces';
+import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class SkillsService {
+  constants = ApiConstant;
   constructor(
+    private formBuilder: FormBuilder,
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
 
   generateFormGroup(): FormGroup {
-    return new FormGroup({
-      skillType: new FormControl(''),
-      skillName: new FormControl(''),
-      experienceYears: new FormControl(''),
-      skillLevel: new FormControl(''),
-    });
+    return this.formBuilder.group(new SkillsEntryModel());
   }
 
   fetchSkills(): Observable<ISkill[]> {
     const res = this.httpRequestService.get<ISkill[]>({
-      url: `${this.apiUrl}/skills`,
+      url: `${this.apiUrl}${this.constants.skills}`,
     });
     return res;
   }
 
   fetchSkill(id: string): Observable<ISkill> {
     var res = this.httpRequestService.get<ISkill>({
-      url: `${this.apiUrl}/skills/${id}`,
+      url: `${this.apiUrl}${this.constants.skills}/${id}`,
     });
     return res;
   }
 
   postSkill(skill: SkillsEntryModel): Observable<ISkill> {
     var res = this.httpRequestService.post<ISkill>({
-      url: `${this.apiUrl}/skills`,
+      url: `${this.apiUrl}${this.constants.skills}`,
       body: skill,
     });
     return res;
@@ -45,7 +43,7 @@ export class SkillsService {
 
   updateSkill(id: number, skill: SkillsEntryModel): Observable<ISkill> {
     var res = this.httpRequestService.put<ISkill>({
-      url: `${this.apiUrl}/skills/${id}`,
+      url: `${this.apiUrl}${this.constants.skills}/${id}`,
       body: skill,
     });
     return res;
@@ -53,7 +51,7 @@ export class SkillsService {
 
   fetchSkillTypes(): Observable<ISkillType[]> {
     const res = this.httpRequestService.get<ISkillType[]>({
-      url: `${this.apiUrl}/skill-types`,
+      url: `${this.apiUrl}${this.constants.skilltypes}`,
     });
     return res;
   }

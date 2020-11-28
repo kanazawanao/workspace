@@ -1,7 +1,6 @@
 import { SkillType } from './skill-type.entity';
 import { SkillTypesService } from './skill-types.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { User } from '../users/user.entity';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import {
@@ -15,8 +14,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-@ApiTags('skill-types')
-@Controller('/api/skill-types')
+@ApiTags('skilltypes')
+@Controller('/api/skilltypes')
 export class SkillTypesController {
   constructor(private skillTypesService: SkillTypesService) {}
 

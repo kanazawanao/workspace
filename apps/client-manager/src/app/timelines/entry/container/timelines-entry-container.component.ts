@@ -24,9 +24,7 @@ export class TimelinesEntryContainerComponent
   }
 
   ngOnInit(): void {
-    this.formGroup = this.timelinesService.generateFormGroup(
-      new TimelinesEntryModel()
-    );
+    this.formGroup = this.timelinesService.generateFormGroup();
     this.timelinesFacade.workTimeline$
       .pipe(takeUntil(this.unsubscribeObservable$))
       .subscribe((x) => {

@@ -5,6 +5,7 @@ import { SkillTypesEntryGuard } from './skill-types-entry.guard';
 import { SkillTypesService } from '../skill-types.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromSkillTypes from '../+state/skill-types.reducer';
@@ -19,6 +20,7 @@ import { SkillTypesFacade } from '../+state/skill-types.facade';
   imports: [
     CommonModule,
     SkillTypesEntryRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(
       fromSkillTypes.SKILL_TYPES_FEATURE_KEY,
       fromSkillTypes.reducer

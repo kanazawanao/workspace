@@ -27,8 +27,7 @@ export class UsersEntryContainerComponent
   }
 
   ngOnInit(): void {
-    var entryModel: UsersEntryModel = new UsersEntryModel();
-    this.formGroup = this.usersService.generateFormGroup(entryModel);
+    this.formGroup = this.usersService.generateFormGroup();
     this.usersFacade.wokkUserEntry$
       .pipe(takeUntil(this.unsubscribeObservable$))
       .subscribe((x) => {

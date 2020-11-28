@@ -10,12 +10,12 @@ export class SkillsService {
     private skillsRepository: Repository<Skill>
   ) {}
 
-  findAll(): Promise<Skill[]> {
-    return this.skillsRepository.find();
+  async findAll(): Promise<Skill[]> {
+    return await this.skillsRepository.find();
   }
 
-  findOne(id: number): Promise<Skill> {
-    return this.skillsRepository.findOne(id);
+  async findOne(id: number): Promise<Skill> {
+    return await this.skillsRepository.findOne(id);
   }
 
   async remove(id: number): Promise<DeleteResult> {

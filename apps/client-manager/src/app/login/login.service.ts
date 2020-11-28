@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { ILogin, IToken } from '@workspace/api-interfaces';
+import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
 import { map } from 'rxjs/operators';
 import {
@@ -11,6 +12,7 @@ import {
 
 @Injectable()
 export class LoginService {
+  constants = ApiConstant;
   constructor(
     private formBuilder: FormBuilder,
     private httpRequestService: HttpRequestService,
@@ -31,7 +33,7 @@ export class LoginService {
   login(login: ILogin) {
     const res = this.httpRequestService
       .post<IToken>({
-        url: `${this.apiUrl}/auth/login`,
+        url: `${this.apiUrl}${this.constants.login}`,
         body: login,
       })
       .pipe(
