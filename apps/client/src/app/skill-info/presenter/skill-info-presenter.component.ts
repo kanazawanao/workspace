@@ -1,7 +1,5 @@
 import { SkillInfoPresenterInputData } from './skill-info-presenter-input-data';
 import { Component, Input, OnInit } from '@angular/core';
-import { ISkill } from '@workspace/api-interfaces';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'client-skill-info-presenter',

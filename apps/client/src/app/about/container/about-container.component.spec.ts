@@ -1,6 +1,6 @@
 import { AboutContainerComponent } from './about-container.component';
 import { AboutService } from '../about.service';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 @Component({

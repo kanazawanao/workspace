@@ -5,7 +5,7 @@ import { ISkill } from '@workspace/api-interfaces';
 describe('Skills Reducer', () => {
   const createSkills = (
     id: number,
-    skillType: string,
+    skillType: number,
     skillName: string,
     experienceYears: number,
     skillLevel: number
@@ -23,8 +23,8 @@ describe('Skills Reducer', () => {
   describe('valid Skills actions', () => {
     it('loadSkillsSuccess should return set the list of known Skills', () => {
       const skills = [
-        createSkills(1, 'PRODUCT-AAA', '', 2, 3),
-        createSkills(2, 'PRODUCT-zzz', '', 3, 3),
+        createSkills(1, 1, '', 2, 3),
+        createSkills(2, 2, '', 3, 3),
       ];
       const action = SkillsActions.loadSkillsSuccess({ skills });
 

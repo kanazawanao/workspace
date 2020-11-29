@@ -1,5 +1,13 @@
 import { TimelineContainerComponent } from './timeline-container.component';
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+@Component({
+  selector: 'client-timeline-presenter',
+  template: '',
+  styleUrls: [],
+})
+export class MockTimelinePresenterComponent {}
 
 describe('TimelineContainerComponent', () => {
   let component: TimelineContainerComponent;
@@ -7,7 +15,10 @@ describe('TimelineContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TimelineContainerComponent],
+      declarations: [
+        TimelineContainerComponent,
+        MockTimelinePresenterComponent,
+      ],
     }).compileComponents();
   });
 

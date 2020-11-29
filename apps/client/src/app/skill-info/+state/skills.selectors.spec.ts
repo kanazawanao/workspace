@@ -7,7 +7,7 @@ describe('Skills Selectors', () => {
   const getSkillsId = (it: ISkill) => it['id'];
   const createSkills = (
     id: number,
-    skillType: string,
+    skillType: number,
     skillName: string,
     experienceYears: number,
     skillLevel: number
@@ -26,9 +26,9 @@ describe('Skills Selectors', () => {
     state = {
       skills: skillsAdapter.setAll(
         [
-          createSkills(1, 'PRODUCT-AAA', '', 2, 3),
-          createSkills(2, 'PRODUCT-BBB', '', 3, 3),
-          createSkills(3, 'PRODUCT-CCC', '', 2, 2),
+          createSkills(1, 1, '', 2, 3),
+          createSkills(2, 2, '', 3, 3),
+          createSkills(3, 3, '', 2, 2),
         ],
         {
           ...initialState,

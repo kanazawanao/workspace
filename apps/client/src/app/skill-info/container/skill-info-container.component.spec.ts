@@ -1,8 +1,8 @@
 import { SkillInfoContainerComponent } from './skill-info-container.component';
+import { MockSkillsService } from '../mock-skills-service';
 import { SkillsService } from '../skills.service';
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MockSkillsService } from '../+state/mock-skills-service';
 import { SkillsFacade } from '../+state/skills.facade';
 import { MockSkillsFacade } from '../+state/mock-skills-facade';
 

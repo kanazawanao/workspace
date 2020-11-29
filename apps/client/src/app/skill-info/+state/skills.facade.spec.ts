@@ -1,9 +1,8 @@
-import { MockSkillsFacade } from './mock-skills-facade';
-import { MockSkillsService } from './mock-skills-service';
 import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { SkillsFacade } from './skills.facade';
 import { reducer, SKILLS_FEATURE_KEY, State } from './skills.reducer';
+import { MockSkillsService } from '../mock-skills-service';
 import { SkillsService } from '../skills.service';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
@@ -22,7 +21,7 @@ describe('SkillsFacade', () => {
   let store: Store<TestSchema>;
   const createSkills = (
     id: number,
-    skillType: string,
+    skillType: number,
     skillName: string,
     experienceYears: number,
     skillLevel: number
@@ -62,8 +61,8 @@ describe('SkillsFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.get(Store);
-      facade = TestBed.get(SkillsFacade);
+      store = TestBed.inject(Store);
+      facade = TestBed.inject(SkillsFacade);
     });
 
     /**
@@ -83,7 +82,7 @@ describe('SkillsFacade', () => {
         isLoaded = await readFirst(facade.loaded$);
 
         expect(list.length).toBe(0);
-        expect(isLoaded).toBe(true);
+        expect(isLoaded).toBe(false);
 
         done();
       } catch (err) {
@@ -105,8 +104,8 @@ describe('SkillsFacade', () => {
         facade.dispatch(
           SkillsActions.loadSkillsSuccess({
             skills: [
-              createSkills(1, 'AAA', '', 2, 3),
-              createSkills(2, 'BBB', '', 3, 3),
+              createSkills(1, 1, '', 2, 3),
+              createSkills(2, 1, '', 3, 3),
             ],
           })
         );
