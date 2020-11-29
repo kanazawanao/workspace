@@ -3,9 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'skill-info',
     loadChildren: () =>
-      import('./pages/pages.module').then((m) => m.PagesModule),
+      import('./skill-info/skill-info.module').then((m) => m.SkillInfoModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutModule),
+  },
+  {
+    path: 'timeline',
+    loadChildren: () =>
+      import('./timeline/timeline.module').then((m) => m.TimelineModule),
   },
 ];
 
