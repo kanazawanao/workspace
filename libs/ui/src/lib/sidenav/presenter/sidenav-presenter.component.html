@@ -9,7 +9,7 @@
   >
     <mat-toolbar>{{ menuTitle }}</mat-toolbar>
     <mat-nav-list *ngFor="let link of options">
-      <a mat-list-item [routerLink]="[link.value]">{{ link.viewValue }}</a>
+      <a mat-list-item [routerLink]="link.value">{{ link.viewValue }}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
