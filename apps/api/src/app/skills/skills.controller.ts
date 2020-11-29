@@ -1,7 +1,7 @@
 import { Skill } from './skill.entity';
 import { SkillsService } from './skills.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { ApiConstant } from '@workspace/constants';
 import { DeleteResult, InsertResult, UpdateResult } from 'typeorm';
 import {
@@ -18,6 +18,7 @@ import {
 const constants = ApiConstant;
 @ApiTags(constants.skills)
 @Controller(`/api${constants.skills}`)
+@ApiSecurity('accessToken')
 export class SkillsController {
   constructor(private skillsService: SkillsService) {}
 
