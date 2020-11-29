@@ -1,12 +1,21 @@
-import { TestBed } from '@angular/core/testing';
-
 import { SkillTypesEntryGuard } from './skill-types-entry.guard';
+import { TestBed } from '@angular/core/testing';
+import { MockSkillTypesFacade } from '../+state/mock-skill-types.facade';
+import { SkillTypesFacade } from '../+state/skill-types.facade';
+
 
 describe('SkillTypesEntryGuard', () => {
   let guard: SkillTypesEntryGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: SkillTypesFacade,
+          useValue: MockSkillTypesFacade,
+        },
+      ],
+    });
     guard = TestBed.inject(SkillTypesEntryGuard);
   });
 

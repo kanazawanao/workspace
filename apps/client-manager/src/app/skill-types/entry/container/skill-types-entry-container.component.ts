@@ -2,7 +2,6 @@ import { BaseComponent } from '../../../base/base-component';
 import { SkillTypesService } from '../../skill-types.service';
 import { SkillTypesEntryControlName } from '../skill-types-entry-control-name';
 import { SkillTypeEntryModel } from '../skill-types-entry.model';
-import { SkillTypesEntryModule } from '../skill-types-entry.module';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 

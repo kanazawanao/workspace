@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SelectOption } from '@workspace/ui';
+import { Observable } from 'rxjs';
 import { MockSkillsFacade } from '../../+state/mock-skills.facade';
 import { SkillsFacade } from '../../+state/skills.facade';
 
@@ -16,6 +18,7 @@ import { SkillsFacade } from '../../+state/skills.facade';
 })
 class MockSkillsEntryPresenterComponent {
   @Input() formGroup: FormGroup;
+  @Input() options$: Observable<SelectOption[]>;
   @Output() registEvent = new EventEmitter();
 }
 

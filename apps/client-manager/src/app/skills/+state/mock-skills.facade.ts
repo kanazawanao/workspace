@@ -1,4 +1,4 @@
-import { SkillsEntryModel } from '../entry/skills-entry-model';
+import { SkillsEntryModel } from '../entry/skills-entry.model';
 import { skillsData } from '../skills.data';
 import { EditType } from '@workspace/constants';
 import { of } from 'rxjs';

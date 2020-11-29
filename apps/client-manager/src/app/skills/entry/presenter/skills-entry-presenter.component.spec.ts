@@ -5,7 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UiInputModule } from '@workspace/ui';
+import { UiInputModule, UiSelectModule } from '@workspace/ui';
 
 const formGroup = new FormBuilder().group(new SkillsEntryModel());
 describe('SkillsEntryPresenterComponent', () => {
@@ -20,6 +20,7 @@ describe('SkillsEntryPresenterComponent', () => {
         CommonModule,
         ReactiveFormsModule,
         UiInputModule,
+        UiSelectModule,
         MatButtonModule,
       ],
     }).compileComponents();
