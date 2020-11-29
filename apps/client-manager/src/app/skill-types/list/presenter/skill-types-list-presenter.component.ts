@@ -1,7 +1,14 @@
 import { BaseComponent } from '../../../base/base-component';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ISkillType } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'client-manager-skill-types-list-presenter',
@@ -13,6 +20,7 @@ export class SkillTypesListPresenterComponent
   implements OnInit, OnDestroy {
   @Input() skillTypes$: Observable<ISkillType[]>;
   @Input() displayedColumns: string[];
+  @Output() selectEvent = new EventEmitter();
   constructor() {
     super();
   }

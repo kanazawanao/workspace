@@ -29,6 +29,29 @@ export class SkillTypesEffects {
     )
   );
 
+  loadUpdateInitSkillTypeEntry$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillTypesActions.loadUpdateInitSkillTypeEntry),
+      fetch({
+        run: (action) => {
+          return this.skillTypesService.fetchSkill(action.skillTypeId).pipe(
+            map((res) =>
+              SkillTypesActions.loadUpdateInitSkillTypeEntrySuccess({
+                initSkillTypeEntry: res,
+              })
+            )
+          );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillTypesActions.loadUpdateInitSkillTypeEntryFailure({
+            error,
+          });
+        },
+      })
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private skillTypesService: SkillTypesService

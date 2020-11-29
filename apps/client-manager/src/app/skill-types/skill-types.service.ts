@@ -1,6 +1,7 @@
 import { SkillTypeEntryModel } from './entry/skill-types-entry.model';
 import { Inject, Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ISkillType } from '@workspace/api-interfaces';
 import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
@@ -11,6 +12,7 @@ export class SkillTypesService {
   constants = ApiConstant;
   constructor(
     private formBuilder: FormBuilder,
+    private ruter: Router,
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
@@ -54,5 +56,9 @@ export class SkillTypesService {
       url: `${this.apiUrl}${this.constants.skilltypes}`,
     });
     return res;
+  }
+
+  navigateSkillTypesEntry(id: number): void {
+    this.ruter.navigate(['/skill-types', id]);
   }
 }

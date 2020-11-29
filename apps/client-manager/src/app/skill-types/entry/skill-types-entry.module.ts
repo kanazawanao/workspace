@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { UiInputModule } from '@workspace/ui';
 import * as fromSkillTypes from '../+state/skill-types.reducer';
 import { SkillTypesEffects } from '../+state/skill-types.effects';
 import { SkillTypesFacade } from '../+state/skill-types.facade';
@@ -21,6 +22,7 @@ import { SkillTypesFacade } from '../+state/skill-types.facade';
     CommonModule,
     SkillTypesEntryRoutingModule,
     ReactiveFormsModule,
+    UiInputModule,
     StoreModule.forFeature(
       fromSkillTypes.SKILL_TYPES_FEATURE_KEY,
       fromSkillTypes.reducer

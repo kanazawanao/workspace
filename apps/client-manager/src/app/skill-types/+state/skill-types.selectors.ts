@@ -6,7 +6,6 @@ import {
   skillTypesAdapter,
 } from './skill-types.reducer';
 
-// Lookup the 'SkillTypes' feature state managed by NgRx
 export const getSkillTypesState = createFeatureSelector<
   SkillTypesPartialState,
   State
@@ -43,4 +42,14 @@ export const getSelected = createSelector(
   getSkillTypesEntities,
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
+);
+
+export const getWorkSkillEntry = createSelector(
+  getSkillTypesState,
+  (state: State) => state.workSkillTypeEntry
+);
+
+export const getEditerMode = createSelector(
+  getSkillTypesState,
+  (state: State) => state.editerMode
 );

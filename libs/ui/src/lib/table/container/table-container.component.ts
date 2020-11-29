@@ -1,5 +1,6 @@
 import { TablePresenterInputData } from '../presenter/table-presenter-input-data';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ui-table-container',
@@ -11,6 +12,8 @@ export class TableContainerComponent implements OnInit {
   @Input() dataSource: any;
   /** カラム定義 */
   @Input() displayedColumns: string[];
+  /** 行選択イベント */
+  @Output() selectEvent = new EventEmitter<FormGroup>();
   /** プレゼンタコンポーネントの入力データ */
   presenterInputData: TablePresenterInputData;
 

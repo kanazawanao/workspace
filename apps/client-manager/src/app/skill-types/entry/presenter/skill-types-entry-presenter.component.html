@@ -1,1 +1,15 @@
-<p>skill-types-entry-presenter works!</p>
+<div>
+  <form [formGroup]="formGroup">
+    <div>
+      <ui-input-container
+        [inpFormControl]="formGroup.get(controlName.skillType)"
+        [label]="'skillType'"
+      ></ui-input-container>
+      <ui-input-container
+        [inpFormControl]="formGroup.get(controlName.skillTypeName)"
+        [label]="'skillTypeName'"
+      ></ui-input-container>
+    </div>
+    <button mat-button (click)="registEvent.emit()">regist</button>
+  </form>
+</div>

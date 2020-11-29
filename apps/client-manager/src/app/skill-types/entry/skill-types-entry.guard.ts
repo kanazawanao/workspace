@@ -5,11 +5,13 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
+import { SkillTypesFacade } from '../+state/skill-types.facade';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SkillTypesEntryGuard implements CanActivate {
+  constructor(private skillTypesFacade: SkillTypesFacade) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -18,6 +20,7 @@ export class SkillTypesEntryGuard implements CanActivate {
     if (id === 'entry') {
       return of(true);
     }
+    this.skillTypesFacade.loadUpdateInitSkillTypeEntry(id);
     return of(true);
   }
 }

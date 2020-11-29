@@ -1,5 +1,10 @@
 import { BaseComponent } from '../../../base/base-component';
+import { SkillTypesService } from '../../skill-types.service';
+import { SkillTypesEntryControlName } from '../skill-types-entry-control-name';
+import { SkillTypeEntryModel } from '../skill-types-entry.model';
+import { SkillTypesEntryModule } from '../skill-types-entry.module';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'client-manager-skill-types-entry-container',
@@ -9,12 +14,22 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class SkillTypesEntryContainerComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
-  constructor() {
+  formGroup: FormGroup;
+  controlName = SkillTypesEntryControlName;
+  constructor(private skillTypesService: SkillTypesService) {
     super();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formGroup = this.skillTypesService.generateFormGroup();
+  }
   ngOnDestroy(): void {
     super.ngOnDestroy();
+  }
+
+  regist() {}
+
+  registSkill(skillType: SkillTypeEntryModel) {
+    this.skillTypesService.postSkill(skillType);
   }
 }

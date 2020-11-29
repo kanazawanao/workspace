@@ -1,4 +1,5 @@
 import { BaseComponent } from '../../../base/base-component';
+import { SkillTypesService } from '../../skill-types.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ISkillType } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
@@ -14,12 +15,19 @@ export class SkillTypesListContainerComponent
   implements OnInit, OnDestroy {
   skillTypes$: Observable<ISkillType[]> = this.skillTypesFacade.allSkillTypes$;
   displayedColumns: string[] = ['id', 'skillType', 'skillTypeName'];
-  constructor(private skillTypesFacade: SkillTypesFacade) {
+  constructor(
+    private skillTypesFacade: SkillTypesFacade,
+    private skillTypesService: SkillTypesService
+  ) {
     super();
   }
 
   ngOnInit(): void {}
   ngOnDestroy(): void {
     super.ngOnDestroy();
+  }
+  selectEventListner(selectedValue: ISkillType) {
+    console.log(selectedValue);
+    this.skillTypesService.navigateSkillTypesEntry(selectedValue.id);
   }
 }
