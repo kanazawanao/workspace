@@ -2,6 +2,7 @@ import { SelectPresenterInputData } from '../presenter/select-presenter-input-da
 import { SelectOption } from '../select-option';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ui-select-container',
@@ -9,7 +10,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./select-container.component.scss'],
 })
 export class SelectContainerComponent implements OnInit {
-  @Input() options: SelectOption[];
+  @Input() options: Observable<SelectOption[]>;
   @Input() selectFormControl: FormControl;
   @Input() label: string;
   @Input() isDisabled: boolean;
@@ -23,7 +24,7 @@ export class SelectContainerComponent implements OnInit {
     this.presenterInputData = {
       isDisabled: this.isDisabled,
       label: this.label,
-      options: this.options,
+      options$: this.options,
       formControl: this.selectFormControl,
     };
   }

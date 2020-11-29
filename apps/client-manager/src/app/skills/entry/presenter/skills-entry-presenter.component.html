@@ -1,10 +1,11 @@
 <div>
   <form [formGroup]="formGroup">
     <div>
-      <ui-input-container
-        [inpFormControl]="formGroup.get(controlName.skillType)"
+      <ui-select-container
+        [selectFormControl]="formGroup.get(controlName.skillType)"
         [label]="'skillType'"
-      ></ui-input-container>
+        [options]="options$"
+      ></ui-select-container>
       <ui-input-container
         [inpFormControl]="formGroup.get(controlName.skillName)"
         [label]="'skillName'"

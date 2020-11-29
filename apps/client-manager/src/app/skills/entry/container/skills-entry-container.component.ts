@@ -4,7 +4,10 @@ import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { SkillsEntryModel } from '../skills-entry.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
+import { ISkillType } from '@workspace/api-interfaces';
+import { SelectOption } from '@workspace/ui';
+import { Observable } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { SkillsFacade } from '../../+state/skills.facade';
 
 @Component({
@@ -16,6 +19,19 @@ export class SkillsEntryContainerComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
   formGroup: FormGroup = this.skillsService.generateFormGroup();
+  skillTypeOptions$: Observable<
+    SelectOption[]
+  > = this.skillsFacade.skillTypes$.pipe(
+    filter((x) => x != null),
+    map((skillTypes) =>
+      skillTypes.map((skillType) => {
+        var option = new SelectOption();
+        option.value = skillType.skillType;
+        option.viewValue = skillType.skillTypeName;
+        return option;
+      })
+    )
+  );
   controlName = SkillsEntryControlName;
 
   constructor(

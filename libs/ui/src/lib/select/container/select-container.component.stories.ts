@@ -3,17 +3,18 @@ import { SelectOption } from '../select-option';
 import { UiSelectModule } from '../ui-select.module';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { of } from 'rxjs';
 const options: SelectOption[] = [
   {
-    value: 'select1',
+    value: 1,
     viewValue: 'select1',
   },
   {
-    value: 'select2',
+    value: 2,
     viewValue: 'select2',
   },
   {
-    value: 'select3',
+    value: 3,
     viewValue: 'select3',
   },
 ];
@@ -27,7 +28,7 @@ export const primary = () => ({
   },
   component: SelectContainerComponent,
   props: {
-    options: options,
+    options: of(options),
     labe: 'label',
     isDisabled: false,
     selectFormControl: new FormControl(),
@@ -39,7 +40,7 @@ export const disabled = () => ({
   },
   component: SelectContainerComponent,
   props: {
-    options: options,
+    options: of(options),
     labe: 'label',
     isDisabled: true,
     selectFormControl: new FormControl(),

@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const inputData: SelectPresenterInputData = {
   label: 'test',
   isDisabled: false,
-  options: [
+  options$: [
     {
       value: 'select1',
       viewValue: 'select1',

@@ -2,6 +2,7 @@ import { SelectPresenterInputData } from './select-presenter-input-data';
 import { SelectOption } from '../select-option';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ui-select-presenter',
@@ -10,8 +11,8 @@ import { FormControl } from '@angular/forms';
 })
 export class SelectPresenterComponent implements OnInit {
   @Input() inputData: SelectPresenterInputData;
-  get options(): SelectOption[] {
-    return this.inputData.options;
+  get options$(): Observable<SelectOption[]> {
+    return this.inputData.options$;
   }
   get label(): string {
     return this.inputData.label;

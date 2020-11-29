@@ -1,4 +1,4 @@
 export class SelectOption {
-  value: string;
+  value: number;
   viewValue: string;
 }

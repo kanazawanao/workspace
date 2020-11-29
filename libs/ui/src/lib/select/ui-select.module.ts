@@ -14,5 +14,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     MatFormFieldModule,
   ],
+  exports: [SelectContainerComponent],
 })
 export class UiSelectModule {}

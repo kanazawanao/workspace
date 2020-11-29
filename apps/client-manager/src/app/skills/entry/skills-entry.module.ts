@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { UiInputModule } from '@workspace/ui';
+import { UiInputModule, UiSelectModule } from '@workspace/ui';
 import { SkillsEffects } from '../+state/skills.effects';
 import * as fromSkills from '../+state/skills.reducer';
 import { SkillsFacade } from '../+state/skills.facade';
@@ -21,6 +21,7 @@ import { SkillsFacade } from '../+state/skills.facade';
     SkillsEntryRoutingModule,
     ReactiveFormsModule,
     UiInputModule,
+    UiSelectModule,
     MatButtonModule,
     StoreModule.forFeature(fromSkills.SKILLS_FEATURE_KEY, fromSkills.reducer),
     EffectsModule.forFeature([SkillsEffects]),
