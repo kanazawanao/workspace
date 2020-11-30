@@ -13,7 +13,7 @@ export class AuthService {
 
   isAuthenticated(): Observable<boolean> {
     const res = this.httpRequestService.get<boolean>({
-      url: `${this.apiUrl}${this.constants.authcheck}`,
+      url: `${this.apiUrl}${this.constants.isAuthenticated}`,
     });
     return res;
   }
