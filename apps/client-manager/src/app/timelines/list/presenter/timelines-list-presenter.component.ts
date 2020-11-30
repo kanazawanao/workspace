@@ -1,7 +1,14 @@
 import { BaseComponent } from '../../../base/base-component';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ITimeline } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'client-manager-timelines-list-presenter',
@@ -13,6 +20,7 @@ export class TimelinesListPresenterComponent
   implements OnInit, OnDestroy {
   @Input() timelines$: Observable<ITimeline[]>;
   @Input() displayedColumns: string[];
+  @Output() selectEvent = new EventEmitter();
   constructor() {
     super();
   }

@@ -1,4 +1,5 @@
 <client-manager-users-list-presenter
   [users$]="users$"
   [displayedColumns]="displayedColumns"
+  (selectEvent)="selectEventListner($event)"
 ></client-manager-users-list-presenter>

@@ -1,4 +1,5 @@
 <ui-table-container
   [dataSource]="timelines$"
   [displayedColumns]="displayedColumns"
+  (selectEvent)="selectEvent.emit($event)"
 ></ui-table-container>

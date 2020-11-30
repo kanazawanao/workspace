@@ -1,5 +1,7 @@
 import { BaseComponent } from '../../../base/base-component';
+import { UsersService } from '../../users.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IUser } from '@workspace/api-interfaces';
 import { UsersFacade } from '../../+state/users.facade';
 
 @Component({
@@ -18,7 +20,10 @@ export class UsersListContainerComponent
     'email',
     'birthDay',
   ];
-  constructor(private usersFacade: UsersFacade) {
+  constructor(
+    private usersFacade: UsersFacade,
+    private usersService: UsersService
+  ) {
     super();
   }
 
@@ -26,5 +31,10 @@ export class UsersListContainerComponent
 
   ngOnDestroy(): void {
     super.ngOnDestroy();
+  }
+
+  selectEventListner(selectedValue: IUser) {
+    console.log(selectedValue);
+    this.usersService.navigateSkillTypesEntry(selectedValue.id);
   }
 }

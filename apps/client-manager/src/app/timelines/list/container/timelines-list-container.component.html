@@ -1,4 +1,5 @@
 <client-manager-timelines-list-presenter
   [timelines$]="timelines$"
   [displayedColumns]="displayedColumns"
+  (selectEvent)="selectEventListner($event)"
 ></client-manager-timelines-list-presenter>

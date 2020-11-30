@@ -1,6 +1,7 @@
 import { UsersEntryModel } from './entry/users-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IUser } from '@workspace/api-interfaces';
 import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
@@ -11,6 +12,7 @@ export class UsersService {
   constants = ApiConstant;
   constructor(
     private formBuilder: FormBuilder,
+    private ruter: Router,
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
@@ -47,5 +49,9 @@ export class UsersService {
       body: user,
     });
     return res;
+  }
+
+  navigateSkillTypesEntry(id: number): void {
+    this.ruter.navigate(['/users', id]);
   }
 }

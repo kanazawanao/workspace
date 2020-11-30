@@ -27,7 +27,6 @@ export class SkillTypesListContainerComponent
     super.ngOnDestroy();
   }
   selectEventListner(selectedValue: ISkillType) {
-    console.log(selectedValue);
     this.skillTypesService.navigateSkillTypesEntry(selectedValue.id);
   }
 }

@@ -1,6 +1,7 @@
 import { TimelinesEntryModel } from './entry/timelines-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ITimeline } from '@workspace/api-interfaces';
 import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
@@ -11,6 +12,7 @@ export class TimelinesService {
   constants = ApiConstant;
   constructor(
     private formBuilder: FormBuilder,
+    private ruter: Router,
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
@@ -50,5 +52,9 @@ export class TimelinesService {
       body: timeline,
     });
     return res;
+  }
+
+  navigateSkillTypesEntry(id: number): void {
+    this.ruter.navigate(['/timelines', id]);
   }
 }
