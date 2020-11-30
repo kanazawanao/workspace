@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../base/base-component';
+import { BaseComponent } from '../../base/base.component';
 import { LoginService } from '../login.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';

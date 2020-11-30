@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 import {

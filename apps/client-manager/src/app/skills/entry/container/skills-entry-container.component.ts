@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { SkillsEntryModel } from '../skills-entry.model';

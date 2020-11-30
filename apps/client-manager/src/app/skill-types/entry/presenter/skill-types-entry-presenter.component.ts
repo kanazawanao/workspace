@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { SkillTypesEntryControlName } from '../skill-types-entry-control-name';
 import { FormGroup } from '@angular/forms';
 import {

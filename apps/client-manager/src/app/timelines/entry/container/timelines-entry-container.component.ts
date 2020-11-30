@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { TimelinesService } from '../../timelines.service';
 import { TimelinesEntryControlName } from '../skills-entry-control-name';
 import { TimelinesEntryModel } from '../timelines-entry.model';
@@ -14,6 +14,7 @@ import { TimelinesFacade } from '../../+state/timelines.facade';
 export class TimelinesEntryContainerComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
+  editMode$ = this.timelinesFacade.editMode$;
   formGroup: FormGroup;
   controlName = TimelinesEntryControlName;
   constructor(

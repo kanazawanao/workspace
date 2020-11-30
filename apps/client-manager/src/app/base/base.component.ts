@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { EditType } from '@workspace/constants';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -21,5 +22,11 @@ export abstract class BaseComponent implements OnDestroy {
   private unsubscribeObservable(unsubscribeObservable$: Subject<void>): void {
     unsubscribeObservable$.next();
     unsubscribeObservable$.complete();
+  }
+  /**
+   * 編集モードのゲッター
+   */
+  get editType() {
+    return EditType;
   }
 }

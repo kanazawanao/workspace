@@ -1,6 +1,7 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { TimelinesEntryControlName } from '../skills-entry-control-name';
 import { FormGroup } from '@angular/forms';
+import { EditType } from '@workspace/constants';
 import {
   Component,
   EventEmitter,
@@ -19,7 +20,10 @@ export class TimelinesEntryPresenterComponent
   extends BaseComponent
   implements OnInit, OnDestroy {
   @Input() formGroup: FormGroup;
+  @Input() editMode: EditType;
   @Output() registEvent = new EventEmitter();
+  @Output() updateEvent = new EventEmitter();
+  @Output() deleteEvent = new EventEmitter();
   controlName = TimelinesEntryControlName;
   constructor() {
     super();

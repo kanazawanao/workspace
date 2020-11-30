@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { TimelinesService } from '../../timelines.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ITimeline } from '@workspace/api-interfaces';

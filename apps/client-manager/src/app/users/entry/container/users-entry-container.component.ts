@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { UsersService } from '../../users.service';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { UsersEntryModel } from '../users-entry.model';

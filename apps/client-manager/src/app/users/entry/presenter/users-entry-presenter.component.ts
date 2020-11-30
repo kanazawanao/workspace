@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { FormGroup } from '@angular/forms';
 import { EditType } from '@workspace/constants';
@@ -32,11 +32,5 @@ export class UsersEntryPresenterComponent
   ngOnInit(): void {}
   ngOnDestroy(): void {
     super.ngOnDestroy();
-  }
-  /**
-   * 編集モードのゲッター
-   */
-  get editType() {
-    return EditType;
   }
 }

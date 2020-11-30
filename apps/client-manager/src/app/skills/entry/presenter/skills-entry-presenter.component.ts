@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { FormGroup } from '@angular/forms';
 import { SelectOption } from '@workspace/ui';

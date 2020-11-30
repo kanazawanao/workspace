@@ -30,6 +30,7 @@ export class SkillTypesFacade {
   }
 
   loadUpdateInitSkillTypeEntry(skillTypeId: string) {
+    this.setEditerMode(EditType.update);
     this.dispatch(
       SkillTypesActions.loadUpdateInitSkillTypeEntry({ skillTypeId })
     );

@@ -1,4 +1,4 @@
-import { BaseComponent } from '../../../base/base-component';
+import { BaseComponent } from '../../../base/base.component';
 import { SkillTypesService } from '../../skill-types.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ISkillType } from '@workspace/api-interfaces';
