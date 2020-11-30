@@ -1,36 +1,27 @@
-import { BaseComponent } from '../../../base/base.component';
 import { TimelinesEntryControlName } from '../skills-entry-control-name';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { EditType } from '@workspace/constants';
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
 
 @Component({
   selector: 'client-manager-timelines-entry-presenter',
   templateUrl: './timelines-entry-presenter.component.html',
   styleUrls: ['./timelines-entry-presenter.component.scss'],
 })
-export class TimelinesEntryPresenterComponent
-  extends BaseComponent
-  implements OnInit, OnDestroy {
+export class TimelinesEntryPresenterComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Input() editMode: EditType;
   @Output() registEvent = new EventEmitter();
   @Output() updateEvent = new EventEmitter();
   @Output() deleteEvent = new EventEmitter();
   controlName = TimelinesEntryControlName;
-  constructor() {
-    super();
+  /**
+   * 編集モードのゲッター
+   */
+  get editType() {
+    return EditType;
   }
+  constructor() {}
 
   ngOnInit(): void {}
-  ngOnDestroy(): void {
-    super.ngOnDestroy();
-  }
 }

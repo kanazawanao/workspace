@@ -23,10 +23,4 @@ export abstract class BaseComponent implements OnDestroy {
     unsubscribeObservable$.next();
     unsubscribeObservable$.complete();
   }
-  /**
-   * 編集モードのゲッター
-   */
-  get editType() {
-    return EditType;
-  }
 }
