@@ -1,5 +1,6 @@
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ import { UiSidenavModule } from '@workspace/ui';
     AppRoutingModule,
     HttpClientModule,
     UiSidenavModule,
+    AuthModule,
     StoreModule.forRoot(
       {},
       {

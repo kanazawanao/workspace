@@ -1,7 +1,8 @@
 import { AuthService } from './auth.service';
+import { JwtAuthGuard } from './jwt-auth.guard';
 import { LocalAuthGuard } from './local-auth.guard';
 import { Login } from './login.entity';
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ApiConstant } from '@workspace/constants';
 
@@ -17,5 +18,12 @@ export class AuthController {
   @ApiBody({ type: Login, description: 'login' })
   async login(@Body() login: Login) {
     return this.authService.login(login);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('check')
+  @ApiOperation({ summary: 'auth check' })
+  async authCheck(): Promise<boolean> {
+    return true;
   }
 }
