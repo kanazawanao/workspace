@@ -1,9 +1,9 @@
 import { BaseComponent } from '../../../base/base.component';
 import { UsersService } from '../../users.service';
 import { UsersEntryControlName } from '../users-entry-control-name';
-import { UsersEntryModel } from '../users-entry.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { UsersEntryModel } from '@workspace/client-manager/models';
 import { takeUntil } from 'rxjs/operators';
 import { UsersFacade } from '../../+state/users.facade';
 

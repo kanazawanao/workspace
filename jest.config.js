@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/libs/client-manager/features',
     '<rootDir>/libs/client-manager/guards',
     '<rootDir>/libs/client/guards',
+    '<rootDir>/libs/client-manager/models',
   ],
 };

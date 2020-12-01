@@ -1,6 +1,6 @@
 import * as SkillTypesActions from './skill-types.actions';
 import { initialState, reducer, State } from './skill-types.reducer';
-import { SkillTypeEntryModel } from '../entry/skill-types-entry.model';
+import { SkillTypeEntryModel } from '@workspace/client-manager/models';
 
 describe('SkillTypes Reducer', () => {
   const createSkillTypesEntity = (id: number, name = '') =>

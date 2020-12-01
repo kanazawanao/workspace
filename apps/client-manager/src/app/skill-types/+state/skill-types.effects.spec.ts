@@ -1,6 +1,6 @@
 import * as SkillTypesActions from './skill-types.actions';
 import { SkillTypesEffects } from './skill-types.effects';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { DataPersistence, NxModule } from '@nrwl/angular';
@@ -22,7 +22,7 @@ describe('SkillTypesEffects', () => {
       ],
     });
 
-    effects = TestBed.get(SkillTypesEffects);
+    effects = TestBed.inject(SkillTypesEffects);
   });
 
   describe('loadSkillTypes$', () => {

@@ -1,10 +1,9 @@
 import { BaseComponent } from '../../../base/base.component';
 import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
-import { SkillsEntryModel } from '../skills-entry.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ISkillType } from '@workspace/api-interfaces';
+import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { SelectOption } from '@workspace/ui';
 import { Observable } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';

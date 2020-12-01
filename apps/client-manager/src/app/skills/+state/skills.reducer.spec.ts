@@ -6,7 +6,10 @@ describe('Skills Reducer', () => {
   const createSkillsEntity = (id: number, name = '') =>
     ({
       id,
-      skillType: name || `name-${id}`,
+      skillType: 1,
+      skillName: '',
+      experienceYears: 1,
+      skillLevel: 1,
     } as ISkill);
 
   beforeEach(() => {});

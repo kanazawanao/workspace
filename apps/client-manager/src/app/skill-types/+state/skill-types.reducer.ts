@@ -1,5 +1,4 @@
 import * as SkillTypesActions from './skill-types.actions';
-import { SkillTypeEntryModel } from '../entry/skill-types-entry.model';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { ISkillType } from '@workspace/api-interfaces';

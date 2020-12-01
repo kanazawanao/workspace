@@ -1,4 +1,3 @@
-import { SkillTypeEntryModel } from '../entry/skill-types-entry.model';
 import { createAction, props } from '@ngrx/store';
 import { ISkillType } from '@workspace/api-interfaces';
 import { EditType } from '@workspace/constants';

@@ -1,8 +1,8 @@
-import { SkillTypeEntryModel } from './entry/skill-types-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ISkillType } from '@workspace/api-interfaces';
+import { SkillTypeEntryModel } from '@workspace/client-manager/models';
 import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';

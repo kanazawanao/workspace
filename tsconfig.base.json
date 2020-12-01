@@ -27,7 +27,10 @@
       "@workspace/client-manager/guards": [
         "libs/client-manager/guards/src/index.ts"
       ],
-      "@workspace/client/guards": ["libs/client/guards/src/index.ts"]
+      "@workspace/client/guards": ["libs/client/guards/src/index.ts"],
+      "@workspace/client-manager/models": [
+        "libs/client-manager/models/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

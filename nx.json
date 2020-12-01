@@ -73,6 +73,9 @@
     },
     "client-guards": {
       "tags": []
+    },
+    "client-manager-models": {
+      "tags": []
     }
   }
 }

@@ -1,6 +1,6 @@
 import { initialState, skillTypesAdapter, State } from './skill-types.reducer';
 import * as SkillTypesSelectors from './skill-types.selectors';
-import { SkillTypeEntryModel } from '../entry/skill-types-entry.model';
+import { SkillTypeEntryModel } from '@workspace/client-manager/models';
 
 describe('SkillTypes Selectors', () => {
   const ERROR_MSG = 'No Error Available';

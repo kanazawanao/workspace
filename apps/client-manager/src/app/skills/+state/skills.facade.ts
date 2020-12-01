@@ -1,9 +1,9 @@
 import * as SkillsActions from './skills.actions';
 import * as fromSkills from './skills.reducer';
 import * as SkillsSelectors from './skills.selectors';
-import { SkillsEntryModel } from '../entry/skills-entry.model';
 import { Injectable } from '@angular/core';
 import { Action, select, Store } from '@ngrx/store';
+import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { EditType } from '@workspace/constants';
 
 @Injectable()

@@ -1,6 +1,6 @@
-import { TimelinesEntryModel } from '../entry/timelines-entry.model';
 import { createAction, props } from '@ngrx/store';
 import { ITimeline } from '@workspace/api-interfaces';
+import { TimelinesEntryModel } from '@workspace/client-manager/models';
 import { EditType } from '@workspace/constants';
 
 export const loadTimelines = createAction('[Timelines] Load Timelines');

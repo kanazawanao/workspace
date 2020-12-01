@@ -1,6 +1,6 @@
-import { SkillsEntryModel } from '../entry/skills-entry.model';
 import { createAction, props } from '@ngrx/store';
 import { ISkill, ISkillType } from '@workspace/api-interfaces';
+import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { EditType } from '@workspace/constants';
 export const loadSkills = createAction('[Skills] Load Skills');
 

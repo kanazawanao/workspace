@@ -1,7 +1,7 @@
-import { UsersEntryModel } from './entry/users-entry.model';
 import { usersData } from './users.data';
 import { FormGroup } from '@angular/forms';
 import { IUser } from '@workspace/api-interfaces';
+import { UsersEntryModel } from '@workspace/client-manager/models';
 import { Observable, of } from 'rxjs';
 
 export class MockUsersService {

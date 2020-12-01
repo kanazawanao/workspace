@@ -606,6 +606,32 @@
           "style": "scss"
         }
       }
+    },
+    "client-manager-models": {
+      "projectType": "library",
+      "root": "libs/client-manager/models",
+      "sourceRoot": "libs/client-manager/models/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/client-manager/models/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

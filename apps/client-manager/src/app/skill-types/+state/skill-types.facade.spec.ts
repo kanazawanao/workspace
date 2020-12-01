@@ -2,13 +2,13 @@ import * as SkillTypesActions from './skill-types.actions';
 import { SkillTypesEffects } from './skill-types.effects';
 import { SkillTypesFacade } from './skill-types.facade';
 import { reducer, SKILL_TYPES_FEATURE_KEY, State } from './skill-types.reducer';
-import { SkillTypeEntryModel } from '../entry/skill-types-entry.model';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
+import { SkillTypeEntryModel } from '@workspace/client-manager/models';
 
 interface TestSchema {
   skillTypes: State;
