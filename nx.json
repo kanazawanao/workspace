@@ -67,6 +67,12 @@
     },
     "client-manager-features": {
       "tags": []
+    },
+    "client-manager-guards": {
+      "tags": []
+    },
+    "client-guards": {
+      "tags": []
     }
   }
 }

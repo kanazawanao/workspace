@@ -23,7 +23,11 @@
       "@workspace/client/features": ["libs/client/features/src/index.ts"],
       "@workspace/client-manager/features": [
         "libs/client-manager/features/src/index.ts"
-      ]
+      ],
+      "@workspace/client-manager/guards": [
+        "libs/client-manager/guards/src/index.ts"
+      ],
+      "@workspace/client/guards": ["libs/client/guards/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
