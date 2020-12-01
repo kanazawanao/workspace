@@ -1,7 +1,6 @@
-import { AuthGuard } from './auth/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from '@workspace/client-manager/guards';
 export const routes: Routes = [
   {
     path: 'login',
