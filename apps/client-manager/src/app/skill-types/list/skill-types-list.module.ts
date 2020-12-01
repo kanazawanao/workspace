@@ -5,12 +5,11 @@ import { SkillTypesListGuard } from './skill-types-list.guard';
 import { SkillTypesService } from '../skill-types.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import { UiTableModule } from '@workspace/ui';
-import * as fromSkillTypes from '../+state/skill-types.reducer';
-import { SkillTypesEffects } from '../+state/skill-types.effects';
-import { SkillTypesFacade } from '../+state/skill-types.facade';
+import {
+  SkillTypesDataAccessModule,
+  SkillTypesFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @NgModule({
   declarations: [
@@ -21,11 +20,7 @@ import { SkillTypesFacade } from '../+state/skill-types.facade';
     CommonModule,
     SkillTypesListRoutingModule,
     UiTableModule,
-    StoreModule.forFeature(
-      fromSkillTypes.SKILL_TYPES_FEATURE_KEY,
-      fromSkillTypes.reducer
-    ),
-    EffectsModule.forFeature([SkillTypesEffects]),
+    SkillTypesDataAccessModule,
   ],
   providers: [SkillTypesFacade, SkillTypesService, SkillTypesListGuard],
 })

@@ -3,5 +3,15 @@ export class MockSkillTypesService {
 
   generateFormGroup() {}
 
+  fetchSkills() {}
+
+  fetchSkill() {}
+
+  postSkill() {}
+
+  updateSkill() {}
+
+  fetchSkillTypes() {}
+
   navigateSkillTypesEntry() {}
 }

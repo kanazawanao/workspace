@@ -1,5 +1,5 @@
 import * as SkillTypesActions from './skill-types.actions';
-import { SkillTypesService } from '../skill-types.service';
+import { SkillTypesDataAccessService } from '../skill-types-data-access.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
@@ -12,7 +12,7 @@ export class SkillTypesEffects {
       ofType(SkillTypesActions.loadSkillTypes),
       fetch({
         run: (action) => {
-          return this.skillTypesService
+          return this.skillTypesDataAccessService
             .fetchSkills()
             .pipe(
               map((res) =>
@@ -34,13 +34,15 @@ export class SkillTypesEffects {
       ofType(SkillTypesActions.loadUpdateInitSkillTypeEntry),
       fetch({
         run: (action) => {
-          return this.skillTypesService.fetchSkill(action.skillTypeId).pipe(
-            map((res) =>
-              SkillTypesActions.loadUpdateInitSkillTypeEntrySuccess({
-                initSkillTypeEntry: res,
-              })
-            )
-          );
+          return this.skillTypesDataAccessService
+            .fetchSkill(action.skillTypeId)
+            .pipe(
+              map((res) =>
+                SkillTypesActions.loadUpdateInitSkillTypeEntrySuccess({
+                  initSkillTypeEntry: res,
+                })
+              )
+            );
         },
         onError: (action, error) => {
           console.error('Error', error);
@@ -54,6 +56,6 @@ export class SkillTypesEffects {
 
   constructor(
     private actions$: Actions,
-    private skillTypesService: SkillTypesService
+    private skillTypesDataAccessService: SkillTypesDataAccessService
   ) {}
 }

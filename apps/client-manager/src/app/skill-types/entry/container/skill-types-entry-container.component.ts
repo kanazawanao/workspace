@@ -3,7 +3,6 @@ import { SkillTypesService } from '../../skill-types.service';
 import { SkillTypesEntryControlName } from '../skill-types-entry-control-name';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SkillTypeEntryModel } from '@workspace/client-manager/models';
 
 @Component({
   selector: 'client-manager-skill-types-entry-container',
@@ -22,13 +21,10 @@ export class SkillTypesEntryContainerComponent
   ngOnInit(): void {
     this.formGroup = this.skillTypesService.generateFormGroup();
   }
+
   ngOnDestroy(): void {
     super.ngOnDestroy();
   }
 
   regist() {}
-
-  registSkill(skillType: SkillTypeEntryModel) {
-    this.skillTypesService.postSkill(skillType);
-  }
 }

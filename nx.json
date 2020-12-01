@@ -76,6 +76,9 @@
     },
     "client-manager-models": {
       "tags": []
+    },
+    "client-manager-data-accesss": {
+      "tags": []
     }
   }
 }
