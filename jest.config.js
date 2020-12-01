@@ -7,5 +7,7 @@ module.exports = {
     '<rootDir>/libs/shared-service',
     '<rootDir>/apps/client-manager',
     '<rootDir>/libs/constants',
+    '<rootDir>/libs/client/features',
+    '<rootDir>/libs/client-manager/features',
   ],
 };

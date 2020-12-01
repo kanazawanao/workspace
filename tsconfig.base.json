@@ -19,7 +19,11 @@
       "@workspace/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@workspace/ui": ["libs/ui/src/index.ts"],
       "@workspace/shared-service": ["libs/shared-service/src/index.ts"],
-      "@workspace/constants": ["libs/constants/src/index.ts"]
+      "@workspace/constants": ["libs/constants/src/index.ts"],
+      "@workspace/client/features": ["libs/client/features/src/index.ts"],
+      "@workspace/client-manager/features": [
+        "libs/client-manager/features/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
