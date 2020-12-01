@@ -3,9 +3,9 @@ import { UsersService } from '../../users.service';
 import { UsersEntryControlName } from '../users-entry-control-name';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { UsersFacade } from '@workspace/client-manager/data-accesss';
 import { UsersEntryModel } from '@workspace/client-manager/models';
 import { takeUntil } from 'rxjs/operators';
-import { UsersFacade } from '../../+state/users.facade';
 
 @Component({
   selector: 'client-manager-users-entry-container',
@@ -67,10 +67,5 @@ export class UsersEntryContainerComponent
       this.controlName.qualification
     ).value;
     console.log(registData);
-    this.registSkill(registData);
-  }
-
-  registSkill(user: UsersEntryModel) {
-    this.usersService.postUser(user).subscribe((x) => console.log(x));
   }
 }

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { UsersFacade } from '@workspace/client-manager/data-accesss';
 import { Observable, of } from 'rxjs';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
-import { UsersFacade } from '../+state/users.facade';
 
 @Injectable()
 export class UsersListGuard implements CanActivate {

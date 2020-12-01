@@ -1,5 +1,5 @@
 import * as UsersActions from './users.actions';
-import { UsersService } from '../users.service';
+import { UsersDataAccessService } from '../users-data-access.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
@@ -12,7 +12,7 @@ export class UsersEffects {
       ofType(UsersActions.loadUsers),
       fetch({
         run: (action) => {
-          return this.usersService
+          return this.usersDataAccessService
             .fetchUsers()
             .pipe(map((res) => UsersActions.loadUsersSuccess({ users: res })));
         },
@@ -29,7 +29,7 @@ export class UsersEffects {
       ofType(UsersActions.loadUpdateInitUserEntry),
       fetch({
         run: (action) => {
-          return this.usersService.fetchUser(action.userId).pipe(
+          return this.usersDataAccessService.fetchUser(action.userId).pipe(
             map((res) =>
               UsersActions.loadUpdateInitUserEntrySuccess({
                 initUserEntry: res,
@@ -44,5 +44,8 @@ export class UsersEffects {
       })
     )
   );
-  constructor(private actions$: Actions, private usersService: UsersService) {}
+  constructor(
+    private actions$: Actions,
+    private usersDataAccessService: UsersDataAccessService
+  ) {}
 }

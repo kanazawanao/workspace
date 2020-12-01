@@ -1,4 +1,4 @@
-import { initialState, State, usersAdapter } from './users.reducer';
+import { initialState, usersAdapter } from './users.reducer';
 import * as UsersSelectors from './users.selectors';
 import { IUser } from '@workspace/api-interfaces';
 

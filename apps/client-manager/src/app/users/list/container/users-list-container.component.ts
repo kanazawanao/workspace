@@ -2,7 +2,7 @@ import { BaseComponent } from '../../../base/base.component';
 import { UsersService } from '../../users.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IUser } from '@workspace/api-interfaces';
-import { UsersFacade } from '../../+state/users.facade';
+import { UsersFacade } from '@workspace/client-manager/data-accesss';
 
 @Component({
   selector: 'client-manager-users-list-container',

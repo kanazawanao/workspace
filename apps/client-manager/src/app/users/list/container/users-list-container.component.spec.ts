@@ -4,8 +4,10 @@ import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IUser } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
-import { MockUsersFacade } from '../../+state/mock-users.facade';
-import { UsersFacade } from '../../+state/users.facade';
+import {
+  UsersFacade,
+  MockUsersFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @Component({
   selector: 'client-manager-users-list-presenter',

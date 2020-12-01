@@ -1,10 +1,10 @@
 import { UsersEntryPresenterComponent } from './users-entry-presenter.component';
-import { UsersEntryModel } from '../users-entry.model';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersEntryModel } from '@workspace/client-manager/models';
 import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 
 const formGroup = new FormBuilder().group(new UsersEntryModel());

@@ -1,7 +1,9 @@
 import { UsersListGuard } from './users-list.guard';
 import { TestBed } from '@angular/core/testing';
-import { UsersFacade } from '../+state/users.facade';
-import { MockUsersFacade } from '../+state/mock-users.facade';
+import {
+  UsersFacade,
+  MockUsersFacade,
+} from '@workspace/client-manager/data-accesss';
 describe('UsersListGuard', () => {
   let guard: UsersListGuard;
 

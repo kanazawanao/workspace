@@ -7,12 +7,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
-import * as fromUsers from '../+state/users.reducer';
-import { UsersEffects } from '../+state/users.effects';
-import { UsersFacade } from '../+state/users.facade';
+import {
+  UsersDataAccessModule,
+  UsersFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @NgModule({
   declarations: [UsersEntryContainerComponent, UsersEntryPresenterComponent],
@@ -23,8 +22,7 @@ import { UsersFacade } from '../+state/users.facade';
     UiInputModule,
     UiDatePickerModule,
     MatButtonModule,
-    StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.reducer),
-    EffectsModule.forFeature([UsersEffects]),
+    UsersDataAccessModule,
   ],
   providers: [UsersService, UsersFacade, UsersEntryGuard],
 })

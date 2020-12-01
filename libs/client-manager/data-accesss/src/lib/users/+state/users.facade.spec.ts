@@ -3,7 +3,7 @@ import { UsersEffects } from './users.effects';
 import { UsersFacade } from './users.facade';
 import { reducer, State, USERS_FEATURE_KEY } from './users.reducer';
 import { MockUsersService } from '../mock-users.service';
-import { UsersService } from '../users.service';
+import { UsersDataAccessService } from '../users-data-access.service';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
@@ -36,7 +36,7 @@ describe('UsersFacade', () => {
         ],
         providers: [
           UsersFacade,
-          { provide: UsersService, useValue: MockUsersService },
+          { provide: UsersDataAccessService, useValue: MockUsersService },
         ],
       })
       class CustomFeatureModule {}
