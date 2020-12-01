@@ -3,8 +3,10 @@ import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ITimeline } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
-import { TimelinesFacade } from '../../+state/timelines.facade';
-import { MockTimelinesFacade } from '../../+state/mock-timelines.facade';
+import {
+  TimelinesFacade,
+  MockTimelinesFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @Component({
   selector: 'client-manager-timelines-list-presenter',

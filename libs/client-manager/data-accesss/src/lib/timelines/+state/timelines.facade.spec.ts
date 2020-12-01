@@ -1,8 +1,9 @@
 import * as TimelinesActions from './timelines.actions';
 import { TimelinesEffects } from './timelines.effects';
 import { TimelinesFacade } from './timelines.facade';
-import { MockTimelinesService } from '../mock-timelines.service';
-import { TimelinesService } from '../timelines.service';
+import { reducer, State, TIMELINES_FEATURE_KEY } from './timelines.reducer';
+import { MockTimelinesDataAccessService } from '../mock-timelines-data-access.service';
+import { TimelinesDataAccessService } from '../timelines-data-access.service';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
@@ -10,7 +11,6 @@ import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { ITimeline } from '@workspace/api-interfaces';
-import { TIMELINES_FEATURE_KEY, State, reducer } from './timelines.reducer';
 
 interface TestSchema {
   timelines: State;
@@ -36,7 +36,10 @@ describe('TimelinesFacade', () => {
         ],
         providers: [
           TimelinesFacade,
-          { provide: TimelinesService, useValue: MockTimelinesService },
+          {
+            provide: TimelinesDataAccessService,
+            useValue: MockTimelinesDataAccessService,
+          },
         ],
       })
       class CustomFeatureModule {}

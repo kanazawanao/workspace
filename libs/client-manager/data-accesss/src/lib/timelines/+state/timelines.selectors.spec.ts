@@ -1,4 +1,4 @@
-import { initialState, State, timelinesAdapter } from './timelines.reducer';
+import { initialState, timelinesAdapter } from './timelines.reducer';
 import * as TimelinesSelectors from './timelines.selectors';
 import { ITimeline } from '@workspace/api-interfaces';
 

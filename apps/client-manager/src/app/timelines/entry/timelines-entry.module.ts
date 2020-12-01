@@ -7,12 +7,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
-import * as fromTimelines from '../+state/timelines.reducer';
-import { TimelinesEffects } from '../+state/timelines.effects';
-import { TimelinesFacade } from '../+state/timelines.facade';
+import {
+  TimelinesDataAccessModule,
+  TimelinesFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @NgModule({
   declarations: [
@@ -27,11 +26,7 @@ import { TimelinesFacade } from '../+state/timelines.facade';
     UiInputModule,
     UiDatePickerModule,
     MatButtonModule,
-    StoreModule.forFeature(
-      fromTimelines.TIMELINES_FEATURE_KEY,
-      fromTimelines.reducer
-    ),
-    EffectsModule.forFeature([TimelinesEffects]),
+    TimelinesDataAccessModule,
   ],
   providers: [TimelinesFacade, TimelinesEntryGuard, TimelinesService],
 })

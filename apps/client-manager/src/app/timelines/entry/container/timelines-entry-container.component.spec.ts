@@ -4,8 +4,10 @@ import { TimelinesService } from '../../timelines.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup } from '@angular/forms';
-import { MockTimelinesFacade } from '../../+state/mock-timelines.facade';
-import { TimelinesFacade } from '../../+state/timelines.facade';
+import {
+  TimelinesFacade,
+  MockTimelinesFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @Component({
   selector: 'client-manager-timelines-entry-presenter',

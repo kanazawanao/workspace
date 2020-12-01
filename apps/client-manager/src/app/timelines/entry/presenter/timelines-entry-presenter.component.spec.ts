@@ -1,10 +1,10 @@
 import { TimelinesEntryPresenterComponent } from './timelines-entry-presenter.component';
-import { TimelinesEntryModel } from '../timelines-entry.model';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimelinesEntryModel } from '@workspace/client-manager/models';
 import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 
 const formGroup = new FormBuilder().group(new TimelinesEntryModel());

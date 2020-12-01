@@ -2,8 +2,8 @@ import { BaseComponent } from '../../../base/base.component';
 import { TimelinesService } from '../../timelines.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ITimeline } from '@workspace/api-interfaces';
+import { TimelinesFacade } from '@workspace/client-manager/data-accesss';
 import { Observable } from 'rxjs';
-import { TimelinesFacade } from '../../+state/timelines.facade';
 
 @Component({
   selector: 'client-manager-timelines-list-container',

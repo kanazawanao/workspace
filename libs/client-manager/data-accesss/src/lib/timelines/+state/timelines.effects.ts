@@ -1,5 +1,5 @@
 import * as TimelinesActions from './timelines.actions';
-import { TimelinesService } from '../timelines.service';
+import { TimelinesDataAccessService } from '../timelines-data-access.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
@@ -12,7 +12,7 @@ export class TimelinesEffects {
       ofType(TimelinesActions.loadTimelines),
       fetch({
         run: (action) => {
-          return this.timelinesService
+          return this.timelinesDataAccessService
             .fetchTimelines()
             .pipe(
               map((res) =>
@@ -33,13 +33,15 @@ export class TimelinesEffects {
       ofType(TimelinesActions.loadUpdateInitTimelineEntry),
       fetch({
         run: (action) => {
-          return this.timelinesService.fetchTimeline(action.timelineId).pipe(
-            map((res) =>
-              TimelinesActions.loadUpdateInitTimelineEntrySuccess({
-                initTimelineEntry: res,
-              })
-            )
-          );
+          return this.timelinesDataAccessService
+            .fetchTimeline(action.timelineId)
+            .pipe(
+              map((res) =>
+                TimelinesActions.loadUpdateInitTimelineEntrySuccess({
+                  initTimelineEntry: res,
+                })
+              )
+            );
         },
         onError: (action, error) => {
           console.error('Error', error);
@@ -53,7 +55,7 @@ export class TimelinesEffects {
       ofType(TimelinesActions.createTimeline),
       fetch({
         run: (action) => {
-          return this.timelinesService
+          return this.timelinesDataAccessService
             .postTimeline(action.timelineEntry)
             .pipe(
               map((res) =>
@@ -74,7 +76,7 @@ export class TimelinesEffects {
       ofType(TimelinesActions.updateTimeline),
       fetch({
         run: (action) => {
-          return this.timelinesService
+          return this.timelinesDataAccessService
             .updateTimeline(action.id, action.timelineEntry)
             .pipe(
               map((res) =>
@@ -92,6 +94,6 @@ export class TimelinesEffects {
 
   constructor(
     private actions$: Actions,
-    private timelinesService: TimelinesService
+    private timelinesDataAccessService: TimelinesDataAccessService
   ) {}
 }

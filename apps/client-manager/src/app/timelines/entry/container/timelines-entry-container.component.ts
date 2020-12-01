@@ -3,9 +3,9 @@ import { TimelinesService } from '../../timelines.service';
 import { TimelinesEntryControlName } from '../skills-entry-control-name';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { TimelinesFacade } from '@workspace/client-manager/data-accesss';
 import { TimelinesEntryModel } from '@workspace/client-manager/models';
 import { takeUntil } from 'rxjs/operators';
-import { TimelinesFacade } from '../../+state/timelines.facade';
 @Component({
   selector: 'client-manager-timelines-entry-container',
   templateUrl: './timelines-entry-container.component.html',
@@ -45,10 +45,5 @@ export class TimelinesEntryContainerComponent
     registData.event = this.formGroup.get(this.controlName.event).value;
     registData.date = this.formGroup.get(this.controlName.date).value;
     console.log(registData);
-    this.registSkill(registData);
-  }
-
-  registSkill(timeline: TimelinesEntryModel) {
-    this.timelinesService.postTimeline(timeline);
   }
 }
