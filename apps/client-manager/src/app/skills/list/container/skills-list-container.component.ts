@@ -2,8 +2,8 @@ import { BaseComponent } from '../../../base/base.component';
 import { SkillsService } from '../../skills.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ISkill } from '@workspace/api-interfaces';
+import { SkillsFacade } from '@workspace/client-manager/data-accesss';
 import { Observable } from 'rxjs';
-import { SkillsFacade } from '../../+state/skills.facade';
 
 @Component({
   selector: 'client-manager-skills-list-container',

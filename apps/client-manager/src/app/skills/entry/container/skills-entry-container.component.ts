@@ -3,11 +3,11 @@ import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { SkillsFacade } from '@workspace/client-manager/data-accesss';
 import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { SelectOption } from '@workspace/ui';
 import { Observable } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import { SkillsFacade } from '../../+state/skills.facade';
 
 @Component({
   selector: 'client-manager-skills-entry-container',
@@ -72,10 +72,5 @@ export class SkillsEntryContainerComponent
     registData.skillName = this.formGroup.get(this.controlName.skillName).value;
     registData.skillType = this.formGroup.get(this.controlName.skillType).value;
     console.log(registData);
-    this.registSkill(registData);
-  }
-
-  registSkill(skill: SkillsEntryModel) {
-    this.skillsService.postSkill(skill);
   }
 }

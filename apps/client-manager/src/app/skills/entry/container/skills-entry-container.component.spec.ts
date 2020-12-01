@@ -7,8 +7,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SelectOption } from '@workspace/ui';
 import { Observable } from 'rxjs';
-import { MockSkillsFacade } from '../../+state/mock-skills.facade';
-import { SkillsFacade } from '../../+state/skills.facade';
+import {
+  SkillsFacade,
+  MockSkillsFacade,
+} from '@workspace/client-manager/data-accesss';
 
 /** プレゼンタコンポーネントのモック */
 @Component({

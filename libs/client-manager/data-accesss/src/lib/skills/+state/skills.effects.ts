@@ -1,5 +1,5 @@
 import * as SkillsActions from './skills.actions';
-import { SkillsService } from '../skills.service';
+import { SkillsDataAccessService } from '../skills-data-access.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
@@ -12,7 +12,7 @@ export class SkillsEffects {
       ofType(SkillsActions.loadSkills),
       fetch({
         run: (action) => {
-          return this.skillsService
+          return this.skillsDataAccessService
             .fetchSkills()
             .pipe(
               map((res) => SkillsActions.loadSkillsSuccess({ skills: res }))
@@ -31,7 +31,7 @@ export class SkillsEffects {
       ofType(SkillsActions.loadUpdateInitSkillEntry),
       fetch({
         run: (action) => {
-          return this.skillsService.fetchSkill(action.skillId).pipe(
+          return this.skillsDataAccessService.fetchSkill(action.skillId).pipe(
             map((res) =>
               SkillsActions.loadUpdateInitSkillEntrySuccess({
                 initSkillEntry: res,
@@ -52,7 +52,7 @@ export class SkillsEffects {
       ofType(SkillsActions.createSkill),
       fetch({
         run: (action) => {
-          return this.skillsService
+          return this.skillsDataAccessService
             .postSkill(action.skillEntry)
             .pipe(
               map((res) =>
@@ -73,7 +73,7 @@ export class SkillsEffects {
       ofType(SkillsActions.updateSkill),
       fetch({
         run: (action) => {
-          return this.skillsService
+          return this.skillsDataAccessService
             .updateSkill(action.id, action.skillEntry)
             .pipe(
               map((res) =>
@@ -94,7 +94,7 @@ export class SkillsEffects {
       ofType(SkillsActions.loadSkillTypes),
       fetch({
         run: (action) => {
-          return this.skillsService
+          return this.skillsDataAccessService
             .fetchSkillTypes()
             .pipe(
               map((res) =>
@@ -111,6 +111,6 @@ export class SkillsEffects {
   );
   constructor(
     private actions$: Actions,
-    private skillsService: SkillsService
+    private skillsDataAccessService: SkillsDataAccessService
   ) {}
 }

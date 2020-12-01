@@ -1,7 +1,9 @@
 import { SkillsListGuard } from './skills-list.guard';
 import { TestBed } from '@angular/core/testing';
-import { MockSkillsFacade } from '../+state/mock-skills.facade';
-import { SkillsFacade } from '../+state/skills.facade';
+import {
+  SkillsFacade,
+  MockSkillsFacade,
+} from '@workspace/client-manager/data-accesss';
 
 describe('SkillsListGuard', () => {
   let guard: SkillsListGuard;

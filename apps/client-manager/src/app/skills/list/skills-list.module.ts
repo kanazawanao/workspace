@@ -6,12 +6,11 @@ import { SkillsService } from '../skills.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import { UiTableModule } from '@workspace/ui';
-import { SkillsEffects } from '../+state/skills.effects';
-import * as fromSkills from '../+state/skills.reducer';
-import { SkillsFacade } from '../+state/skills.facade';
+import {
+  SkillsDataAccessModule,
+  SkillsFacade,
+} from '@workspace/client-manager/data-accesss';
 
 @NgModule({
   declarations: [SkillsListPresenterComponent, SkillsListContainerComponent],
@@ -20,8 +19,7 @@ import { SkillsFacade } from '../+state/skills.facade';
     SkillsListRoutingModule,
     ReactiveFormsModule,
     UiTableModule,
-    StoreModule.forFeature(fromSkills.SKILLS_FEATURE_KEY, fromSkills.reducer),
-    EffectsModule.forFeature([SkillsEffects]),
+    SkillsDataAccessModule,
   ],
   exports: [SkillsListContainerComponent],
   providers: [SkillsService, SkillsFacade, SkillsListGuard],

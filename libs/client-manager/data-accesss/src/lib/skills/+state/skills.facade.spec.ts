@@ -2,8 +2,8 @@ import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
 import { SkillsFacade } from './skills.facade';
 import { reducer, SKILLS_FEATURE_KEY, State } from './skills.reducer';
-import { MockSkillsService } from '../mock-skills.service';
-import { SkillsService } from '../skills.service';
+import { MockSkillsDataAccessService } from '../mock-skills-data-access.service';
+import { SkillsDataAccessService } from '../skills-data-access.service';
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
@@ -36,7 +36,10 @@ describe('SkillsFacade', () => {
         ],
         providers: [
           SkillsFacade,
-          { provide: SkillsService, useValue: MockSkillsService },
+          {
+            provide: SkillsDataAccessService,
+            useValue: MockSkillsDataAccessService,
+          },
         ],
       })
       class CustomFeatureModule {}

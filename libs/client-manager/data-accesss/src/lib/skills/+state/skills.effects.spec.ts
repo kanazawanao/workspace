@@ -1,8 +1,8 @@
 import * as SkillsActions from './skills.actions';
 import { SkillsEffects } from './skills.effects';
-import { MockSkillsService } from '../mock-skills.service';
+import { MockSkillsDataAccessService } from '../mock-skills-data-access.service';
+import { SkillsDataAccessService } from '../skills-data-access.service';
 import { skillsData } from '../skills.data';
-import { SkillsService } from '../skills.service';
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
@@ -21,8 +21,8 @@ describe('SkillsEffects', () => {
         SkillsEffects,
         DataPersistence,
         {
-          provide: SkillsService,
-          useClass: MockSkillsService,
+          provide: SkillsDataAccessService,
+          useClass: MockSkillsDataAccessService,
         },
         provideMockActions(() => actions),
         provideMockStore(),
