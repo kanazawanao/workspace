@@ -18,5 +18,6 @@ module.exports = {
     '<rootDir>/libs/client-manager/timelines',
     '<rootDir>/libs/client-manager/users',
     '<rootDir>/libs/client-manager/login',
+    '<rootDir>/libs/shared/story-book',
   ],
 };

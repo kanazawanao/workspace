@@ -48,7 +48,8 @@
       ],
       "@workspace/client-manager/login": [
         "libs/client-manager/login/src/index.ts"
-      ]
+      ],
+      "@workspace/shared/story-book": ["libs/shared/story-book/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
