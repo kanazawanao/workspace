@@ -35,8 +35,12 @@ export class TimelinesFacade {
     this.dispatch(TimelinesActions.createTimeline({ timelineEntry }));
   }
 
-  updateSkill(id: number, timelineEntry: TimelinesEntryModel) {
+  updateTimeline(id: number, timelineEntry: TimelinesEntryModel) {
     this.dispatch(TimelinesActions.updateTimeline({ id, timelineEntry }));
+  }
+
+  deleteTimeline(id: number) {
+    this.dispatch(TimelinesActions.deleteTimeline({ id }));
   }
 
   setEditerMode(editerMode: EditType) {

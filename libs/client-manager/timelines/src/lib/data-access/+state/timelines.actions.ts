@@ -16,51 +16,65 @@ export const loadTimelinesFailure = createAction(
 );
 
 export const loadUpdateInitTimelineEntry = createAction(
-  '[UsersEntry] Load UpdateInitTimelineEntry',
+  '[Timelines] Load UpdateInitTimelineEntry',
   props<{ timelineId: string }>()
 );
 
 export const loadUpdateInitTimelineEntrySuccess = createAction(
-  '[UsersEntry] Load UpdateInitTimelineEntry Success',
+  '[Timelines] Load UpdateInitTimelineEntry Success',
   props<{ initTimelineEntry: ITimeline }>()
 );
 
 export const loadUpdateInitTimelineEntryFailure = createAction(
-  '[UsersEntry] Load UpdateInitTimelineEntry Failure',
+  '[Timelines] Load UpdateInitTimelineEntry Failure',
   props<{ error: any }>()
 );
 
 export const createTimeline = createAction(
-  '[UsersEntry] Create Timeline',
+  '[Timelines] Create Timeline',
   props<{ timelineEntry: TimelinesEntryModel }>()
 );
 
 export const createTimelineSuccess = createAction(
-  '[UsersEntry] Create Timeline Success',
+  '[Timelines] Create Timeline Success',
   props<{ timelineEntry: ITimeline }>()
 );
 
 export const createTimelineFailure = createAction(
-  '[UsersEntry] Create Timeline Failure',
+  '[Timelines] Create Timeline Failure',
   props<{ error: any }>()
 );
 
 export const updateTimeline = createAction(
-  '[UsersEntry] Update Timeline',
+  '[Timelines] Update Timeline',
   props<{ id: number; timelineEntry: TimelinesEntryModel }>()
 );
 
 export const updateTimelineSuccess = createAction(
-  '[UsersEntry] Update Timeline Success',
+  '[Timelines] Update Timeline Success',
   props<{ timelineEntry: ITimeline }>()
 );
 
 export const updateTimelineFailure = createAction(
-  '[UsersEntry] Update Timeline Failure',
+  '[Timelines] Update Timeline Failure',
+  props<{ error: any }>()
+);
+
+export const deleteTimeline = createAction(
+  '[Timelines] Delete Timeline',
+  props<{ id: number }>()
+);
+
+export const deleteTimelineSuccess = createAction(
+  '[Timelines] Delete Timeline Success'
+);
+
+export const deleteTimelineFailure = createAction(
+  '[Timelines] Delete Timeline Failure',
   props<{ error: any }>()
 );
 
 export const setEditerMode = createAction(
-  '[UsersEntry] Set Edit Mode',
+  '[Timelines] Set Edit Mode',
   props<{ editerMode: EditType }>()
 );

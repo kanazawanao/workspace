@@ -62,6 +62,32 @@ const timelinesReducer = createReducer(
       error,
     })
   ),
+  on(TimelinesActions.updateTimeline, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(TimelinesActions.updateTimelineSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(TimelinesActions.updateTimelineFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
+  on(TimelinesActions.deleteTimeline, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(TimelinesActions.deleteTimelineSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(TimelinesActions.deleteTimelineFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
   on(TimelinesActions.setEditerMode, (state, { editerMode }) => ({
     ...state,
     editerMode: editerMode,

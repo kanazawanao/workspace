@@ -21,4 +21,6 @@ export class MockTimelinesDataAccessService {
   ): Observable<ITimeline> {
     return of();
   }
+
+  deleteTimeline(id: number) {}
 }

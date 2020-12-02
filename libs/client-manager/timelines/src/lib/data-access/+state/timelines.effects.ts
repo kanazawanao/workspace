@@ -50,7 +50,7 @@ export class TimelinesEffects {
       })
     )
   );
-  createSkill$ = createEffect(() =>
+  createTimeline$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TimelinesActions.createTimeline),
       fetch({
@@ -71,7 +71,7 @@ export class TimelinesEffects {
     )
   );
 
-  updateSkill$ = createEffect(() =>
+  updateTimeline$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TimelinesActions.updateTimeline),
       fetch({
@@ -87,6 +87,23 @@ export class TimelinesEffects {
         onError: (action, error) => {
           console.error('Error', error);
           return TimelinesActions.updateTimelineFailure({ error });
+        },
+      })
+    )
+  );
+
+  deleteTimeline$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TimelinesActions.deleteTimeline),
+      fetch({
+        run: (action) => {
+          return this.timelinesDataAccessService
+            .deleteTimeline(action.id)
+            .pipe(map((res) => TimelinesActions.deleteTimelineSuccess()));
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return TimelinesActions.deleteTimelineFailure({ error });
         },
       })
     )
