@@ -61,6 +61,32 @@ const skillsReducer = createReducer(
     ...state,
     error,
   })),
+  on(SkillsActions.createSkill, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(SkillsActions.createSkillSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(SkillsActions.createSkillFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
+  on(SkillsActions.deleteSkill, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(SkillsActions.deleteSkillSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(SkillsActions.deleteSkillFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
   on(SkillsActions.setEditerMode, (state, { editerMode }) => ({
     ...state,
     editerMode: editerMode,
