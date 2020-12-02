@@ -76,6 +76,9 @@
     },
     "client-manager-skill-types": {
       "tags": []
+    },
+    "client-manager-skills": {
+      "tags": []
     }
   }
 }

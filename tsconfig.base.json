@@ -36,6 +36,9 @@
       ],
       "@workspace/client-manager/skill-types": [
         "libs/client-manager/skill-types/src/index.ts"
+      ],
+      "@workspace/client-manager/skills": [
+        "libs/client-manager/skills/src/index.ts"
       ]
     }
   },

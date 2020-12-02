@@ -4,8 +4,8 @@ import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ISkill } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
-import { MockSkillsFacade } from '../../+state/mock-skills.facade';
-import { SkillsFacade } from '../../+state/skills.facade';
+import { MockSkillsFacade } from '../../data-access/+state/mock-skills.facade';
+import { SkillsFacade } from '../../data-access/+state/skills.facade';
 
 @Component({
   selector: 'client-manager-skills-list-presenter',

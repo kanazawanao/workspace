@@ -1,9 +1,7 @@
 import { SkillsEntryGuard } from './skills-entry.guard';
 import { TestBed } from '@angular/core/testing';
-import {
-  SkillsFacade,
-  MockSkillsFacade,
-} from '@workspace/client-manager/data-accesss';
+import { SkillsFacade } from '../data-access/+state/skills.facade';
+import { MockSkillsFacade } from '../data-access/+state/mock-skills.facade';
 
 describe('SkillsEntryGuard', () => {
   let guard: SkillsEntryGuard;

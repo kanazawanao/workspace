@@ -11,7 +11,7 @@ export const routes: Routes = [
     path: 'skills',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./skills/skills.module').then((m) => m.SkillsModule),
+      import('@workspace/client-manager/skills').then((m) => m.SkillsModule),
   },
   {
     path: 'users',

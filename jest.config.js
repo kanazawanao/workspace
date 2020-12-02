@@ -14,5 +14,6 @@ module.exports = {
     '<rootDir>/libs/client-manager/models',
     '<rootDir>/libs/client-manager/data-accesss',
     '<rootDir>/libs/client-manager/skill-types',
+    '<rootDir>/libs/client-manager/skills',
   ],
 };

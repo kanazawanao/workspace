@@ -2,10 +2,6 @@ import { from } from 'rxjs';
 
 export * from './lib/client-manager-data-accesss.module';
 
-export * from './lib/skills/skills-data-access.module';
-export * from './lib/skills/+state/skills.facade';
-export * from './lib/skills/+state/mock-skills.facade';
-
 export * from './lib/timelines/timelines-data-access.module';
 export * from './lib/timelines/+state/timelines.facade';
 export * from './lib/timelines/+state/mock-timelines.facade';

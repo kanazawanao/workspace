@@ -1,22 +1,19 @@
-import { BaseComponent } from '../../../base/base.component';
 import { SkillsService } from '../../skills.service';
 import { SkillsEntryControlName } from '../skills-entry-control-name';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SkillsFacade } from '@workspace/client-manager/data-accesss';
 import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { SelectOption } from '@workspace/ui';
 import { Observable } from 'rxjs';
-import { filter, map, takeUntil } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
+import { SkillsFacade } from '../../data-access/+state/skills.facade';
 
 @Component({
   selector: 'client-manager-skills-entry-container',
   templateUrl: './skills-entry-container.component.html',
   styleUrls: ['./skills-entry-container.component.scss'],
 })
-export class SkillsEntryContainerComponent
-  extends BaseComponent
-  implements OnInit, OnDestroy {
+export class SkillsEntryContainerComponent implements OnInit {
   formGroup: FormGroup = this.skillsService.generateFormGroup();
   skillTypeOptions$: Observable<
     SelectOption[]
@@ -36,29 +33,19 @@ export class SkillsEntryContainerComponent
   constructor(
     private skillsService: SkillsService,
     private skillsFacade: SkillsFacade
-  ) {
-    super();
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.skillsFacade.workSkill$
-      .pipe(takeUntil(this.unsubscribeObservable$))
-      .subscribe((x) => {
-        if (x !== undefined) {
-          this.formGroup.get(this.controlName.skillName).setValue(x.skillName);
-          this.formGroup.get(this.controlName.skillType).setValue(x.skillType);
-          this.formGroup
-            .get(this.controlName.skillLevel)
-            .setValue(x.skillLevel);
-          this.formGroup
-            .get(this.controlName.experienceYears)
-            .setValue(x.experienceYears);
-        }
-      });
-  }
-
-  ngOnDestroy(): void {
-    super.ngOnDestroy();
+    this.skillsFacade.workSkill$.subscribe((x) => {
+      if (x !== undefined) {
+        this.formGroup.get(this.controlName.skillName).setValue(x.skillName);
+        this.formGroup.get(this.controlName.skillType).setValue(x.skillType);
+        this.formGroup.get(this.controlName.skillLevel).setValue(x.skillLevel);
+        this.formGroup
+          .get(this.controlName.experienceYears)
+          .setValue(x.experienceYears);
+      }
+    });
   }
 
   regist() {
