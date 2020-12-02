@@ -62,12 +62,6 @@
     "constants": {
       "tags": []
     },
-    "client-features": {
-      "tags": []
-    },
-    "client-manager-features": {
-      "tags": []
-    },
     "client-manager-guards": {
       "tags": []
     },

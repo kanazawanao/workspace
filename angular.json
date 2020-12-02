@@ -503,58 +503,6 @@
         }
       }
     },
-    "client-features": {
-      "projectType": "library",
-      "root": "libs/client/features",
-      "sourceRoot": "libs/client/features/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/client/features/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client/features/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "client-manager-features": {
-      "projectType": "library",
-      "root": "libs/client-manager/features",
-      "sourceRoot": "libs/client-manager/features/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/client-manager/features/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/features/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "client-manager-guards": {
       "projectType": "library",
       "root": "libs/client-manager/guards",
