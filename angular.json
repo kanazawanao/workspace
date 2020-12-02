@@ -555,58 +555,6 @@
         }
       }
     },
-    "client-manager-models": {
-      "projectType": "library",
-      "root": "libs/client-manager/models",
-      "sourceRoot": "libs/client-manager/models/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/client-manager/models/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/models/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "client-manager-data-accesss": {
-      "projectType": "library",
-      "root": "libs/client-manager/data-accesss",
-      "sourceRoot": "libs/client-manager/data-accesss/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/client-manager/data-accesss/src/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/data-accesss/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "client-manager-skill-types": {
       "projectType": "library",
       "root": "libs/client-manager/skill-types",
@@ -675,6 +623,32 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/timelines/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "client-manager-users": {
+      "projectType": "library",
+      "root": "libs/client-manager/users",
+      "sourceRoot": "libs/client-manager/users/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/client-manager/users/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/users/jest.config.js",
             "passWithNoTests": true
           }
         }

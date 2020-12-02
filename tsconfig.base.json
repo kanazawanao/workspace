@@ -42,6 +42,9 @@
       ],
       "@workspace/client-manager/timelines": [
         "libs/client-manager/timelines/src/index.ts"
+      ],
+      "@workspace/client-manager/users": [
+        "libs/client-manager/users/src/index.ts"
       ]
     }
   },

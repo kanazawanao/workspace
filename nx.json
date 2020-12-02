@@ -68,12 +68,6 @@
     "client-guards": {
       "tags": []
     },
-    "client-manager-models": {
-      "tags": []
-    },
-    "client-manager-data-accesss": {
-      "tags": []
-    },
     "client-manager-skill-types": {
       "tags": []
     },
@@ -81,6 +75,9 @@
       "tags": []
     },
     "client-manager-timelines": {
+      "tags": []
+    },
+    "client-manager-users": {
       "tags": []
     }
   }

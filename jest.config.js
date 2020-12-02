@@ -16,5 +16,6 @@ module.exports = {
     '<rootDir>/libs/client-manager/skill-types',
     '<rootDir>/libs/client-manager/skills',
     '<rootDir>/libs/client-manager/timelines',
+    '<rootDir>/libs/client-manager/users',
   ],
 };
