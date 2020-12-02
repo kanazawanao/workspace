@@ -1,7 +1,7 @@
+import { SkillsEntryModel } from './skills-entry.model';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { ApiConstant } from '@workspace/constants';
 
 @Injectable()

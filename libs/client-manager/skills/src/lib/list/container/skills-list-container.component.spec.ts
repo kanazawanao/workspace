@@ -1,4 +1,6 @@
 import { SkillsListContainerComponent } from './skills-list-container.component';
+import { MockSkillsService } from '../../mock-skills.service';
+import { SkillsService } from '../../skills.service';
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -31,6 +33,10 @@ describe('SkillsListContainerComponent', () => {
         {
           provide: SkillsFacade,
           useClass: MockSkillsFacade,
+        },
+        {
+          provide: SkillsService,
+          useClass: MockSkillsService,
         },
       ],
       imports: [CommonModule],

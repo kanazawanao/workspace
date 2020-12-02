@@ -1,5 +1,5 @@
+import { SkillsEntryModel } from './skills-entry.model';
 import { FormGroup } from '@angular/forms';
-import { SkillsEntryModel } from '@workspace/client-manager/models';
 
 export class MockSkillsService {
   generateFormGroup(formData: SkillsEntryModel) {

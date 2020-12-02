@@ -5,10 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import {
-  SkillTypesFacade,
-  MockSkillTypesFacade,
-} from '@workspace/client-manager/data-accesss';
+import { MockSkillTypesFacade } from '../../data-access/+state/mock-skill-types.facade';
+import { SkillTypesFacade } from '../../data-access/+state/skill-types.facade';
 
 @Component({
   selector: 'client-manager-skill-types-entry-presenter',

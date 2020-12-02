@@ -1,5 +1,5 @@
 import { SkillTypesService } from '../../skill-types.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ISkillType } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 import { SkillTypesFacade } from '../../data-access/+state/skill-types.facade';

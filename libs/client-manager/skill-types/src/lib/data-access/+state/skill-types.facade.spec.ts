@@ -8,7 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
-import { SkillTypeEntryModel } from '@workspace/client-manager/models';
+import { ISkillType } from '@workspace/api-interfaces';
 
 interface TestSchema {
   skillTypes: State;
@@ -22,7 +22,7 @@ describe('SkillTypesFacade', () => {
       id,
       skillType: 0,
       skillTypeName: name || `name-${id}`,
-    } as SkillTypeEntryModel);
+    } as ISkillType);
 
   beforeEach(() => {});
 
@@ -48,8 +48,8 @@ describe('SkillTypesFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.get(Store);
-      facade = TestBed.get(SkillTypesFacade);
+      store = TestBed.inject(Store);
+      facade = TestBed.inject(SkillTypesFacade);
     });
 
     /**

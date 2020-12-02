@@ -1,7 +1,7 @@
 import { skillsData } from './skills.data';
+import { SkillsEntryModel } from '../skills-entry.model';
 import { FormGroup } from '@angular/forms';
 import { ISkill } from '@workspace/api-interfaces';
-import { SkillsEntryModel } from '@workspace/client-manager/models';
 import { Observable, of } from 'rxjs';
 
 export class MockSkillsDataAccessService {
