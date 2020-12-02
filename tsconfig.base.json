@@ -45,6 +45,9 @@
       ],
       "@workspace/client-manager/users": [
         "libs/client-manager/users/src/index.ts"
+      ],
+      "@workspace/client-manager/login": [
+        "libs/client-manager/login/src/index.ts"
       ]
     }
   },

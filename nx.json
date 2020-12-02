@@ -79,6 +79,9 @@
     },
     "client-manager-users": {
       "tags": []
+    },
+    "client-manager-login": {
+      "tags": []
     }
   }
 }
