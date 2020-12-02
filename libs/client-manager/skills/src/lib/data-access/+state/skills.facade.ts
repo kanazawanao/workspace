@@ -38,6 +38,10 @@ export class SkillsFacade {
     this.dispatch(SkillsActions.updateSkill({ id, skillEntry }));
   }
 
+  deleteSkill(id: number) {
+    this.dispatch(SkillsActions.deleteSkill({ id }));
+  }
+
   setEditerMode(editerMode: EditType) {
     this.store.dispatch(SkillsActions.setEditerMode({ editerMode }));
   }

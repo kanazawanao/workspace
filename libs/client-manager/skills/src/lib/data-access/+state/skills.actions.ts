@@ -15,47 +15,59 @@ export const loadSkillsFailure = createAction(
 );
 
 export const loadUpdateInitSkillEntry = createAction(
-  '[UsersEntry] Load UpdateInitSkillsEntry',
+  '[Skills] Load UpdateInitSkillsEntry',
   props<{ skillId: string }>()
 );
 
 export const loadUpdateInitSkillEntrySuccess = createAction(
-  '[UsersEntry] Load UpdateInitSkillsEntry Success',
+  '[Skills] Load UpdateInitSkillsEntry Success',
   props<{ initSkillEntry: ISkill }>()
 );
 
 export const loadUpdateInitSkillEntryFailure = createAction(
-  '[UsersEntry] Load UpdateInitSkillsEntry Failure',
+  '[Skills] Load UpdateInitSkillsEntry Failure',
   props<{ error: any }>()
 );
 
 export const createSkill = createAction(
-  '[UsersEntry] Create Skill',
+  '[Skills] Create Skill',
   props<{ skillEntry: SkillsEntryModel }>()
 );
 
 export const createSkillSuccess = createAction(
-  '[UsersEntry] Create Skill Success',
+  '[Skills] Create Skill Success',
   props<{ skillEntry: ISkill }>()
 );
 
 export const createSkillFailure = createAction(
-  '[UsersEntry] Create Skill Failure',
+  '[Skills] Create Skill Failure',
   props<{ error: any }>()
 );
 
 export const updateSkill = createAction(
-  '[UsersEntry] Update Skill',
+  '[Skills] Update Skill',
   props<{ id: number; skillEntry: SkillsEntryModel }>()
 );
 
 export const updateSkillSuccess = createAction(
-  '[UsersEntry] Update Skill Success',
+  '[Skills] Update Skill Success',
   props<{ skillEntry: ISkill }>()
 );
 
 export const updateSkillFailure = createAction(
-  '[UsersEntry] Update Skill Failure',
+  '[Skills] Update Skill Failure',
+  props<{ error: any }>()
+);
+
+export const deleteSkill = createAction(
+  '[Skills] Delete Skill',
+  props<{ id: number }>()
+);
+
+export const deleteSkillSuccess = createAction('[Skills] Delete Skill Sucess');
+
+export const deleteSkillFailure = createAction(
+  '[Skills] Delete Skill Failure',
   props<{ error: any }>()
 );
 

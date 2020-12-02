@@ -24,4 +24,6 @@ export class MockSkillsDataAccessService {
   updateSkill(id: number, skill: SkillsEntryModel): Observable<ISkill> {
     return of(skillsData[1]);
   }
+
+  deleteSkill(id: number) {}
 }

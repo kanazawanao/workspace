@@ -12,21 +12,21 @@ export class SkillTypesDataAccessService {
     private httpRequestService: HttpRequestService,
     @Inject('apiUrl') private apiUrl: string
   ) {}
-  fetchSkills(): Observable<ISkillType[]> {
+  fetchSkillTypes(): Observable<ISkillType[]> {
     const res = this.httpRequestService.get<ISkillType[]>({
       url: `${this.apiUrl}${this.constants.skilltypes}`,
     });
     return res;
   }
 
-  fetchSkill(id: string): Observable<ISkillType> {
+  fetchSkillType(id: string): Observable<ISkillType> {
     var res = this.httpRequestService.get<ISkillType>({
       url: `${this.apiUrl}${this.constants.skilltypes}/${id}`,
     });
     return res;
   }
 
-  postSkill(skill: SkillTypeEntryModel): Observable<ISkillType> {
+  postSkillType(skill: SkillTypeEntryModel): Observable<ISkillType> {
     var res = this.httpRequestService.post<ISkillType>({
       url: `${this.apiUrl}${this.constants.skilltypes}`,
       body: skill,
@@ -34,7 +34,10 @@ export class SkillTypesDataAccessService {
     return res;
   }
 
-  updateSkill(id: number, skill: SkillTypeEntryModel): Observable<ISkillType> {
+  updateSkillType(
+    id: number,
+    skill: SkillTypeEntryModel
+  ): Observable<ISkillType> {
     var res = this.httpRequestService.put<ISkillType>({
       url: `${this.apiUrl}${this.constants.skilltypes}/${id}`,
       body: skill,
@@ -42,16 +45,9 @@ export class SkillTypesDataAccessService {
     return res;
   }
 
-  deleteSkill(id: number) {
+  deleteSkillType(id: number) {
     var res = this.httpRequestService.delete({
       url: `${this.apiUrl}${this.constants.skilltypes}/${id}`,
-    });
-    return res;
-  }
-
-  fetchSkillTypes(): Observable<ISkillType[]> {
-    const res = this.httpRequestService.get<ISkillType[]>({
-      url: `${this.apiUrl}${this.constants.skilltypes}`,
     });
     return res;
   }

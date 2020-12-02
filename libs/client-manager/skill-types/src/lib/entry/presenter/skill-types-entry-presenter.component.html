@@ -10,6 +10,12 @@
         [label]="'skillTypeName'"
       ></ui-input-container>
     </div>
-    <button mat-button (click)="registEvent.emit()">regist</button>
+    <ng-container *ngIf="editMode === editType.create">
+      <button mat-button (click)="registEvent.emit()">regist</button>
+    </ng-container>
+    <ng-container *ngIf="editMode === editType.update">
+      <button mat-button (click)="deleteEvent.emit()">delete</button>
+      <button mat-button (click)="updateEvent.emit()">update</button>
+    </ng-container>
   </form>
 </div>

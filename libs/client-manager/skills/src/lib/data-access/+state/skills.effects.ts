@@ -89,6 +89,23 @@ export class SkillsEffects {
     )
   );
 
+  deleteSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillsActions.deleteSkill),
+      fetch({
+        run: (action) => {
+          return this.skillsDataAccessService
+            .deleteSkill(action.id)
+            .pipe(map((res) => SkillsActions.deleteSkillSuccess()));
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillsActions.deleteSkillFailure({ error });
+        },
+      })
+    )
+  );
+
   loadSkillTypes$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SkillsActions.loadSkillTypes),

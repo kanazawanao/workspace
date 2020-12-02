@@ -43,6 +43,13 @@ export class SkillsDataAccessService {
     return res;
   }
 
+  deleteSkill(id: number) {
+    var res = this.httpRequestService.delete({
+      url: `${this.apiUrl}${this.constants.skills}/${id}`,
+    });
+    return res;
+  }
+
   fetchSkillTypes(): Observable<ISkillType[]> {
     const res = this.httpRequestService.get<ISkillType[]>({
       url: `${this.apiUrl}${this.constants.skilltypes}`,

@@ -37,15 +37,15 @@ export class SkillTypesFacade {
     );
   }
 
-  createSkill(skillTypeEntry: SkillTypeEntryModel) {
+  createSkillType(skillTypeEntry: SkillTypeEntryModel) {
     this.dispatch(SkillTypesActions.createSkillType({ skillTypeEntry }));
   }
 
-  updateSkill(id: number, skillTypeEntry: SkillTypeEntryModel) {
+  updateSkillType(id: number, skillTypeEntry: SkillTypeEntryModel) {
     this.dispatch(SkillTypesActions.updateSkillType({ id, skillTypeEntry }));
   }
 
-  deleteSkill(id: number) {
+  deleteSkillType(id: number) {
     this.dispatch(SkillTypesActions.deleteSkillType({ id }));
   }
 

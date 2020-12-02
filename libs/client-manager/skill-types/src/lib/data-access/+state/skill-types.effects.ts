@@ -13,7 +13,7 @@ export class SkillTypesEffects {
       fetch({
         run: (action) => {
           return this.skillTypesDataAccessService
-            .fetchSkills()
+            .fetchSkillTypes()
             .pipe(
               map((res) =>
                 SkillTypesActions.loadSkillTypesSuccess({ skillTypes: res })
@@ -35,7 +35,7 @@ export class SkillTypesEffects {
       fetch({
         run: (action) => {
           return this.skillTypesDataAccessService
-            .fetchSkill(action.skillTypeId)
+            .fetchSkillType(action.skillTypeId)
             .pipe(
               map((res) =>
                 SkillTypesActions.loadUpdateInitSkillTypeEntrySuccess({
@@ -60,7 +60,7 @@ export class SkillTypesEffects {
       fetch({
         run: (action) => {
           return this.skillTypesDataAccessService
-            .postSkill(action.skillTypeEntry)
+            .postSkillType(action.skillTypeEntry)
             .pipe(
               map((res) =>
                 SkillTypesActions.createSkillTypeSuccess({
@@ -83,7 +83,7 @@ export class SkillTypesEffects {
       fetch({
         run: (action) => {
           return this.skillTypesDataAccessService
-            .updateSkill(action.id, action.skillTypeEntry)
+            .updateSkillType(action.id, action.skillTypeEntry)
             .pipe(
               map((res) =>
                 SkillTypesActions.updateSkillTypeSuccess({
@@ -100,13 +100,13 @@ export class SkillTypesEffects {
     )
   );
 
-  deleteSkill$ = createEffect(() =>
+  deleteSkillType$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SkillTypesActions.deleteSkillType),
       fetch({
         run: (action) => {
           return this.skillTypesDataAccessService
-            .deleteSkill(action.id)
+            .deleteSkillType(action.id)
             .pipe(map((res) => SkillTypesActions.deleteSkillTypeSuccess()));
         },
         onError: (action, error) => {

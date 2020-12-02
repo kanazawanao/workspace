@@ -89,6 +89,19 @@ const skillTypesReducer = createReducer(
     loaded: true,
     error,
   })),
+  on(SkillTypesActions.deleteSkillType, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(SkillTypesActions.deleteSkillTypeSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(SkillTypesActions.deleteSkillTypeFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
   on(SkillTypesActions.setEditerMode, (state, { editerMode }) => ({
     ...state,
     editerMode: editerMode,

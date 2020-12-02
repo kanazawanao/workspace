@@ -1,15 +1,13 @@
 export class MockSkillTypesService {
   constructor() {}
 
-  fetchSkills() {}
+  fetchSkillType() {}
 
-  fetchSkill() {}
+  postSkillType() {}
 
-  postSkill() {}
+  updateSkillType() {}
 
-  updateSkill() {}
-
-  deleteSkill() {}
+  deleteSkillType() {}
 
   fetchSkillTypes() {}
 }

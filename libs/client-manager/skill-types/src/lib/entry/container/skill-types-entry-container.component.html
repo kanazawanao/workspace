@@ -1,4 +1,7 @@
 <client-manager-skill-types-entry-presenter
   [formGroup]="formGroup"
+  [editMode]="editMode$ | async"
   (registEvent)="regist()"
+  (updateEvent)="update()"
+  (deleteEvent)="delete()"
 ></client-manager-skill-types-entry-presenter>
