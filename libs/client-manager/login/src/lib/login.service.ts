@@ -38,7 +38,6 @@ export class LoginService {
       })
       .pipe(
         map((x) => {
-          console.log(x);
           this.httpRequestService.token = x.accessToken;
         })
       );
