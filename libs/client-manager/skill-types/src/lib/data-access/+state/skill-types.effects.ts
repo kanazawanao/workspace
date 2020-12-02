@@ -54,6 +54,69 @@ export class SkillTypesEffects {
     )
   );
 
+  createSkillType$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillTypesActions.createSkillType),
+      fetch({
+        run: (action) => {
+          return this.skillTypesDataAccessService
+            .postSkill(action.skillTypeEntry)
+            .pipe(
+              map((res) =>
+                SkillTypesActions.createSkillTypeSuccess({
+                  skillTypeEntry: res,
+                })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillTypesActions.createSkillTypeFailure({ error });
+        },
+      })
+    )
+  );
+
+  updateSkillType$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillTypesActions.updateSkillType),
+      fetch({
+        run: (action) => {
+          return this.skillTypesDataAccessService
+            .updateSkill(action.id, action.skillTypeEntry)
+            .pipe(
+              map((res) =>
+                SkillTypesActions.updateSkillTypeSuccess({
+                  skillTypeEntry: res,
+                })
+              )
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return SkillTypesActions.updateSkillTypeFailure({ error });
+        },
+      })
+    )
+  );
+
+  deleteSkill$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SkillTypesActions.deleteSkillType),
+      fetch({
+        run: (action) => {
+          return this.skillTypesDataAccessService
+            .deleteSkill(action.id)
+            .pipe(map((res) => SkillTypesActions.deleteSkillTypeSuccess()));
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          console.log(`${action.id}の削除に失敗しました。`);
+          return SkillTypesActions.deleteSkillTypeFailure({ error });
+        },
+      })
+    )
+  );
   constructor(
     private actions$: Actions,
     private skillTypesDataAccessService: SkillTypesDataAccessService

@@ -63,6 +63,32 @@ const skillTypesReducer = createReducer(
       error,
     })
   ),
+  on(SkillTypesActions.createSkillType, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(SkillTypesActions.createSkillTypeSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(SkillTypesActions.createSkillTypeFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
+  on(SkillTypesActions.updateSkillType, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(SkillTypesActions.updateSkillTypeSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(SkillTypesActions.updateSkillTypeFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
   on(SkillTypesActions.setEditerMode, (state, { editerMode }) => ({
     ...state,
     editerMode: editerMode,

@@ -1,8 +1,6 @@
 export class MockSkillTypesService {
   constructor() {}
 
-  generateFormGroup() {}
-
   fetchSkills() {}
 
   fetchSkill() {}
@@ -11,7 +9,7 @@ export class MockSkillTypesService {
 
   updateSkill() {}
 
-  fetchSkillTypes() {}
+  deleteSkill() {}
 
-  navigateSkillTypesEntry() {}
+  fetchSkillTypes() {}
 }
