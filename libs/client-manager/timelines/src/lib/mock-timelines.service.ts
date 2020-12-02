@@ -5,4 +5,6 @@ export class MockTimelinesService {
   generateFormGroup(formData: TimelinesEntryModel): FormGroup {
     return null;
   }
+
+  navigateSkillTypesEntry(id: number): void {}
 }
