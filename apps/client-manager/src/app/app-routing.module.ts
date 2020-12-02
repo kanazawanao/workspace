@@ -23,7 +23,9 @@ export const routes: Routes = [
     path: 'timelines',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./timelines/timelines.module').then((m) => m.TimelinesModule),
+      import('@workspace/client-manager/timelines').then(
+        (m) => m.TimelinesModule
+      ),
   },
   {
     path: 'skill-types',

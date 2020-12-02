@@ -2,15 +2,13 @@ import { TimelinesListContainerComponent } from './container/timelines-list-cont
 import { TimelinesListPresenterComponent } from './presenter/timelines-list-presenter.component';
 import { TimelinesListRoutingModule } from './timelines-list-routing.module';
 import { TimelinesListGuard } from './timelines-list.guard';
+import { TimelinesDataAccessModule } from '../data-access/timelines-data-access.module';
 import { TimelinesService } from '../timelines.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UiTableModule } from '@workspace/ui';
-import {
-  TimelinesDataAccessModule,
-  TimelinesFacade,
-} from '@workspace/client-manager/data-accesss';
+import { TimelinesFacade } from '../data-access/+state/timelines.facade';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
+import { TimelinesEntryModel } from '../timelines-entry.model';
 import { ITimeline } from '@workspace/api-interfaces';
-import { TimelinesEntryModel } from '@workspace/client-manager/models';
 import { Observable, of } from 'rxjs';
 
 export class MockTimelinesDataAccessService {

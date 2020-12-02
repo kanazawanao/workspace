@@ -39,6 +39,9 @@
       ],
       "@workspace/client-manager/skills": [
         "libs/client-manager/skills/src/index.ts"
+      ],
+      "@workspace/client-manager/timelines": [
+        "libs/client-manager/timelines/src/index.ts"
       ]
     }
   },

@@ -1,9 +1,9 @@
 import * as TimelinesActions from './timelines.actions';
 import * as fromTimelines from './timelines.reducer';
 import * as TimelinesSelectors from './timelines.selectors';
+import { TimelinesEntryModel } from '../../timelines-entry.model';
 import { Injectable } from '@angular/core';
 import { Action, select, Store } from '@ngrx/store';
-import { TimelinesEntryModel } from '@workspace/client-manager/models';
 import { EditType } from '@workspace/constants';
 
 @Injectable()

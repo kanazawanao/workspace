@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { TimelinesFacade } from '@workspace/client-manager/data-accesss';
 import { Observable, of } from 'rxjs';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
+import { TimelinesFacade } from '../data-access/+state/timelines.facade';
 
 @Injectable({
   providedIn: 'root',
