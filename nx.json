@@ -79,6 +79,9 @@
     },
     "client-manager-data-accesss": {
       "tags": []
+    },
+    "client-manager-skill-types": {
+      "tags": []
     }
   }
 }

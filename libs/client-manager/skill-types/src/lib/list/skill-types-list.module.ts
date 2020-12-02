@@ -2,14 +2,12 @@ import { SkillTypesListContainerComponent } from './container/skill-types-list-c
 import { SkillTypesListPresenterComponent } from './presenter/skill-types-list-presenter.component';
 import { SkillTypesListRoutingModule } from './skill-types-list-routing.module';
 import { SkillTypesListGuard } from './skill-types-list.guard';
+import { SkillTypesDataAccessModule } from '../data-access/skill-types-data-access.module';
 import { SkillTypesService } from '../skill-types.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { UiTableModule } from '@workspace/ui';
-import {
-  SkillTypesDataAccessModule,
-  SkillTypesFacade,
-} from '@workspace/client-manager/data-accesss';
+import { SkillTypesFacade } from '../data-access/+state/skill-types.facade';
 
 @NgModule({
   declarations: [

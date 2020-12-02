@@ -658,6 +658,32 @@
           "style": "scss"
         }
       }
+    },
+    "client-manager-skill-types": {
+      "projectType": "library",
+      "root": "libs/client-manager/skill-types",
+      "sourceRoot": "libs/client-manager/skill-types/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/client-manager/skill-types/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/skill-types/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

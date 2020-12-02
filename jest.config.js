@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/libs/client/guards',
     '<rootDir>/libs/client-manager/models',
     '<rootDir>/libs/client-manager/data-accesss',
+    '<rootDir>/libs/client-manager/skill-types',
   ],
 };

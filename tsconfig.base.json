@@ -33,6 +33,9 @@
       ],
       "@workspace/client-manager/data-accesss": [
         "libs/client-manager/data-accesss/src/index.ts"
+      ],
+      "@workspace/client-manager/skill-types": [
+        "libs/client-manager/skill-types/src/index.ts"
       ]
     }
   },

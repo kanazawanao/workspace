@@ -29,7 +29,7 @@ export const routes: Routes = [
     path: 'skill-types',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./skill-types/skill-types.module').then(
+      import('@workspace/client-manager/skill-types').then(
         (m) => m.SkillTypesModule
       ),
   },

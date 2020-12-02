@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { SkillTypesFacade } from '@workspace/client-manager/data-accesss';
 import { Observable, of } from 'rxjs';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
+import { SkillTypesFacade } from '../data-access/+state/skill-types.facade';
 
 @Injectable({
   providedIn: 'root',
