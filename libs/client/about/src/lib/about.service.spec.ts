@@ -1,4 +1,3 @@
-import { AboutModule } from './about.module';
 import { AboutService } from './about.service';
 import { TestBed } from '@angular/core/testing';
 import {

@@ -49,7 +49,10 @@
       "@workspace/client-manager/login": [
         "libs/client-manager/login/src/index.ts"
       ],
-      "@workspace/shared/story-book": ["libs/shared/story-book/src/index.ts"]
+      "@workspace/shared/story-book": ["libs/shared/story-book/src/index.ts"],
+      "@workspace/client/about": ["libs/client/about/src/index.ts"],
+      "@workspace/client/timeline": ["libs/client/timeline/src/index.ts"],
+      "@workspace/client/skill": ["libs/client/skill/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
