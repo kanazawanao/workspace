@@ -1,12 +1,40 @@
 version: '3'
 
 services:
-  client:
-    build:
-      context: .
-      dockerfile: Dockerfile.client
-    container_name: 'client'
-    ports:
-      - '80:8080'
+  db-server:
+    container_name: db-server
+    image: mysql:5
+    restart: always
     environment:
-      TZ: 'Asia/Tokyo'
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: develop
+      MYSQL_USER: develop
+      MYSQL_PASSWORD: password
+    ports:
+      - '3306:3306'
+
+  api-server:
+    container_name: 'api-server'
+    build:
+      context: ./
+      dockerfile: Dockerfile.api
+    ports:
+      - '3333:3333'
+    depends_on:
+      - db-server
+
+  client:
+    container_name: 'client'
+    build:
+      context: ./
+      dockerfile: Dockerfile.client
+    ports:
+      - '4200:80'
+
+  client-manager:
+    container_name: 'client-manager'
+    build:
+      context: ./
+      dockerfile: Dockerfile.client-manager
+    ports:
+      - '4201:80'

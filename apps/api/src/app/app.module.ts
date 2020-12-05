@@ -14,11 +14,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'db-server',
       port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
+      username: 'develop',
+      password: 'password',
+      database: 'develop',
       entities: [User, Skill, Timeline, SkillType],
       synchronize: true,
       charset: 'utf8mb4',
