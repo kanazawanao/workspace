@@ -7,9 +7,9 @@ import { EditType } from '@workspace/constants';
 export const SKILL_TYPES_FEATURE_KEY = 'skillTypes';
 
 export interface State extends EntityState<ISkillType> {
-  selectedId?: string | number; // which SkillTypes record has been selected
-  loaded: boolean; // has the SkillTypes list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: string | number;
+  loaded: boolean;
+  error?: string | null;
   editerMode: EditType;
   workSkillTypeEntry?: ISkillType;
 }
@@ -23,7 +23,6 @@ export const skillTypesAdapter: EntityAdapter<ISkillType> = createEntityAdapter<
 >();
 
 export const initialState: State = skillTypesAdapter.getInitialState({
-  // set initial required properties
   loaded: false,
   editerMode: EditType.create,
 });

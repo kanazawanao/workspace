@@ -1,14 +1,13 @@
 import * as SkillTypesActions from './skill-types.actions';
 import { initialState, reducer, State } from './skill-types.reducer';
-import { SkillTypeEntryModel } from '@workspace/client-manager/models';
+import { ISkillType } from '@workspace/api-interfaces';
 
 describe('SkillTypes Reducer', () => {
   const createSkillTypesEntity = (id: number, name = '') =>
     ({
       id,
-      skillType: 0,
       skillTypeName: name || `name-${id}`,
-    } as SkillTypeEntryModel);
+    } as ISkillType);
 
   beforeEach(() => {});
 

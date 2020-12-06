@@ -8,7 +8,6 @@ describe('SkillTypes Selectors', () => {
   const createSkillTypesEntity = (id: number, name = '') =>
     ({
       id,
-      skillType: 0,
       skillTypeName: name || `name-${id}`,
     } as ISkillType);
 

@@ -22,7 +22,7 @@ export class SkillsEntryContainerComponent implements OnInit {
     map((skillTypes) =>
       skillTypes.map((skillType) => {
         var option = new SelectOption();
-        option.value = skillType.skillType;
+        option.value = skillType.id;
         option.viewValue = skillType.skillTypeName;
         return option;
       })

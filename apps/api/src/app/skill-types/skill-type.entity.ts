@@ -15,10 +15,6 @@ export class SkillType implements ISkillType {
 
   @Column()
   @ApiProperty()
-  skillType: number;
-
-  @Column()
-  @ApiProperty()
   skillTypeName: string;
 
   @CreateDateColumn()

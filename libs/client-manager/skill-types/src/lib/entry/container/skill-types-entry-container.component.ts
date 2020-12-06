@@ -23,7 +23,6 @@ export class SkillTypesEntryContainerComponent implements OnInit {
     this.formGroup = this.skillTypesService.generateFormGroup();
     this.skillTypesFacade.workSkillType$.subscribe((x) => {
       if (x !== undefined) {
-        this.formGroup.get(this.controlName.skillType).setValue(x.skillType);
         this.formGroup
           .get(this.controlName.skillTypeName)
           .setValue(x.skillTypeName);
@@ -33,7 +32,6 @@ export class SkillTypesEntryContainerComponent implements OnInit {
 
   regist() {
     var registData = new SkillTypeEntryModel();
-    registData.skillType = this.formGroup.get(this.controlName.skillType).value;
     registData.skillTypeName = this.formGroup.get(
       this.controlName.skillTypeName
     ).value;
