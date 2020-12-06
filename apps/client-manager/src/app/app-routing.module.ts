@@ -15,7 +15,6 @@ export const routes: Routes = [
   },
   {
     path: 'users',
-    canActivate: [AuthGuard],
     loadChildren: () =>
       import('@workspace/client-manager/users').then((m) => m.UsersModule),
   },

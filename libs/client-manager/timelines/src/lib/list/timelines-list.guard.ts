@@ -7,9 +7,7 @@ import {
 } from '@angular/router';
 import { TimelinesFacade } from '../data-access/+state/timelines.facade';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TimelinesListGuard implements CanActivate {
   constructor(private timelinesFacade: TimelinesFacade) {}
   canActivate(

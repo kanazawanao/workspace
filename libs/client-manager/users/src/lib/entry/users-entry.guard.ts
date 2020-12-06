@@ -7,9 +7,7 @@ import {
 } from '@angular/router';
 import { UsersFacade } from '../data-access/+state/users.facade';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UsersEntryGuard implements CanActivate {
   constructor(private usersEntryFacade: UsersFacade) {}
   canActivate(

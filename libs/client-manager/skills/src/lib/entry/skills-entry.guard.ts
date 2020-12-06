@@ -7,9 +7,7 @@ import {
 } from '@angular/router';
 import { SkillsFacade } from '../data-access/+state/skills.facade';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class SkillsEntryGuard implements CanActivate {
   constructor(private skillsEntryFacade: SkillsFacade) {}
   canActivate(

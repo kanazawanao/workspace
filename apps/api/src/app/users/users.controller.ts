@@ -22,7 +22,6 @@ const constants = ApiConstant;
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   @ApiOperation({ summary: 'get users' })
   async getUsers(): Promise<User[]> {
@@ -43,7 +42,6 @@ export class UsersController {
     return this.usersService.put(id, user);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'post user' })
   @ApiBody({ type: User, description: 'user' })

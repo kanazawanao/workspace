@@ -7,6 +7,7 @@ import { Timeline } from './timelines/timeline.entity';
 import { TimelinesModule } from './timelines/timelines.module';
 import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
+import { environment } from '../environments/environment';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -14,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'db-server',
+      host: environment.host,
       port: 3306,
       username: 'develop',
       password: 'password',
