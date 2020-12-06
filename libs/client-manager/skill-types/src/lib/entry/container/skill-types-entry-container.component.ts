@@ -1,3 +1,4 @@
+import { SkillTypeEntryModel } from '../../skill-types-entry.model';
 import { SkillTypesService } from '../../skill-types.service';
 import { SkillTypesEntryControlName } from '../skill-types-entry-control-name';
 import { Component, OnInit } from '@angular/core';
@@ -20,9 +21,24 @@ export class SkillTypesEntryContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.skillTypesService.generateFormGroup();
+    this.skillTypesFacade.workSkillType$.subscribe((x) => {
+      if (x !== undefined) {
+        this.formGroup.get(this.controlName.skillType).setValue(x.skillType);
+        this.formGroup
+          .get(this.controlName.skillTypeName)
+          .setValue(x.skillTypeName);
+      }
+    });
   }
 
-  regist() {}
+  regist() {
+    var registData = new SkillTypeEntryModel();
+    registData.skillType = this.formGroup.get(this.controlName.skillType).value;
+    registData.skillTypeName = this.formGroup.get(
+      this.controlName.skillTypeName
+    ).value;
+    this.skillTypesFacade.createSkillType(registData);
+  }
 
   update() {}
 

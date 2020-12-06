@@ -11,9 +11,10 @@ export class UsersFacade {
   loaded$ = this.store.pipe(select(UsersSelectors.getUsersLoaded));
   allUsers$ = this.store.pipe(select(UsersSelectors.getAllUsers));
   selectedUsers$ = this.store.pipe(select(UsersSelectors.getSelected));
-
   wokkUserEntry$ = this.store.pipe(select(UsersSelectors.getWorkUserEntry));
   editMode$ = this.store.pipe(select(UsersSelectors.getEditerMode));
+  selectedId$ = this.store.pipe(select(UsersSelectors.getSelectedId));
+
   constructor(private store: Store<fromUsers.UsersPartialState>) {}
 
   dispatch(action: Action) {

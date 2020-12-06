@@ -58,6 +58,10 @@ export class SkillsEntryContainerComponent implements OnInit {
     ).value;
     registData.skillName = this.formGroup.get(this.controlName.skillName).value;
     registData.skillType = this.formGroup.get(this.controlName.skillType).value;
-    console.log(registData);
+    this.skillsFacade.createSkill(registData);
   }
+
+  update() {}
+
+  delete() {}
 }

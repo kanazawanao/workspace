@@ -33,6 +33,6 @@ export class TimelinesEntryContainerComponent implements OnInit {
     var registData = new TimelinesEntryModel();
     registData.event = this.formGroup.get(this.controlName.event).value;
     registData.date = this.formGroup.get(this.controlName.date).value;
-    console.log(registData);
+    this.timelinesFacade.createTimeline(registData);
   }
 }

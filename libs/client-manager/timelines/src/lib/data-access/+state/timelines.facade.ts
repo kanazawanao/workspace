@@ -15,6 +15,7 @@ export class TimelinesFacade {
     select(TimelinesSelectors.getWorkTimelineEntry)
   );
   editMode$ = this.store.pipe(select(TimelinesSelectors.getEditerMode));
+  selectedId$ = this.store.pipe(select(TimelinesSelectors.getSelectedId));
 
   constructor(private store: Store<fromTimelines.TimelinesPartialState>) {}
 

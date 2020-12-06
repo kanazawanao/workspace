@@ -14,6 +14,7 @@ export class SkillsFacade {
   workSkill$ = this.store.pipe(select(SkillsSelectors.getWorkSkillEntry));
   editMode$ = this.store.pipe(select(SkillsSelectors.getEditerMode));
   skillTypes$ = this.store.pipe(select(SkillsSelectors.getSkillTypes));
+  selectedId$ = this.store.pipe(select(SkillsSelectors.getSelectedId));
 
   constructor(private store: Store<fromSkills.SkillsPartialState>) {}
 
