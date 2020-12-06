@@ -53,6 +53,7 @@ const timelinesReducer = createReducer(
       ...state,
       loaded: true,
       workTimelineEntry: initTimelineEntry,
+      selectedId: initTimelineEntry.id,
     })
   ),
   on(

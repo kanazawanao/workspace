@@ -50,6 +50,7 @@ const usersReducer = createReducer(
       ...state,
       loaded: true,
       workUserEntry: initUserEntry,
+      selectedId: initUserEntry.id,
     })
   ),
   on(UsersActions.loadUpdateInitUserEntryFailure, (state, { error }) => ({
