@@ -62,6 +62,19 @@ const timelinesReducer = createReducer(
       error,
     })
   ),
+  on(TimelinesActions.createTimeline, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(TimelinesActions.createTimelineSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(TimelinesActions.createTimelineFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
   on(TimelinesActions.updateTimeline, (state) => ({
     ...state,
     loaded: false,

@@ -44,6 +44,62 @@ export class UsersEffects {
       })
     )
   );
+
+  createUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UsersActions.createUser),
+      fetch({
+        run: (action) => {
+          return this.usersDataAccessService
+            .postUser(action.userEntry)
+            .pipe(
+              map((res) => UsersActions.createUserSuccess({ userEntry: res }))
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return UsersActions.createUserFailure({ error });
+        },
+      })
+    )
+  );
+
+  updateUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UsersActions.updateUser),
+      fetch({
+        run: (action) => {
+          return this.usersDataAccessService
+            .updateUser(action.id, action.userEntry)
+            .pipe(
+              map((res) => UsersActions.updateUserSuccess({ userEntry: res }))
+            );
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return UsersActions.updateUserFailure({ error });
+        },
+      })
+    )
+  );
+
+  deleteUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UsersActions.deleteUser),
+      fetch({
+        run: (action) => {
+          return this.usersDataAccessService
+            .deleteUser(action.id)
+            .pipe(map((res) => UsersActions.deleteUserSuccess()));
+        },
+        onError: (action, error) => {
+          console.error('Error', error);
+          return UsersActions.deleteUserFailure({ error });
+        },
+      })
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private usersDataAccessService: UsersDataAccessService

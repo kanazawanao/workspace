@@ -42,4 +42,11 @@ export class UsersDataAccessService {
     });
     return res;
   }
+
+  deleteUser(id: number) {
+    var res = this.httpRequestService.delete({
+      url: `${this.apiUrl}${this.constants.users}/${id}`,
+    });
+    return res;
+  }
 }

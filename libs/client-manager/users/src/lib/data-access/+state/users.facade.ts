@@ -1,6 +1,7 @@
 import * as UsersActions from './users.actions';
 import * as fromUsers from './users.reducer';
 import * as UsersSelectors from './users.selectors';
+import { UsersEntryModel } from '../../users-entry.model';
 import { Injectable } from '@angular/core';
 import { Action, select, Store } from '@ngrx/store';
 import { EditType } from '@workspace/constants';
@@ -26,6 +27,18 @@ export class UsersFacade {
   loadUpdateInitUsersEntry(userId: string) {
     this.setEditerMode(EditType.update);
     this.dispatch(UsersActions.loadUpdateInitUserEntry({ userId }));
+  }
+
+  createUSer(userEntry: UsersEntryModel) {
+    this.dispatch(UsersActions.createUser({ userEntry }));
+  }
+
+  updateUser(id: number, userEntry: UsersEntryModel) {
+    this.dispatch(UsersActions.updateUser({ id, userEntry }));
+  }
+
+  deleteUser(id: number) {
+    this.dispatch(UsersActions.deleteUser({ id }));
   }
 
   setEditerMode(editerMode: EditType) {

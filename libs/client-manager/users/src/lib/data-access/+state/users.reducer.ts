@@ -7,9 +7,9 @@ import { EditType } from '@workspace/constants';
 export const USERS_FEATURE_KEY = 'users';
 
 export interface State extends EntityState<IUser> {
-  selectedId?: string | number; // which Users record has been selected
-  loaded: boolean; // has the Users list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: string | number;
+  loaded: boolean;
+  error?: string | null;
   editerMode: EditType;
   workUserEntry?: IUser;
 }
@@ -21,7 +21,6 @@ export interface UsersPartialState {
 export const usersAdapter: EntityAdapter<IUser> = createEntityAdapter<IUser>();
 
 export const initialState: State = usersAdapter.getInitialState({
-  // set initial required properties
   loaded: false,
   editerMode: EditType.create,
 });
@@ -55,6 +54,45 @@ const usersReducer = createReducer(
   ),
   on(UsersActions.loadUpdateInitUserEntryFailure, (state, { error }) => ({
     ...state,
+    error,
+  })),
+  on(UsersActions.createUser, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(UsersActions.createUserSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(UsersActions.createUserFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
+  on(UsersActions.updateUser, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(UsersActions.updateUserSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(UsersActions.updateUserFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
+    error,
+  })),
+  on(UsersActions.deleteUser, (state) => ({
+    ...state,
+    loaded: false,
+  })),
+  on(UsersActions.deleteUserSuccess, (state) => ({
+    ...state,
+    loaded: true,
+  })),
+  on(UsersActions.deleteUserFailure, (state, { error }) => ({
+    ...state,
+    loaded: true,
     error,
   })),
   on(UsersActions.setEditerMode, (state, { editerMode }) => ({

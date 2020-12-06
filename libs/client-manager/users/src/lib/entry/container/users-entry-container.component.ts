@@ -54,6 +54,6 @@ export class UsersEntryContainerComponent implements OnInit {
     registData.qualification = this.formGroup.get(
       this.controlName.qualification
     ).value;
-    console.log(registData);
+    this.usersFacade.createUSer(registData);
   }
 }
