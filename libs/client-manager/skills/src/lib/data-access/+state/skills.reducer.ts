@@ -48,6 +48,15 @@ const skillsReducer = createReducer(
     loaded: false,
     error: null,
   })),
+  on(SkillsActions.clearUpdateInitSkillEntry, (state) => ({
+    ...state,
+    workSkillEntry: {
+      experienceYears: 0,
+      skillLevel: 0,
+      skillName: '',
+      skillType: 0,
+    },
+  })),
   on(
     SkillsActions.loadUpdateInitSkillEntrySuccess,
     (state, { initSkillEntry }) => ({
