@@ -98,6 +98,9 @@
     },
     "client-skill": {
       "tags": []
+    },
+    "client-manager-data-access": {
+      "tags": []
     }
   }
 }

@@ -22,5 +22,6 @@ module.exports = {
     '<rootDir>/libs/client/about',
     '<rootDir>/libs/client/timeline',
     '<rootDir>/libs/client/skill',
+    '<rootDir>/libs/client-manager/data-access',
   ],
 };
