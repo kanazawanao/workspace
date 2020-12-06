@@ -16,6 +16,7 @@ export class SkillTypesEntryGuard implements CanActivate {
   ): Observable<boolean> {
     const id = route.params.id;
     if (id === 'entry') {
+      this.skillTypesFacade.clearUpdateInitSkillTypeEntry();
       return of(true);
     }
     this.skillTypesFacade.loadUpdateInitSkillTypeEntry(id);

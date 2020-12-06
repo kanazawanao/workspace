@@ -38,6 +38,10 @@ export class SkillTypesFacade {
     );
   }
 
+  clearUpdateInitSkillTypeEntry() {
+    this.dispatch(SkillTypesActions.clearUpdateInitSkillTypeEntry());
+  }
+
   createSkillType(skillTypeEntry: SkillTypeEntryModel) {
     this.dispatch(SkillTypesActions.createSkillType({ skillTypeEntry }));
   }

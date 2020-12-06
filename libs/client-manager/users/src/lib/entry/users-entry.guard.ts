@@ -16,6 +16,7 @@ export class UsersEntryGuard implements CanActivate {
   ): Observable<boolean> {
     const id = route.params.id;
     if (id === 'entry') {
+      this.usersEntryFacade.clearUpdateInitUserEntry();
       return of(true);
     }
     this.usersEntryFacade.loadUpdateInitUsersEntry(id);

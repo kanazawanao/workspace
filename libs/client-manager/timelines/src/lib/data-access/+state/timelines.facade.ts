@@ -32,6 +32,10 @@ export class TimelinesFacade {
     this.dispatch(TimelinesActions.loadUpdateInitTimelineEntry({ timelineId }));
   }
 
+  clearUpdateInitTimelineEntry() {
+    this.dispatch(TimelinesActions.clearUpdateInitTimelineEntry());
+  }
+
   createTimeline(timelineEntry: TimelinesEntryModel) {
     this.dispatch(TimelinesActions.createTimeline({ timelineEntry }));
   }

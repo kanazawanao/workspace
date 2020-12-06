@@ -47,6 +47,10 @@ const timelinesReducer = createReducer(
     loaded: false,
     error: null,
   })),
+  on(TimelinesActions.clearUpdateInitTimelineEntry, (state) => ({
+    ...state,
+    workTimelineEntry: { date: new Date(), event: '' },
+  })),
   on(
     TimelinesActions.loadUpdateInitTimelineEntrySuccess,
     (state, { initTimelineEntry }) => ({

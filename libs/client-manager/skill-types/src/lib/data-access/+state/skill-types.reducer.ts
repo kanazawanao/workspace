@@ -34,6 +34,10 @@ const skillTypesReducer = createReducer(
     loaded: false,
     error: null,
   })),
+  on(SkillTypesActions.clearUpdateInitSkillTypeEntry, (state) => ({
+    ...state,
+    workSkillTypeEntry: { skillTypeName: '' },
+  })),
   on(SkillTypesActions.loadSkillTypesSuccess, (state, { skillTypes }) =>
     skillTypesAdapter.setAll(skillTypes, { ...state, loaded: true })
   ),

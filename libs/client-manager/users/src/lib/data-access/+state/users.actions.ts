@@ -20,6 +20,10 @@ export const loadUpdateInitUserEntry = createAction(
   props<{ userId: string }>()
 );
 
+export const clearUpdateInitUserEntry = createAction(
+  '[UsersEntry] Clear UpdateInitUserEntry'
+);
+
 export const loadUpdateInitUserEntrySuccess = createAction(
   '[UsersEntry] Load UpdateInitUsersEntry Success',
   props<{ initUserEntry: IUser }>()

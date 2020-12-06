@@ -30,6 +30,10 @@ export class UsersFacade {
     this.dispatch(UsersActions.loadUpdateInitUserEntry({ userId }));
   }
 
+  clearUpdateInitUserEntry() {
+    this.dispatch(UsersActions.clearUpdateInitUserEntry());
+  }
+
   createUSer(userEntry: UsersEntryModel) {
     this.dispatch(UsersActions.createUser({ userEntry }));
   }

@@ -20,6 +20,10 @@ export const loadUpdateInitSkillTypeEntry = createAction(
   props<{ skillTypeId: string }>()
 );
 
+export const clearUpdateInitSkillTypeEntry = createAction(
+  '[SkillTypes] Clear UpdateInitSkillTypeEntry'
+);
+
 export const loadUpdateInitSkillTypeEntrySuccess = createAction(
   '[SkillTypes] Load UpdateInitSkillTypeEntry Success',
   props<{ initSkillTypeEntry: ISkillType }>()

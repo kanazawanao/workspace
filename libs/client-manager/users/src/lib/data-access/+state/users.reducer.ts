@@ -53,6 +53,20 @@ const usersReducer = createReducer(
       selectedId: initUserEntry.id,
     })
   ),
+  on(UsersActions.clearUpdateInitUserEntry, (state) => ({
+    ...state,
+    workUserEntry: {
+      address: '',
+      birthDay: new Date(),
+      email: '',
+      firstName: '',
+      lastName: '',
+      password: '',
+      qualification: '',
+      graduationDate: new Date(),
+      sex: '',
+    },
+  })),
   on(UsersActions.loadUpdateInitUserEntryFailure, (state, { error }) => ({
     ...state,
     error,

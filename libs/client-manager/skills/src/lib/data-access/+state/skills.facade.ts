@@ -30,7 +30,9 @@ export class SkillsFacade {
     this.setEditerMode(EditType.update);
     this.dispatch(SkillsActions.loadUpdateInitSkillEntry({ skillId }));
   }
-
+  clearUpdateInitSkillsEntry() {
+    this.dispatch(SkillsActions.clearUpdateInitSkillEntry());
+  }
   createSkill(skillEntry: SkillsEntryModel) {
     this.dispatch(SkillsActions.createSkill({ skillEntry }));
   }

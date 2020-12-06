@@ -16,6 +16,7 @@ export class TimelinesEntryGuard implements CanActivate {
   ): Observable<boolean> {
     const id = route.params.id;
     if (id === 'entry') {
+      this.timelinesFacade.clearUpdateInitTimelineEntry();
       return of(true);
     }
     this.timelinesFacade.loadUpdateInitTimelineEntry(id);

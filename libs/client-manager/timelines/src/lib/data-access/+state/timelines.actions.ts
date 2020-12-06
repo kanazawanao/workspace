@@ -19,6 +19,9 @@ export const loadUpdateInitTimelineEntry = createAction(
   '[Timelines] Load UpdateInitTimelineEntry',
   props<{ timelineId: string }>()
 );
+export const clearUpdateInitTimelineEntry = createAction(
+  '[Timelines] Clear UpdateInitTimelineEntry'
+);
 
 export const loadUpdateInitTimelineEntrySuccess = createAction(
   '[Timelines] Load UpdateInitTimelineEntry Success',
