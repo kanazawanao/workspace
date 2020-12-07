@@ -1,3 +1,4 @@
+import { LoginControlName } from '../login-control-name';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -9,6 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class LoginPresenterComponent implements OnInit {
   @Output() loginEvent = new EventEmitter();
   @Input() formGroup: FormGroup;
+  controlName = LoginControlName;
   constructor() {}
 
   ngOnInit(): void {}

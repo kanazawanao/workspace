@@ -1,3 +1,4 @@
+import { LoginControlName } from '../login-control-name';
 import { LoginService } from '../login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -9,6 +10,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginContainerComponent implements OnInit {
   formGroup: FormGroup;
+  controlName = LoginControlName;
   constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
@@ -18,8 +20,8 @@ export class LoginContainerComponent implements OnInit {
   loginEventListner() {
     this.loginService
       .login({
-        email: this.formGroup.get('email').value,
-        password: this.formGroup.get('password').value,
+        email: this.formGroup.get(this.controlName.email).value,
+        password: this.formGroup.get(this.controlName.password).value,
       })
       .subscribe();
   }
