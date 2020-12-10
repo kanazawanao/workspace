@@ -1,7 +1,11 @@
+import { of } from 'rxjs';
+
 export class MockSkillsService {
   constructor() {}
 
   fetchInitData(): void {}
 
-  fetchSkillsInfo() {}
+  fetchSkillsInfo() {
+    return of([]);
+  }
 }
