@@ -1,5 +1,4 @@
-import { TableContainerComponent } from './container/table-container.component';
-import { TablePresenterComponent } from './presenter/table-presenter.component';
+import { TableComponent } from './table.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -7,8 +6,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
-  declarations: [TablePresenterComponent, TableContainerComponent],
+  declarations: [TableComponent],
   imports: [CommonModule, ReactiveFormsModule, MatTableModule, MatSortModule],
-  exports: [TableContainerComponent],
+  exports: [TableComponent],
 })
 export class UiTableModule {}

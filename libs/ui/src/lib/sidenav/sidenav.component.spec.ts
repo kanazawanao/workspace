@@ -1,5 +1,4 @@
-import { SidenavPresenterInputData } from './sidenav-presenter-input-data';
-import { SidenavPresenterComponent } from './sidenav-presenter.component';
+import { SidenavComponent } from './sidenav.component';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,31 +8,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
-const inputData: SidenavPresenterInputData = {
-  headerTitle: 'test',
-  menuTitle: 'test',
-  options: [
-    {
-      value: 'select1',
-      viewValue: 'select1',
-    },
-    {
-      value: 'select2',
-      viewValue: 'select2',
-    },
-    {
-      value: 'select3',
-      viewValue: 'select3',
-    },
-  ],
-};
 describe('SidenavPresenterComponent', () => {
-  let component: SidenavPresenterComponent;
-  let fixture: ComponentFixture<SidenavPresenterComponent>;
+  let component: SidenavComponent;
+  let fixture: ComponentFixture<SidenavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SidenavPresenterComponent],
+      declarations: [SidenavComponent],
       imports: [
         BrowserAnimationsModule,
         CommonModule,
@@ -47,9 +28,24 @@ describe('SidenavPresenterComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidenavPresenterComponent);
+    fixture = TestBed.createComponent(SidenavComponent);
     component = fixture.componentInstance;
-    component.inputData = inputData;
+    component.headerTitle='test';
+    component.menuTitle= 'test';
+    component.options= [
+      {
+        value: 'select1',
+        viewValue: 'select1',
+      },
+      {
+        value: 'select2',
+        viewValue: 'select2',
+      },
+      {
+        value: 'select3',
+        viewValue: 'select3',
+      },
+    ];
     fixture.detectChanges();
   });
 

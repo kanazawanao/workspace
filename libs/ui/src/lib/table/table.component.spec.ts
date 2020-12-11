@@ -1,10 +1,8 @@
-import { TablePresenterInputData } from './table-presenter-input-data';
-import { TablePresenterComponent } from './table-presenter.component';
+import { TableComponent } from './table.component';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-import { of } from 'rxjs';
 
 export interface PeriodicElement {
   name: string;
@@ -24,26 +22,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
-const presenterInputData: TablePresenterInputData = {
-  dataSource: ELEMENT_DATA,
-  displayedColumns: ['name', 'weight', 'symbol', 'position'],
-};
 
-describe('TablePresenterComponent', () => {
-  let component: TablePresenterComponent;
-  let fixture: ComponentFixture<TablePresenterComponent>;
+describe('TableComponent', () => {
+  let component: TableComponent;
+  let fixture: ComponentFixture<TableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TablePresenterComponent],
+      declarations: [TableComponent],
       imports: [CommonModule, FormsModule, ReactiveFormsModule, MatTableModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TablePresenterComponent);
+    fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
-    component.inputData = presenterInputData;
+    component.dataSource = ELEMENT_DATA;
+    component.displayedColumns = ['name', 'weight', 'symbol', 'position'];
     fixture.detectChanges();
   });
 

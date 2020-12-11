@@ -1,5 +1,4 @@
-import { TablePresenterInputData } from './table-presenter-input-data';
-import { TablePresenterComponent } from './table-presenter.component';
+import { TableComponent } from './table.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
@@ -24,12 +23,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
-const presenterInputData: TablePresenterInputData = {
-  dataSource: ELEMENT_DATA,
-  displayedColumns: ['name', 'weight', 'symbol', 'position'],
-};
+
 export default {
-  title: 'TablePresenterComponent',
+  title: 'TableComponent',
 };
 
 export const primary = () => ({
@@ -42,8 +38,9 @@ export const primary = () => ({
       BrowserAnimationsModule,
     ],
   },
-  component: TablePresenterComponent,
+  component: TableComponent,
   props: {
-    inputData: presenterInputData,
+    dataSource: ELEMENT_DATA,
+    displayedColumns: ['name', 'weight', 'symbol', 'position'],
   },
 });
