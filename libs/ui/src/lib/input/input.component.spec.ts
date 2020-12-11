@@ -1,5 +1,4 @@
-import { InputPresenterInputData } from './input-presenter-input-data';
-import { InputPresenterComponent } from './input-presenter.component';
+import { InputComponent } from './input.component';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,19 +8,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const presenterInputData: InputPresenterInputData = {
-  formControl: new FormControl(''),
-  label: 'label',
-  type: 'text',
-};
-
-describe('InputPresenterComponent', () => {
-  let component: InputPresenterComponent;
-  let fixture: ComponentFixture<InputPresenterComponent>;
+describe('InputComponent', () => {
+  let component: InputComponent;
+  let fixture: ComponentFixture<InputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InputPresenterComponent],
+      declarations: [InputComponent],
       imports: [
         CommonModule,
         FormsModule,
@@ -36,9 +29,11 @@ describe('InputPresenterComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputPresenterComponent);
+    fixture = TestBed.createComponent(InputComponent);
     component = fixture.componentInstance;
-    component.inputData = presenterInputData;
+    component.inpFormControl = new FormControl('');
+    component.label = 'label';
+    component.type = 'text';
     fixture.detectChanges();
   });
 

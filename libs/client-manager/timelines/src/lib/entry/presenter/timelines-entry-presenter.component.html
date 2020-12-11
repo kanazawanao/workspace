@@ -1,13 +1,13 @@
 <div>
   <form [formGroup]="formGroup">
     <div>
-      <ui-input-container
+      <ui-input
         [inpFormControl]="formGroup.get(controlName.event)"
         [label]="'event'"
-      ></ui-input-container>
-      <ui-date-picker-container
+      ></ui-input>
+      <ui-date-picker
         [dateFormControl]="formGroup.get(controlName.date)"
-      ></ui-date-picker-container>
+      ></ui-date-picker>
     </div>
     <button
       mat-button

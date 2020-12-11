@@ -1,4 +1,4 @@
-export class ListPresenterInputData {
+export class ListInputData {
   dataSource: ListDataSource[];
 }
 

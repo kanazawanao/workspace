@@ -6,18 +6,18 @@
         [label]="'skillType'"
         [options]="options$"
       ></ui-select-container>
-      <ui-input-container
+      <ui-input
         [inpFormControl]="formGroup.get(controlName.skillName)"
         [label]="'skillName'"
-      ></ui-input-container>
-      <ui-input-container
+      ></ui-input>
+      <ui-input
         [inpFormControl]="formGroup.get(controlName.experienceYears)"
         [label]="'experienceYears'"
-      ></ui-input-container>
-      <ui-input-container
+      ></ui-input>
+      <ui-input
         [inpFormControl]="formGroup.get(controlName.skillLevel)"
         [label]="'skillLevel'"
-      ></ui-input-container>
+      ></ui-input>
     </div>
     <button mat-button (click)="registEvent.emit()">regist</button>
   </form>

@@ -1,5 +1,4 @@
-import { DatePickerPresenterInputData } from './date-picker-presenter-input-data';
-import { DatePickerPresenterComponent } from './date-picker-presenter.component';
+import { DatePickerComponent } from './date-picker.component';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,17 +7,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const presenterInputData: DatePickerPresenterInputData = {
-  formControl: new FormControl(''),
-  label: 'test',
-};
 describe('DatePickerPresenterComponent', () => {
-  let component: DatePickerPresenterComponent;
-  let fixture: ComponentFixture<DatePickerPresenterComponent>;
+  let component: DatePickerComponent;
+  let fixture: ComponentFixture<DatePickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DatePickerPresenterComponent],
+      declarations: [DatePickerComponent],
       imports: [
         CommonModule,
         FormsModule,
@@ -32,9 +27,10 @@ describe('DatePickerPresenterComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DatePickerPresenterComponent);
+    fixture = TestBed.createComponent(DatePickerComponent);
     component = fixture.componentInstance;
-    component.inputData = presenterInputData;
+    component.dateFormControl = new FormControl();
+    component.label = '';
     fixture.detectChanges();
   });
 

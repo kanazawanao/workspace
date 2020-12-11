@@ -1,4 +1,4 @@
-import { DatePickerPresenterComponent } from './date-picker-presenter.component';
+import { DatePickerComponent } from './date-picker.component';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export default {
-  title: 'DatePickerPresenterComponent',
+  title: 'DatePickerComponent',
 };
 
 export const primary = () => ({
@@ -22,11 +22,9 @@ export const primary = () => ({
       BrowserAnimationsModule,
     ],
   },
-  component: DatePickerPresenterComponent,
+  component: DatePickerComponent,
   props: {
-    inputData: {
-      formControl: new FormControl(),
-      label: 'date',
-    },
+    dateFormControl: new FormControl(),
+    label: '日付',
   },
 });

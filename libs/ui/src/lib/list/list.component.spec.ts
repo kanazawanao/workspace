@@ -1,4 +1,4 @@
-import { ListPresenterComponent } from './list-presenter.component';
+import { ListComponent } from './list.component';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -6,8 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {
   ListDataSource,
-  ListPresenterInputData,
-} from './list-presenter-input-data';
+} from './list-input-data';
+
 const ELEMENT_DATA: ListDataSource[] = [
   {
     header: 'header',
@@ -20,16 +20,14 @@ const ELEMENT_DATA: ListDataSource[] = [
     ],
   },
 ];
-const presenterInputData: ListPresenterInputData = {
-  dataSource: ELEMENT_DATA,
-};
+
 describe('ListPresenterComponent', () => {
-  let component: ListPresenterComponent;
-  let fixture: ComponentFixture<ListPresenterComponent>;
+  let component: ListComponent;
+  let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListPresenterComponent],
+      declarations: [ListComponent],
       imports: [
         CommonModule,
         ReactiveFormsModule,
@@ -40,9 +38,9 @@ describe('ListPresenterComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListPresenterComponent);
+    fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
-    component.inputData = presenterInputData;
+    component.dataSource = ELEMENT_DATA;
     fixture.detectChanges();
   });
 

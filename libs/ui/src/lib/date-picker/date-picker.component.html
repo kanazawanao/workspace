@@ -1,9 +1,9 @@
 <mat-form-field appearance="fill">
-  <mat-label>{{ inputData.label }}</mat-label>
+  <mat-label>{{ label }}</mat-label>
   <input
     matInput
     [matDatepicker]="picker"
-    [formControl]="inputData?.formControl"
+    [formControl]="dateFormControl"
   />
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>

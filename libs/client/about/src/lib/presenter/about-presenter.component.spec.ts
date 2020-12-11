@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 @Component({
-  selector: 'ui-list-container',
+  selector: 'ui-list',
   template: '',
   styleUrls: [],
 })

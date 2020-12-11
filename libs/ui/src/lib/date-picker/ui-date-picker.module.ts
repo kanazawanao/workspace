@@ -1,5 +1,4 @@
-import { DatePickerContainerComponent } from './container/date-picker-container.component';
-import { DatePickerPresenterComponent } from './presenter/date-picker-presenter.component';
+import { DatePickerComponent } from './date-picker.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,7 +7,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [DatePickerContainerComponent, DatePickerPresenterComponent],
+  declarations: [DatePickerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +16,6 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatMomentDateModule,
   ],
-  exports: [DatePickerContainerComponent],
+  exports: [DatePickerComponent],
 })
 export class UiDatePickerModule {}

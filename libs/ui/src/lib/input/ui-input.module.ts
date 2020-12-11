@@ -1,5 +1,4 @@
-import { InputContainerComponent } from './container/input-container.component';
-import { InputPresenterComponent } from './presenter/input-presenter.component';
+import { InputComponent } from './input.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [InputPresenterComponent, InputContainerComponent],
+  declarations: [InputComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -18,6 +17,6 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatFormFieldModule,
   ],
-  exports: [InputContainerComponent],
+  exports: [InputComponent],
 })
 export class UiInputModule {}
