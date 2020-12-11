@@ -6,6 +6,5 @@ export * from './lib/list/ui-list.module';
 export * from './lib/select/ui-select.module';
 export * from './lib/sidenav/ui-sidenav.module';
 export * from './lib/list/list-input-data';
-export * from './lib/select/presenter/select-presenter-input-data';
 export * from './lib/select/select-option';
 export * from './lib/table/presenter/table-presenter-input-data';

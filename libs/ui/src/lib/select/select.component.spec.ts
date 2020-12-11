@@ -1,5 +1,4 @@
-import { SelectPresenterInputData } from './select-presenter-input-data';
-import { SelectPresenterComponent } from './select-presenter.component';
+import { SelectComponent } from './select.component';
 import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -8,33 +7,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 
-const inputData: SelectPresenterInputData = {
-  label: 'test',
-  isDisabled: false,
-  options$: of([
-    {
-      value: 1,
-      viewValue: 'select1',
-    },
-    {
-      value: 2,
-      viewValue: 'select2',
-    },
-    {
-      value: 3,
-      viewValue: 'select3',
-    },
-  ]),
-  formControl: new FormControl(),
-};
-
-describe('SelectPresenterComponent', () => {
-  let component: SelectPresenterComponent;
-  let fixture: ComponentFixture<SelectPresenterComponent>;
+describe('SelectComponent', () => {
+  let component: SelectComponent;
+  let fixture: ComponentFixture<SelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SelectPresenterComponent],
+      declarations: [SelectComponent],
       imports: [
         CommonModule,
         ReactiveFormsModule,
@@ -46,9 +25,25 @@ describe('SelectPresenterComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SelectPresenterComponent);
+    fixture = TestBed.createComponent(SelectComponent);
     component = fixture.componentInstance;
-    component.inputData = inputData;
+    component.label = 'test',
+    component.isDisabled = false,
+    component.options$ = of([
+      {
+        value: 1,
+        viewValue: 'select1',
+      },
+      {
+        value: 2,
+        viewValue: 'select2',
+      },
+      {
+        value: 3,
+        viewValue: 'select3',
+      },
+    ]),
+    component.selectFormControl = new FormControl(),
     fixture.detectChanges();
   });
 

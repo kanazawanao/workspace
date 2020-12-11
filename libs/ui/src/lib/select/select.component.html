@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>{{ label }}</mat-label>
-  <mat-select [disabled]="isDisabled" [formControl]="formControl">
+  <mat-select [disabled]="isDisabled" [formControl]="selectFormControl">
     <mat-option *ngFor="let option of options$ | async" [value]="option.value">
       {{ option.viewValue }}
     </mat-option>
