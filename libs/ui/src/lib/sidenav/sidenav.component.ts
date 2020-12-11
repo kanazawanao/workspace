@@ -1,6 +1,6 @@
 import { SidenavOption } from './sidenav-option';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
@@ -9,7 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
   @Input() headerTitle: string;
   @Input() menuTitle: string;
   @Input() options: SidenavOption[];
@@ -20,6 +20,4 @@ export class SidenavComponent implements OnInit {
       shareReplay()
     );
   constructor(private breakpointObserver: BreakpointObserver) {}
-
-  ngOnInit(): void {}
 }

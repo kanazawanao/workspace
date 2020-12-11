@@ -1,4 +1,3 @@
-import { FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -8,7 +7,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -18,20 +16,18 @@ import {
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit, AfterViewInit {
-  @Input() dataSource: any;
+export class TableComponent<T> implements AfterViewInit {
+  @Input() dataSource: T[];
   @Input() displayedColumns: string[];
-  @Output() selectEvent = new EventEmitter<FormGroup>();
+  @Output() selectEvent = new EventEmitter<T>();
   @ViewChild(MatSort) sort: MatSort;
-  selectedRow: any;
-  tableDataSource: MatTableDataSource<any>;
+  selectedRow: T;
+  tableDataSource: MatTableDataSource<T>;
   constructor(private cd: ChangeDetectorRef) {}
-
-  ngOnInit(): void {}
 
   ngAfterViewInit() {
     if (this.dataSource instanceof Observable) {
-      this.dataSource.subscribe((x: any[]) => {
+      this.dataSource.subscribe((x: T[]) => {
         this.tableDataSource = new MatTableDataSource(x);
         this.tableDataSource.sort = this.sort;
       });
@@ -42,7 +38,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.cd.detectChanges();
   }
 
-  selectEventListener(row: any): void {
+  selectEventListener(row: T): void {
     this.selectedRow = row;
     this.selectEvent.emit(row);
   }

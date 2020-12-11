@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidenavOption } from 'libs/ui/src/lib/sidenav/sidenav-option';
+import { SidenavOption } from '@workspace/ui';
 
 @Component({
   selector: 'client-root',
@@ -7,7 +7,6 @@ import { SidenavOption } from 'libs/ui/src/lib/sidenav/sidenav-option';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
   title = 'client';
   menuTitle = 'Menu';
   options: SidenavOption[] = [

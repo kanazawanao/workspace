@@ -1,5 +1,5 @@
 import { SelectOption } from './select-option';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -8,12 +8,9 @@ import { Observable } from 'rxjs';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent {
   @Input() options$: Observable<SelectOption[]>;
   @Input() selectFormControl: FormControl;
   @Input() label: string;
   @Input() isDisabled: boolean;
-  constructor() {}
-
-  ngOnInit(): void {}
 }
