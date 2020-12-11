@@ -31,7 +31,7 @@ export class SkillTypesEntryContainerComponent implements OnInit {
   }
 
   regist() {
-    var registData = new SkillTypeEntryModel();
+    const registData = new SkillTypeEntryModel();
     registData.skillTypeName = this.formGroup.get(
       this.controlName.skillTypeName
     ).value;

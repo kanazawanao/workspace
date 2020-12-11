@@ -9,12 +9,8 @@ export class MockSkillTypesFacade {
   editMode$ = of(EditType.create);
   loadSkillTypes() {}
   loadUpdateInitSkillTypeEntry(skillTypeId: string) {}
-
   createSkill(skillTypeEntry: SkillTypeEntryModel) {}
-
   updateSkill(id: number, skillTypeEntry: SkillTypeEntryModel) {}
-
   deleteSkill(id: number) {}
-
   setEditerMode(editerMode: EditType) {}
 }
