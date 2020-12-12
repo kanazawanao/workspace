@@ -101,6 +101,13 @@
     },
     "client-manager-data-access": {
       "tags": []
+    },
+    "tripig": {
+      "tags": []
+    },
+    "tripig-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tripig"]
     }
   }
 }
