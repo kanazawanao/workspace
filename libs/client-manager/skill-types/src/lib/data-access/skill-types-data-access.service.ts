@@ -20,14 +20,14 @@ export class SkillTypesDataAccessService {
   }
 
   fetchSkillType(id: string): Observable<ISkillType> {
-    var res = this.httpRequestService.get<ISkillType>({
+    const res = this.httpRequestService.get<ISkillType>({
       url: `${this.apiUrl}${this.constants.skilltypes}/${id}`,
     });
     return res;
   }
 
   postSkillType(skill: SkillTypeEntryModel): Observable<ISkillType> {
-    var res = this.httpRequestService.post<ISkillType>({
+    const res = this.httpRequestService.post<ISkillType>({
       url: `${this.apiUrl}${this.constants.skilltypes}`,
       body: skill,
     });
@@ -38,7 +38,7 @@ export class SkillTypesDataAccessService {
     id: number,
     skill: SkillTypeEntryModel
   ): Observable<ISkillType> {
-    var res = this.httpRequestService.put<ISkillType>({
+    const res = this.httpRequestService.put<ISkillType>({
       url: `${this.apiUrl}${this.constants.skilltypes}/${id}`,
       body: skill,
     });
@@ -46,7 +46,7 @@ export class SkillTypesDataAccessService {
   }
 
   deleteSkillType(id: number) {
-    var res = this.httpRequestService.delete({
+    const res = this.httpRequestService.delete({
       url: `${this.apiUrl}${this.constants.skilltypes}/${id}`,
     });
     return res;

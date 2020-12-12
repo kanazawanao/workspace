@@ -1,16 +1,16 @@
 <div>
   <form [formGroup]="formGroup" class="form">
-    <ui-input-container
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.email)"
       [label]="'email'"
       [type]="'email'"
-    ></ui-input-container>
+    ></ui-input>
     <br />
-    <ui-input-container
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.password)"
       [label]="'password'"
       [type]="'password'"
-    ></ui-input-container>
+    ></ui-input>
     <br />
     <button mat-raised-button (click)="loginEvent.emit()">Login</button>
   </form>

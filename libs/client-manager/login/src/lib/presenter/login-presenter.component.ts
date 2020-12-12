@@ -1,5 +1,5 @@
 import { LoginControlName } from '../login-control-name';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,8 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './login-presenter.component.html',
   styleUrls: ['./login-presenter.component.scss'],
 })
-export class LoginPresenterComponent implements OnInit {
+export class LoginPresenterComponent {
   @Output() loginEvent = new EventEmitter();
   @Input() formGroup: FormGroup;
   controlName = LoginControlName;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,0 +1,18 @@
+<mat-form-field class="full-width">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    aria-label="input"
+    [type]="type"
+    [formControl]="inpFormControl"
+  />
+  <mat-error *ngIf="inpFormControl.hasError('required')">
+    必須項目です
+  </mat-error>
+  <mat-error *ngIf="inpFormControl.hasError('email')">
+    emailで入力してください
+  </mat-error>
+  <mat-error *ngIf="inpFormControl.hasError('minlength')">
+    入力内容が短すぎます
+  </mat-error>
+</mat-form-field>

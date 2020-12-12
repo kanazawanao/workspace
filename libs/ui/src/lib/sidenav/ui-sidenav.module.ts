@@ -1,5 +1,4 @@
-import { SidenavContainerComponent } from './container/sidenav-container.component';
-import { SidenavPresenterComponent } from './presenter/sidenav-presenter.component';
+import { SidenavComponent } from './sidenav.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,7 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [SidenavContainerComponent, SidenavPresenterComponent],
+  declarations: [SidenavComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -18,6 +17,6 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatListModule,
   ],
-  exports: [SidenavContainerComponent],
+  exports: [SidenavComponent],
 })
 export class UiSidenavModule {}

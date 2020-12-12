@@ -1,37 +1,37 @@
 <div>
   <div>
-    <ui-input-container
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.firstName)"
       [label]="controlName.firstName"
-    ></ui-input-container>
-    <ui-input-container
+    ></ui-input>
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.lastName)"
       [label]="controlName.lastName"
-    ></ui-input-container>
-    <ui-input-container
+    ></ui-input>
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.password)"
       [label]="controlName.password"
-    ></ui-input-container>
-    <ui-input-container
+    ></ui-input>
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.email)"
       [label]="controlName.email"
-    ></ui-input-container>
-    <ui-date-picker-container
+    ></ui-input>
+    <ui-date-picker
       [dateFormControl]="formGroup.get(controlName.birthDay)"
       [label]="controlName.birthDay"
-    ></ui-date-picker-container>
-    <ui-input-container
+    ></ui-date-picker>
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.sex)"
       [label]="controlName.sex"
-    ></ui-input-container>
-    <ui-input-container
+    ></ui-input>
+    <ui-input
       [inpFormControl]="formGroup.get(controlName.qualification)"
       [label]="controlName.qualification"
-    ></ui-input-container>
-    <ui-date-picker-container
+    ></ui-input>
+    <ui-date-picker
       [dateFormControl]="formGroup.get(controlName.graduationDate)"
       [label]="controlName.graduationDate"
-    ></ui-date-picker-container>
+    ></ui-date-picker>
   </div>
   <ng-container *ngIf="editMode === editType.create">
     <button mat-button (click)="registEvent.emit()">regist</button>

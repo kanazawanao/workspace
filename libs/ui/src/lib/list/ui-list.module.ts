@@ -1,5 +1,4 @@
-import { ListContainerComponent } from './container/list-container.component';
-import { ListPresenterComponent } from './presenter/list-presenter.component';
+import { ListComponent } from './list.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -7,8 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [ListPresenterComponent, ListContainerComponent],
+  declarations: [ListComponent],
   imports: [CommonModule, ReactiveFormsModule, MatListModule, MatIconModule],
-  exports: [ListContainerComponent],
+  exports: [ListComponent],
 })
 export class UiListModule {}

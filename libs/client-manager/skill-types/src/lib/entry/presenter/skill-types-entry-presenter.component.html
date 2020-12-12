@@ -1,10 +1,10 @@
 <div>
   <form [formGroup]="formGroup">
     <div>
-      <ui-input-container
+      <ui-input
         [inpFormControl]="formGroup.get(controlName.skillTypeName)"
         [label]="'skillTypeName'"
-      ></ui-input-container>
+      ></ui-input>
     </div>
     <ng-container *ngIf="editMode === editType.create">
       <button mat-button (click)="registEvent.emit()">regist</button>
