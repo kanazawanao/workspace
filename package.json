@@ -35,6 +35,7 @@
     "@angular/compiler": "^10.1.0",
     "@angular/core": "^10.1.0",
     "@angular/forms": "^10.1.0",
+    "@angular/google-maps": "^11.0.2",
     "@angular/material": "~10.2.4-sha-36ce94eb6",
     "@angular/material-moment-adapter": "^11.0.0",
     "@angular/platform-browser": "^10.1.0",

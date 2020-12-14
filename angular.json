@@ -923,6 +923,58 @@
           }
         }
       }
+    },
+    "tripig-sign-in": {
+      "projectType": "library",
+      "root": "libs/tripig/sign-in",
+      "sourceRoot": "libs/tripig/sign-in/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/tripig/sign-in/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tripig/sign-in/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "tripig-sign-up": {
+      "projectType": "library",
+      "root": "libs/tripig/sign-up",
+      "sourceRoot": "libs/tripig/sign-up/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/tripig/sign-up/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tripig/sign-up/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

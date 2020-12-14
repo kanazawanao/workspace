@@ -55,7 +55,9 @@
       "@workspace/client/skill": ["libs/client/skill/src/index.ts"],
       "@workspace/client-manager/data-access": [
         "libs/client-manager/data-access/src/index.ts"
-      ]
+      ],
+      "@workspace/tripig/sign-in": ["libs/tripig/sign-in/src/index.ts"],
+      "@workspace/tripig/sign-up": ["libs/tripig/sign-up/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
