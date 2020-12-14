@@ -1,1 +1,1 @@
-export * from './lib/tripig-sign-in.module';
+export * from './lib/sign-in.module';
