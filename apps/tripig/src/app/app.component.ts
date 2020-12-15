@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidenavOption } from '@workspace/ui';
 
 @Component({
   selector: 'workspace-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tripig';
+  menuTitle = 'Menu';
+  options: SidenavOption[] = [{ value: '/', viewValue: 'signup' }];
 }
