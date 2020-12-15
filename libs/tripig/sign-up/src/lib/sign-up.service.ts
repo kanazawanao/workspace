@@ -10,4 +10,9 @@ export class SignUpService {
       password: ['', Validators.required],
     });
   }
+  signUp(signUpForm: FormGroup) {
+    const email = signUpForm.get('email').value;
+    const pass = signUpForm.get('password').value;
+    console.log(email, pass);
+  }
 }

@@ -14,4 +14,8 @@ export class SignUpContainerComponent implements OnInit {
   ngOnInit(): void {
     this.signUpForm = this.signUpService.generateForm();
   }
+
+  signUp() {
+    this.signUpService.signUp(this.signUpForm);
+  }
 }

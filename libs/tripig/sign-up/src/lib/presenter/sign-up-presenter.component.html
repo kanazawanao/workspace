@@ -12,7 +12,7 @@
     <button
       mat-button
       type="button"
-      (click)="signUp()"
+      (click)="signUpEvent.emit()"
       [disabled]="signUpForm.invalid"
       aria-label="signUp"
     >

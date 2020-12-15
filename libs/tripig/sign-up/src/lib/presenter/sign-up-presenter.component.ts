@@ -1,5 +1,4 @@
-import { SignUpService } from '../sign-up.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -9,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class SignUpPresenterComponent implements OnInit {
   @Input() signUpForm: FormGroup;
+  @Output() signUpEvent = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
