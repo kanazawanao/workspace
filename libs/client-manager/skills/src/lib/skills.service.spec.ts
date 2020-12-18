@@ -4,9 +4,14 @@ import {
   HttpRequestService,
   MockHttpRequestService,
 } from '@workspace/shared-service';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 describe('SkillsService', () => {
   let service: SkillsService;
+  let mockRouter = {
+    navigate: jasmine.createSpy('navigate'),
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,7 +21,8 @@ describe('SkillsService', () => {
           provide: HttpRequestService,
           useValue: MockHttpRequestService,
         },
-        { provide: 'apiUrl', useValue: 'https://localhost:3333/api' },
+        { provide: FormBuilder, useValue: new FormBuilder() },
+        { provide: Router, useValue: mockRouter },
       ],
     });
     service = TestBed.inject(SkillsService);

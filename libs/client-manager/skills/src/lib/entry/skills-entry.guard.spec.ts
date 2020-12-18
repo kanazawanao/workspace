@@ -9,6 +9,7 @@ describe('SkillsEntryGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        SkillsEntryGuard,
         {
           provide: SkillsFacade,
           useValue: MockSkillsFacade,
