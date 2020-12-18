@@ -19,5 +19,13 @@
       <mat-icon>person_add</mat-icon>
       Sign In
     </button>
+    <button
+      mat-button
+      type="button"
+      (click)="googleSignInEvent.emit()"
+      aria-label="googleSignIn"
+    >
+      GOOGLE sign in
+    </button>
   </form>
 </div>

@@ -18,4 +18,9 @@ export class SignInContainerComponent implements OnInit {
   signInEventListener() {
     this.signInService.signIn(this.signInForm);
   }
+
+  googleSignInEventListener() {
+    console.log('googleSignInEventListener');
+    this.signInService.googleSignIn();
+  }
 }

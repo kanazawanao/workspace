@@ -9,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class SignInPresenterComponent implements OnInit {
   @Input() signInForm: FormGroup;
   @Output() signInEvent = new EventEmitter();
+  @Output() googleSignInEvent = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}

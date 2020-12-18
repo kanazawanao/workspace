@@ -21,4 +21,8 @@ export class SignInService {
     const pass = signInForm.get('password').value;
     this.fireAuthService.signin(email, pass);
   }
+
+  googleSignIn() {
+    this.fireAuthService.googleSignIn();
+  }
 }
