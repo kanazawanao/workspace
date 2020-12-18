@@ -42,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -60,7 +59,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -84,7 +86,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/client/src/**/*.ts"
+              "apps/client/src/**/*.ts",
+              "apps/client/src/**/*.html"
             ]
           }
         },
@@ -92,8 +95,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/client/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "apps/client/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/apps/client"
+          ]
         }
       }
     },
@@ -154,7 +161,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -174,8 +184,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/api/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "apps/api/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/apps/api"
+          ]
         }
       }
     },
@@ -197,8 +211,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/api-interfaces"
+          ]
         }
       }
     },
@@ -212,7 +230,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/ui/src/**/*.ts"
+              "libs/ui/src/**/*.ts",
+              "libs/ui/src/**/*.html"
             ]
           }
         },
@@ -220,8 +239,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/ui/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/ui"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -251,7 +274,10 @@
             "ci": {
               "quiet": true
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       },
       "schematics": {
@@ -298,7 +324,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/shared-service/src/**/*.ts"
+              "libs/shared-service/src/**/*.ts",
+              "libs/shared-service/src/**/*.html"
             ]
           }
         },
@@ -306,8 +333,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared-service/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/shared-service/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/shared-service"
+          ]
         }
       },
       "schematics": {
@@ -357,7 +388,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -375,7 +405,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -399,7 +432,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/client-manager/src/**/*.ts"
+              "apps/client-manager/src/**/*.ts",
+              "apps/client-manager/src/**/*.html"
             ]
           }
         },
@@ -407,8 +441,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/client-manager/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "apps/client-manager/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/apps/client-manager"
+          ]
         }
       }
     },
@@ -458,8 +496,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/constants/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/constants/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/constants"
+          ]
         }
       },
       "schematics": {
@@ -478,7 +520,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/guards/src/**/*.ts"
+              "libs/client-manager/guards/src/**/*.ts",
+              "libs/client-manager/guards/src/**/*.html"
             ]
           }
         },
@@ -486,8 +529,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/guards/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/guards/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/guards"
+          ]
         }
       },
       "schematics": {
@@ -506,7 +553,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client/guards/src/**/*.ts"
+              "libs/client/guards/src/**/*.ts",
+              "libs/client/guards/src/**/*.html"
             ]
           }
         },
@@ -514,8 +562,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client/guards/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client/guards/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client/guards"
+          ]
         }
       },
       "schematics": {
@@ -534,7 +586,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/skill-types/src/**/*.ts"
+              "libs/client-manager/skill-types/src/**/*.ts",
+              "libs/client-manager/skill-types/src/**/*.html"
             ]
           }
         },
@@ -542,8 +595,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/skill-types/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/skill-types/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/skill-types"
+          ]
         }
       },
       "schematics": {
@@ -562,7 +619,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/skills/src/**/*.ts"
+              "libs/client-manager/skills/src/**/*.ts",
+              "libs/client-manager/skills/src/**/*.html"
             ]
           }
         },
@@ -570,8 +628,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/skills/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/skills/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/skills"
+          ]
         }
       },
       "schematics": {
@@ -590,7 +652,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/timelines/src/**/*.ts"
+              "libs/client-manager/timelines/src/**/*.ts",
+              "libs/client-manager/timelines/src/**/*.html"
             ]
           }
         },
@@ -598,8 +661,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/timelines/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/timelines/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/timelines"
+          ]
         }
       },
       "schematics": {
@@ -618,7 +685,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/users/src/**/*.ts"
+              "libs/client-manager/users/src/**/*.ts",
+              "libs/client-manager/users/src/**/*.html"
             ]
           }
         },
@@ -626,8 +694,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/users/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/users/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/users"
+          ]
         }
       },
       "schematics": {
@@ -646,7 +718,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/login/src/**/*.ts"
+              "libs/client-manager/login/src/**/*.ts",
+              "libs/client-manager/login/src/**/*.html"
             ]
           }
         },
@@ -654,8 +727,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/login/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/login/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/login"
+          ]
         }
       },
       "schematics": {
@@ -674,7 +751,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/shared/story-book/src/**/*.ts"
+              "libs/shared/story-book/src/**/*.ts",
+              "libs/shared/story-book/src/**/*.html"
             ]
           }
         },
@@ -682,8 +760,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/story-book/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/shared/story-book/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/shared/story-book"
+          ]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -713,7 +795,10 @@
             "ci": {
               "quiet": true
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       },
       "schematics": {
@@ -760,7 +845,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client/about/src/**/*.ts"
+              "libs/client/about/src/**/*.ts",
+              "libs/client/about/src/**/*.html"
             ]
           }
         },
@@ -768,8 +854,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client/about/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client/about/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client/about"
+          ]
         }
       },
       "schematics": {
@@ -788,7 +878,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client/timeline/src/**/*.ts"
+              "libs/client/timeline/src/**/*.ts",
+              "libs/client/timeline/src/**/*.html"
             ]
           }
         },
@@ -796,8 +887,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client/timeline/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client/timeline/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client/timeline"
+          ]
         }
       },
       "schematics": {
@@ -816,7 +911,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client/skill/src/**/*.ts"
+              "libs/client/skill/src/**/*.ts",
+              "libs/client/skill/src/**/*.html"
             ]
           }
         },
@@ -824,8 +920,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client/skill/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client/skill/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client/skill"
+          ]
         }
       },
       "schematics": {
@@ -844,7 +944,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client-manager/data-access/src/**/*.ts"
+              "libs/client-manager/data-access/src/**/*.ts",
+              "libs/client-manager/data-access/src/**/*.html"
             ]
           }
         },
@@ -852,8 +953,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/client-manager/data-access/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/data-access/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/client-manager/data-access"
+          ]
         }
       },
       "schematics": {
@@ -903,7 +1008,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -921,7 +1025,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -944,7 +1051,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/tripig/src/**/*.ts"
+              "apps/tripig/src/**/*.ts",
+              "apps/tripig/src/**/*.html"
             ]
           }
         },
@@ -952,8 +1060,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/tripig/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "apps/tripig/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/apps/tripig"
+          ]
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
@@ -999,7 +1111,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/tripig/sign-in/src/**/*.ts"
+              "libs/tripig/sign-in/src/**/*.ts",
+              "libs/tripig/sign-in/src/**/*.html"
             ]
           }
         },
@@ -1007,8 +1120,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/tripig/sign-in/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/tripig/sign-in/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/tripig/sign-in"
+          ]
         }
       },
       "schematics": {
@@ -1027,7 +1144,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/tripig/sign-up/src/**/*.ts"
+              "libs/tripig/sign-up/src/**/*.ts",
+              "libs/tripig/sign-up/src/**/*.html"
             ]
           }
         },
@@ -1035,8 +1153,12 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/tripig/sign-up/jest.config.js",
-            "passWithNoTests": true
-          }
+            "passWithNoTests": true,
+            "tsConfig": "libs/tripig/sign-up/tsconfig.spec.json"
+          },
+          "outputs": [
+            "coverage/libs/tripig/sign-up"
+          ]
         }
       },
       "schematics": {
