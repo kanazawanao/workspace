@@ -9,5 +9,8 @@ import { SidenavOption } from '@workspace/ui';
 export class AppComponent {
   title = 'tripig';
   menuTitle = 'Menu';
-  options: SidenavOption[] = [{ value: '/', viewValue: 'signup' }];
+  options: SidenavOption[] = [
+    { value: '/signup', viewValue: 'signup' },
+    { value: '/signin', viewValue: 'signin' },
+  ];
 }

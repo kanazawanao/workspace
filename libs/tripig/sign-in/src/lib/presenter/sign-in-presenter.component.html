@@ -1,0 +1,23 @@
+<div>
+  <form [formGroup]="signInForm" class="form">
+    <ui-input
+      [inpFormControl]="signInForm.get('email')"
+      [label]="'email'"
+    ></ui-input>
+    <ui-input
+      [inpFormControl]="signInForm.get('password')"
+      [label]="'password'"
+      [type]="'password'"
+    ></ui-input>
+    <button
+      mat-button
+      type="button"
+      (click)="signInEvent.emit()"
+      [disabled]="signInForm.invalid"
+      aria-label="signIn"
+    >
+      <mat-icon>person_add</mat-icon>
+      Sign In
+    </button>
+  </form>
+</div>

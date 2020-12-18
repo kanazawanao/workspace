@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class FireAuthService {
@@ -17,7 +17,7 @@ export class FireAuthService {
       });
   }
 
-  login(email: string, password: string): void {
+  signin(email: string, password: string): void {
     this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
@@ -35,7 +35,7 @@ export class FireAuthService {
       });
   }
 
-  logout(): void {
+  signout(): void {
     this.afAuth
       .signOut()
       .then(() => {})
@@ -44,5 +44,23 @@ export class FireAuthService {
         console.log(err);
         alert('ログアウトに失敗しました。\n' + err);
       });
+  }
+
+  googleSignIn() {
+    const provider = new firebase.default.auth.GoogleAuthProvider();
+    return this.oAuthSignIn(provider);
+  }
+
+  facebookSignIn() {
+    const provider = new firebase.default.auth.FacebookAuthProvider();
+    return this.oAuthSignIn(provider);
+  }
+
+  private async oAuthSignIn(provider: firebase.default.auth.AuthProvider) {
+    try {
+      const credential = await this.afAuth.signInWithPopup(provider);
+    } catch (err) {
+      return console.log(err);
+    }
   }
 }
