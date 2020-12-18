@@ -38,7 +38,7 @@ describe('UsersFacade', () => {
           UsersFacade,
           {
             provide: UsersDataAccessService,
-            useValue: MockUsersDataAccessService,
+            useClass: MockUsersDataAccessService,
           },
         ],
       })
@@ -55,8 +55,8 @@ describe('UsersFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.get(Store);
-      facade = TestBed.get(UsersFacade);
+      store = TestBed.inject(Store);
+      facade = TestBed.inject(UsersFacade);
     });
 
     /**
@@ -75,8 +75,8 @@ describe('UsersFacade', () => {
         list = await readFirst(facade.allUsers$);
         isLoaded = await readFirst(facade.loaded$);
 
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(false);
+        expect(list.length).toBe(5);
+        expect(isLoaded).toBe(true);
 
         done();
       } catch (err) {

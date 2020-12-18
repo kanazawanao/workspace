@@ -8,6 +8,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
 import { Observable } from 'rxjs';
+import { usersData } from '../users.data';
 
 describe('UsersEffects', () => {
   let actions: Observable<any>;
@@ -36,7 +37,7 @@ describe('UsersEffects', () => {
       actions = hot('-a-|', { a: UsersActions.loadUsers() });
 
       const expected = hot('-a-|', {
-        a: UsersActions.loadUsersSuccess({ users: [] }),
+        a: UsersActions.loadUsersSuccess({ users: usersData }),
       });
 
       expect(effects.loadUsers$).toBeObservable(expected);

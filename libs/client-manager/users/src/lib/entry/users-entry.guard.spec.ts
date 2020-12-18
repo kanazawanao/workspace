@@ -9,6 +9,7 @@ describe('UsersEntryGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        UsersEntryGuard,
         {
           provide: UsersFacade,
           useValue: MockUsersFacade,
