@@ -9,6 +9,7 @@ describe('TimelinesListGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        TimelinesListGuard,
         {
           provide: TimelinesFacade,
           useValue: MockTimelinesFacade,

@@ -38,7 +38,7 @@ describe('SkillsFacade', () => {
           SkillsFacade,
           {
             provide: SkillsDataAccessService,
-            useValue: MockSkillsDataAccessService,
+            useClass: MockSkillsDataAccessService,
           },
         ],
       })

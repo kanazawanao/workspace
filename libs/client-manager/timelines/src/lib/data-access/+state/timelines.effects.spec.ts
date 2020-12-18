@@ -6,6 +6,9 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
 import { Observable } from 'rxjs';
+import { TimelinesDataAccessService } from '../timelines-data-access.service';
+import { MockTimelinesDataAccessService } from '../mock-timelines-data-access.service';
+import { timelinesData } from '../timelines.data';
 
 describe('TimelinesEffects', () => {
   let actions: Observable<any>;
@@ -19,6 +22,10 @@ describe('TimelinesEffects', () => {
         DataPersistence,
         provideMockActions(() => actions),
         provideMockStore(),
+        {
+          provide: TimelinesDataAccessService,
+          useClass: MockTimelinesDataAccessService,
+        },
       ],
     });
 
@@ -30,7 +37,7 @@ describe('TimelinesEffects', () => {
       actions = hot('-a-|', { a: TimelinesActions.loadTimelines() });
 
       const expected = hot('-a-|', {
-        a: TimelinesActions.loadTimelinesSuccess({ timelines: [] }),
+        a: TimelinesActions.loadTimelinesSuccess({ timelines: timelinesData }),
       });
 
       expect(effects.loadTimelines$).toBeObservable(expected);

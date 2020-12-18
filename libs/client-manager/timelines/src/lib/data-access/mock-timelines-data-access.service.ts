@@ -1,26 +1,23 @@
-import { TimelinesEntryModel } from '../timelines-entry.model';
 import { ITimeline } from '@workspace/api-interfaces';
 import { Observable, of } from 'rxjs';
+import { timelinesData } from './timelines.data';
 
 export class MockTimelinesDataAccessService {
   fetchTimelines(): Observable<ITimeline[]> {
-    return of();
+    return of(timelinesData);
   }
 
-  fetchTimeline(id: string): Observable<ITimeline> {
-    return of();
+  fetchTimeline(): Observable<ITimeline> {
+    return of(timelinesData[0]);
   }
 
-  postTimeline(timeline: TimelinesEntryModel): Observable<ITimeline> {
-    return of();
+  postTimeline(): Observable<ITimeline> {
+    return of(timelinesData[1]);
   }
 
-  updateTimeline(
-    id: number,
-    timeline: TimelinesEntryModel
-  ): Observable<ITimeline> {
-    return of();
+  updateTimeline(): Observable<ITimeline> {
+    return of(timelinesData[1]);
   }
 
-  deleteTimeline(id: number) {}
+  deleteTimeline() {}
 }

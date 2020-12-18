@@ -38,7 +38,7 @@ describe('TimelinesFacade', () => {
           TimelinesFacade,
           {
             provide: TimelinesDataAccessService,
-            useValue: MockTimelinesDataAccessService,
+            useClass: MockTimelinesDataAccessService,
           },
         ],
       })
@@ -55,8 +55,8 @@ describe('TimelinesFacade', () => {
       class RootModule {}
       TestBed.configureTestingModule({ imports: [RootModule] });
 
-      store = TestBed.get(Store);
-      facade = TestBed.get(TimelinesFacade);
+      store = TestBed.inject(Store);
+      facade = TestBed.inject(TimelinesFacade);
     });
 
     /**
@@ -75,7 +75,7 @@ describe('TimelinesFacade', () => {
         list = await readFirst(facade.allTimelines$);
         isLoaded = await readFirst(facade.loaded$);
 
-        expect(list.length).toBe(0);
+        expect(list.length).toBe(5);
         expect(isLoaded).toBe(true);
 
         done();

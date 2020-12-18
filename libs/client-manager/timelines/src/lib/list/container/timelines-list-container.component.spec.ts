@@ -5,6 +5,8 @@ import { ITimeline } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 import { MockTimelinesFacade } from '../../data-access/+state/mock-timelines.facade';
 import { TimelinesFacade } from '../../data-access/+state/timelines.facade';
+import { TimelinesService } from '../../timelines.service';
+import { MockTimelinesService } from '../../mock-timelines.service';
 
 @Component({
   selector: 'client-manager-timelines-list-presenter',
@@ -30,6 +32,10 @@ describe('TimelinesListContainerComponent', () => {
         {
           provide: TimelinesFacade,
           useClass: MockTimelinesFacade,
+        },
+        {
+          provide: TimelinesService,
+          useClass: MockTimelinesService,
         },
       ],
     }).compileComponents();

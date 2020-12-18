@@ -6,6 +6,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup } from '@angular/forms';
 import { MockTimelinesFacade } from '../../data-access/+state/mock-timelines.facade';
 import { TimelinesFacade } from '../../data-access/+state/timelines.facade';
+import { EditType } from '@workspace/constants';
 
 @Component({
   selector: 'client-manager-timelines-entry-presenter',
@@ -14,7 +15,10 @@ import { TimelinesFacade } from '../../data-access/+state/timelines.facade';
 })
 export class MockTinelinesEntryPresenterComponent {
   @Input() formGroup: FormGroup;
+  @Input() editMode: EditType;
   @Output() registEvent = new EventEmitter();
+  @Output() updateEvent = new EventEmitter();
+  @Output() deleteEvent = new EventEmitter();
 }
 
 describe('TimelinesEntryContainerComponent', () => {
