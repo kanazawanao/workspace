@@ -75,8 +75,8 @@ describe('SkillsFacade', () => {
         list = await readFirst(facade.allSkills$);
         isLoaded = await readFirst(facade.loaded$);
 
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(false);
+        expect(list.length).toBe(5);
+        expect(isLoaded).toBe(true);
 
         done();
       } catch (err) {
