@@ -11,7 +11,7 @@ import { SkillTypesFacade } from '../../data-access/+state/skill-types.facade';
   styleUrls: ['./skill-types-entry-container.component.scss'],
 })
 export class SkillTypesEntryContainerComponent implements OnInit {
-  formGroup: FormGroup;
+  skillTypesForm: FormGroup;
   controlName = SkillTypesEntryControlName;
   editMode$ = this.skillTypesFacade.editMode$;
   constructor(
@@ -20,10 +20,10 @@ export class SkillTypesEntryContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.formGroup = this.skillTypesService.generateFormGroup();
+    this.skillTypesForm = this.skillTypesService.generateFormGroup();
     this.skillTypesFacade.workSkillType$.subscribe((x) => {
       if (x !== undefined) {
-        this.formGroup
+        this.skillTypesForm
           .get(this.controlName.skillTypeName)
           .setValue(x.skillTypeName);
       }
@@ -32,7 +32,7 @@ export class SkillTypesEntryContainerComponent implements OnInit {
 
   regist() {
     const registData = new SkillTypeEntryModel();
-    registData.skillTypeName = this.formGroup.get(
+    registData.skillTypeName = this.skillTypesForm.get(
       this.controlName.skillTypeName
     ).value;
     this.skillTypesFacade.createSkillType(registData);

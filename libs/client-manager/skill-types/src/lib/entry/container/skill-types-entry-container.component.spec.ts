@@ -1,12 +1,14 @@
 import { SkillTypesEntryContainerComponent } from './skill-types-entry-container.component';
 import { MockSkillTypesService } from '../../mock-skill-types.service';
 import { SkillTypesService } from '../../skill-types.service';
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MockSkillTypesFacade } from '../../data-access/+state/mock-skill-types.facade';
 import { SkillTypesFacade } from '../../data-access/+state/skill-types.facade';
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { EditType } from '@workspace/constants';
 
 @Component({
   selector: 'client-manager-skill-types-entry-presenter',
@@ -14,8 +16,11 @@ import { SkillTypesFacade } from '../../data-access/+state/skill-types.facade';
   styleUrls: [],
 })
 export class MockSkillTypesEntryPresenterComponent {
-  @Input() formGroup: FormGroup;
+  @Input() skillTypesForm: FormGroup;
+  @Input() editMode: EditType;
   @Output() registEvent = new EventEmitter();
+  @Output() updateEvent = new EventEmitter();
+  @Output() deleteEvent = new EventEmitter();
 }
 
 describe('SkillTypesEntryContainerComponent', () => {

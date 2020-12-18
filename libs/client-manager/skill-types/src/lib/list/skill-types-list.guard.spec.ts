@@ -8,6 +8,7 @@ describe('SkillTypesListGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        SkillTypesListGuard,
         {
           provide: SkillTypesFacade,
           useValue: MockSkillTypesFacade,

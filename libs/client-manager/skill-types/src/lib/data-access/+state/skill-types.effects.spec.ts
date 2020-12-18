@@ -6,6 +6,9 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
 import { Observable } from 'rxjs';
+import { MockSkillTypesDataAccessService } from '../mock-skill-types-data-access.service';
+import { SkillTypesDataAccessService } from '../skill-types-data-access.service';
+import { skillTypesData } from '../skill-types.data';
 
 describe('SkillTypesEffects', () => {
   let actions: Observable<any>;
@@ -19,6 +22,10 @@ describe('SkillTypesEffects', () => {
         DataPersistence,
         provideMockActions(() => actions),
         provideMockStore(),
+        {
+          provide: SkillTypesDataAccessService,
+          useClass: MockSkillTypesDataAccessService,
+        },
       ],
     });
 
@@ -30,7 +37,9 @@ describe('SkillTypesEffects', () => {
       actions = hot('-a-|', { a: SkillTypesActions.loadSkillTypes() });
 
       const expected = hot('-a-|', {
-        a: SkillTypesActions.loadSkillTypesSuccess({ skillTypes: [] }),
+        a: SkillTypesActions.loadSkillTypesSuccess({
+          skillTypes: skillTypesData,
+        }),
       });
 
       expect(effects.loadSkillTypes$).toBeObservable(expected);

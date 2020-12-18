@@ -9,7 +9,8 @@ import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 import { ISkillType } from '@workspace/api-interfaces';
-
+import { SkillTypesDataAccessService } from '../skill-types-data-access.service';
+import { MockSkillTypesDataAccessService } from '../mock-skill-types-data-access.service';
 interface TestSchema {
   skillTypes: State;
 }
@@ -32,7 +33,13 @@ describe('SkillTypesFacade', () => {
           StoreModule.forFeature(SKILL_TYPES_FEATURE_KEY, reducer),
           EffectsModule.forFeature([SkillTypesEffects]),
         ],
-        providers: [SkillTypesFacade],
+        providers: [
+          SkillTypesFacade,
+          {
+            provide: SkillTypesDataAccessService,
+            useClass: MockSkillTypesDataAccessService,
+          },
+        ],
       })
       class CustomFeatureModule {}
 
@@ -67,7 +74,7 @@ describe('SkillTypesFacade', () => {
         list = await readFirst(facade.allSkillTypes$);
         isLoaded = await readFirst(facade.loaded$);
 
-        expect(list.length).toBe(0);
+        expect(list.length).toBe(5);
         expect(isLoaded).toBe(true);
 
         done();
