@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: '',
-    appId: '',
+    apiKey: 'AIzaSyBV2bD9N-bYwktpmBrPwqMQPoCKH4UZ-JQ',
+    authDomain: 'tripig-2b1b4.firebaseapp.com',
+    databaseURL: 'https://tripig-2b1b4.firebaseio.com',
+    projectId: 'tripig-2b1b4',
+    storageBucket: 'tripig-2b1b4.appspot.com',
+    messagingSenderId: '624816084820',
+    appId: '1:624816084820:web:2ff9987d3163b3b631dac1',
   },
 };
 

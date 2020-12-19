@@ -1,66 +1,65 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class FireAuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  user: Observable<firebase.default.User>;
+  constructor(private afAuth: AngularFireAuth) {
+    this.user = afAuth.authState;
+  }
 
-  signup(email: string, password: string): void {
-    this.afAuth
+  async signup(email: string, password: string): Promise<boolean> {
+    return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((auth) => auth.user.sendEmailVerification())
-      .then(() => alert('メールアドレス確認メールを送信しました。'))
-      .catch((err) => {
-        console.log(err);
-        alert('アカウントの作成に失敗しました。\n' + err);
-      });
-  }
-
-  signin(email: string, password: string): void {
-    this.afAuth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        // メールアドレス確認が済んでいるかどうか
-        if (!auth.user.emailVerified) {
-          this.afAuth.signOut();
-          return Promise.reject('メールアドレスが確認できていません。');
-        } else {
-        }
+      .then(() => {
+        return true;
       })
-      .then(() => alert('ログインしました。'))
-      .catch((err) => {
-        console.log(err);
-        alert('ログインに失敗しました。\n' + err);
+      .catch(() => {
+        return false;
       });
   }
 
-  signout(): void {
-    this.afAuth
+  async signin(email: string, password: string): Promise<boolean> {
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return false;
+      });
+  }
+
+  async signout(): Promise<boolean> {
+    return this.afAuth
       .signOut()
-      .then(() => {})
-      .then(() => alert('ログアウトしました。'))
-      .catch((err) => {
-        console.log(err);
-        alert('ログアウトに失敗しました。\n' + err);
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return false;
       });
   }
 
   googleSignIn() {
     const provider = new firebase.default.auth.GoogleAuthProvider();
-    return this.oAuthSignIn(provider);
+    this.oAuthSignIn(provider);
   }
 
   facebookSignIn() {
     const provider = new firebase.default.auth.FacebookAuthProvider();
-    return this.oAuthSignIn(provider);
+    this.oAuthSignIn(provider);
   }
 
   private async oAuthSignIn(provider: firebase.default.auth.AuthProvider) {
     try {
       const credential = await this.afAuth.signInWithPopup(provider);
     } catch (err) {
-      return console.log(err);
+      console.log(err);
     }
   }
 }

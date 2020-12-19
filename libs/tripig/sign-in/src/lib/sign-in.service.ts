@@ -19,7 +19,13 @@ export class SignInService {
   signIn(signInForm: FormGroup) {
     const email = signInForm.get('email').value;
     const pass = signInForm.get('password').value;
-    this.fireAuthService.signin(email, pass);
+    this.fireAuthService.signin(email, pass).then((result) => {
+      if (result) {
+        alert('ログインに成功しました。');
+      } else {
+        alert('ログインに失敗しました。');
+      }
+    });
   }
 
   googleSignIn() {
