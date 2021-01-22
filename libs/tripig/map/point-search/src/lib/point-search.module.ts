@@ -1,12 +1,23 @@
 import { PointSearchContainerComponent } from './container/point-search-container.component';
 import { PointSearchRoutingModule } from './point-search-routing.module';
+import { PointSearchService } from './point-search.service';
 import { PointSearchPresenterComponent } from './presenter/point-search-presenter.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { UiMapModule } from '@workspace/ui';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { UiInputModule, UiMapModule } from '@workspace/ui';
 
 @NgModule({
-  imports: [CommonModule, PointSearchRoutingModule, UiMapModule],
+  imports: [
+    CommonModule,
+    PointSearchRoutingModule,
+    ReactiveFormsModule,
+    UiMapModule,
+    UiInputModule,
+    MatButtonModule,
+  ],
   declarations: [PointSearchContainerComponent, PointSearchPresenterComponent],
+  providers: [PointSearchService],
 })
 export class PointSearchModule {}

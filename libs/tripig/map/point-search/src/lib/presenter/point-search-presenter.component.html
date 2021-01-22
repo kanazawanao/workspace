@@ -1,1 +1,6 @@
 <ui-map></ui-map>
+<ui-input
+  [inpFormControl]="formGroup.get('destination')"
+  [label]="'destination'"
+></ui-input>
+<button mat-button (click)="searchEvent.emit()">search</button>
