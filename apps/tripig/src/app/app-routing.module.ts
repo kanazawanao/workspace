@@ -11,6 +11,20 @@ export const routes: Routes = [
     loadChildren: () =>
       import('@workspace/tripig/sign-up').then((m) => m.SignUpModule),
   },
+  {
+    path: 'map/point-search',
+    loadChildren: () =>
+      import('@workspace/tripig/map/point-search').then(
+        (m) => m.PointSearchModule
+      ),
+  },
+  {
+    path: 'map/route-search',
+    loadChildren: () =>
+      import('@workspace/tripig/map/route-search').then(
+        (m) => m.RouteSearchModule
+      ),
+  },
 ];
 
 @NgModule({

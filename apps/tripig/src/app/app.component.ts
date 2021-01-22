@@ -12,5 +12,7 @@ export class AppComponent {
   options: SidenavOption[] = [
     { value: '/signup', viewValue: 'signup' },
     { value: '/signin', viewValue: 'signin' },
+    { value: '/map/point-search', viewValue: 'point-search' },
+    { value: '/map/route-search', viewValue: 'route-search' },
   ];
 }
