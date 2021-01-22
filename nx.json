@@ -114,6 +114,12 @@
     },
     "tripig-sign-up": {
       "tags": []
+    },
+    "tripig-map-point-search": {
+      "tags": []
+    },
+    "tripig-map-route-search": {
+      "tags": []
     }
   }
 }

@@ -57,7 +57,13 @@
         "libs/client-manager/data-access/src/index.ts"
       ],
       "@workspace/tripig/sign-in": ["libs/tripig/sign-in/src/index.ts"],
-      "@workspace/tripig/sign-up": ["libs/tripig/sign-up/src/index.ts"]
+      "@workspace/tripig/sign-up": ["libs/tripig/sign-up/src/index.ts"],
+      "@workspace/tripig/map/point-search": [
+        "libs/tripig/map/point-search/src/index.ts"
+      ],
+      "@workspace/tripig/map/route-search": [
+        "libs/tripig/map/route-search/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

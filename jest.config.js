@@ -26,5 +26,7 @@ module.exports = {
     '<rootDir>/apps/tripig',
     '<rootDir>/libs/tripig/sign-in',
     '<rootDir>/libs/tripig/sign-up',
+    '<rootDir>/libs/tripig/map/point-search',
+    '<rootDir>/libs/tripig/map/route-search',
   ],
 };

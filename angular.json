@@ -21,10 +21,7 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/client/src/favicon.ico",
-              "apps/client/src/assets"
-            ],
+            "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/client/src/styles.scss"
@@ -60,9 +57,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -98,9 +93,7 @@
             "passWithNoTests": true,
             "tsConfig": "apps/client/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/apps/client"
-          ]
+          "outputs": ["coverage/apps/client"]
         }
       }
     },
@@ -125,9 +118,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/client-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/client-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -145,9 +136,7 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -162,9 +151,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -175,9 +162,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
@@ -187,9 +172,7 @@
             "passWithNoTests": true,
             "tsConfig": "apps/api/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/apps/api"
-          ]
+          "outputs": ["coverage/apps/api"]
         }
       }
     },
@@ -202,9 +185,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/api-interfaces/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
           }
         },
         "test": {
@@ -214,9 +195,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/api-interfaces"
-          ]
+          "outputs": ["coverage/libs/api-interfaces"]
         }
       }
     },
@@ -229,10 +208,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui/src/**/*.ts",
-              "libs/ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
           }
         },
         "test": {
@@ -242,9 +218,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/ui/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/ui"
-          ]
+          "outputs": ["coverage/libs/ui"]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -275,9 +249,7 @@
               "quiet": true
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       },
       "schematics": {
@@ -307,9 +279,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -336,9 +306,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/shared-service/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/shared-service"
-          ]
+          "outputs": ["coverage/libs/shared-service"]
         }
       },
       "schematics": {
@@ -406,9 +374,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -444,9 +410,7 @@
             "passWithNoTests": true,
             "tsConfig": "apps/client-manager/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/apps/client-manager"
-          ]
+          "outputs": ["coverage/apps/client-manager"]
         }
       }
     },
@@ -471,9 +435,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/client-manager-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/client-manager-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -487,9 +449,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/constants/src/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/constants/src/**/*.ts"]
           }
         },
         "test": {
@@ -499,9 +459,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/constants/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/constants"
-          ]
+          "outputs": ["coverage/libs/constants"]
         }
       },
       "schematics": {
@@ -532,9 +490,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/guards/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/guards"
-          ]
+          "outputs": ["coverage/libs/client-manager/guards"]
         }
       },
       "schematics": {
@@ -565,9 +521,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client/guards/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client/guards"
-          ]
+          "outputs": ["coverage/libs/client/guards"]
         }
       },
       "schematics": {
@@ -598,9 +552,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/skill-types/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/skill-types"
-          ]
+          "outputs": ["coverage/libs/client-manager/skill-types"]
         }
       },
       "schematics": {
@@ -631,9 +583,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/skills/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/skills"
-          ]
+          "outputs": ["coverage/libs/client-manager/skills"]
         }
       },
       "schematics": {
@@ -664,9 +614,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/timelines/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/timelines"
-          ]
+          "outputs": ["coverage/libs/client-manager/timelines"]
         }
       },
       "schematics": {
@@ -697,9 +645,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/users/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/users"
-          ]
+          "outputs": ["coverage/libs/client-manager/users"]
         }
       },
       "schematics": {
@@ -730,9 +676,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/login/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/login"
-          ]
+          "outputs": ["coverage/libs/client-manager/login"]
         }
       },
       "schematics": {
@@ -763,9 +707,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/shared/story-book/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/shared/story-book"
-          ]
+          "outputs": ["coverage/libs/shared/story-book"]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -796,9 +738,7 @@
               "quiet": true
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       },
       "schematics": {
@@ -828,9 +768,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/shared-story-book-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/shared-story-book-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -857,9 +795,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client/about/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client/about"
-          ]
+          "outputs": ["coverage/libs/client/about"]
         }
       },
       "schematics": {
@@ -890,9 +826,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client/timeline/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client/timeline"
-          ]
+          "outputs": ["coverage/libs/client/timeline"]
         }
       },
       "schematics": {
@@ -923,9 +857,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client/skill/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client/skill"
-          ]
+          "outputs": ["coverage/libs/client/skill"]
         }
       },
       "schematics": {
@@ -956,9 +888,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/client-manager/data-access/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/client-manager/data-access"
-          ]
+          "outputs": ["coverage/libs/client-manager/data-access"]
         }
       },
       "schematics": {
@@ -987,10 +917,7 @@
             "polyfills": "apps/tripig/src/polyfills.ts",
             "tsConfig": "apps/tripig/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/tripig/src/favicon.ico",
-              "apps/tripig/src/assets"
-            ],
+            "assets": ["apps/tripig/src/favicon.ico", "apps/tripig/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/tripig/src/styles.scss"
@@ -1026,9 +953,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -1063,9 +988,7 @@
             "passWithNoTests": true,
             "tsConfig": "apps/tripig/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/apps/tripig"
-          ]
+          "outputs": ["coverage/apps/tripig"]
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
@@ -1094,9 +1017,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/tripig-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/tripig-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -1123,9 +1044,7 @@
             "passWithNoTests": true,
             "tsConfig": "libs/tripig/sign-in/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/tripig/sign-in"
-          ]
+          "outputs": ["coverage/libs/tripig/sign-in"]
         }
       },
       "schematics": {
@@ -1156,14 +1075,62 @@
             "passWithNoTests": true,
             "tsConfig": "libs/tripig/sign-up/tsconfig.spec.json"
           },
-          "outputs": [
-            "coverage/libs/tripig/sign-up"
-          ]
+          "outputs": ["coverage/libs/tripig/sign-up"]
         }
       },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "tripig-map-point-search": {
+      "projectType": "library",
+      "root": "libs/tripig/map/point-search",
+      "sourceRoot": "libs/tripig/map/point-search/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/map/point-search/src/**/*.ts",
+              "libs/tripig/map/point-search/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/map/point-search"],
+          "options": {
+            "jestConfig": "libs/tripig/map/point-search/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tripig-map-route-search": {
+      "projectType": "library",
+      "root": "libs/tripig/map/route-search",
+      "sourceRoot": "libs/tripig/map/route-search/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/map/route-search/src/**/*.ts",
+              "libs/tripig/map/route-search/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/map/route-search"],
+          "options": {
+            "jestConfig": "libs/tripig/map/route-search/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     }
@@ -1190,6 +1157,9 @@
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "client"
