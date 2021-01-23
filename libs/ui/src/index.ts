@@ -8,3 +8,4 @@ export * from './lib/sidenav/ui-sidenav.module';
 export * from './lib/sidenav/sidenav-option';
 export * from './lib/list/list-input-data';
 export * from './lib/select/select-option';
+export * from './lib/map/map.module';

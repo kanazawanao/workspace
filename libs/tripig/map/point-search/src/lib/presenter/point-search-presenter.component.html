@@ -1,0 +1,16 @@
+<ui-map></ui-map>
+
+<form [formGroup]="formGroup">
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.destination)"
+    [label]="'destination'"
+  ></ui-input>
+  <button
+    mat-button
+    [disabled]="formGroup.invalid"
+    (click)="searchEvent.emit()"
+  >
+    <mat-icon>search</mat-icon>
+    search
+  </button>
+</form>

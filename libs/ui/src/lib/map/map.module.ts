@@ -8,4 +8,4 @@ import { GoogleMapsModule } from '@angular/google-maps';
   imports: [CommonModule, GoogleMapsModule],
   exports: [MapComponent],
 })
-export class MapModule {}
+export class UiMapModule {}
