@@ -958,7 +958,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tripig:build"
+            "browserTarget": "tripig:build",
+            "sslCert":"ssl/server.crt",
+            "sslKey":"ssl/server.key"
           },
           "configurations": {
             "production": {
@@ -969,6 +971,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "sslKey": "ssl/server.key",
+            "sslCert": "ssl/server.crt",
             "browserTarget": "tripig:build"
           }
         },

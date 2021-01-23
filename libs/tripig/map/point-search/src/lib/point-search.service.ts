@@ -1,12 +1,14 @@
 import { PointSearchModel } from './point-search.model';
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Injectable()
 export class PointSearchService {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private fb: FormBuilder) {}
 
   generateFormGroup(): FormGroup {
-    return this.formBuilder.group(new PointSearchModel());
+    return this.fb.group({
+      destination: ['', Validators.required],
+    });
   }
 }
