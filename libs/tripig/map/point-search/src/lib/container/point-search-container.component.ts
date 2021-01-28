@@ -15,7 +15,10 @@ export class PointSearchContainerComponent implements OnInit {
   ngOnInit(): void {
     this.initPosition();
   }
-  searchEventListner() {}
+
+  searchEventListner() {
+    this.searchPosition();
+  }
 
   initPosition() {
     if (!navigator.geolocation) {
@@ -35,10 +38,11 @@ export class PointSearchContainerComponent implements OnInit {
       }
     );
   }
+
   searchPosition() {
     this.geocode({ address: this.formGroup.get('destination').value }).then(
       (result) => {
-        console.log(result);
+        this.center$.next(result.geometry.location);
       }
     );
   }
