@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./point-search-presenter.component.scss'],
 })
 export class PointSearchPresenterComponent implements OnInit {
+  @Input() center?: google.maps.LatLng;
   @Input() formGroup: FormGroup;
   @Output() searchEvent = new EventEmitter();
   controlName = PointSearchControlName;

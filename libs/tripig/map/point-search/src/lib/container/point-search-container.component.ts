@@ -1,6 +1,7 @@
 import { PointSearchService } from '../point-search.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'point-search-container',
@@ -10,11 +11,31 @@ import { FormGroup } from '@angular/forms';
 export class PointSearchContainerComponent implements OnInit {
   constructor(private service: PointSearchService) {}
   formGroup: FormGroup = this.service.generateFormGroup();
+  center$ = new Subject<google.maps.LatLng>();
   ngOnInit(): void {
     this.initPosition();
   }
   searchEventListner() {}
+
   initPosition() {
+    if (!navigator.geolocation) {
+      //Geolocation apiがサポートされていない場合
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        // 位置情報
+        var latlng = new google.maps.LatLng(latitude, longitude);
+        this.center$.next(latlng);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  searchPosition() {
     this.geocode({ address: this.formGroup.get('destination').value }).then(
       (result) => {
         console.log(result);
