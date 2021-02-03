@@ -1,0 +1,10 @@
+<mat-tab-group
+  (selectedTabChange)="onTabClick($event)"
+  [style.background-color]="backgroundColor"
+>
+  <mat-tab *ngFor="let category of categories">
+    <ng-template mat-tab-label>
+      <mat-icon [matTooltip]="category.value">{{ category.icon }}</mat-icon>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
