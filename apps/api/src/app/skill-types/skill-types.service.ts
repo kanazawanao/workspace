@@ -22,7 +22,6 @@ export class SkillTypesService {
     return await this.skillTypesRepository.update(
       { id },
       {
-        skillType: skillType.skillType,
         skillTypeName: skillType.skillTypeName,
       }
     );
