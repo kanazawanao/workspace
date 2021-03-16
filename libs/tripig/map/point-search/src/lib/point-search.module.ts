@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TripigGuardsModule } from '@workspace/tripig/guards';
 import { UiInputModule, UiMapModule } from '@workspace/ui';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { UiInputModule, UiMapModule } from '@workspace/ui';
     UiInputModule,
     MatButtonModule,
     MatIconModule,
+    TripigGuardsModule,
   ],
   declarations: [PointSearchContainerComponent, PointSearchPresenterComponent],
   providers: [PointSearchService],

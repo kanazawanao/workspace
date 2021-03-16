@@ -63,7 +63,8 @@
       ],
       "@workspace/tripig/map/route-search": [
         "libs/tripig/map/route-search/src/index.ts"
-      ]
+      ],
+      "@workspace/tripig/guards": ["libs/tripig/guards/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
