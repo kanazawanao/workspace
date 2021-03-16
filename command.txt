@@ -1,0 +1,30 @@
+npm run -- nx run tripig:serve
+npm run -- nx run client:serve
+npm run -- nx run client-manager:serve
+npm run -- nx run api:serve
+
+npm run -- nx run tripig:build
+npm run -- nx run client:build
+npm run -- nx run client-manager:build
+npm run -- nx run api:build
+
+npm run -- nx run tripig:test
+npm run -- nx run client:test
+npm run -- nx run client-manager:test
+npm run -- nx run api:test
+
+npm run -- nx run tripig:lint
+npm run -- nx run client:lint
+npm run -- nx run client-manager:lint
+npm run -- nx run api:lint
+
+npm run -- nx run tripig:e2e
+npm run -- nx run client:e2e
+npm run -- nx run client-manager:e2e
+npm run -- nx run api:e2e
+
+npm run -- nx run tripig:storybook
+npm run -- nx run client:storybook
+npm run -- nx run client-manager:storybook
+
+npm run -- nx dep-graph
