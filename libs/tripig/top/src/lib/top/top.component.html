@@ -1,1 +1,31 @@
-<p>top works!</p>
+<div class="content" fxLayout="row">
+  <div class="description">
+    ここにアプリの説明といか、なんかいい感じのキャッチコピーとか画像とか入れる
+  </div>
+  <div class="signup" fxLayout="column">
+    <div cladd="mail-input" fxLayout="row">
+      <mat-form-field class="example-full-width">
+        <input matInput />
+      </mat-form-field>
+      <button
+        mat-icon-button
+        aria-label="email button"
+        (click)="signInOrSignUp()"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+    <button mat-raised-button (click)="facebookSignIn()">
+      <mat-icon matPrefix svgIcon="facebook"></mat-icon>
+      facebook
+    </button>
+    <button mat-raised-button (click)="googleSignIn()">
+      <mat-icon matPrefix svgIcon="google"></mat-icon>
+      GOOGLE sign in
+    </button>
+    <button mat-raised-button (click)="appleSignIn()">
+      <mat-icon matPrefix svgIcon="apple"></mat-icon>
+      apple
+    </button>
+  </div>
+</div>

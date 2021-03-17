@@ -1,0 +1,38 @@
+.content {
+  background-image: url(../../assets/map.jpg);
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.content::before {
+  content: '';
+  background: inherit;
+  filter: blur(10px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
+.description {
+  margin: 5px;
+  width: 60%;
+}
+
+.signup {
+  margin: 5px;
+  width: 40%;
+}
+
+button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

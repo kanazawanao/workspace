@@ -1175,7 +1175,8 @@
             "lintFilePatterns": [
               "libs/tripig/top/src/**/*.ts",
               "libs/tripig/top/src/**/*.html"
-            ]
+            ],
+            "assets": ["libs/tripig/top/src/assets"]
           }
         },
         "test": {
