@@ -64,10 +64,24 @@ export class FireAuthService {
     provider: firebase.default.auth.AuthProvider
   ): Promise<boolean> {
     try {
-      const credential = await this.afAuth.signInWithPopup(provider);
-      return true;
+      return await this.afAuth.signInWithPopup(provider).then((x) => {
+        if (x.user === null) {
+          return false;
+        }
+        return true;
+      });
     } catch (err) {
       console.log(err);
+      return false;
+    }
+  }
+
+  async isRegistedEmail(email: string) {
+    const x = await this.afAuth.fetchSignInMethodsForEmail(email);
+    console.log(x.length);
+    if (x.length >= 1) {
+      return true;
+    } else {
       return false;
     }
   }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SidenavOption } from '@workspace/ui';
 
 @Component({
   selector: 'workspace-root',
@@ -8,18 +6,9 @@ import { SidenavOption } from '@workspace/ui';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.route.snapshot.url);
-  }
+  ngOnInit(): void {}
 
   title = 'tripig';
-  menuTitle = 'Menu';
-  options: SidenavOption[] = [
-    { value: '/signup', viewValue: 'signup' },
-    { value: '/signin', viewValue: 'signin' },
-    { value: '/map/point-search', viewValue: 'point-search' },
-    { value: '/map/route-search', viewValue: 'route-search' },
-  ];
 }

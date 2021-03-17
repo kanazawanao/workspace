@@ -3,18 +3,19 @@
     ここにアプリの説明といか、なんかいい感じのキャッチコピーとか画像とか入れる
   </div>
   <div class="signup" fxLayout="column">
-    <div cladd="mail-input" fxLayout="row">
+    <form cladd="mail-input" fxLayout="row" [formGroup]="formGroup">
       <mat-form-field class="example-full-width">
-        <input matInput />
+        <input matInput formControlName="email" />
       </mat-form-field>
       <button
         mat-icon-button
         aria-label="email button"
+        [disabled]="!formGroup.valid"
         (click)="signInOrSignUp()"
       >
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
-    </div>
+    </form>
     <button mat-raised-button (click)="facebookSignIn()">
       <mat-icon matPrefix svgIcon="facebook"></mat-icon>
       Facebook
