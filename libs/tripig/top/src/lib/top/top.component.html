@@ -5,7 +5,11 @@
   <div class="signup" fxLayout="column">
     <form cladd="mail-input" fxLayout="row" [formGroup]="formGroup">
       <mat-form-field class="example-full-width">
-        <input matInput formControlName="email" />
+        <input
+          matInput
+          placeholder="youremail@example.com"
+          formControlName="email"
+        />
       </mat-form-field>
       <button
         mat-icon-button
@@ -16,23 +20,23 @@
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
     </form>
-    <button mat-raised-button (click)="facebookSignIn()">
-      <mat-icon matPrefix svgIcon="facebook"></mat-icon>
-      Facebook
-    </button>
     <button mat-raised-button (click)="googleSignIn()">
       <mat-icon matPrefix svgIcon="google"></mat-icon>
       Google
     </button>
     <!--
+    <button mat-raised-button (click)="facebookSignIn()">
+      <mat-icon matPrefix svgIcon="facebook"></mat-icon>
+      Facebook
+    </button>
     <button mat-raised-button (click)="appleSignIn()">
       <mat-icon matPrefix svgIcon="apple"></mat-icon>
       apple
     </button>
-    -->
     <button mat-raised-button (click)="twitterSignIn()">
       <mat-icon matPrefix svgIcon="twitter"></mat-icon>
       Twitter
     </button>
+    -->
   </div>
 </div>

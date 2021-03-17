@@ -1,6 +1,7 @@
 import { SignInService } from '../sign-in.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'workspace-sign-in-container',
@@ -9,18 +10,22 @@ import { FormGroup } from '@angular/forms';
 })
 export class SignInContainerComponent implements OnInit {
   signInForm: FormGroup;
-  constructor(private signInService: SignInService) {}
+  constructor(
+    private signInService: SignInService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.signInForm = this.signInService.generateForm();
+    this.signInForm = this.signInService.generateForm(
+      this.route.snapshot.queryParams['email']
+    );
   }
 
   signInEventListener() {
     this.signInService.signIn(this.signInForm);
   }
 
-  googleSignInEventListener() {
-    console.log('googleSignInEventListener');
-    this.signInService.googleSignIn();
+  forgotPasswordEvent() {
+    // TODO: パスワードは忘れた方はこちらページへ遷移
   }
 }

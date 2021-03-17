@@ -76,7 +76,11 @@ export class FireAuthService {
     }
   }
 
-  async isRegistedEmail(email: string) {
+  sendPasswordResetEmail(email: string) {
+    this.afAuth.sendPasswordResetEmail(email);
+  }
+
+  async isRegistedEmail(email: string): Promise<boolean> {
     const x = await this.afAuth.fetchSignInMethodsForEmail(email);
     console.log(x.length);
     if (x.length >= 1) {

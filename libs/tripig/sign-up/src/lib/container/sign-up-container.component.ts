@@ -1,6 +1,7 @@
 import { SignUpService } from '../sign-up.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'workspace-sign-up-container',
@@ -9,10 +10,15 @@ import { FormGroup } from '@angular/forms';
 })
 export class SignUpContainerComponent implements OnInit {
   signUpForm: FormGroup;
-  constructor(private signUpService: SignUpService) {}
+  constructor(
+    private signUpService: SignUpService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.signUpForm = this.signUpService.generateForm();
+    this.signUpForm = this.signUpService.generateForm(
+      this.route.snapshot.queryParams['email']
+    );
   }
 
   signUp() {

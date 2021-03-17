@@ -22,11 +22,15 @@ export class TopComponent implements OnInit {
         if (result) {
           // ログイン画面へ繊維
           console.log('登録済みメールアドレス');
-          this.router.navigate(['/signin']);
+          this.router.navigate(['/signin'], {
+            queryParams: { email: this.formGroup.controls['email'].value },
+          });
         } else {
           // 登録画面へ繊維
           console.log('未登録メールアドレス');
-          this.router.navigate(['/signup']);
+          this.router.navigate(['/signup'], {
+            queryParams: { email: this.formGroup.controls['email'].value },
+          });
         }
       });
   }
