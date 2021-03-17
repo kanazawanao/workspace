@@ -40,5 +40,9 @@ export class AppModule {
       'facebook',
       sanitizer.bypassSecurityTrustResourceUrl('../../assets/facebook.svg')
     );
+    iconRegistry.addSvgIcon(
+      'twitter',
+      sanitizer.bypassSecurityTrustResourceUrl('../../assets/twitter.svg')
+    );
   }
 }

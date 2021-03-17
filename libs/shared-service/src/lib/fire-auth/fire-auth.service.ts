@@ -43,28 +43,32 @@ export class FireAuthService {
       });
   }
 
-  googleSignIn() {
+  googleSignIn(): Promise<boolean> {
     const provider = new firebase.default.auth.GoogleAuthProvider();
-    this.oAuthSignIn(provider);
+    return this.oAuthSignIn(provider);
   }
 
-  facebookSignIn() {
+  facebookSignIn(): Promise<boolean> {
     const provider = new firebase.default.auth.FacebookAuthProvider();
-    this.oAuthSignIn(provider);
+    return this.oAuthSignIn(provider);
   }
 
   appleSignIn() {}
 
-  twitterSignIn() {
+  twitterSignIn(): Promise<boolean> {
     const provider = new firebase.default.auth.TwitterAuthProvider();
-    this.oAuthSignIn(provider);
+    return this.oAuthSignIn(provider);
   }
 
-  private async oAuthSignIn(provider: firebase.default.auth.AuthProvider) {
+  private async oAuthSignIn(
+    provider: firebase.default.auth.AuthProvider
+  ): Promise<boolean> {
     try {
       const credential = await this.afAuth.signInWithPopup(provider);
+      return true;
     } catch (err) {
       console.log(err);
+      return false;
     }
   }
 }

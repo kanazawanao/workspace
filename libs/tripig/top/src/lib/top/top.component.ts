@@ -18,8 +18,13 @@ export class TopComponent implements OnInit {
   }
 
   facebookSignIn() {
-    this.authService.facebookSignIn();
+    this.authService.facebookSignIn().then(() => {
+      // ユーザー登録する
+    });
   }
 
+  twitterSignIn() {
+    this.authService.twitterSignIn();
+  }
   appleSignIn() {}
 }
