@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SidenavOption } from '@workspace/ui';
 
 @Component({
@@ -6,7 +7,13 @@ import { SidenavOption } from '@workspace/ui';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    console.log(this.route.snapshot.url);
+  }
+
   title = 'tripig';
   menuTitle = 'Menu';
   options: SidenavOption[] = [

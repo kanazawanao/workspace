@@ -59,6 +59,7 @@
     "tripig-sign-up": { "tags": [] },
     "tripig-map-point-search": { "tags": [] },
     "tripig-map-route-search": { "tags": [] },
-    "tripig-guards": { "tags": [] }
+    "tripig-guards": { "tags": [] },
+    "tripig-top": { "tags": [] }
   }
 }

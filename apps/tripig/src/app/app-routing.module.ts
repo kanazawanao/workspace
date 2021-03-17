@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('@workspace/tripig/top').then((m) => m.TopModule),
+  },
+  {
     path: 'signin',
     loadChildren: () =>
       import('@workspace/tripig/sign-in').then((m) => m.SignInModule),

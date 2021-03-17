@@ -3,9 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class FireAuthService {
   user: Observable<firebase.default.User>;
   constructor(private afAuth: AngularFireAuth) {

@@ -1,6 +1,6 @@
-npm run -- nx run tripig:serve
-npm run -- nx run client:serve
-npm run -- nx run client-manager:serve
+npm run -- nx run tripig:serve -o
+npm run -- nx run client:serve -o
+npm run -- nx run client-manager:serve -o
 npm run -- nx run api:serve
 
 npm run -- nx run tripig:build
@@ -26,5 +26,9 @@ npm run -- nx run api:e2e
 npm run -- nx run tripig:storybook
 npm run -- nx run client:storybook
 npm run -- nx run client-manager:storybook
+
+npm run -- nx generate @nrwl/angular:library --name=top --directory=tripig --no-interactive
+npm run -- nx generate @schematics/angular:module --name=top --project=tripig-top --routing --no-interactive
+npm run -- nx generate @schematics/angular:component --name=top --project=tripig-top --style=scss --no-interactive
 
 npm run -- nx dep-graph

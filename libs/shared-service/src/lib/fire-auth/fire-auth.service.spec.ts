@@ -1,7 +1,6 @@
 import { FireAuthService } from './fire-auth.service';
 import { TestBed } from '@angular/core/testing';
 
-
 describe('FireAuthService', () => {
   let service: FireAuthService;
 

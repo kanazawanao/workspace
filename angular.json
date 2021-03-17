@@ -1162,6 +1162,31 @@
           }
         }
       }
+    },
+    "tripig-top": {
+      "projectType": "library",
+      "root": "libs/tripig/top",
+      "sourceRoot": "libs/tripig/top/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/top/src/**/*.ts",
+              "libs/tripig/top/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/top"],
+          "options": {
+            "jestConfig": "libs/tripig/top/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
