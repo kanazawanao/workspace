@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FireAuthService } from '@workspace/shared-service';
 
 @Component({
   selector: 'workspace-top',
@@ -6,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top.component.scss'],
 })
 export class TopComponent implements OnInit {
-  constructor() {}
+  constructor(private authService: FireAuthService) {}
 
   ngOnInit(): void {}
+
   signInOrSignUp() {}
-  googleSignIn() {}
+
+  googleSignIn() {
+    this.authService.googleSignIn();
+  }
+
+  facebookSignIn() {
+    this.authService.facebookSignIn();
+  }
+
   appleSignIn() {}
-  facebookSignIn() {}
 }

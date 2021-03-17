@@ -53,6 +53,13 @@ export class FireAuthService {
     this.oAuthSignIn(provider);
   }
 
+  appleSignIn() {}
+
+  twitterSignIn() {
+    const provider = new firebase.default.auth.TwitterAuthProvider();
+    this.oAuthSignIn(provider);
+  }
+
   private async oAuthSignIn(provider: firebase.default.auth.AuthProvider) {
     try {
       const credential = await this.afAuth.signInWithPopup(provider);
