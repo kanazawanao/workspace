@@ -32,3 +32,7 @@ npm run -- nx generate @schematics/angular:module --name=top --project=tripig-to
 npm run -- nx generate @schematics/angular:component --name=top --project=tripig-top --style=scss --no-interactive
 
 npm run -- nx dep-graph
+
+npm run -- nx migrate @angular/material
+npm install --legacy-peer-deps
+npm run -- nx migrate --run-migrations
