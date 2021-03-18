@@ -65,7 +65,8 @@
         "libs/tripig/map/route-search/src/index.ts"
       ],
       "@workspace/tripig/guards": ["libs/tripig/guards/src/index.ts"],
-      "@workspace/tripig/top": ["libs/tripig/top/src/index.ts"]
+      "@workspace/tripig/top": ["libs/tripig/top/src/index.ts"],
+      "@workspace/tripig/projects": ["libs/tripig/projects/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

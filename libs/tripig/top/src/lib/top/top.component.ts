@@ -36,17 +36,32 @@ export class TopComponent implements OnInit {
   }
 
   googleSignIn() {
-    this.authService.googleSignIn();
+    this.authService
+      .googleSignIn()
+      .then((result) => {
+        if (result) {
+          this.router.navigate(['/projects']);
+        } else {
+          console.log('ログイン失敗');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
+  // 未実装
   facebookSignIn() {
     this.authService.facebookSignIn().then(() => {
       // ユーザー登録する
     });
   }
 
+  // 未実装
   twitterSignIn() {
     this.authService.twitterSignIn();
   }
+
+  // 未実装
   appleSignIn() {}
 }

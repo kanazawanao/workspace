@@ -30,5 +30,6 @@ module.exports = {
     '<rootDir>/libs/tripig/map/route-search',
     '<rootDir>/libs/tripig/guards',
     '<rootDir>/libs/tripig/top',
+    '<rootDir>/libs/tripig/projects',
   ],
 };

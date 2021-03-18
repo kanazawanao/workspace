@@ -17,18 +17,9 @@ export const routes: Routes = [
       import('@workspace/tripig/sign-up').then((m) => m.SignUpModule),
   },
   {
-    path: 'map/point-search',
+    path: 'projects',
     loadChildren: () =>
-      import('@workspace/tripig/map/point-search').then(
-        (m) => m.PointSearchModule
-      ),
-  },
-  {
-    path: 'map/route-search',
-    loadChildren: () =>
-      import('@workspace/tripig/map/route-search').then(
-        (m) => m.RouteSearchModule
-      ),
+      import('@workspace/tripig/projects').then((m) => m.ProjectsModule),
   },
 ];
 
