@@ -1213,6 +1213,31 @@
           }
         }
       }
+    },
+    "tripig-map-service": {
+      "projectType": "library",
+      "root": "libs/tripig/map/service",
+      "sourceRoot": "libs/tripig/map/service/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/map/service/src/**/*.ts",
+              "libs/tripig/map/service/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/map/service"],
+          "options": {
+            "jestConfig": "libs/tripig/map/service/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
