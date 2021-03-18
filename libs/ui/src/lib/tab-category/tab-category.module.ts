@@ -10,4 +10,4 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   imports: [CommonModule, MatTabsModule, MatIconModule, MatTooltipModule],
   exports: [TabCategoryComponent],
 })
-export class TabCategoryModule {}
+export class UiTabCategoryModule {}

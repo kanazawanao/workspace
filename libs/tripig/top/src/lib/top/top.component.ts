@@ -13,7 +13,14 @@ export class TopComponent implements OnInit {
   formGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
   });
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // ログイン認証済みならprojectページに飛ばす
+    this.authService.user.subscribe((u) => {
+      if (u) {
+        this.router.navigate(['/projects']);
+      }
+    });
+  }
 
   signInOrSignUp() {
     this.authService

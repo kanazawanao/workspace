@@ -8,7 +8,7 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>マイページ</button>
-    <button mat-menu-item>ログアウト</button>
+    <button mat-menu-item (click)="signOut()">ログアウト</button>
   </mat-menu>
 </mat-toolbar>
 <router-outlet></router-outlet>
