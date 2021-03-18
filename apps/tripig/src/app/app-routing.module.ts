@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('@workspace/tripig/top').then((m) => m.TopModule),
+  },
+  {
     path: 'signin',
     loadChildren: () =>
       import('@workspace/tripig/sign-in').then((m) => m.SignInModule),
@@ -12,18 +17,9 @@ export const routes: Routes = [
       import('@workspace/tripig/sign-up').then((m) => m.SignUpModule),
   },
   {
-    path: 'map/point-search',
+    path: 'projects',
     loadChildren: () =>
-      import('@workspace/tripig/map/point-search').then(
-        (m) => m.PointSearchModule
-      ),
-  },
-  {
-    path: 'map/route-search',
-    loadChildren: () =>
-      import('@workspace/tripig/map/route-search').then(
-        (m) => m.RouteSearchModule
-      ),
+      import('@workspace/tripig/projects').then((m) => m.ProjectsModule),
   },
 ];
 

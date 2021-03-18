@@ -9,9 +9,9 @@ export class SignInService {
     private fireAuthService: FireAuthService
   ) {}
 
-  generateForm(): FormGroup {
+  generateForm(email: string): FormGroup {
     return this.fb.group({
-      email: ['', Validators.required],
+      email: [email, Validators.required],
       password: ['', Validators.required],
     });
   }

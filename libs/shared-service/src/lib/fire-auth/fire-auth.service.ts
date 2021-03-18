@@ -3,9 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class FireAuthService {
   user: Observable<firebase.default.User>;
   constructor(private afAuth: AngularFireAuth) {
@@ -45,21 +43,50 @@ export class FireAuthService {
       });
   }
 
-  googleSignIn() {
+  googleSignIn(): Promise<boolean> {
     const provider = new firebase.default.auth.GoogleAuthProvider();
-    this.oAuthSignIn(provider);
+    return this.oAuthSignIn(provider);
   }
 
-  facebookSignIn() {
+  facebookSignIn(): Promise<boolean> {
     const provider = new firebase.default.auth.FacebookAuthProvider();
-    this.oAuthSignIn(provider);
+    return this.oAuthSignIn(provider);
   }
 
-  private async oAuthSignIn(provider: firebase.default.auth.AuthProvider) {
+  appleSignIn() {}
+
+  twitterSignIn(): Promise<boolean> {
+    const provider = new firebase.default.auth.TwitterAuthProvider();
+    return this.oAuthSignIn(provider);
+  }
+
+  private async oAuthSignIn(
+    provider: firebase.default.auth.AuthProvider
+  ): Promise<boolean> {
     try {
-      const credential = await this.afAuth.signInWithPopup(provider);
+      return await this.afAuth.signInWithPopup(provider).then((x) => {
+        if (x.user === null) {
+          return false;
+        }
+        return true;
+      });
     } catch (err) {
       console.log(err);
+      return false;
+    }
+  }
+
+  sendPasswordResetEmail(email: string) {
+    this.afAuth.sendPasswordResetEmail(email);
+  }
+
+  async isRegistedEmail(email: string): Promise<boolean> {
+    const x = await this.afAuth.fetchSignInMethodsForEmail(email);
+    console.log(x.length);
+    if (x.length >= 1) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

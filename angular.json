@@ -959,8 +959,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "tripig:build",
-            "sslCert":"ssl/server.crt",
-            "sslKey":"ssl/server.key"
+            "sslCert": "ssl/server.crt",
+            "sslKey": "ssl/server.key"
           },
           "configurations": {
             "production": {
@@ -1137,6 +1137,107 @@
           }
         }
       }
+    },
+    "tripig-guards": {
+      "projectType": "library",
+      "root": "libs/tripig/guards",
+      "sourceRoot": "libs/tripig/guards/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/guards/src/**/*.ts",
+              "libs/tripig/guards/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/guards"],
+          "options": {
+            "jestConfig": "libs/tripig/guards/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tripig-top": {
+      "projectType": "library",
+      "root": "libs/tripig/top",
+      "sourceRoot": "libs/tripig/top/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/top/src/**/*.ts",
+              "libs/tripig/top/src/**/*.html"
+            ],
+            "assets": ["libs/tripig/top/src/assets"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/top"],
+          "options": {
+            "jestConfig": "libs/tripig/top/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tripig-projects": {
+      "projectType": "library",
+      "root": "libs/tripig/projects",
+      "sourceRoot": "libs/tripig/projects/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/projects/src/**/*.ts",
+              "libs/tripig/projects/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/projects"],
+          "options": {
+            "jestConfig": "libs/tripig/projects/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tripig-map-service": {
+      "projectType": "library",
+      "root": "libs/tripig/map/service",
+      "sourceRoot": "libs/tripig/map/service/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/map/service/src/**/*.ts",
+              "libs/tripig/map/service/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/map/service"],
+          "options": {
+            "jestConfig": "libs/tripig/map/service/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -1156,10 +1257,14 @@
       }
     },
     "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
