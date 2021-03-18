@@ -53,9 +53,13 @@ export class PointSearchPresenterComponent implements OnInit {
     },
     { value: '遊び', viewValue: '遊び', icon: 'sports', isDefault: true },
     { value: '温泉', viewValue: '温泉', icon: 'hot_tub', isDefault: true },
-    { value: 'ビール', viewValue: 'ビール', icon: 'beer', isDefault: true },
+    {
+      value: 'ビール',
+      viewValue: 'ビール',
+      icon: 'sports_bar',
+      isDefault: true,
+    },
     { value: '動物園', viewValue: 'Zoo', icon: 'pets', isDefault: true },
-    { value: 'キャンプ', viewValue: 'キャンプ', icon: 'tent', isDefault: true },
   ];
 
   controlName = PointSearchControlName;
