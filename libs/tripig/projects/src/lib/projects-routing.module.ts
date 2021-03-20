@@ -1,3 +1,4 @@
+import { PointSearchComponent } from './point-search/point-search.component';
 import { ProjectsComponent } from './projects.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,6 +10,10 @@ const routes: Routes = [
     component: ProjectsComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: 'point-search',
+        component: PointSearchComponent,
+      },
       {
         path: 'map/point-search',
         loadChildren: () =>
@@ -25,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'map/point-search',
+        redirectTo: 'point-search',
       },
     ],
   },
