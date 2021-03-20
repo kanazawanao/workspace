@@ -1,11 +1,11 @@
 <ui-map [center]="center"></ui-map>
 <ui-tab-category
   [categories]="categories"
-  [selectedIndexFormControl]="formGroup.get(controlName.category)"
+  [selectedIndexFormControl]="formGroup.get('category')"
 ></ui-tab-category>
 <form [formGroup]="formGroup">
   <ui-input
-    [inpFormControl]="formGroup.get(controlName.destination)"
+    [inpFormControl]="formGroup.get('destination')"
     [label]="'destination'"
   ></ui-input>
   <button

@@ -46,7 +46,7 @@ export class RouteSearchComponent implements OnInit {
       queryParams: {
         origin: this.origin,
         destination: this.destination,
-        mode: this.selectedMode,
+        mode: this.selectedMode.value,
       },
     });
   }
