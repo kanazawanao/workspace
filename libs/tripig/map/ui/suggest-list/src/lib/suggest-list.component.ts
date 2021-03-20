@@ -8,8 +8,16 @@ import {} from '@angular/google-maps';
 })
 export class SuggestListComponent implements OnInit {
   @Input() suggestList: google.maps.places.PlaceResult[] = [];
+  googleSearchUrl = 'https://www.google.com/search?q=';
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSearchLinkClick(event: MouseEvent, suggestName: string): void {
+    event.stopPropagation();
+    console.log('onSearchLinkClick');
+    const encodedName = suggestName ? encodeURIComponent(suggestName) : '';
+    window.open(`${this.googleSearchUrl}${encodedName}`, '_blank');
+  }
 }
