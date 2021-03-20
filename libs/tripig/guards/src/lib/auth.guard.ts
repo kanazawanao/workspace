@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, CanActivate, Router } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { FireAuthService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,7 +10,6 @@ export class AuthGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.authService.user.pipe(
       map((user) => {
-        console.log(user);
         if (user === null) {
           this.router.navigate(['/']);
           return false;

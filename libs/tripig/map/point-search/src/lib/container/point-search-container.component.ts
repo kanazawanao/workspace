@@ -1,7 +1,10 @@
+import { PointSearchControlName } from '../point-search-control-name';
 import { PointSearchService } from '../point-search.service';
-import { Component, OnInit } from '@angular/core';
+import { PointSearchPresenterComponent } from '../presenter/point-search-presenter.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { CATEGORIES } from '@workspace/ui';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'point-search-container',
@@ -9,9 +12,17 @@ import { Subject } from 'rxjs';
   styleUrls: ['./point-search-container.component.scss'],
 })
 export class PointSearchContainerComponent implements OnInit {
+  @ViewChild(PointSearchPresenterComponent)
+  presenter!: PointSearchPresenterComponent;
   constructor(private service: PointSearchService) {}
   formGroup: FormGroup = this.service.generateFormGroup();
-  center$ = new Subject<google.maps.LatLng>();
+  center$: BehaviorSubject<google.maps.LatLng> = new BehaviorSubject(
+    new google.maps.LatLng(35.6812362, 139.7649361)
+  );
+  get selectedCategory(): string {
+    return CATEGORIES[this.formGroup.get(PointSearchControlName.category).value]
+      .value;
+  }
   ngOnInit(): void {
     this.initPosition();
   }
@@ -22,7 +33,6 @@ export class PointSearchContainerComponent implements OnInit {
 
   initPosition() {
     if (!navigator.geolocation) {
-      //Geolocation apiがサポートされていない場合
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -40,46 +50,28 @@ export class PointSearchContainerComponent implements OnInit {
   }
 
   searchPosition() {
-    this.geocode({ address: this.formGroup.get('destination').value }).then(
-      (result) => {
+    this.service
+      .geocode(this.formGroup.get(PointSearchControlName.destination).value)
+      .then((result) => {
         this.center$.next(result.geometry.location);
-      }
-    );
-  }
-
-  geocode(
-    request: google.maps.GeocoderRequest
-  ): Promise<google.maps.GeocoderResult> {
-    const geocoder = new google.maps.Geocoder();
-    return new Promise((resolve, reject) => {
-      geocoder.geocode(request, (result, status) => {
-        if (this.geocodeResultCheck(status)) {
-          resolve(result[0]);
-        } else {
-          reject(status);
-        }
+        this.searchSuggestList();
       });
-    });
   }
 
-  private geocodeResultCheck(status: google.maps.GeocoderStatus): boolean {
-    if (status === google.maps.GeocoderStatus.OK) {
-      return true;
-    } else if (status === google.maps.GeocoderStatus.ERROR) {
-      alert('接続に失敗しました。再度やり直してください。');
-    } else if (status === google.maps.GeocoderStatus.INVALID_REQUEST) {
-      alert('リクエストが無効です。');
-    } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
-      alert('時間をおいて再度やり直してください。');
-    } else if (status === google.maps.GeocoderStatus.REQUEST_DENIED) {
-      alert('Mapの利用が許可されていません。');
-    } else if (status === google.maps.GeocoderStatus.UNKNOWN_ERROR) {
-      alert('サーバーエラーが発生しました。再度やり直してください。');
-    } else if (status === google.maps.GeocoderStatus.ZERO_RESULTS) {
-      alert(
-        '見つかりませんでした。検索キーワードに誤字や脱字がないかご確認ください。地名や郵便番号を追加してみてください。'
-      );
-    }
-    return false;
+  private searchSuggestList() {
+    const placeService = new google.maps.places.PlacesService(
+      this.presenter.mapComponent.map.data.getMap()
+    );
+    const request: google.maps.places.PlaceSearchRequest = {
+      rankBy: google.maps.places.RankBy.PROMINENCE,
+      location: this.center$.getValue(),
+      radius: 500,
+      keyword: `${
+        this.formGroup.get(PointSearchControlName.destination).value
+      } ${this.selectedCategory}`,
+    };
+    this.service.nearbySearch(placeService, request).then((results) => {
+      console.log(results);
+    });
   }
 }

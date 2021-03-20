@@ -9,5 +9,6 @@ export * from './lib/sidenav/sidenav-option';
 export * from './lib/list/list-input-data';
 export * from './lib/select/select-option';
 export * from './lib/map/map.module';
+export * from './lib/map/map.component';
 export * from './lib/tab-category/tab-category.module';
 export * from './lib/tab-category/category.class';

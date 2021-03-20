@@ -1,5 +1,6 @@
 import { Category } from './category.class';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ui-tab-category',
@@ -11,6 +12,7 @@ export class TabCategoryComponent implements OnInit {
   color = '#f0fff3';
   selected: Category;
   @Input() categories: Category[];
+  @Input() selectedIndexFormControl: FormControl;
   @Output() selectEvent = new EventEmitter<Category>();
   constructor() {}
 
