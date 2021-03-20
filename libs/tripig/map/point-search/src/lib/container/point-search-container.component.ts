@@ -4,7 +4,7 @@ import { PointSearchPresenterComponent } from '../presenter/point-search-present
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { CATEGORIES } from '@workspace/ui';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'point-search-container',
@@ -12,13 +12,23 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./point-search-container.component.scss'],
 })
 export class PointSearchContainerComponent implements OnInit {
+  constructor(private service: PointSearchService) {}
+
   @ViewChild(PointSearchPresenterComponent)
   presenter!: PointSearchPresenterComponent;
-  constructor(private service: PointSearchService) {}
   formGroup: FormGroup = this.service.generateFormGroup();
-  center$: BehaviorSubject<google.maps.LatLng> = new BehaviorSubject(
+  private _suggestList$: BehaviorSubject<
+    google.maps.places.PlaceResult[]
+  > = new BehaviorSubject([]);
+  get suggestList$(): Observable<google.maps.places.PlaceResult[]> {
+    return this._suggestList$.asObservable();
+  }
+  private _center$: BehaviorSubject<google.maps.LatLng> = new BehaviorSubject(
     new google.maps.LatLng(35.6812362, 139.7649361)
   );
+  get center$(): Observable<google.maps.LatLng> {
+    return this._center$.asObservable();
+  }
   get selectedCategory(): string {
     return CATEGORIES[this.formGroup.get(PointSearchControlName.category).value]
       .value;
@@ -41,7 +51,7 @@ export class PointSearchContainerComponent implements OnInit {
         var longitude = position.coords.longitude;
         // 位置情報
         var latlng = new google.maps.LatLng(latitude, longitude);
-        this.center$.next(latlng);
+        this._center$.next(latlng);
       },
       (error) => {
         console.log(error);
@@ -53,7 +63,7 @@ export class PointSearchContainerComponent implements OnInit {
     this.service
       .geocode(this.formGroup.get(PointSearchControlName.destination).value)
       .then((result) => {
-        this.center$.next(result.geometry.location);
+        this._center$.next(result.geometry.location);
         this.searchSuggestList();
       });
   }
@@ -64,7 +74,7 @@ export class PointSearchContainerComponent implements OnInit {
     );
     const request: google.maps.places.PlaceSearchRequest = {
       rankBy: google.maps.places.RankBy.PROMINENCE,
-      location: this.center$.getValue(),
+      location: this._center$.getValue(),
       radius: 500,
       keyword: `${
         this.formGroup.get(PointSearchControlName.destination).value
@@ -72,6 +82,7 @@ export class PointSearchContainerComponent implements OnInit {
     };
     this.service.nearbySearch(placeService, request).then((results) => {
       console.log(results);
+      this._suggestList$.next(results);
     });
   }
 }

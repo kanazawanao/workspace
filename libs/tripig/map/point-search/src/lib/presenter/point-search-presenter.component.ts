@@ -18,6 +18,7 @@ import {
 export class PointSearchPresenterComponent implements OnInit {
   @Input() center?: google.maps.LatLng;
   @Input() formGroup: FormGroup;
+  @Input() suggestList: google.maps.places.PlaceResult[];
   @Output() searchEvent = new EventEmitter();
   @ViewChild(MapComponent) mapComponent!: MapComponent;
   categories: Category[] = CATEGORIES;
