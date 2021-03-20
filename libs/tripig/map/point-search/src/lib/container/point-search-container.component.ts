@@ -3,6 +3,7 @@ import { PointSearchService } from '../point-search.service';
 import { PointSearchPresenterComponent } from '../presenter/point-search-presenter.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { CATEGORIES } from '@workspace/ui';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -12,11 +13,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./point-search-container.component.scss'],
 })
 export class PointSearchContainerComponent implements OnInit {
-  constructor(private service: PointSearchService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private service: PointSearchService
+  ) {}
 
   @ViewChild(PointSearchPresenterComponent)
   presenter!: PointSearchPresenterComponent;
-  formGroup: FormGroup = this.service.generateFormGroup();
+  formGroup: FormGroup;
   private _suggestList$: BehaviorSubject<
     google.maps.places.PlaceResult[]
   > = new BehaviorSubject([]);
@@ -33,30 +37,23 @@ export class PointSearchContainerComponent implements OnInit {
     return CATEGORIES[this.formGroup.get(PointSearchControlName.category).value]
       .value;
   }
+
   ngOnInit(): void {
-    this.initPosition();
+    const destination = this.route.snapshot.queryParams['destination'];
+    const category = this.route.snapshot.queryParams['category'];
+    let index = 0;
+    for (var c of CATEGORIES) {
+      if (c.value === category) {
+        break;
+      }
+      index++;
+    }
+    this.formGroup = this.service.generateFormGroup(destination, index);
+    this.searchPosition();
   }
 
   searchEventListner() {
     this.searchPosition();
-  }
-
-  initPosition() {
-    if (!navigator.geolocation) {
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        // 位置情報
-        var latlng = new google.maps.LatLng(latitude, longitude);
-        this._center$.next(latlng);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
   }
 
   searchPosition() {

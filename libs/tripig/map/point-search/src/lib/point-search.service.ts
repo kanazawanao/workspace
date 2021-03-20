@@ -11,10 +11,10 @@ import {
 export class PointSearchService {
   constructor(private fb: FormBuilder, private mapService: MapService) {}
 
-  generateFormGroup(): FormGroup {
+  generateFormGroup(destination: string, categoryIndex: number): FormGroup {
     return this.fb.group({
-      destination: new FormControl('', [Validators.required]),
-      category: new FormControl(0),
+      destination: new FormControl(destination, [Validators.required]),
+      category: new FormControl(categoryIndex),
     });
   }
 
