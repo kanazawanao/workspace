@@ -1,6 +1,8 @@
 <mat-tab-group
   (selectedTabChange)="onTabClick($event)"
   [style.background-color]="backgroundColor"
+  [selectedIndex]="selectedIndexFormControl.value"
+  (selectedIndexChange)="selectedIndexFormControl.setValue($event)"
 >
   <mat-tab *ngFor="let category of categories">
     <ng-template mat-tab-label>

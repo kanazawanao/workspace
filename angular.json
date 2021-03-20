@@ -1238,6 +1238,31 @@
           }
         }
       }
+    },
+    "tripig-map-ui-suggest-list": {
+      "projectType": "library",
+      "root": "libs/tripig/map/ui/suggest-list",
+      "sourceRoot": "libs/tripig/map/ui/suggest-list/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/map/ui/suggest-list/src/**/*.ts",
+              "libs/tripig/map/ui/suggest-list/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/map/ui/suggest-list"],
+          "options": {
+            "jestConfig": "libs/tripig/map/ui/suggest-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

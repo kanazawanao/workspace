@@ -1,5 +1,8 @@
 <ui-map [center]="center"></ui-map>
-<ui-tab-category [categories]="categories"></ui-tab-category>
+<ui-tab-category
+  [categories]="categories"
+  [selectedIndexFormControl]="formGroup.get(controlName.category)"
+></ui-tab-category>
 <form [formGroup]="formGroup">
   <ui-input
     [inpFormControl]="formGroup.get(controlName.destination)"
@@ -14,3 +17,4 @@
     search
   </button>
 </form>
+<workspace-suggest-list [suggestList]="suggestList"></workspace-suggest-list>

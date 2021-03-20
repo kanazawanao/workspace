@@ -1,5 +1,6 @@
 <point-search-presenter
   [formGroup]="formGroup"
   [center]="center$ | async"
+  [suggestList]="suggestList$ | async"
   (searchEvent)="searchEventListner()"
 ></point-search-presenter>

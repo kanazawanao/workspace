@@ -7,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MapService } from '@workspace/tripig/map/service';
+import { SuggestListModule } from '@workspace/tripig/map/ui/suggest-list';
 import { UiInputModule, UiMapModule, UiTabCategoryModule } from '@workspace/ui';
 
 @NgModule({
@@ -20,8 +22,9 @@ import { UiInputModule, UiMapModule, UiTabCategoryModule } from '@workspace/ui';
     MatButtonModule,
     MatIconModule,
     UiTabCategoryModule,
+    SuggestListModule,
   ],
   declarations: [PointSearchContainerComponent, PointSearchPresenterComponent],
-  providers: [PointSearchService],
+  providers: [PointSearchService, MapService],
 })
 export class PointSearchModule {}
