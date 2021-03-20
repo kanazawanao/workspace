@@ -23,6 +23,10 @@ const routes: Routes = [
             (m) => m.RouteSearchModule
           ),
       },
+      {
+        path: '',
+        redirectTo: 'map/point-search',
+      },
     ],
   },
 ];
