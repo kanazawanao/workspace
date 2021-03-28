@@ -1,6 +1,5 @@
 import { SkillTypesEntryContainerComponent } from './container/skill-types-entry-container.component';
 import { SkillTypesEntryPresenterComponent } from './presenter/skill-types-entry-presenter.component';
-import { SkillTypesEntryRoutingModule } from './skill-types-entry-routing.module';
 import { SkillTypesEntryGuard } from './skill-types-entry.guard';
 import { SkillTypesDataAccessModule } from '../data-access/skill-types-data-access.module';
 import { SkillTypesService } from '../skill-types.service';
@@ -18,7 +17,6 @@ import { SkillTypesFacade } from '../data-access/+state/skill-types.facade';
   ],
   imports: [
     CommonModule,
-    SkillTypesEntryRoutingModule,
     ReactiveFormsModule,
     UiInputModule,
     MatButtonModule,

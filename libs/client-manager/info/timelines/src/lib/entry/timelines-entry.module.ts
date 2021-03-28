@@ -1,6 +1,5 @@
 import { TimelinesEntryContainerComponent } from './container/timelines-entry-container.component';
 import { TimelinesEntryPresenterComponent } from './presenter/timelines-entry-presenter.component';
-import { TimelinesEntryRoutingModule } from './timelines-entry-routing.module';
 import { TimelinesEntryGuard } from './timelines-entry.guard';
 import { TimelinesDataAccessModule } from '../data-access/timelines-data-access.module';
 import { TimelinesService } from '../timelines.service';
@@ -18,7 +17,6 @@ import { TimelinesFacade } from '../data-access/+state/timelines.facade';
   ],
   imports: [
     CommonModule,
-    TimelinesEntryRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     UiInputModule,

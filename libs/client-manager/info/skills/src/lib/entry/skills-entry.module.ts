@@ -1,6 +1,5 @@
 import { SkillsEntryContainerComponent } from './container/skills-entry-container.component';
 import { SkillsEntryPresenterComponent } from './presenter/skills-entry-presenter.component';
-import { SkillsEntryRoutingModule } from './skills-entry-routing.module';
 import { SkillsEntryGuard } from './skills-entry.guard';
 import { SkillsDataAccessModule } from '../data-access/skills-data-access.module';
 import { SkillsService } from '../skills.service';
@@ -15,7 +14,6 @@ import { SkillsFacade } from '../data-access/+state/skills.facade';
   declarations: [SkillsEntryContainerComponent, SkillsEntryPresenterComponent],
   imports: [
     CommonModule,
-    SkillsEntryRoutingModule,
     ReactiveFormsModule,
     UiInputModule,
     UiSelectModule,

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ISkillType } from '@workspace/api-interfaces';
 import { Observable } from 'rxjs';
 

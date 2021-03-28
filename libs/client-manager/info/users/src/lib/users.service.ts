@@ -7,13 +7,13 @@ import { ApiConstant } from '@workspace/constants';
 @Injectable()
 export class UsersService {
   constants = ApiConstant;
-  constructor(private formBuilder: FormBuilder, private ruter: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   generateFormGroup(): FormGroup {
     return this.formBuilder.group(new UsersEntryModel());
   }
 
   navigateSkillTypesEntry(id: number): void {
-    this.ruter.navigate(['/users', id]);
+    this.router.navigate(['/info/users', id]);
   }
 }

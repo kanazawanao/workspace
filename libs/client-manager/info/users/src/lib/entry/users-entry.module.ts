@@ -1,6 +1,5 @@
 import { UsersEntryContainerComponent } from './container/users-entry-container.component';
 import { UsersEntryPresenterComponent } from './presenter/users-entry-presenter.component';
-import { UsersEntryRoutingModule } from './users-entry-routing.module';
 import { UsersEntryGuard } from './users-entry.guard';
 import { UsersDataAccessModule } from '../data-access/users-data-access.module';
 import { UsersService } from '../users.service';
@@ -15,7 +14,6 @@ import { UsersFacade } from '../data-access/+state/users.facade';
   declarations: [UsersEntryContainerComponent, UsersEntryPresenterComponent],
   imports: [
     CommonModule,
-    UsersEntryRoutingModule,
     ReactiveFormsModule,
     UiInputModule,
     UiDatePickerModule,

@@ -1,16 +1,20 @@
+import { SkillsEntryContainerComponent } from './entry/container/skills-entry-container.component';
+import { SkillsEntryGuard } from './entry/skills-entry.guard';
+import { SkillsListContainerComponent } from './list/container/skills-list-container.component';
+import { SkillsListGuard } from './list/skills-list.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./list/skills-list.module').then((m) => m.SkillsListModule),
+    canActivate: [SkillsListGuard],
+    component: SkillsListContainerComponent,
   },
   {
     path: ':id',
-    loadChildren: () =>
-      import('./entry/skills-entry.module').then((m) => m.SkillsEntryModule),
+    canActivate: [SkillsEntryGuard],
+    component: SkillsEntryContainerComponent,
   },
 ];
 

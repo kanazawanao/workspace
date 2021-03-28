@@ -1,16 +1,20 @@
+import { UsersEntryContainerComponent } from './entry/container/users-entry-container.component';
+import { UsersEntryGuard } from './entry/users-entry.guard';
+import { UsersListContainerComponent } from './list/container/users-list-container.component';
+import { UsersListGuard } from './list/users-list.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./list/users-list.module').then((m) => m.UsersListModule),
+    canActivate: [UsersListGuard],
+    component: UsersListContainerComponent,
   },
   {
     path: ':id',
-    loadChildren: () =>
-      import('./entry/users-entry.module').then((m) => m.UsersEntryModule),
+    canActivate: [UsersEntryGuard],
+    component: UsersEntryContainerComponent,
   },
 ];
 

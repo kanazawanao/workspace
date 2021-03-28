@@ -1,18 +1,20 @@
+import { TimelinesEntryContainerComponent } from './entry/container/timelines-entry-container.component';
+import { TimelinesEntryGuard } from './entry/timelines-entry.guard';
+import { TimelinesListContainerComponent } from './list/container/timelines-list-container.component';
+import { TimelinesListGuard } from './list/timelines-list.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./list/timelines-list.module').then((m) => m.TimelinesListModule),
+    canActivate: [TimelinesListGuard],
+    component: TimelinesListContainerComponent,
   },
   {
     path: ':id',
-    loadChildren: () =>
-      import('./entry/timelines-entry.module').then(
-        (m) => m.TimelinesEntryModule
-      ),
+    canActivate: [TimelinesEntryGuard],
+    component: TimelinesEntryContainerComponent,
   },
 ];
 
