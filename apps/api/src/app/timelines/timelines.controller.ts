@@ -13,6 +13,7 @@ import {
   Param,
   Post,
   Put,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 
@@ -41,9 +42,9 @@ export class TimelinesController {
   @Post()
   @ApiOperation({ summary: 'post timeline' })
   @ApiBody({ type: Timeline, description: 'timeline' })
-  async postTimeline(@Body() body: Timeline) {
+  async postTimeline(@Req() request, @Body() body: Timeline) {
     console.log(body);
-    return this.timelinesService.post(body);
+    return this.timelinesService.post(request.user.userId, body);
   }
 
   @UseGuards(JwtAuthGuard)

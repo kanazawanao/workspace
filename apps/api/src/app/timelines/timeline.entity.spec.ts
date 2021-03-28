@@ -1,7 +1,7 @@
-import { TimelineEntity } from './timeline.entity';
+import { Timeline } from './timeline.entity';
 
 describe('TimelineEntity', () => {
   it('should be defined', () => {
-    expect(new TimelineEntity()).toBeDefined();
+    expect(new Timeline()).toBeDefined();
   });
 });
