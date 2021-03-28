@@ -6,7 +6,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -18,11 +17,9 @@ export class Skill implements ISkill {
 
   @Column()
   @ApiProperty()
-  @ManyToOne(() => SkillType, (skillType) => skillType.id)
   skillType: number;
 
   @Column()
-  @ManyToOne(() => User, (user) => user.id)
   userId: number;
 
   @Column()

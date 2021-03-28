@@ -16,7 +16,6 @@ export class Timeline implements ITimeline {
   id: number;
 
   @Column()
-  @ManyToOne(() => User, (user) => user.id)
   userId: number;
 
   @Column()

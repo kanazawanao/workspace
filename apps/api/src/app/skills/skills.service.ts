@@ -23,7 +23,6 @@ export class SkillsService {
   }
 
   async post(userId: number, skill: Skill): Promise<InsertResult> {
-    skill.userId = userId;
     return await this.skillsRepository.insert(skill);
   }
 
