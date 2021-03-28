@@ -34,21 +34,6 @@
       "@workspace/client-manager/data-accesss": [
         "libs/client-manager/data-accesss/src/index.ts"
       ],
-      "@workspace/client-manager/skill-types": [
-        "libs/client-manager/skill-types/src/index.ts"
-      ],
-      "@workspace/client-manager/skills": [
-        "libs/client-manager/skills/src/index.ts"
-      ],
-      "@workspace/client-manager/timelines": [
-        "libs/client-manager/timelines/src/index.ts"
-      ],
-      "@workspace/client-manager/users": [
-        "libs/client-manager/users/src/index.ts"
-      ],
-      "@workspace/client-manager/login": [
-        "libs/client-manager/login/src/index.ts"
-      ],
       "@workspace/shared/story-book": ["libs/shared/story-book/src/index.ts"],
       "@workspace/client/about": ["libs/client/about/src/index.ts"],
       "@workspace/client/timeline": ["libs/client/timeline/src/index.ts"],
@@ -71,10 +56,28 @@
       "@workspace/tripig/map/ui/suggest-list": [
         "libs/tripig/map/ui/suggest-list/src/index.ts"
       ],
-      "@workspace/client-manager/sign-up": [
-        "libs/client-manager/sign-up/src/index.ts"
+      "@workspace/client-manager/top": ["libs/client-manager/top/src/index.ts"],
+      "@workspace/client-manager/top/login": [
+        "libs/client-manager/top/login/src/index.ts"
       ],
-      "@workspace/client-manager/top": ["libs/client-manager/top/src/index.ts"]
+      "@workspace/client-manager/top/sign-up": [
+        "libs/client-manager/top/sign-up/src/index.ts"
+      ],
+      "@workspace/client-manager/info": [
+        "libs/client-manager/info/src/index.ts"
+      ],
+      "@workspace/client-manager/info/skills": [
+        "libs/client-manager/info/skills/src/index.ts"
+      ],
+      "@workspace/client-manager/info/skill-types": [
+        "libs/client-manager/info/skill-types/src/index.ts"
+      ],
+      "@workspace/client-manager/info/timelines": [
+        "libs/client-manager/info/timelines/src/index.ts"
+      ],
+      "@workspace/client-manager/info/users": [
+        "libs/client-manager/info/users/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

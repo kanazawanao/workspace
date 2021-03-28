@@ -1,0 +1,6 @@
+<ui-table
+  [dataSource]="timelines$"
+  [displayedColumns]="displayedColumns"
+  (selectEvent)="selectEvent.emit($event)"
+></ui-table>
+<a mat-button [routerLink]="'entry'">新規登録</a>

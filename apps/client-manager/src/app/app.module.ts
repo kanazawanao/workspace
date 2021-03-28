@@ -9,7 +9,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthModule } from '@workspace/client-manager/guards';
-import { UiSidenavModule } from '@workspace/ui';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +17,6 @@ import { UiSidenavModule } from '@workspace/ui';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    UiSidenavModule,
     AuthModule,
     StoreModule.forRoot(
       {},
