@@ -1,7 +1,6 @@
 import { Timeline } from './timeline.entity';
 import { TimelinesService } from './timelines.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { Skill } from '../skills/skill.entity';
 import { ApiBody, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { ApiConstant } from '@workspace/constants';
 import { DeleteResult, UpdateResult } from 'typeorm';

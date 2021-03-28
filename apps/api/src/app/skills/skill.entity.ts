@@ -1,5 +1,3 @@
-import { SkillType } from '../skill-types/skill-type.entity';
-import { User } from '../users/user.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { ISkill } from '@workspace/api-interfaces';
 import {
