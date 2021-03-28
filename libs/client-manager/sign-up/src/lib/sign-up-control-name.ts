@@ -3,4 +3,6 @@ export enum SignUpControlName {
   password = 'password',
   firstName = 'firstName',
   lastName = 'lastName',
+  birthDay = 'birthDay',
+  graduationDate = 'graduationDate',
 }

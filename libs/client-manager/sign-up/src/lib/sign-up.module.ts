@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { UiInputModule } from '@workspace/ui';
+import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
 
 @NgModule({
   declarations: [SignUpComponent],
@@ -14,6 +14,7 @@ import { UiInputModule } from '@workspace/ui';
     ReactiveFormsModule,
     SignUpRoutingModule,
     UiInputModule,
+    UiDatePickerModule,
     MatButtonModule,
   ],
   providers: [SignUpService],

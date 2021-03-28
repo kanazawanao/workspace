@@ -28,6 +28,8 @@ export class SignUpService {
       ]),
       firstName: new FormControl(''),
       lastName: new FormControl(''),
+      birthDay: new FormControl(''),
+      graduationDate: new FormControl(''),
     });
     return formGroup;
   }
