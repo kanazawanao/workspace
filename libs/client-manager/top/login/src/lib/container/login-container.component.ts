@@ -2,7 +2,7 @@ import { LoginControlName } from '../login-control-name';
 import { LoginService } from '../login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'client-manager-login-container',
@@ -13,8 +13,9 @@ export class LoginContainerComponent implements OnInit {
   formGroup: FormGroup;
   controlName = LoginControlName;
   constructor(
-    private loginService: LoginService,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +30,8 @@ export class LoginContainerComponent implements OnInit {
         email: this.formGroup.get(this.controlName.email).value,
         password: this.formGroup.get(this.controlName.password).value,
       })
-      .subscribe();
+      .subscribe(() => {
+        this.router.navigate(['/info']);
+      });
   }
 }

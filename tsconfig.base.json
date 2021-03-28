@@ -74,6 +74,9 @@
       ],
       "@workspace/client-manager/top/sign-up": [
         "libs/client-manager/top/sign-up/src/index.ts"
+      ],
+      "@workspace/client-manager/info": [
+        "libs/client-manager/info/src/index.ts"
       ]
     }
   },

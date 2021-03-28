@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '@workspace/client-manager/guards';
 export const routes: Routes = [
   {
     path: 'top',
@@ -20,31 +19,9 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'skills',
-    canActivate: [AuthGuard],
+    path: 'info',
     loadChildren: () =>
-      import('@workspace/client-manager/skills').then((m) => m.SkillsModule),
-  },
-  {
-    path: 'users',
-    loadChildren: () =>
-      import('@workspace/client-manager/users').then((m) => m.UsersModule),
-  },
-  {
-    path: 'timelines',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('@workspace/client-manager/timelines').then(
-        (m) => m.TimelinesModule
-      ),
-  },
-  {
-    path: 'skill-types',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('@workspace/client-manager/skill-types').then(
-        (m) => m.SkillTypesModule
-      ),
+      import('@workspace/client-manager/info').then((m) => m.InfoModule),
   },
   {
     path: '',

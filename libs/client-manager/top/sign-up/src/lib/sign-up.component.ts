@@ -2,7 +2,7 @@ import { SignUpControlName } from './sign-up-control-name';
 import { SignUpService } from './sign-up.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from '@workspace/api-interfaces';
 
 @Component({
@@ -12,8 +12,9 @@ import { IUser } from '@workspace/api-interfaces';
 })
 export class SignUpComponent implements OnInit {
   constructor(
-    private signUpService: SignUpService,
-    private route: ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
+    private signUpService: SignUpService
   ) {}
 
   formGroup: FormGroup;
@@ -26,7 +27,9 @@ export class SignUpComponent implements OnInit {
   }
 
   signUpEvent() {
-    this.signUpService.signUp(this.formToUser()).subscribe();
+    this.signUpService.signUp(this.formToUser()).subscribe(() => {
+      this.router.navigate(['/info']);
+    });
   }
 
   private formToUser(): IUser {

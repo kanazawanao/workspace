@@ -1313,6 +1313,31 @@
           }
         }
       }
+    },
+    "client-manager-info": {
+      "projectType": "library",
+      "root": "libs/client-manager/info",
+      "sourceRoot": "libs/client-manager/info/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/info/src/**/*.ts",
+              "libs/client-manager/info/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-manager/info"],
+          "options": {
+            "jestConfig": "libs/client-manager/info/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
