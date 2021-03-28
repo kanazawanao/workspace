@@ -7,36 +7,40 @@ const routes: Routes = [
   {
     path: '',
     component: InfoComponent,
-  },
-
-  {
-    path: 'skills',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('@workspace/client-manager/info/skills').then(
-        (m) => m.SkillsModule
-      ),
-  },
-  {
-    path: 'users',
-    loadChildren: () =>
-      import('@workspace/client-manager/info/users').then((m) => m.UsersModule),
-  },
-  {
-    path: 'timelines',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('@workspace/client-manager/info/timelines').then(
-        (m) => m.TimelinesModule
-      ),
-  },
-  {
-    path: 'skill-types',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('@workspace/client-manager/info/skill-types').then(
-        (m) => m.SkillTypesModule
-      ),
+    children: [
+      {
+        path: 'skills',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('@workspace/client-manager/info/skills').then(
+            (m) => m.SkillsModule
+          ),
+      },
+      {
+        path: 'users',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('@workspace/client-manager/info/users').then(
+            (m) => m.UsersModule
+          ),
+      },
+      {
+        path: 'timelines',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('@workspace/client-manager/info/timelines').then(
+            (m) => m.TimelinesModule
+          ),
+      },
+      {
+        path: 'skill-types',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('@workspace/client-manager/info/skill-types').then(
+            (m) => m.SkillTypesModule
+          ),
+      },
+    ],
   },
 ];
 
