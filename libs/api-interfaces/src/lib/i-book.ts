@@ -8,4 +8,5 @@ export interface IBook {
   other: string;
   type: string;
   rate: number;
+  url: string;
 }

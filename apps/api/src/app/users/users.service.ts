@@ -54,6 +54,7 @@ export class UsersService {
   }
 
   async post(user: User): Promise<InsertResult> {
+    // TODO: 同じEmailは登録不可にする
     user.password = this.getPasswordHash(user.password);
     return await this.usersRepository.insert(user);
   }

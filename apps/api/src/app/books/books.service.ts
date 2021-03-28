@@ -39,6 +39,7 @@ export class BooksService {
         other: book.other,
         rate: book.rate,
         type: book.type,
+        url: book.url,
       }
     );
   }

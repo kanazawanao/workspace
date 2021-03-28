@@ -47,6 +47,7 @@ export class BooksController {
   @ApiOperation({ summary: 'post book' })
   @ApiBody({ type: Book, description: 'book' })
   async postBook(@Req() request, @Body() book: Book): Promise<InsertResult> {
+    console.log(request);
     return this.booksService.post(request.user.userId, book);
   }
 

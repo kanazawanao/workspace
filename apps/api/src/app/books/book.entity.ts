@@ -41,4 +41,8 @@ export class Book implements IBook {
   @Column()
   @ApiProperty()
   rate: number;
+
+  @Column()
+  @ApiProperty()
+  url: string;
 }
