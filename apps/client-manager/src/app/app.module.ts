@@ -33,7 +33,12 @@ import { UiSidenavModule } from '@workspace/ui';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [{ provide: 'apiUrl', useValue: environment.apiUrl }],
+  providers: [
+    {
+      provide: 'apiUrl',
+      useValue: environment.apiUrl,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

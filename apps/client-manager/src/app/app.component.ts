@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'client-manager';
   menuTitle = 'Menu';
   options: SidenavOption[] = [
-    { value: '/', viewValue: 'Top' },
     { value: '/login', viewValue: 'Login' },
     { value: '/sign-up', viewValue: 'SignUp' },
     { value: '/skills', viewValue: 'Skills' },
