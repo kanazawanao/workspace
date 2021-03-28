@@ -17,7 +17,7 @@ export class Skill implements ISkill {
 
   @Column()
   @ApiProperty()
-  @ManyToOne(() => SkillType, (skillType) => skillType.skillType)
+  @ManyToOne(() => SkillType, (skillType) => skillType.id)
   skillType: number;
 
   @Column()
