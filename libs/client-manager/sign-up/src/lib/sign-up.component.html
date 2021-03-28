@@ -1,0 +1,26 @@
+<form [formGroup]="formGroup" class="form">
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.email)"
+    [label]="'email'"
+    [type]="'email'"
+  ></ui-input>
+  <br />
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.password)"
+    [label]="'password'"
+    [type]="'password'"
+  ></ui-input>
+  <br />
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.firstName)"
+    [label]="'first name'"
+    [type]="'text'"
+  ></ui-input>
+  <br />
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.lastName)"
+    [label]="'last name'"
+    [type]="'text'"
+  ></ui-input>
+  <button mat-raised-button (click)="signUpEvent()">SignUp</button>
+</form>

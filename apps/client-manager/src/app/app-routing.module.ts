@@ -8,6 +8,11 @@ export const routes: Routes = [
       import('@workspace/client-manager/login').then((m) => m.LoginModule),
   },
   {
+    path: 'sign-up',
+    loadChildren: () =>
+      import('@workspace/client-manager/sign-up').then((m) => m.SignUpModule),
+  },
+  {
     path: 'skills',
     canActivate: [AuthGuard],
     loadChildren: () =>
