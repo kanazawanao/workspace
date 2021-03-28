@@ -2,6 +2,7 @@ import { LoginControlName } from '../login-control-name';
 import { LoginService } from '../login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'client-manager-login-container',
@@ -11,10 +12,15 @@ import { FormGroup } from '@angular/forms';
 export class LoginContainerComponent implements OnInit {
   formGroup: FormGroup;
   controlName = LoginControlName;
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private loginService: LoginService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.formGroup = this.loginService.generateFormGroup();
+    this.formGroup = this.loginService.generateFormGroup(
+      this.route.snapshot.queryParams['email']
+    );
   }
 
   loginEventListner() {

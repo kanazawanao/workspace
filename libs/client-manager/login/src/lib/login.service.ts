@@ -20,9 +20,9 @@ export class LoginService {
     @Inject('apiUrl') private apiUrl: string
   ) {}
 
-  generateFormGroup(): FormGroup {
+  generateFormGroup(email: string): FormGroup {
     const formGroup = this.formBuilder.group({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl(email, [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),

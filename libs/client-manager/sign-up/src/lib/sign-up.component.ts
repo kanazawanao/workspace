@@ -2,6 +2,7 @@ import { SignUpControlName } from './sign-up-control-name';
 import { SignUpService } from './sign-up.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { IUser } from '@workspace/api-interfaces';
 
 @Component({
@@ -10,13 +11,18 @@ import { IUser } from '@workspace/api-interfaces';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  constructor(private signUpService: SignUpService) {}
+  constructor(
+    private signUpService: SignUpService,
+    private route: ActivatedRoute
+  ) {}
 
   formGroup: FormGroup;
   controlName = SignUpControlName;
 
   ngOnInit(): void {
-    this.formGroup = this.signUpService.generateFormGroup();
+    this.formGroup = this.signUpService.generateFormGroup(
+      this.route.snapshot.queryParams['email']
+    );
   }
 
   signUpEvent() {
