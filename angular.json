@@ -530,130 +530,6 @@
         }
       }
     },
-    "client-manager-skill-types": {
-      "projectType": "library",
-      "root": "libs/client-manager/skill-types",
-      "sourceRoot": "libs/client-manager/skill-types/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client-manager/skill-types/src/**/*.ts",
-              "libs/client-manager/skill-types/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/skill-types/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/client-manager/skill-types/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/libs/client-manager/skill-types"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "client-manager-skills": {
-      "projectType": "library",
-      "root": "libs/client-manager/skills",
-      "sourceRoot": "libs/client-manager/skills/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client-manager/skills/src/**/*.ts",
-              "libs/client-manager/skills/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/skills/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/client-manager/skills/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/libs/client-manager/skills"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "client-manager-timelines": {
-      "projectType": "library",
-      "root": "libs/client-manager/timelines",
-      "sourceRoot": "libs/client-manager/timelines/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client-manager/timelines/src/**/*.ts",
-              "libs/client-manager/timelines/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/timelines/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/client-manager/timelines/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/libs/client-manager/timelines"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "client-manager-users": {
-      "projectType": "library",
-      "root": "libs/client-manager/users",
-      "sourceRoot": "libs/client-manager/users/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client-manager/users/src/**/*.ts",
-              "libs/client-manager/users/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/users/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/client-manager/users/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/libs/client-manager/users"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "shared-story-book": {
       "projectType": "library",
       "root": "libs/shared/story-book",
@@ -1336,6 +1212,130 @@
             "jestConfig": "libs/client-manager/info/jest.config.js",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "client-manager-info-skills": {
+      "projectType": "library",
+      "root": "libs/client-manager/info/skills",
+      "sourceRoot": "libs/client-manager/info/skills/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/info/skills/src/**/*.ts",
+              "libs/client-manager/info/skills/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/info/skills/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/info/skills/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/libs/client-manager/info/skills"]
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "client-manager-info-skill-types": {
+      "projectType": "library",
+      "root": "libs/client-manager/info/skill-types",
+      "sourceRoot": "libs/client-manager/info/skill-types/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/info/skill-types/src/**/*.ts",
+              "libs/client-manager/info/skill-types/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/info/skill-types/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/info/skill-types/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/libs/client-manager/info/skill-types"]
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "client-manager-info-timelines": {
+      "projectType": "library",
+      "root": "libs/client-manager/info/timelines",
+      "sourceRoot": "libs/client-manager/info/timelines/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/info/timelines/src/**/*.ts",
+              "libs/client-manager/info/timelines/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/info/timelines/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/info/timelines/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/libs/client-manager/info/timelines"]
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "client-manager-info-users": {
+      "projectType": "library",
+      "root": "libs/client-manager/info/users",
+      "sourceRoot": "libs/client-manager/info/users/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/info/users/src/**/*.ts",
+              "libs/client-manager/info/users/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/info/users/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/info/users/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/libs/client-manager/info/users"]
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }

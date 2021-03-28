@@ -13,18 +13,20 @@ const routes: Routes = [
     path: 'skills',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('@workspace/client-manager/skills').then((m) => m.SkillsModule),
+      import('@workspace/client-manager/info/skills').then(
+        (m) => m.SkillsModule
+      ),
   },
   {
     path: 'users',
     loadChildren: () =>
-      import('@workspace/client-manager/users').then((m) => m.UsersModule),
+      import('@workspace/client-manager/info/users').then((m) => m.UsersModule),
   },
   {
     path: 'timelines',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('@workspace/client-manager/timelines').then(
+      import('@workspace/client-manager/info/timelines').then(
         (m) => m.TimelinesModule
       ),
   },
@@ -32,7 +34,7 @@ const routes: Routes = [
     path: 'skill-types',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('@workspace/client-manager/skill-types').then(
+      import('@workspace/client-manager/info/skill-types').then(
         (m) => m.SkillTypesModule
       ),
   },
