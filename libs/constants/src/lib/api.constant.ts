@@ -6,4 +6,5 @@ export enum ApiConstant {
   users = '/users',
   skills = '/skills',
   skilltypes = '/skilltypes',
+  books = '/books',
 }

@@ -1,4 +1,6 @@
 import { AuthModule } from './auth/auth.module';
+import { Book } from './books/book.entity';
+import { BooksModule } from './books/books.module';
 import { SkillType } from './skill-types/skill-type.entity';
 import { SkillTypesModule } from './skill-types/skill-types.module';
 import { Skill } from './skills/skill.entity';
@@ -20,7 +22,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'develop',
       password: 'password',
       database: 'develop',
-      entities: [User, Skill, Timeline, SkillType],
+      entities: [User, Skill, Timeline, SkillType, Book],
       synchronize: true,
       charset: 'utf8mb4',
     }),
@@ -29,6 +31,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     SkillsModule,
     TimelinesModule,
     SkillTypesModule,
+    BooksModule,
   ],
 })
 export class AppModule {}
