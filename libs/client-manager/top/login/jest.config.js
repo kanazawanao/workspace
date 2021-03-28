@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'client-manager-sign-up',
-  preset: '../../../jest.preset.js',
+  displayName: 'client-manager-top-login',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/client-manager/sign-up',
+  coverageDirectory: '../../../../coverage/libs/client-manager/top/login',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

@@ -654,37 +654,6 @@
         }
       }
     },
-    "client-manager-login": {
-      "projectType": "library",
-      "root": "libs/client-manager/login",
-      "sourceRoot": "libs/client-manager/login/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client-manager/login/src/**/*.ts",
-              "libs/client-manager/login/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/client-manager/login/jest.config.js",
-            "passWithNoTests": true,
-            "tsConfig": "libs/client-manager/login/tsconfig.spec.json"
-          },
-          "outputs": ["coverage/libs/client-manager/login"]
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "shared-story-book": {
       "projectType": "library",
       "root": "libs/shared/story-book",
@@ -1264,31 +1233,6 @@
         }
       }
     },
-    "client-manager-sign-up": {
-      "projectType": "library",
-      "root": "libs/client-manager/sign-up",
-      "sourceRoot": "libs/client-manager/sign-up/src",
-      "prefix": "workspace",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client-manager/sign-up/src/**/*.ts",
-              "libs/client-manager/sign-up/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/client-manager/sign-up"],
-          "options": {
-            "jestConfig": "libs/client-manager/sign-up/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "client-manager-top": {
       "projectType": "library",
       "root": "libs/client-manager/top",
@@ -1309,6 +1253,62 @@
           "outputs": ["coverage/libs/client-manager/top"],
           "options": {
             "jestConfig": "libs/client-manager/top/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "client-manager-top-login": {
+      "projectType": "library",
+      "root": "libs/client-manager/top/login",
+      "sourceRoot": "libs/client-manager/top/login/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/top/login/src/**/*.ts",
+              "libs/client-manager/top/login/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/client-manager/top/login/jest.config.js",
+            "passWithNoTests": true,
+            "tsConfig": "libs/client-manager/top/login/tsconfig.spec.json"
+          },
+          "outputs": ["coverage/libs/client-manager/top/login"]
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "client-manager-top-sign-up": {
+      "projectType": "library",
+      "root": "libs/client-manager/top/sign-up",
+      "sourceRoot": "libs/client-manager/top/sign-up/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/top/sign-up/src/**/*.ts",
+              "libs/client-manager/top/sign-up/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-manager/top/sign-up"],
+          "options": {
+            "jestConfig": "libs/client-manager/top/sign-up/jest.config.js",
             "passWithNoTests": true
           }
         }

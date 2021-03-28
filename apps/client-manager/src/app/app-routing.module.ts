@@ -10,12 +10,14 @@ export const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('@workspace/client-manager/login').then((m) => m.LoginModule),
+      import('@workspace/client-manager/top/login').then((m) => m.LoginModule),
   },
   {
     path: 'signup',
     loadChildren: () =>
-      import('@workspace/client-manager/sign-up').then((m) => m.SignUpModule),
+      import('@workspace/client-manager/top/sign-up').then(
+        (m) => m.SignUpModule
+      ),
   },
   {
     path: 'skills',
