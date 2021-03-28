@@ -1,0 +1,22 @@
+<div class="content" fxLayout="row">
+  <div class="description">
+    ここにアプリの説明といか、なんかいい感じのキャッチコピーとか画像とか入れる
+  </div>
+  <div class="signup" fxLayout="column">
+    <form fxLayout="row" [formGroup]="formGroup">
+      <ui-input
+        [inpFormControl]="formGroup.get('email')"
+        [label]="'email'"
+        [type]="'email'"
+      ></ui-input>
+      <button
+        mat-icon-button
+        aria-label="email button"
+        [disabled]="!formGroup.valid"
+        (click)="signInOrSignUp()"
+      >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </form>
+  </div>
+</div>

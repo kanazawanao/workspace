@@ -22,6 +22,19 @@ export class UsersService {
     });
   }
 
+  async findOneByEmail(email: string): Promise<User> {
+    return await this.usersRepository
+      .findOne({
+        email: email,
+      })
+      .then((u) => {
+        if (u) {
+          u.password = '**********';
+        }
+        return u;
+      });
+  }
+
   async findOneByIdPw(email: string, password: string): Promise<User> {
     return await this.usersRepository
       .findOne({

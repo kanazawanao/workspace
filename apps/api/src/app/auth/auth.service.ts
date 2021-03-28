@@ -33,4 +33,14 @@ export class AuthService {
       accessToken: this.jwtService.sign(payload),
     };
   }
+
+  async existEmail(email: string): Promise<boolean> {
+    return await this.usersService.findOneByEmail(email).then((u) => {
+      if (u) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
 }
