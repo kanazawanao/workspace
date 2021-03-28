@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup" class="form">
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.email)"
+    [label]="'email'"
+    [type]="'email'"
+  ></ui-input>
+  <br />
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.password)"
+    [label]="'password'"
+    [type]="'password'"
+  ></ui-input>
+  <br />
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.firstName)"
+    [label]="'first name'"
+    [type]="'text'"
+  ></ui-input>
+  <br />
+  <ui-input
+    [inpFormControl]="formGroup.get(controlName.lastName)"
+    [label]="'last name'"
+    [type]="'text'"
+  ></ui-input>
+  <br />
+  <ui-date-picker
+    [dateFormControl]="formGroup.get(controlName.birthDay)"
+    [label]="'birth day'"
+  ></ui-date-picker>
+  <br />
+  <ui-date-picker
+    [dateFormControl]="formGroup.get(controlName.graduationDate)"
+    [label]="'graduation day'"
+  ></ui-date-picker>
+  <br />
+  <button mat-raised-button (click)="signUpEvent()">SignUp</button>
+</form>

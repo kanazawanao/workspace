@@ -1,4 +1,4 @@
-FROM node
-RUN npm install -g @angular/cli
+FROM node:12.21-alpine
 WORKDIR /workspace
-EXPOSE 4200
+COPY package.json package-lock.json /workspace/
+RUN npm install

@@ -36,3 +36,5 @@ npm run -- nx dep-graph
 npm run -- nx migrate @angular/material
 npm install --legacy-peer-deps
 npm run -- nx migrate --run-migrations
+
+mysql -h 127.0.0.1 -P 13306 -u develop -p

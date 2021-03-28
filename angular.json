@@ -1263,6 +1263,56 @@
           }
         }
       }
+    },
+    "client-manager-sign-up": {
+      "projectType": "library",
+      "root": "libs/client-manager/sign-up",
+      "sourceRoot": "libs/client-manager/sign-up/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/sign-up/src/**/*.ts",
+              "libs/client-manager/sign-up/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-manager/sign-up"],
+          "options": {
+            "jestConfig": "libs/client-manager/sign-up/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "client-manager-top": {
+      "projectType": "library",
+      "root": "libs/client-manager/top",
+      "sourceRoot": "libs/client-manager/top/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/top/src/**/*.ts",
+              "libs/client-manager/top/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-manager/top"],
+          "options": {
+            "jestConfig": "libs/client-manager/top/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -22,7 +22,9 @@ export class TimelinesService {
     return await this.timelinesRepository.delete({ id });
   }
 
-  async post(skill: Timeline): Promise<InsertResult> {
+  async post(userId: number, skill: Timeline): Promise<InsertResult> {
+    skill.userId = userId;
+    console.log('*****', skill);
     return await this.timelinesRepository.insert(skill);
   }
 

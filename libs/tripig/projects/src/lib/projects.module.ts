@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FireAuthService } from '@workspace/shared-service';
 import { TripigGuardsModule } from '@workspace/tripig/guards';
@@ -28,6 +29,7 @@ import { TripigGuardsModule } from '@workspace/tripig/guards';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
   ],
   providers: [FireAuthService],
 })

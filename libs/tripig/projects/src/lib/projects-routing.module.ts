@@ -1,5 +1,6 @@
 import { PointSearchComponent } from './point-search/point-search.component';
 import { ProjectsComponent } from './projects.component';
+import { RouteSearchComponent } from './route-search/route-search.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@workspace/tripig/guards';
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: 'point-search',
         component: PointSearchComponent,
+      },
+      {
+        path: 'route-search',
+        component: RouteSearchComponent,
       },
       {
         path: 'map/point-search',

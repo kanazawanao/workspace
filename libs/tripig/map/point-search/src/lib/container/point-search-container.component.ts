@@ -1,4 +1,3 @@
-import { PointSearchControlName } from '../point-search-control-name';
 import { PointSearchService } from '../point-search.service';
 import { PointSearchPresenterComponent } from '../presenter/point-search-presenter.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -34,8 +33,7 @@ export class PointSearchContainerComponent implements OnInit {
     return this._center$.asObservable();
   }
   get selectedCategory(): string {
-    return CATEGORIES[this.formGroup.get(PointSearchControlName.category).value]
-      .value;
+    return CATEGORIES[this.formGroup.get('category').value].value;
   }
 
   ngOnInit(): void {
@@ -58,7 +56,7 @@ export class PointSearchContainerComponent implements OnInit {
 
   searchPosition() {
     this.service
-      .geocode(this.formGroup.get(PointSearchControlName.destination).value)
+      .geocode(this.formGroup.get('destination').value)
       .then((result) => {
         this._center$.next(result.geometry.location);
         this.searchSuggestList();
@@ -73,9 +71,9 @@ export class PointSearchContainerComponent implements OnInit {
       rankBy: google.maps.places.RankBy.PROMINENCE,
       location: this._center$.getValue(),
       radius: 500,
-      keyword: `${
-        this.formGroup.get(PointSearchControlName.destination).value
-      } ${this.selectedCategory}`,
+      keyword: `${this.formGroup.get('destination').value} ${
+        this.selectedCategory
+      }`,
     };
     this.service.nearbySearch(placeService, request).then((results) => {
       console.log(results);

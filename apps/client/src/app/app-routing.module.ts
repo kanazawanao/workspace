@@ -17,6 +17,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('@workspace/client/timeline').then((m) => m.TimelineModule),
   },
+  {
+    path: '',
+    redirectTo: 'about',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

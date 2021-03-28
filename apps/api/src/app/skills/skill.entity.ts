@@ -1,11 +1,9 @@
-import { SkillType } from '../skill-types/skill-type.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { ISkill } from '@workspace/api-interfaces';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -17,8 +15,10 @@ export class Skill implements ISkill {
 
   @Column()
   @ApiProperty()
-  @ManyToOne(() => SkillType, (skillType) => skillType.skillType)
   skillType: number;
+
+  @Column()
+  userId: number;
 
   @Column()
   @ApiProperty()

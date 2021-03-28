@@ -7,6 +7,7 @@ import { SkillTypesService } from '../skill-types.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { UiInputModule } from '@workspace/ui';
 import { SkillTypesFacade } from '../data-access/+state/skill-types.facade';
 
@@ -20,6 +21,7 @@ import { SkillTypesFacade } from '../data-access/+state/skill-types.facade';
     SkillTypesEntryRoutingModule,
     ReactiveFormsModule,
     UiInputModule,
+    MatButtonModule,
     SkillTypesDataAccessModule,
   ],
   providers: [SkillTypesFacade, SkillTypesService, SkillTypesEntryGuard],

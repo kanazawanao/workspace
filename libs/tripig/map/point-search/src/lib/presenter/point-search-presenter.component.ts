@@ -1,4 +1,3 @@
-import { PointSearchControlName } from '../point-search-control-name';
 import { FormGroup } from '@angular/forms';
 import { CATEGORIES, Category, MapComponent } from '@workspace/ui';
 import {
@@ -22,8 +21,6 @@ export class PointSearchPresenterComponent implements OnInit {
   @Output() searchEvent = new EventEmitter();
   @ViewChild(MapComponent) mapComponent!: MapComponent;
   categories: Category[] = CATEGORIES;
-
-  controlName = PointSearchControlName;
   constructor() {}
 
   ngOnInit(): void {}

@@ -3,9 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@workspace/client-manager/guards';
 export const routes: Routes = [
   {
+    path: 'top',
+    loadChildren: () =>
+      import('@workspace/client-manager/top').then((m) => m.TopModule),
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('@workspace/client-manager/login').then((m) => m.LoginModule),
+  },
+  {
+    path: 'signup',
+    loadChildren: () =>
+      import('@workspace/client-manager/sign-up').then((m) => m.SignUpModule),
   },
   {
     path: 'skills',
@@ -33,6 +43,11 @@ export const routes: Routes = [
       import('@workspace/client-manager/skill-types').then(
         (m) => m.SkillTypesModule
       ),
+  },
+  {
+    path: '',
+    redirectTo: '/top',
+    pathMatch: 'full',
   },
 ];
 

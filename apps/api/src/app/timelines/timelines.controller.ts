@@ -1,7 +1,6 @@
 import { Timeline } from './timeline.entity';
 import { TimelinesService } from './timelines.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { Skill } from '../skills/skill.entity';
 import { ApiBody, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { ApiConstant } from '@workspace/constants';
 import { DeleteResult, UpdateResult } from 'typeorm';
@@ -13,6 +12,7 @@ import {
   Param,
   Post,
   Put,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 
@@ -41,9 +41,9 @@ export class TimelinesController {
   @Post()
   @ApiOperation({ summary: 'post timeline' })
   @ApiBody({ type: Timeline, description: 'timeline' })
-  async postTimeline(@Body() body: Timeline) {
+  async postTimeline(@Req() request, @Body() body: Timeline) {
     console.log(body);
-    return this.timelinesService.post(body);
+    return this.timelinesService.post(request.user.userId, body);
   }
 
   @UseGuards(JwtAuthGuard)

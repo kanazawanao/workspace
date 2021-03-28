@@ -70,7 +70,11 @@
       "@workspace/tripig/map/service": ["libs/tripig/map/service/src/index.ts"],
       "@workspace/tripig/map/ui/suggest-list": [
         "libs/tripig/map/ui/suggest-list/src/index.ts"
-      ]
+      ],
+      "@workspace/client-manager/sign-up": [
+        "libs/client-manager/sign-up/src/index.ts"
+      ],
+      "@workspace/client-manager/top": ["libs/client-manager/top/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

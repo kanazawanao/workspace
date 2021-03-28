@@ -14,6 +14,9 @@ export class Timeline implements ITimeline {
   id: number;
 
   @Column()
+  userId: number;
+
+  @Column()
   @ApiProperty()
   date: Date;
 

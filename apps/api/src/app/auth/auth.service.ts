@@ -20,9 +20,27 @@ export class AuthService {
   }
 
   async login(user: ILogin) {
-    const payload = { username: user.email, sub: user.password };
+    const loginUser = await this.usersService.findOneByIdPw(
+      user.email,
+      user.password
+    );
+    const payload = {
+      username: loginUser.firstName,
+      userId: loginUser.id,
+      email: loginUser.email,
+    };
     return {
       accessToken: this.jwtService.sign(payload),
     };
+  }
+
+  async existEmail(email: string): Promise<boolean> {
+    return await this.usersService.findOneByEmail(email).then((u) => {
+      if (u) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 }

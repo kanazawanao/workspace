@@ -1,54 +1,16 @@
 version: '3'
 
 services:
-  api:
-    container_name: 'api'
-    build:
-      context: .
-      dockerfile: ./dockerfile/api/Dockerfile
-    ports:
-      - '3333:3333'
-    volumes:
-      - '.:/workspace/'
-    tty: true
-    stdin_open: true
-    depends_on:
-      - db
-    links:
-      - db
-
-  client:
-    container_name: 'client'
-    build:
-      context: .
-      dockerfile: ./dockerfile/client/Dockerfile
-    ports:
-      - '4200:4200'
-    volumes:
-      - '.:/workspace/'
-    tty: true
-    stdin_open: true
-
-  client-manager:
-    container_name: 'client-manager'
-    build:
-      context: .
-      dockerfile: ./dockerfile/client-manager/Dockerfile
-    ports:
-      - '4201:4200'
-    volumes:
-      - '.:/workspace/'
-    tty: true
-    stdin_open: true
-
   db:
     container_name: db
+    command: --default-authentication-plugin=mysql_native_password
     image: mysql:5
     restart: always
+    hostname: db-server
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: develop
       MYSQL_USER: develop
       MYSQL_PASSWORD: password
     ports:
-      - '3306:3306'
+      - '13306:3306'

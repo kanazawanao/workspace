@@ -63,6 +63,8 @@
     "tripig-top": { "tags": [] },
     "tripig-projects": { "tags": [] },
     "tripig-map-service": { "tags": [] },
-    "tripig-map-ui-suggest-list": { "tags": [] }
+    "tripig-map-ui-suggest-list": { "tags": [] },
+    "client-manager-sign-up": { "tags": [] },
+    "client-manager-top": { "tags": [] }
   }
 }

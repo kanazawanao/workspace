@@ -12,6 +12,7 @@ import {
   Param,
   Post,
   Put,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 
@@ -32,7 +33,8 @@ export class SkillsController {
   @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get skill' })
-  async getSkill(@Param('id') id: number): Promise<Skill> {
+  async getSkill(@Req() request, @Param('id') id: number): Promise<Skill> {
+    console.log(request.user);
     return this.skillsService.findOne(id);
   }
 
@@ -40,8 +42,8 @@ export class SkillsController {
   @Post()
   @ApiOperation({ summary: 'post skill' })
   @ApiBody({ type: Skill, description: 'skill' })
-  async postSkill(@Body() body: Skill): Promise<InsertResult> {
-    return this.skillsService.post(body);
+  async postSkill(@Req() request, @Body() body: Skill): Promise<InsertResult> {
+    return this.skillsService.post(request.user.userId, body);
   }
 
   @UseGuards(JwtAuthGuard)

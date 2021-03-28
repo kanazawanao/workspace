@@ -33,5 +33,7 @@ module.exports = {
     '<rootDir>/libs/tripig/projects',
     '<rootDir>/libs/tripig/map/service',
     '<rootDir>/libs/tripig/map/ui/suggest-list',
+    '<rootDir>/libs/client-manager/sign-up',
+    '<rootDir>/libs/client-manager/top',
   ],
 };

@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'client';
   menuTitle = 'Menu';
   options: SidenavOption[] = [
-    { value: '/', viewValue: 'Top' },
     { value: '/about', viewValue: 'About' },
     { value: '/skill-info', viewValue: 'SkillInfo' },
     { value: '/timeline', viewValue: 'Timelines' },
