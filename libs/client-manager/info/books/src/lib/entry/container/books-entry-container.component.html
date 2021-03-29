@@ -1,1 +1,5 @@
-<client-manager-books-entry-presenter></client-manager-books-entry-presenter>
+<client-manager-books-entry-presenter
+  [formGroup]="formGroup"
+  [editMode]="editMode$ | async"
+  (registEvent)="regist()"
+></client-manager-books-entry-presenter>

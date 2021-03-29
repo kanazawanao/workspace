@@ -16,7 +16,7 @@ export class BooksContainerComponent implements OnInit {
   ) {}
 
   books$: Observable<IBook[]> = this.booksFacade.allBooks$;
-  displayedColumns: string[] = ['event', 'date'];
+  displayedColumns: string[] = ['title', 'author'];
 
   ngOnInit(): void {}
 

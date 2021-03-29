@@ -2,7 +2,7 @@ import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { LocalAuthGuard } from './local-auth.guard';
 import { ExistEmail, Login } from './login.entity';
-import { UsersService } from '../users/users.service';
+import { User } from '../users/user.entity';
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { ApiConstant } from '@workspace/constants';
@@ -26,6 +26,14 @@ export class AuthController {
   @ApiBody({ type: Login, description: 'login' })
   async login(@Body() login: Login) {
     return this.authService.login(login);
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('sign-up')
+  @ApiOperation({ summary: 'sign-up' })
+  @ApiBody({ type: Login, description: 'signup' })
+  async signUp(@Body() user: User) {
+    return this.authService.signUp(user);
   }
 
   @UseGuards(JwtAuthGuard)

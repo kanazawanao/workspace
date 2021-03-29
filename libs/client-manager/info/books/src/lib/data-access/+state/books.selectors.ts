@@ -42,7 +42,7 @@ export const getSelected = createSelector(
   (entities, selectedId) => selectedId && entities[selectedId]
 );
 
-export const getWorkTimelineEntry = createSelector(
+export const getWorkBookEntry = createSelector(
   getBooksState,
   (state: State) => state.workBookEntry
 );

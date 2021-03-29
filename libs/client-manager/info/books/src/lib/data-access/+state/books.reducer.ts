@@ -64,7 +64,7 @@ const booksReducer = createReducer(
     (state, { initBookEntry }) => ({
       ...state,
       loaded: true,
-      workTimelineEntry: initBookEntry,
+      workBookEntry: initBookEntry,
       selectedId: initBookEntry.id,
     })
   ),

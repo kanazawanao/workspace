@@ -1,3 +1,4 @@
+import { BooksEntryGuard } from './entry/books-entry.guard';
 import { BooksEntryContainerComponent } from './entry/container/books-entry-container.component';
 import { BooksListGuard } from './list/books-list.guard';
 import { BooksContainerComponent } from './list/container/books-container.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
+    canActivate: [BooksEntryGuard],
     component: BooksEntryContainerComponent,
   },
 ];
