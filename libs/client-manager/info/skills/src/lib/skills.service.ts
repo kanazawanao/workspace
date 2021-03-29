@@ -14,6 +14,6 @@ export class SkillsService {
   }
 
   navigateSkillTypesEntry(id: number): void {
-    this.ruter.navigate(['/skills', id]);
+    this.ruter.navigate(['/info/skills', id]);
   }
 }

@@ -15,6 +15,7 @@ export class InfoComponent implements OnInit {
     { value: 'skills', viewValue: 'Skills' },
     { value: 'timelines', viewValue: 'Timelines' },
     { value: 'users', viewValue: 'Users' },
+    { value: 'books', viewValue: 'Books' },
   ];
   ngOnInit(): void {}
 }

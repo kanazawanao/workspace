@@ -40,6 +40,14 @@ const routes: Routes = [
             (m) => m.SkillTypesModule
           ),
       },
+      {
+        path: 'books',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('@workspace/client-manager/info/books').then(
+            (m) => m.BooksModule
+          ),
+      },
     ],
   },
 ];

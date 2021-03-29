@@ -11,13 +11,14 @@ import { TimelinesFacade } from '../../data-access/+state/timelines.facade';
   styleUrls: ['./timelines-entry-container.component.scss'],
 })
 export class TimelinesEntryContainerComponent implements OnInit {
-  editMode$ = this.timelinesFacade.editMode$;
-  formGroup: FormGroup;
-  controlName = TimelinesEntryControlName;
   constructor(
     private timelinesService: TimelinesService,
     private timelinesFacade: TimelinesFacade
   ) {}
+
+  editMode$ = this.timelinesFacade.editMode$;
+  formGroup: FormGroup;
+  controlName = TimelinesEntryControlName;
 
   ngOnInit(): void {
     this.formGroup = this.timelinesService.generateFormGroup();
