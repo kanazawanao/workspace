@@ -1,1 +1,5 @@
-<p>books-list-container works!</p>
+<client-manager-books-presenter
+  [books$]="books$"
+  [displayedColumns]="displayedColumns"
+  (selectEvent)="selectEventListner($event)"
+></client-manager-books-presenter>

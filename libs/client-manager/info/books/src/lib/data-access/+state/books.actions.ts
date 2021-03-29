@@ -1,4 +1,4 @@
-import { BookEntryModel } from '../../books-entry.model';
+import { BooksEntryModel } from '../../books-entry.model';
 import { createAction, props } from '@ngrx/store';
 import { IBook } from '@workspace/api-interfaces';
 import { EditType } from '@workspace/constants';
@@ -16,12 +16,12 @@ export const loadBooksFailure = createAction(
 );
 
 export const loadUpdateInitBookEntry = createAction(
-  '[Books/API] Load UpdateInitBookEntry',
+  '[Books Page] Load UpdateInitBookEntry',
   props<{ bookId: string }>()
 );
 
 export const clearUpdateInitBookEntry = createAction(
-  '[Books Page] Clear UpdateInitSkillTypeEntry'
+  '[Books Page] Clear UpdateInitBookEntry'
 );
 
 export const loadUpdateInitBookEntrySuccess = createAction(
@@ -34,9 +34,9 @@ export const loadUpdateInitBookEntryFailure = createAction(
   props<{ error: any }>()
 );
 
-export const createSkillType = createAction(
+export const createBook = createAction(
   '[Books Page] Create Book',
-  props<{ bookEntry: BookEntryModel }>()
+  props<{ bookEntry: BooksEntryModel }>()
 );
 
 export const createBookSuccess = createAction(
@@ -51,7 +51,7 @@ export const createBookFailure = createAction(
 
 export const updateBook = createAction(
   '[Books Page] Update Book',
-  props<{ id: number; bookEntry: BookEntryModel }>()
+  props<{ id: number; bookEntry: BooksEntryModel }>()
 );
 
 export const updateBookSuccess = createAction(

@@ -10,13 +10,13 @@ import { TimelinesFacade } from '../../data-access/+state/timelines.facade';
   styleUrls: ['./timelines-list-container.component.scss'],
 })
 export class TimelinesListContainerComponent implements OnInit {
-  timelines$: Observable<ITimeline[]> = this.timelinesFacade.allTimelines$;
-  displayedColumns: string[] = ['event', 'date'];
-
   constructor(
     private timelinesFacade: TimelinesFacade,
     private timelinesService: TimelinesService
   ) {}
+
+  timelines$: Observable<ITimeline[]> = this.timelinesFacade.allTimelines$;
+  displayedColumns: string[] = ['event', 'date'];
 
   ngOnInit(): void {}
 

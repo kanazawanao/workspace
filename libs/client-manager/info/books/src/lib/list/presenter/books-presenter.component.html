@@ -1,1 +1,6 @@
-<p>books-list-presenter works!</p>
+<ui-table
+  [dataSource]="books$"
+  [displayedColumns]="displayedColumns"
+  (selectEvent)="selectEvent.emit($event)"
+></ui-table>
+<a mat-button [routerLink]="'entry'">新規登録</a>

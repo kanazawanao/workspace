@@ -1,4 +1,4 @@
-import { BookEntryModel } from '../books-entry.model';
+import { BooksEntryModel } from '../books-entry.model';
 import { Inject, Injectable } from '@angular/core';
 import { IBook } from '@workspace/api-interfaces';
 import { ApiConstant } from '@workspace/constants';
@@ -27,7 +27,7 @@ export class BooksDataAccessService {
     return res;
   }
 
-  postBook(skill: BookEntryModel): Observable<IBook> {
+  postBook(skill: BooksEntryModel): Observable<IBook> {
     const res = this.httpRequestService.post<IBook>({
       url: `${this.apiUrl}${this.constants.books}`,
       body: skill,
@@ -35,7 +35,7 @@ export class BooksDataAccessService {
     return res;
   }
 
-  updateBook(id: number, skill: BookEntryModel): Observable<IBook> {
+  updateBook(id: number, skill: BooksEntryModel): Observable<IBook> {
     const res = this.httpRequestService.put<IBook>({
       url: `${this.apiUrl}${this.constants.books}/${id}`,
       body: skill,

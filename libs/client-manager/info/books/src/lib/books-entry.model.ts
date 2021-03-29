@@ -1,6 +1,6 @@
 import { IBook } from '@workspace/api-interfaces';
 
-export class BookEntryModel implements IBook {
+export class BooksEntryModel implements IBook {
   author = '';
   description = '';
   impressions = '';
