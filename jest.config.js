@@ -36,5 +36,6 @@ module.exports = {
     '<rootDir>/libs/client-manager/sign-up',
     '<rootDir>/libs/client-manager/top',
     '<rootDir>/libs/client-manager/info',
+    '<rootDir>/libs/client-manager/info/books',
   ],
 };

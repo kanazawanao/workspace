@@ -1338,6 +1338,31 @@
           "style": "scss"
         }
       }
+    },
+    "client-manager-info-books": {
+      "projectType": "library",
+      "root": "libs/client-manager/info/books",
+      "sourceRoot": "libs/client-manager/info/books/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client-manager/info/books/src/**/*.ts",
+              "libs/client-manager/info/books/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-manager/info/books"],
+          "options": {
+            "jestConfig": "libs/client-manager/info/books/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
