@@ -14,6 +14,6 @@ export class TimelinesService {
   }
 
   navigateSkillTypesEntry(id: number): void {
-    this.ruter.navigate(['/timelines', id]);
+    this.ruter.navigate(['/info/timelines', id]);
   }
 }
