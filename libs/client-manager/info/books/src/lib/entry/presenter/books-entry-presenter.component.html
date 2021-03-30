@@ -40,11 +40,11 @@
       [label]="'url'"
       [type]="'text'"
     ></ui-input>
-    <ui-input
-      [inpFormControl]="formGroup.get(controlName.rate)"
+    <ui-select
+      [selectFormControl]="formGroup.get(controlName.rate)"
       [label]="'rate'"
-      [type]="'number'"
-    ></ui-input>
+      [options$]="rateOptions"
+    ></ui-select>
   </div>
   <button
     mat-button

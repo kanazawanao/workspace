@@ -21,6 +21,6 @@ export class BooksContainerComponent implements OnInit {
   ngOnInit(): void {}
 
   selectEventListner(selectedValue: IBook) {
-    this.booksService.navigateSkillTypesEntry(selectedValue.id);
+    this.booksService.navigateBooksEntry(selectedValue.id);
   }
 }

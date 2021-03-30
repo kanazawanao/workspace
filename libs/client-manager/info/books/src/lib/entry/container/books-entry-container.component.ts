@@ -57,5 +57,6 @@ export class BooksEntryContainerComponent implements OnInit {
     registData.type = this.formGroup.get(this.controlName.type).value;
     registData.url = this.formGroup.get(this.controlName.url).value;
     this.booksFacade.createBook(registData);
+    this.booksService.navigateBooks();
   }
 }
