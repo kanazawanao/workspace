@@ -23,14 +23,12 @@ const constants = ApiConstant;
 export class SkillsController {
   constructor(private skillsService: SkillsService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   @ApiOperation({ summary: 'get skills' })
   async getSkills(): Promise<Skill[]> {
     return this.skillsService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get skill' })
   async getSkill(@Req() request, @Param('id') id: number): Promise<Skill> {

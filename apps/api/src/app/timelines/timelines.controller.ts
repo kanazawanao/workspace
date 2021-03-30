@@ -23,14 +23,12 @@ const constants = ApiConstant;
 export class TimelinesController {
   constructor(private timelinesService: TimelinesService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   @ApiOperation({ summary: 'get timelines' })
   async getTimelines(): Promise<Timeline[]> {
     return this.timelinesService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get timeline' })
   async getTimeline(@Param('id') id: number): Promise<Timeline> {

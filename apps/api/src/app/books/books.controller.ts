@@ -29,7 +29,6 @@ export class BooksController {
     return this.booksService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get book' })
   async getBook(@Param('id') id: number): Promise<Book> {
