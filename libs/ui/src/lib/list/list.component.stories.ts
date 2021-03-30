@@ -3,16 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {
-  ListDataSource,
-} from './list-input-data';
+import { ListDataSource } from './list-input-data';
 
 const ELEMENT_DATA: ListDataSource[] = [
   {
     header: 'header',
-    icon: 'search',
     items: [
       {
+        icon: 'search',
         name: '名前',
         sentence: 'ここに文章が入ります',
       },
@@ -20,9 +18,9 @@ const ELEMENT_DATA: ListDataSource[] = [
   },
   {
     header: 'header',
-    icon: 'search',
     items: [
       {
+        icon: 'search',
         name: '名前',
         sentence: 'ここに文章が入ります',
       },
