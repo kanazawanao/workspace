@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
-  host: 'localhost',
-  port: 13306,
+  host: 'db',
+  port: 3306,
   username: 'develop',
   password: 'password',
   database: 'develop',
