@@ -41,11 +41,11 @@ npm run -- nx g @nrwl/angular:move --project client-manager-login client-manager
 
 mysql -h 127.0.0.1 -P 13306 -u develop -p
 
-docker build -t client-multistage-image -f dockerfile/client/Dockerfile .
-docker run --name client-multistage-container -d -p 8080:80 client-multistage-image
+docker build -t client-image -f dockerfile/client/Dockerfile .
+docker run --name client-container -d -p 80:80 client-image
 
-docker build -t client-manager-multistage-image -f dockerfile/client-manager/Dockerfile .
-docker run --name client-manager-multistage-container -d -p 8888:80 client-manager-multistage-image
+docker build -t client-manager-image -f dockerfile/client-manager/Dockerfile .
+docker run --name client-manager-container -d -p 81:80 client-manager-image
 
-docker build -t api-multistage-image -f dockerfile/api/Dockerfile .
-docker run --name api-multistage-container -d -p 3333:3333 api-multistage-image
+docker build -t api-staging-image -f dockerfile/api/Dockerfile .
+docker run --name api-staging-container -d -p 3333:3333 api-staging-image

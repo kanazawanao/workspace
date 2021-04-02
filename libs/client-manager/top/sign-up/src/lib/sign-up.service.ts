@@ -38,7 +38,7 @@ export class SignUpService {
   signUp(user: IUser): Observable<IToken> {
     const res = this.httpRequestService
       .post<IToken>({
-        url: `${this.apiUrl}${this.constants.users}`,
+        url: `${this.apiUrl}${this.constants.signUp}`,
         body: user,
       })
       .pipe(
