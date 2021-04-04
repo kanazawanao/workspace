@@ -3,7 +3,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN npm run -- nx run client-manager:build
+RUN npm run -- nx run client-manager:build:staging
 
 FROM nginx:1.17.1-alpine
 COPY ./dockerfile/client-manager/nginx.conf /etc/nginx/nginx.conf

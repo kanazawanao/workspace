@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://portfolio-api-dev.naomiti.com/api',
+  apiUrl: 'http://nao-portfolio-dev.work:3333/api',
 };
 
 /*
