@@ -28,7 +28,6 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get user' })
   async getUser(@Param('id') id: number): Promise<User> {

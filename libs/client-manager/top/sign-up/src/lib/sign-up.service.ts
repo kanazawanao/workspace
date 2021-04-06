@@ -1,8 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
-import { IUser } from '@workspace/api-interfaces';
+import { IToken, IUser } from '@workspace/api-interfaces';
 import { ApiConstant } from '@workspace/constants';
 import { HttpRequestService } from '@workspace/shared-service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import {
   FormBuilder,
   FormControl,
@@ -34,11 +35,18 @@ export class SignUpService {
     return formGroup;
   }
 
-  signUp(user: IUser): Observable<any> {
-    const res = this.httpRequestService.post<any>({
-      url: `${this.apiUrl}${this.constants.users}`,
-      body: user,
-    });
+  signUp(user: IUser): Observable<IToken> {
+    const res = this.httpRequestService
+      .post<IToken>({
+        url: `${this.apiUrl}${this.constants.signUp}`,
+        body: user,
+      })
+      .pipe(
+        map((x) => {
+          this.httpRequestService.token = x.accessToken;
+          return x;
+        })
+      );
     return res;
   }
 }

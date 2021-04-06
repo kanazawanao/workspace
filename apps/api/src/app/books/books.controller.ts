@@ -29,7 +29,6 @@ export class BooksController {
     return this.booksService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'get book' })
   async getBook(@Param('id') id: number): Promise<Book> {
@@ -43,11 +42,11 @@ export class BooksController {
     return this.booksService.put(id, book);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'post book' })
   @ApiBody({ type: Book, description: 'book' })
   async postBook(@Req() request, @Body() book: Book): Promise<InsertResult> {
-    console.log(request);
     return this.booksService.post(request.user.userId, book);
   }
 

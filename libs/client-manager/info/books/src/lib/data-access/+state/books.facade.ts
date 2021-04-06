@@ -8,23 +8,20 @@ import { EditType } from '@workspace/constants';
 
 @Injectable()
 export class BooksFacade {
-  /**
-   * Combine pieces of state using createSelector,
-   * and expose them as observables through the facade.
-   */
+  constructor(private store: Store) {}
+
   loaded$ = this.store.pipe(select(BooksSelectors.getBooksLoaded));
   allBooks$ = this.store.pipe(select(BooksSelectors.getAllBooks));
   selectedBooks$ = this.store.pipe(select(BooksSelectors.getSelected));
 
-  constructor(private store: Store) {}
+  workBook$ = this.store.pipe(select(BooksSelectors.getWorkBookEntry));
+  editMode$ = this.store.pipe(select(BooksSelectors.getEditerMode));
+  selectedId$ = this.store.pipe(select(BooksSelectors.getSelectedId));
 
   dispatch(action: Action) {
     this.store.dispatch(action);
   }
-  /**
-   * Use the initialization action to perform one
-   * or more tasks in your Effects.
-   */
+
   loadBooks() {
     this.dispatch(BooksActions.loadBooks());
   }

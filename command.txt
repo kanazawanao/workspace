@@ -40,3 +40,12 @@ npm run -- nx migrate --run-migrations
 npm run -- nx g @nrwl/angular:move --project client-manager-login client-manager/top/login
 
 mysql -h 127.0.0.1 -P 13306 -u develop -p
+
+docker build -t client-staging-image -f dockerfile/client/Dockerfile .
+docker run --name client-staging-container -d -p 80:80 client-staging-image
+
+docker build -t client-manager-staging-image -f dockerfile/client-manager/Dockerfile .
+docker run --name client-manager-staging-container -d -p 81:80 client-manager-staging-image
+
+docker build -t api-staging-image -f dockerfile/api/Dockerfile .
+docker run --name api-staging-container -d -p 3333:3333 api-staging-image

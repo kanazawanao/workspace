@@ -7,7 +7,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { UiDatePickerModule, UiInputModule } from '@workspace/ui';
+import {
+  UiDatePickerModule,
+  UiInputModule,
+  UiSelectModule,
+} from '@workspace/ui';
 import { BooksFacade } from '../data-access/+state/books.facade';
 
 @NgModule({
@@ -18,6 +22,7 @@ import { BooksFacade } from '../data-access/+state/books.facade';
     ReactiveFormsModule,
     UiInputModule,
     UiDatePickerModule,
+    UiSelectModule,
     MatButtonModule,
     BooksDataAccessModule,
   ],

@@ -4,11 +4,11 @@ export class ListInputData {
 
 export class ListDataSource {
   header: string;
-  icon: string;
   items: ListItem[];
 }
 
 export class ListItem {
+  icon: string;
   name: string;
   sentence: string;
 }

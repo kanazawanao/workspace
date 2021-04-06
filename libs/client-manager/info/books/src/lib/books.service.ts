@@ -5,13 +5,17 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class BooksService {
-  constructor(private formBuilder: FormBuilder, private ruter: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   generateFormGroup(): FormGroup {
     return this.formBuilder.group(new BooksEntryModel());
   }
 
-  navigateSkillTypesEntry(id: number): void {
-    this.ruter.navigate(['/info/books', id]);
+  navigateBooksEntry(id: number): void {
+    this.router.navigate(['/info/books', id]);
+  }
+
+  navigateBooks(): void {
+    this.router.navigate(['/info/books']);
   }
 }

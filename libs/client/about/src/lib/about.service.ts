@@ -11,6 +11,8 @@ export class AboutService {
   ) {}
 
   fetchUserInfo(): Observable<IUser> {
-    return this.httpRequestService.get<IUser>({ url: `${this.apiUrl}/users` });
+    return this.httpRequestService.get<IUser>({
+      url: `${this.apiUrl}/users/1`,
+    });
   }
 }

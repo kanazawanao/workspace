@@ -41,8 +41,7 @@ export class UsersService {
         email: email,
       })
       .then((u) => {
-        if (bcrypt.compareSync(password, u.password)) {
-          u.password = '**********';
+        if (u && bcrypt.compareSync(password, u.password)) {
           return u;
         } else {
           return null;
