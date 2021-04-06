@@ -28,7 +28,6 @@ export class AuthController {
     return this.authService.login(login);
   }
 
-  @UseGuards(LocalAuthGuard)
   @Post('sign-up')
   @ApiOperation({ summary: 'sign-up' })
   @ApiBody({ type: Login, description: 'signup' })
