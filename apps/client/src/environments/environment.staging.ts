@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://nao-portfolio-dev.work:3333/api',
+  apiUrl: 'http://kanazawan.net:3333/api',
 };
 
 /*
