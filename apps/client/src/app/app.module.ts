@@ -3,12 +3,13 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { UiSidenavModule } from '@workspace/ui';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { UiSidenavModule } from '@workspace/ui';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    UiSidenavModule,
+    MatButtonModule,
+    MatToolbarModule,
     StoreModule.forRoot(
       {},
       {

@@ -1,0 +1,27 @@
+.spacer {
+  flex: 1 1 auto;
+}
+img {
+  width: 50%;
+}
+.header {
+  position: relative;
+  text-align: center;
+}
+
+.header h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.left {
+  width: 50%;
+  text-align: center;
+}
+.right {
+  width: 50%;
+  text-align: center;
+}

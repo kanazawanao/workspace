@@ -1,7 +1,17 @@
-<ui-sidenav
-  [headerTitle]="title"
-  [menuTitle]="menuTitle"
-  [options]="options"
->
-  <router-outlet></router-outlet>
-</ui-sidenav>
+<mat-toolbar>
+  <div class="left">
+    <button mat-button>{{ title }}</button>
+  </div>
+  <span class="spacer"></span>
+  <div class="right">
+    <button mat-button>About</button>
+    <button mat-button>Skill</button>
+    <button mat-button>Work</button>
+    <button mat-button>Other</button>
+  </div>
+</mat-toolbar>
+<div class="header">
+  <img src="../assets/wan.jpg" />
+  <h1>いい感じのタイトルと画像</h1>
+</div>
+<router-outlet></router-outlet>

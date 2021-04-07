@@ -7,11 +7,6 @@ import { SidenavOption } from '@workspace/ui';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'client';
-  menuTitle = 'Menu';
-  options: SidenavOption[] = [
-    { value: '/about', viewValue: 'About' },
-    { value: '/skill-info', viewValue: 'SkillInfo' },
-    { value: '/timeline', viewValue: 'Timelines' },
-  ];
+  title = 'Kanazawan';
+  menuTitle = 'Kanazawan';
 }
