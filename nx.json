@@ -67,6 +67,7 @@
     "client-manager-info-skill-types": { "tags": [] },
     "client-manager-info-timelines": { "tags": [] },
     "client-manager-info-users": { "tags": [] },
-    "client-manager-info-books": { "tags": [] }
+    "client-manager-info-books": { "tags": [] },
+    "client-book": { "tags": [] }
   }
 }

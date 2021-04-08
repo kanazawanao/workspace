@@ -80,7 +80,8 @@
       ],
       "@workspace/client-manager/info/books": [
         "libs/client-manager/info/books/src/index.ts"
-      ]
+      ],
+      "@workspace/client/book": ["libs/client/book/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
