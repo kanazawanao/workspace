@@ -16,9 +16,7 @@ export interface SkillsPartialState {
   readonly [SKILLS_FEATURE_KEY]: State;
 }
 
-export const skillsAdapter: EntityAdapter<ISkill> = createEntityAdapter<
-  ISkill
->();
+export const skillsAdapter: EntityAdapter<ISkill> = createEntityAdapter<ISkill>();
 
 export const initialState: State = skillsAdapter.getInitialState({
   // set initial required properties

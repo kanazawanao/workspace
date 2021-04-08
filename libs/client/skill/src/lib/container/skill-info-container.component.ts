@@ -9,11 +9,11 @@ import { SkillsFacade } from '../+state/skills.facade';
   styleUrls: ['./skill-info-container.component.scss'],
 })
 export class SkillInfoContainerComponent implements OnInit {
-  presenterInputData: SkillInfoPresenterInputData;
   constructor(
     private skillsFacade: SkillsFacade,
     private skillsService: SkillsService
   ) {}
+  presenterInputData: SkillInfoPresenterInputData;
 
   ngOnInit(): void {
     this.skillsService.fetchInitData();
