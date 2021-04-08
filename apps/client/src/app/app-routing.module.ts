@@ -18,6 +18,11 @@ export const routes: Routes = [
       import('@workspace/client/timeline').then((m) => m.TimelineModule),
   },
   {
+    path: 'book',
+    loadChildren: () =>
+      import('@workspace/client/book').then((m) => m.BookModule),
+  },
+  {
     path: '',
     redirectTo: 'about',
     pathMatch: 'full',

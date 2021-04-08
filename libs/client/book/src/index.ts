@@ -1,1 +1,1 @@
-export * from './lib/client-book.module';
+export * from './lib/book.module';
