@@ -1,3 +1,4 @@
+import { TimelineService } from '../timeline.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeline-container.component.scss'],
 })
 export class TimelineContainerComponent implements OnInit {
-  constructor() {}
+  constructor(private timelineService: TimelineService) {}
 
   ngOnInit(): void {}
 }
