@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SidenavOption } from '@workspace/ui';
 
 @Component({
   selector: 'client-root',
