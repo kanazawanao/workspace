@@ -38,6 +38,7 @@ npm install --legacy-peer-deps
 npm run -- nx migrate --run-migrations
 
 npm run -- nx g @nrwl/angular:move --project client-manager-login client-manager/top/login
+npm run -- nx g @nrwl/angular:move --project tripig-map-ui-suggest-list tripig/ui/suggest-list
 
 mysql -h 127.0.0.1 -P 13306 -u develop -p
 

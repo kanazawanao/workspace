@@ -1,9 +1,14 @@
 {
   "npmScope": "workspace",
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -24,51 +29,130 @@
     }
   },
   "projects": {
-    "client": { "tags": [] },
-    "client-e2e": { "tags": [], "implicitDependencies": ["client"] },
-    "api": { "tags": [] },
-    "api-interfaces": { "tags": [] },
-    "ui": { "tags": [] },
-    "ui-e2e": { "tags": [], "implicitDependencies": ["ui"] },
-    "shared-service": { "tags": [] },
-    "client-manager": { "tags": [] },
+    "client": {
+      "tags": []
+    },
+    "client-e2e": {
+      "tags": [],
+      "implicitDependencies": ["client"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ui"]
+    },
+    "shared-service": {
+      "tags": []
+    },
+    "client-manager": {
+      "tags": []
+    },
     "client-manager-e2e": {
       "tags": [],
       "implicitDependencies": ["client-manager"]
     },
-    "constants": { "tags": [] },
-    "client-manager-guards": { "tags": [] },
-    "client-guards": { "tags": [] },
-    "shared-story-book": { "tags": [] },
+    "constants": {
+      "tags": []
+    },
+    "client-manager-guards": {
+      "tags": []
+    },
+    "client-guards": {
+      "tags": []
+    },
+    "shared-story-book": {
+      "tags": []
+    },
     "shared-story-book-e2e": {
       "tags": [],
       "implicitDependencies": ["shared-story-book"]
     },
-    "client-about": { "tags": [] },
-    "client-timeline": { "tags": [] },
-    "client-skill": { "tags": [] },
-    "client-manager-data-access": { "tags": [] },
-    "tripig": { "tags": [] },
-    "tripig-e2e": { "tags": [], "implicitDependencies": ["tripig"] },
-    "tripig-sign-in": { "tags": [] },
-    "tripig-sign-up": { "tags": [] },
-    "tripig-map-point-search": { "tags": [] },
-    "tripig-map-route-search": { "tags": [] },
-    "tripig-guards": { "tags": [] },
-    "tripig-top": { "tags": [] },
-    "tripig-projects": { "tags": [] },
-    "tripig-map-service": { "tags": [] },
-    "tripig-map-ui-suggest-list": { "tags": [] },
-    "client-manager-top": { "tags": [] },
-    "client-manager-top-login": { "tags": [] },
-    "client-manager-top-sign-up": { "tags": [] },
-    "client-manager-info": { "tags": [] },
-    "client-manager-info-skills": { "tags": [] },
-    "client-manager-info-skill-types": { "tags": [] },
-    "client-manager-info-timelines": { "tags": [] },
-    "client-manager-info-users": { "tags": [] },
-    "client-manager-info-books": { "tags": [] },
-    "client-book": { "tags": [] },
-    "tripig-ui-place-detail": { "tags": [] }
+    "client-about": {
+      "tags": []
+    },
+    "client-timeline": {
+      "tags": []
+    },
+    "client-skill": {
+      "tags": []
+    },
+    "client-manager-data-access": {
+      "tags": []
+    },
+    "tripig": {
+      "tags": []
+    },
+    "tripig-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tripig"]
+    },
+    "tripig-sign-in": {
+      "tags": []
+    },
+    "tripig-sign-up": {
+      "tags": []
+    },
+    "tripig-map-point-search": {
+      "tags": []
+    },
+    "tripig-map-route-search": {
+      "tags": []
+    },
+    "tripig-guards": {
+      "tags": []
+    },
+    "tripig-top": {
+      "tags": []
+    },
+    "tripig-projects": {
+      "tags": []
+    },
+    "tripig-map-service": {
+      "tags": []
+    },
+    "client-manager-top": {
+      "tags": []
+    },
+    "client-manager-top-login": {
+      "tags": []
+    },
+    "client-manager-top-sign-up": {
+      "tags": []
+    },
+    "client-manager-info": {
+      "tags": []
+    },
+    "client-manager-info-skills": {
+      "tags": []
+    },
+    "client-manager-info-skill-types": {
+      "tags": []
+    },
+    "client-manager-info-timelines": {
+      "tags": []
+    },
+    "client-manager-info-users": {
+      "tags": []
+    },
+    "client-manager-info-books": {
+      "tags": []
+    },
+    "client-book": {
+      "tags": []
+    },
+    "tripig-ui-place-detail": {
+      "tags": []
+    },
+    "tripig-ui-suggest-list": {
+      "tags": []
+    }
   }
 }

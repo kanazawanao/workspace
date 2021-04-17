@@ -53,9 +53,6 @@
       "@workspace/tripig/top": ["libs/tripig/top/src/index.ts"],
       "@workspace/tripig/projects": ["libs/tripig/projects/src/index.ts"],
       "@workspace/tripig/map/service": ["libs/tripig/map/service/src/index.ts"],
-      "@workspace/tripig/map/ui/suggest-list": [
-        "libs/tripig/map/ui/suggest-list/src/index.ts"
-      ],
       "@workspace/client-manager/top": ["libs/client-manager/top/src/index.ts"],
       "@workspace/client-manager/top/login": [
         "libs/client-manager/top/login/src/index.ts"
@@ -84,6 +81,9 @@
       "@workspace/client/book": ["libs/client/book/src/index.ts"],
       "@workspace/tripig/ui/place-detail": [
         "libs/tripig/ui/place-detail/src/index.ts"
+      ],
+      "@workspace/tripig/ui/suggest-list": [
+        "libs/tripig/ui/suggest-list/src/index.ts"
       ]
     }
   },

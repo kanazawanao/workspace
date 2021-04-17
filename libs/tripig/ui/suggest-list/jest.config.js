@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'tripig-map-ui-suggest-list',
-  preset: '../../../../../jest.preset.js',
+  displayName: 'tripig-ui-suggest-list',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../../coverage/libs/tripig/map/ui/suggest-list',
+  coverageDirectory: '../../../../coverage/libs/tripig/ui/suggest-list',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
