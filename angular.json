@@ -1484,6 +1484,31 @@
           }
         }
       }
+    },
+    "tripig-ui-rating-stars": {
+      "projectType": "library",
+      "root": "libs/tripig/ui/rating-stars",
+      "sourceRoot": "libs/tripig/ui/rating-stars/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/ui/rating-stars/src/**/*.ts",
+              "libs/tripig/ui/rating-stars/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/ui/rating-stars"],
+          "options": {
+            "jestConfig": "libs/tripig/ui/rating-stars/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

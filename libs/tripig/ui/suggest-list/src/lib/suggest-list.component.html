@@ -4,7 +4,7 @@
     *ngFor="let suggest of suggestList"
     [value]="suggest"
   >
-    <span class="name">
+    <span class="name" (click)="openPlaceDetailDialog($event, suggest)">
       {{ suggest.name }}
       <button mat-button (click)="onSearchLinkClick($event, suggest.name)">
         <mat-icon>search</mat-icon>

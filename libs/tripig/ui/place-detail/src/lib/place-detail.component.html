@@ -2,8 +2,8 @@
   <mat-card-header>
     <mat-card-title>{{ data?.name }}</mat-card-title>
     <mat-card-subtitle>
-      <app-rating-stars [rating]="data?.rating"></app-rating-stars>
-      <mat-icon>comment</mat-icon>{{ data?.numberOfReviews }}件
+      <workspace-rating-stars [rating]="data?.rating"></workspace-rating-stars>
+      <mat-icon>comment</mat-icon>{{ data?.user_ratings_total }}件
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

@@ -84,6 +84,9 @@
       ],
       "@workspace/tripig/ui/suggest-list": [
         "libs/tripig/ui/suggest-list/src/index.ts"
+      ],
+      "@workspace/tripig/ui/rating-stars": [
+        "libs/tripig/ui/rating-stars/src/index.ts"
       ]
     }
   },
