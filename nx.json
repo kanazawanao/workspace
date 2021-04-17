@@ -68,6 +68,7 @@
     "client-manager-info-timelines": { "tags": [] },
     "client-manager-info-users": { "tags": [] },
     "client-manager-info-books": { "tags": [] },
-    "client-book": { "tags": [] }
+    "client-book": { "tags": [] },
+    "tripig-ui-place-detail": { "tags": [] }
   }
 }

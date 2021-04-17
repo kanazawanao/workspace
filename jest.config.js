@@ -38,5 +38,6 @@ module.exports = {
     '<rootDir>/libs/client-manager/info',
     '<rootDir>/libs/client-manager/info/books',
     '<rootDir>/libs/client/book',
+    '<rootDir>/libs/tripig/ui/place-detail',
   ],
 };

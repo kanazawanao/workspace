@@ -1459,6 +1459,31 @@
           }
         }
       }
+    },
+    "tripig-ui-place-detail": {
+      "projectType": "library",
+      "root": "libs/tripig/ui/place-detail",
+      "sourceRoot": "libs/tripig/ui/place-detail/src",
+      "prefix": "workspace",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tripig/ui/place-detail/src/**/*.ts",
+              "libs/tripig/ui/place-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tripig/ui/place-detail"],
+          "options": {
+            "jestConfig": "libs/tripig/ui/place-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

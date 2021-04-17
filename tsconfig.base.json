@@ -81,7 +81,10 @@
       "@workspace/client-manager/info/books": [
         "libs/client-manager/info/books/src/index.ts"
       ],
-      "@workspace/client/book": ["libs/client/book/src/index.ts"]
+      "@workspace/client/book": ["libs/client/book/src/index.ts"],
+      "@workspace/tripig/ui/place-detail": [
+        "libs/tripig/ui/place-detail/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
