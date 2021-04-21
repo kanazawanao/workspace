@@ -80,4 +80,8 @@ export class PointSearchContainerComponent implements OnInit {
       this._suggestList$.next(results);
     });
   }
+
+  public changeCategoryEvent() {
+    this.searchSuggestList();
+  }
 }

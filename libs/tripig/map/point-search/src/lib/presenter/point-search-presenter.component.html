@@ -2,6 +2,7 @@
 <ui-tab-category
   [categories]="categories"
   [selectedIndexFormControl]="formGroup.get('category')"
+  (selectEvent)="changeCategoryEvent.emit()"
 ></ui-tab-category>
 <form [formGroup]="formGroup">
   <ui-input
