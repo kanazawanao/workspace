@@ -8,7 +8,10 @@ npm run -- nx run client:build
 npm run -- nx run client-manager:build
 npm run -- nx run api:build
 
-npm run -- nx run tripig:test
+npm run -- nx run tripig:test --coverage
+npm run -- nx run tripig-ui-place-detail:test --coverage
+npm run -- nx run tripig-sign-in:test --coverage
+
 npm run -- nx run client:test
 npm run -- nx run client-manager:test
 npm run -- nx run api:test

@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MockSignInPresenterComponent } from './mock-sign-in-presenter.component';
 import { SignInContainerComponent } from './sign-in-container.component';
+import { MockSigninService } from '../mock-sign-in.service';
+import { SignInService } from '../sign-in.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('SignInContainerComponent', () => {
   let component: SignInContainerComponent;
@@ -8,9 +11,15 @@ describe('SignInContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignInContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [SignInContainerComponent, MockSignInPresenterComponent],
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [
+        {
+          provide: SignInService,
+          useClass: MockSigninService,
+        },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
