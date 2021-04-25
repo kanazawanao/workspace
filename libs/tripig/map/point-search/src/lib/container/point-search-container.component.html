@@ -2,6 +2,8 @@
   [formGroup]="formGroup"
   [center]="center$ | async"
   [suggestList]="suggestList$ | async"
+  [hasNextPage]="hasNextPage"
   (searchEvent)="searchEventListner()"
-  (changeCategoryEvent)="changeCategoryEvent()"
+  (changeCategoryEvent)="changeCategoryEventListner()"
+  (nextPageEvent)="nextPageEventListner()"
 ></point-search-presenter>

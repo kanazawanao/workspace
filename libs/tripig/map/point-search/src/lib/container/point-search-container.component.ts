@@ -1,6 +1,6 @@
 import { PointSearchService } from '../point-search.service';
 import { PointSearchPresenterComponent } from '../presenter/point-search-presenter.component';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CATEGORIES } from '@workspace/ui';
@@ -14,7 +14,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class PointSearchContainerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private service: PointSearchService
+    private service: PointSearchService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   @ViewChild(PointSearchPresenterComponent)
@@ -22,7 +23,7 @@ export class PointSearchContainerComponent implements OnInit {
   formGroup: FormGroup;
   private _suggestList$: BehaviorSubject<
     google.maps.places.PlaceResult[]
-  > = new BehaviorSubject([]);
+  > = this.service.suggestList$;
   get suggestList$(): Observable<google.maps.places.PlaceResult[]> {
     return this._suggestList$.asObservable();
   }
@@ -35,7 +36,9 @@ export class PointSearchContainerComponent implements OnInit {
   get selectedCategory(): string {
     return CATEGORIES[this.formGroup.get('category').value].value;
   }
-
+  get hasNextPage(): boolean {
+    return this.service.pagination?.hasNextPage ?? false;
+  }
   ngOnInit(): void {
     const destination = this.route.snapshot.queryParams['destination'];
     const category = this.route.snapshot.queryParams['category'];
@@ -48,6 +51,9 @@ export class PointSearchContainerComponent implements OnInit {
     }
     this.formGroup = this.service.generateFormGroup(destination, index);
     this.searchPosition();
+    this.suggestList$.subscribe(() => {
+      this.cdr.detectChanges();
+    });
   }
 
   searchEventListner() {
@@ -75,13 +81,14 @@ export class PointSearchContainerComponent implements OnInit {
         this.selectedCategory
       }`,
     };
-    this.service.nearbySearch(placeService, request).then((results) => {
-      console.log(results);
-      this._suggestList$.next(results);
-    });
+    this.service.nearbySearch(placeService, request);
   }
 
-  public changeCategoryEvent() {
+  public changeCategoryEventListner() {
     this.searchSuggestList();
+  }
+
+  nextPageEventListner() {
+    this.service.nextPage();
   }
 }

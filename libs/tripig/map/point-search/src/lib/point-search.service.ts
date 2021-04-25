@@ -10,7 +10,12 @@ import {
 @Injectable()
 export class PointSearchService {
   constructor(private fb: FormBuilder, private mapService: MapService) {}
-
+  get pagination() {
+    return this.mapService.pagination;
+  }
+  get suggestList$() {
+    return this.mapService.suggestList$;
+  }
   generateFormGroup(destination: string, categoryIndex: number): FormGroup {
     return this.fb.group({
       destination: new FormControl(destination, [Validators.required]),
@@ -25,7 +30,11 @@ export class PointSearchService {
   nearbySearch(
     service: google.maps.places.PlacesService,
     request: google.maps.places.PlaceSearchRequest
-  ): Promise<google.maps.places.PlaceResult[]> {
-    return this.mapService.nearbySearch(service, request);
+  ): void {
+    this.mapService.nearbySearch(service, request);
+  }
+
+  nextPage() {
+    this.pagination.nextPage();
   }
 }

@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import {} from '@angular/google-maps';
 
 @Injectable()
 export class MapService {
   constructor() {}
-
+  pagination: google.maps.places.PlaceSearchPagination;
+  suggestList$: BehaviorSubject<
+    google.maps.places.PlaceResult[]
+  > = new BehaviorSubject([]);
+  keyword: string = '';
   geocode(
     request: google.maps.GeocoderRequest
   ): Promise<google.maps.GeocoderResult> {
@@ -82,16 +87,28 @@ export class MapService {
   nearbySearch(
     service: google.maps.places.PlacesService,
     request: google.maps.places.PlaceSearchRequest
-  ): Promise<google.maps.places.PlaceResult[]> {
-    return new Promise((resolve, reject) => {
-      service.nearbySearch(request, (results, status) => {
-        if (this.nearbySearchResultCheck(status)) {
-          resolve(results);
-        } else {
-          reject(status);
-        }
-      });
+  ): void {
+    if (this.keyword === '') {
+      this.keyword = request.keyword;
+    } else if (this.keyword !== request.keyword) {
+      this.suggestList$.next([]);
+    }
+    service.nearbySearch(request, (results, status, pagination) => {
+      this.nearbySearchResult(results, status, pagination);
     });
+  }
+
+  private nearbySearchResult(
+    results: google.maps.places.PlaceResult[],
+    status: google.maps.places.PlacesServiceStatus,
+    pagination: google.maps.places.PlaceSearchPagination
+  ) {
+    if (this.nearbySearchResultCheck(status)) {
+      this.suggestList$.next(this.suggestList$.value.concat(results));
+      this.pagination = pagination;
+    } else {
+      // Throw error
+    }
   }
 
   private nearbySearchResultCheck(
