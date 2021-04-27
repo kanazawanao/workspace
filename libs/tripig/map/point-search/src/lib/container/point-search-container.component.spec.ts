@@ -1,6 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PointSearchContainerComponent } from './point-search-container.component';
+import { MockPointSearchPresenterComponent } from '../presenter/mock-point-search-presenter.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 describe('PointSearchContainerComponent', () => {
   let component: PointSearchContainerComponent;
@@ -8,9 +9,12 @@ describe('PointSearchContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PointSearchContainerComponent ]
-    })
-    .compileComponents();
+      imports: [GoogleMapsModule],
+      declarations: [
+        PointSearchContainerComponent,
+        MockPointSearchPresenterComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
