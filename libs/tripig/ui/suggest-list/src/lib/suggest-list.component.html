@@ -3,6 +3,8 @@
     checkboxPosition="before"
     *ngFor="let suggest of suggestList"
     [value]="suggest"
+    [selected]="suggest.selected"
+    (click)="onCheckBoxClick($event, suggest)"
   >
     <span class="name" (click)="openPlaceDetailDialog($event, suggest)">
       {{ suggest.name }}

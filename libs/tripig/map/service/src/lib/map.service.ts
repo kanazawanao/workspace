@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Place } from 'libs/tripig/models/place';
 import { BehaviorSubject } from 'rxjs';
 import {} from '@angular/google-maps';
 
@@ -6,9 +7,7 @@ import {} from '@angular/google-maps';
 export class MapService {
   constructor() {}
   pagination: google.maps.places.PlaceSearchPagination;
-  suggestList$: BehaviorSubject<
-    google.maps.places.PlaceResult[]
-  > = new BehaviorSubject([]);
+  suggestList$: BehaviorSubject<Place[]> = new BehaviorSubject([]);
   keyword: string = '';
   geocode(
     request: google.maps.GeocoderRequest
@@ -99,7 +98,7 @@ export class MapService {
   }
 
   private nearbySearchResult(
-    results: google.maps.places.PlaceResult[],
+    results: Place[],
     status: google.maps.places.PlacesServiceStatus,
     pagination: google.maps.places.PlaceSearchPagination
   ) {

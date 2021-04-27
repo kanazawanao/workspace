@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {} from '@angular/google-maps';
+import { Place } from 'libs/tripig/models/place';
 
 @Component({
   selector: 'workspace-place-detail',
@@ -10,7 +10,7 @@ import {} from '@angular/google-maps';
 export class PlaceDetailComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<PlaceDetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: google.maps.places.PlaceResult
+    @Inject(MAT_DIALOG_DATA) public data: Place
   ) {}
 
   ngOnInit() {}

@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PlaceDetailComponent } from '@workspace/tripig/ui/place-detail';
-import {} from '@angular/google-maps';
+import { Place } from 'libs/tripig/models/place';
 
 @Component({
   selector: 'workspace-suggest-list',
@@ -9,12 +9,18 @@ import {} from '@angular/google-maps';
   styleUrls: ['./suggest-list.component.scss'],
 })
 export class SuggestListComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private cdr: ChangeDetectorRef) {}
 
-  @Input() suggestList: google.maps.places.PlaceResult[] = [];
+  @Input() suggestList: Place[] = [];
   googleSearchUrl = 'https://www.google.com/search?q=';
 
   ngOnInit(): void {}
+
+  onCheckBoxClick(event: MouseEvent, place: Place): void {
+    event.stopPropagation();
+    console.log(place);
+    this.cdr.detectChanges();
+  }
 
   onSearchLinkClick(event: MouseEvent, suggestName: string): void {
     event.stopPropagation();
@@ -23,10 +29,7 @@ export class SuggestListComponent implements OnInit {
     window.open(`${this.googleSearchUrl}${encodedName}`, '_blank');
   }
 
-  openPlaceDetailDialog(
-    event: MouseEvent,
-    suggest: google.maps.places.PlaceResult
-  ): void {
+  openPlaceDetailDialog(event: MouseEvent, suggest: Place): void {
     event.stopPropagation();
     this.dialog.open(PlaceDetailComponent, {
       data: suggest,

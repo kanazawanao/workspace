@@ -4,6 +4,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CATEGORIES } from '@workspace/ui';
+import { Place } from 'libs/tripig/models/place';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
@@ -21,10 +22,8 @@ export class PointSearchContainerComponent implements OnInit {
   @ViewChild(PointSearchPresenterComponent)
   presenter!: PointSearchPresenterComponent;
   formGroup: FormGroup;
-  private _suggestList$: BehaviorSubject<
-    google.maps.places.PlaceResult[]
-  > = this.service.suggestList$;
-  get suggestList$(): Observable<google.maps.places.PlaceResult[]> {
+  private _suggestList$: BehaviorSubject<Place[]> = this.service.suggestList$;
+  get suggestList$(): Observable<Place[]> {
     return this._suggestList$.asObservable();
   }
   private _center$: BehaviorSubject<google.maps.LatLng> = new BehaviorSubject(
