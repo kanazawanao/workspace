@@ -6,9 +6,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { FireAuthService } from '@workspace/shared-service';
+import { UiInputModule } from '@workspace/ui';
 
 @NgModule({
   declarations: [TopComponent],
@@ -20,8 +20,8 @@ import { FireAuthService } from '@workspace/shared-service';
     TopRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
-    MatInputModule,
     MatIconModule,
+    UiInputModule,
   ],
   providers: [FireAuthService],
 })

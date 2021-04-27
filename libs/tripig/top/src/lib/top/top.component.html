@@ -1,16 +1,18 @@
 <div class="content" fxLayout="row">
   <div class="description">
-    ここにアプリの説明といか、なんかいい感じのキャッチコピーとか画像とか入れる
+    <h1>Tipig</h1>
+    <p>
+      ここにアプリの説明とか、なんかいい感じのキャッチコピーとか画像とか入れる
+    </p>
   </div>
   <div class="signup" fxLayout="column">
     <form fxLayout="row" [formGroup]="formGroup">
-      <mat-form-field class="full-width input-field">
-        <input
-          matInput
-          placeholder="youremail@example.com"
-          formControlName="email"
-        />
-      </mat-form-field>
+      <ui-input
+        class="input-email"
+        [label]="'youremail@example.com'"
+        [inpFormControl]="formGroup.controls['email']"
+      >
+      </ui-input>
       <button
         mat-icon-button
         aria-label="email button"
@@ -20,7 +22,7 @@
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
     </form>
-    <button mat-raised-button (click)="googleSignIn()">
+    <button class="google-login" mat-raised-button (click)="googleSignIn()">
       <mat-icon matPrefix svgIcon="google"></mat-icon>
       Google
     </button>
