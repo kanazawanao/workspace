@@ -8,6 +8,7 @@ export class MapService {
   constructor() {}
   pagination: google.maps.places.PlaceSearchPagination;
   suggestList$: BehaviorSubject<Place[]> = new BehaviorSubject([]);
+  hasNextPage$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   keyword: string = '';
   geocode(
     request: google.maps.GeocoderRequest
@@ -106,6 +107,7 @@ export class MapService {
       this.suggestList$.next(
         this.suggestList$.value.concat(results.map((r) => new Place(r)))
       );
+      this.hasNextPage$.next(pagination.hasNextPage);
       this.pagination = pagination;
     } else {
       // Throw error

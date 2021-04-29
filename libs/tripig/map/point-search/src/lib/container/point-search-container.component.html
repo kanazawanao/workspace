@@ -3,7 +3,7 @@
   [center]="center$ | async"
   [suggestList]="suggestList$ | async"
   [selectedList]="selectedList$ | async"
-  [hasNextPage]="hasNextPage"
+  [hasNextPage]="hasNextPage$ | async"
   (searchEvent)="searchEventListner()"
   (selectEvent)="selectEventListner($event)"
   (changeCategoryEvent)="changeCategoryEventListner()"

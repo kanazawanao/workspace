@@ -39,8 +39,8 @@ export class PointSearchContainerComponent implements OnInit {
   get selectedCategory(): string {
     return CATEGORIES[this.formGroup.get('category').value].value;
   }
-  get hasNextPage(): boolean {
-    return this.service.pagination?.hasNextPage ?? false;
+  get hasNextPage$(): Observable<boolean> {
+    return this.service.hasNextPage$.asObservable();
   }
   ngOnInit(): void {
     const destination = this.route.snapshot.queryParams['destination'];
@@ -55,6 +55,9 @@ export class PointSearchContainerComponent implements OnInit {
     this.formGroup = this.service.generateFormGroup(destination, index);
     this.searchPosition();
     this.suggestList$.subscribe(() => {
+      this.cdr.detectChanges();
+    });
+    this.hasNextPage$.subscribe(() => {
       this.cdr.detectChanges();
     });
   }
