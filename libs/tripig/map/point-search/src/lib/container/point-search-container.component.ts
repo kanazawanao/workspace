@@ -22,6 +22,10 @@ export class PointSearchContainerComponent implements OnInit {
   @ViewChild(PointSearchPresenterComponent)
   presenter!: PointSearchPresenterComponent;
   formGroup: FormGroup;
+  private _selectedList$: BehaviorSubject<Place[]> = new BehaviorSubject([]);
+  get selectedList$(): Observable<Place[]> {
+    return this._selectedList$.asObservable();
+  }
   private _suggestList$: BehaviorSubject<Place[]> = this.service.suggestList$;
   get suggestList$(): Observable<Place[]> {
     return this._suggestList$.asObservable();
@@ -89,5 +93,10 @@ export class PointSearchContainerComponent implements OnInit {
 
   nextPageEventListner() {
     this.service.nextPage();
+  }
+
+  selectEventListner(selectedList: Place[]) {
+    selectedList.forEach((s) => (s.selected = true));
+    this._selectedList$.next(selectedList);
   }
 }

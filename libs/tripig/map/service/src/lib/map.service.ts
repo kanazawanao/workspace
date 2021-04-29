@@ -98,12 +98,14 @@ export class MapService {
   }
 
   private nearbySearchResult(
-    results: Place[],
+    results: google.maps.places.PlaceResult[],
     status: google.maps.places.PlacesServiceStatus,
     pagination: google.maps.places.PlaceSearchPagination
   ) {
     if (this.nearbySearchResultCheck(status)) {
-      this.suggestList$.next(this.suggestList$.value.concat(results));
+      this.suggestList$.next(
+        this.suggestList$.value.concat(results.map((r) => new Place(r)))
+      );
       this.pagination = pagination;
     } else {
       // Throw error

@@ -1,19 +1,21 @@
-<mat-selection-list #suggests class="list-item">
+<mat-selection-list
+  #suggests
+  (selectionChange)="onSelectedChange(suggests.selectedOptions.selected)"
+  class="list-item"
+>
   <mat-list-option
     checkboxPosition="before"
-    *ngFor="let suggest of suggestList"
-    [value]="suggest"
-    [selected]="suggest.selected"
-    (click)="onCheckBoxClick($event, suggest)"
+    *ngFor="let place of placeList"
+    [value]="place"
+    [selected]="place.selected"
+    (click)="onCheckBoxClick($event)"
   >
-    <span class="name" (click)="openPlaceDetailDialog($event, suggest)">
-      {{ suggest.name }}
-      <button mat-button (click)="onSearchLinkClick($event, suggest.name)">
+    <span class="name" (click)="openPlaceDetailDialog($event, place)">
+      {{ place.name }}
+      <button mat-button (click)="onSearchLinkClick($event, place.name)">
         <mat-icon>search</mat-icon>
       </button>
-      <workspace-rating-stars
-        [rating]="suggest.rating"
-      ></workspace-rating-stars>
+      <workspace-rating-stars [rating]="place.rating"></workspace-rating-stars>
     </span>
     <mat-divider></mat-divider>
   </mat-list-option>
