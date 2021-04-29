@@ -18,7 +18,11 @@
     search
   </button>
 </form>
-<workspace-suggest-list [suggestList]="suggestList"></workspace-suggest-list>
+<workspace-suggest-list
+  [suggestList]="suggestList"
+  [selectedList]="selectedList"
+  (selectEvent)="selectEvent.emit($event)"
+></workspace-suggest-list>
 <div *ngIf="hasNextPage" class="pagination">
   <button mat-button color="primary" (click)="nextPageEvent.emit()">
     さらに読み込む

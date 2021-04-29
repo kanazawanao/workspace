@@ -19,8 +19,10 @@ export class PointSearchPresenterComponent implements OnInit {
   @Input() center?: google.maps.LatLng;
   @Input() formGroup: FormGroup;
   @Input() suggestList: Place[];
+  @Input() selectedList: Place[];
   @Input() hasNextPage: boolean;
   @Output() searchEvent = new EventEmitter();
+  @Output() selectEvent = new EventEmitter();
   @Output() changeCategoryEvent = new EventEmitter();
   @Output() nextPageEvent = new EventEmitter();
   @ViewChild(MapComponent) mapComponent!: MapComponent;
