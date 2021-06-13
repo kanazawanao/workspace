@@ -9,3 +9,14 @@
   white-space: nowrap;
   text-align: left;
 }
+
+.travel {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  transition: 1s;
+  opacity: 0.7;
+}
+.travel:hover {
+  opacity: 1;
+}
