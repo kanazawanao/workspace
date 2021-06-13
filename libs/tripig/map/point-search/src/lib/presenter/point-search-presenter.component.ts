@@ -1,6 +1,7 @@
 import { FormGroup } from '@angular/forms';
 import { CATEGORIES, Category, MapComponent } from '@workspace/ui';
 import { Place } from 'libs/tripig/models/place';
+import { Observable } from 'rxjs';
 import {
   Component,
   EventEmitter,
@@ -19,7 +20,7 @@ export class PointSearchPresenterComponent implements OnInit {
   @Input() center?: google.maps.LatLng;
   @Input() formGroup: FormGroup;
   @Input() suggestList: Place[];
-  @Input() selectedList: Place[];
+  @Input() selectedList$: Observable<Place[]>;
   @Input() hasNextPage: boolean;
   @Output() searchEvent = new EventEmitter();
   @Output() selectEvent = new EventEmitter();
