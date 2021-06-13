@@ -40,5 +40,6 @@ module.exports = {
     '<rootDir>/libs/client/book',
     '<rootDir>/libs/tripig/ui/place-detail',
     '<rootDir>/libs/tripig/ui/rating-stars',
+    '<rootDir>/libs/tripig/ui/selected-route',
   ],
 };

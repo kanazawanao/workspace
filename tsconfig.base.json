@@ -87,6 +87,9 @@
       ],
       "@workspace/tripig/ui/rating-stars": [
         "libs/tripig/ui/rating-stars/src/index.ts"
+      ],
+      "@workspace/tripig/ui/selected-route": [
+        "libs/tripig/ui/selected-route/src/index.ts"
       ]
     }
   },
