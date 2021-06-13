@@ -1,4 +1,4 @@
-<ui-map [center]="center"></ui-map>
+<ui-map [center]="center" [selectedList]="selectedList$ | async"></ui-map>
 <ui-tab-category
   [categories]="categories"
   [selectedIndexFormControl]="formGroup.get('category')"
@@ -20,7 +20,7 @@
 </form>
 <workspace-suggest-list
   [suggestList]="suggestList"
-  [selectedList]="selectedList"
+  [selectedList]="selectedList$ | async"
   (selectEvent)="selectEvent.emit($event)"
 ></workspace-suggest-list>
 <div *ngIf="hasNextPage" class="pagination">

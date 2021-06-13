@@ -24,6 +24,10 @@ export class SuggestListComponent implements OnInit {
   @Output() selectEvent: EventEmitter<Place[]> = new EventEmitter();
   @Input() suggestList: Place[] = [];
   @Input() selectedList: Place[] = [];
+
+  get displaySearchButton(): boolean {
+    return this.selectedList.length > 0;
+  }
   get placeList(): Place[] {
     // ここで重複を防ぐ処理を入れる
     return [...this.selectedList, ...this.suggestList].filter(

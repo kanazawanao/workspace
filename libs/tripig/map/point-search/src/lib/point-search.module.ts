@@ -24,7 +24,7 @@ import { UiInputModule, UiMapModule, UiTabCategoryModule } from '@workspace/ui';
     UiTabCategoryModule,
     SuggestListModule,
   ],
-  declarations: [PointSearchContainerComponent, PointSearchPresenterComponent],
+  declarations: [PointSearchPresenterComponent, PointSearchContainerComponent],
   providers: [PointSearchService, MapService],
 })
 export class PointSearchModule {}

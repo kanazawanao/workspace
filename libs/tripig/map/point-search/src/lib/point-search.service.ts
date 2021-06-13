@@ -16,6 +16,9 @@ export class PointSearchService {
   get suggestList$() {
     return this.mapService.suggestList$;
   }
+  get hasNextPage$() {
+    return this.mapService.hasNextPage$;
+  }
   generateFormGroup(destination: string, categoryIndex: number): FormGroup {
     return this.fb.group({
       destination: new FormControl(destination, [Validators.required]),
